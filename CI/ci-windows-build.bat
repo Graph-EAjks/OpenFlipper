@@ -26,3 +26,13 @@ IF %errorlevel% NEQ 0 exit /b %errorlevel%
 %VS_PATH% /Build "Release" OpenFlipper.sln /Project "ALL_BUILD"
 
 IF %errorlevel% NEQ 0 exit /b %errorlevel%
+
+:: back to the root folder
+cd ..
+
+:: copy all files to a new artifacts folder except the .git folder
+:: use the following options to make robocopy silent /NFL /NDL /NJH /NJS /nc /ns /np
+robocopy . artifacts /e /NFL /NDL /NJH /NJS /nc /ns /np /xd artifacts /xd .git
+
+::robocopy uses some error codes different from 0 
+IF %errorlevel% LSS 8 exit /b 0

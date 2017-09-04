@@ -8,10 +8,13 @@ set -e
 # LANGUAGE= C++98 / C++11
 # QTVERSION= QT4/QT5
 
-
 #include ci options script
 MY_DIR=$(dirname $(readlink -f $0))
 source $MY_DIR/ci-linux-config.sh
+
+# copy artifact files to toplevel and remove subdirectory
+rsync -a $MY_DIR/.. $MY_DIR/../..
+rm -rf artifacts
 
 ########################################
 # Fetch test data
