@@ -339,12 +339,13 @@ Deploy:VS2015-Qt-5.6.2-x64:
   only:
     - master
     - unstable
-  script: "CI\\ci-windows-deploy.bat"
+  script: "artifacts\\CI\\ci-windows-bootstrap.bat"
   variables:
      GIT_STRATEGY: none
      ARCHITECTURE: "x64"
      QT_VERSION: "Qt5.6.2"
      COMPILER: "VS2015"
+     STAGE2SCRIPT: ci-windows-deploy.bat
   tags: 
     - VS2015
     - Qt56
@@ -360,12 +361,13 @@ Deploy:VS2015-Qt-5.6.2-x32:
   only:
     - master
     - unstable
-  script: "CI\\ci-windows-deploy.bat"
+  script: "artifacts\\CI\\ci-windows-bootstrap.bat"
   variables:
     GIT_STRATEGY: none
     ARCHITECTURE: "x32"
     QT_VERSION: "Qt5.6.2"
     COMPILER: "VS2015"
+    STAGE2SCRIPT: ci-windows-deploy.bat
   tags: 
     - VS2015
     - Qt56
@@ -381,12 +383,13 @@ Deploy:VS2015-Qt-5.9.0-x64:
   only:
     - master
     - unstable
-  script: "CI\\ci-windows-deploy.bat"
+  script: "artifacts\\CI\\ci-windows-bootstrap.bat"
   variables:
      GIT_STRATEGY: none
      ARCHITECTURE: "x64"
      QT_VERSION: "Qt5.9.0"
      COMPILER: "VS2015"
+     STAGE2SCRIPT: ci-windows-deploy.bat
   tags: 
     - VS2015
   dependencies:
@@ -401,12 +404,13 @@ Deploy:VS2015-Qt-5.9.0-x32:
   only:
     - master
     - unstable
-  script: "CI\\ci-windows-deploy.bat"
+  script: "artifacts\\CI\\ci-windows-bootstrap.bat"
   variables:
     GIT_STRATEGY: none
     ARCHITECTURE: "x32"
     QT_VERSION: "Qt5.9.0"
     COMPILER: "VS2015"
+    STAGE2SCRIPT: ci-windows-deploy.bat
   tags: 
     - VS2015
   dependencies:
@@ -421,12 +425,13 @@ Deploy:VS2013-Qt-5.5.1-x64:
   only:
     - master
     - unstable
-  script: "CI\\ci-windows-deploy.bat"
+  script: "artifacts\\CI\\ci-windows-bootstrap.bat"
   variables:
      GIT_STRATEGY: none
      ARCHITECTURE: "x64"
      QT_VERSION: "Qt5.5.1"
      COMPILER: "VS2013"
+     STAGE2SCRIPT: ci-windows-deploy.bat
   tags:
     - VS2013
     - Qt551
