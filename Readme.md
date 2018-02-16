@@ -1,20 +1,36 @@
-OpenFlipper README.TXT
+OpenFlipper [![pipeline status](https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free/badges/master/pipeline.svg)](https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free/commits/master)
 =======================
+
 The documentation is on our website:
 http://www.openflipper.org
 
-# Getting Source Code from git
+## Download Binaries
+
+### Windows
+* [VS2015 Qt-5.9.0 64-Bit](https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free/-/jobs/artifacts/master/browse/rel?job=Deploy:VS2015-Qt-5.9.0-x64)
+* [VS2015 Qt-5.9.0 32-Bit](https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free/-/jobs/artifacts/master/browse/rel?job=Deploy:VS2015-Qt-5.9.0-x32)
+* [VS2015 Qt-5.6.2 64-Bit](https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free/-/jobs/artifacts/master/browse/rel?job=Deploy:VS2015-Qt-5.6.2-x64)
+* [VS2015 Qt-5.6.2 32-Bit](https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free/-/jobs/artifacts/master/browse/rel?job=Deploy:VS2015-Qt-5.6.2-x32)
+* [VS2013 Qt-5.5.1 64-Bit](https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free/-/jobs/artifacts/master/browse/rel?job=Deploy:VS2015-Qt-5.5.1-x64)
+
+
+### macOS 10.13
+* [MacOS-10.13](https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free/-/jobs/artifacts/master/browse/rel?job=Deploy:Mac-Cpp11)
+
+
+
+## Getting Source Code from git
 Clone the repository with submodules:   
  git clone --recursive https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free.git
  
-# Required libs: 
+## Required libs: 
 Qt ( >= 5.5 )   http://www.qtsoftware.com/downloads  
 OpenGL          http://www.opengl.org  
 GLUT            http://www.opengl.org/resources/libraries/glut  
 GLEW            http://glew.sourceforge.net  
 qwt ( >=6.0 )   optional http://qwt.sourceforge.net/  
 
-# Compiling OpenFlipper:
+## Compiling OpenFlipper:
 A detailed compilation manual is available [here](http://openflipper.org/Documentation/latest/a00099.html).
 
 Latest NEWS
