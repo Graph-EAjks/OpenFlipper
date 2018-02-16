@@ -11,11 +11,11 @@ http://www.openflipper.org
 * [VS2015 Qt-5.9.0 32-Bit](https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free/-/jobs/artifacts/master/browse/rel?job=Deploy:VS2015-Qt-5.9.0-x32)
 * [VS2015 Qt-5.6.2 64-Bit](https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free/-/jobs/artifacts/master/browse/rel?job=Deploy:VS2015-Qt-5.6.2-x64)
 * [VS2015 Qt-5.6.2 32-Bit](https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free/-/jobs/artifacts/master/browse/rel?job=Deploy:VS2015-Qt-5.6.2-x32)
-* [VS2013 Qt-5.5.1 64-Bit](https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free/-/jobs/artifacts/master/browse/rel?job=Deploy:VS2015-Qt-5.5.1-x64)
+* [VS2013 Qt-5.5.1 64-Bit](https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free/-/jobs/artifacts/master/browse/rel?job=Deploy:VS2013-Qt-5.5.1-x64)
 
 
 ### macOS 10.13
-* [MacOS-10.13](https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free/-/jobs/artifacts/master/browse/rel?job=Deploy:Mac-Cpp11)
+* [MacOS-10.13](https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free/-/jobs/artifacts/master/browse/build-release?job=Deploy:Mac-Cpp11)
 
 
 
