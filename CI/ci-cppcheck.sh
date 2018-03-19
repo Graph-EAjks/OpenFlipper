@@ -3,6 +3,9 @@
 # Exit script on any error
 set -e 
 
+#remove artifacts ... they are copied even since they shouldnt be see https://gitlab.com/gitlab-org/gitlab-ci-multi-runner/issues/1917
+rm -rf artifacts
+
 #=====================================
 # Color Settings:
 #=====================================

@@ -414,6 +414,7 @@ set (PREFOUND_PACKAGES "${LOADED_PACKAGES}" CACHE INTERNAL "List of packages tha
 # ========================================================================
 
 add_subdirectory (OpenFlipper/CoreApp)
+GROUP_PROJECT(${OPENFLIPPER_PRODUCT_STRING} ${OPENFLIPPER_PRODUCT_STRING})
 
 
 # ========================================================================
