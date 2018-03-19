@@ -1,3 +1,6 @@
+# leave artifacts subdirectory and copy files to toplevel
+rsync -a ./artifacts ./
+rm -rf artifacts
 
 ########################################
 # Fetch test data

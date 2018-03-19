@@ -154,7 +154,8 @@ copy ..\Build\Qt*.dll testBinaries
 copy ..\Build\icu*.dll testBinaries
 run_tests.bat
 
-IF %errorlevel% NEQ 0 exit /b %errorlevel%
+::robocopy uses some error codes different from 0 
+IF %errorlevel% LSS 8 exit /b 0
 
 cd ..
 
