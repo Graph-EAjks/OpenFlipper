@@ -38,6 +38,23 @@ gcc-c++11-Qt5.9.0:
     paths:
        - artifacts
 
+debug-gcc-c++11-Qt5.9.0:
+  stage:
+    Build
+  variables:
+    COMPILER:       "gcc"
+    LANGUAGE:       "C++11"
+    QTVERSION:      "QT5.9.0"
+    BUILDTYPE:      "Debug"
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Linux
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - artifacts
+
 clang-c++11-Qt5:
   stage:
     Build
@@ -62,6 +79,24 @@ clang-c++11-Qt5.9.0:
     COMPILER:       "clang"     
     LANGUAGE:       "C++11"   
     QTVERSION:      "QT5.9.0"     
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Linux
+    - MultiThreads
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - artifacts
+
+debug-clang-c++11-Qt5.9.0:
+  stage:
+    Build
+  variables:
+    COMPILER:       "clang"
+    LANGUAGE:       "C++11"
+    QTVERSION:      "QT5.9.0"
+    BUILDTYPE:      "Debug"
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
@@ -106,6 +141,24 @@ test-gcc-c++11-Qt5.9.0:
     paths:
        - build-release-gcc-cpp11-qt5.9.0/Testing/Temporary/LastTest.log
 
+debug-test-gcc-c++11-Qt5.9.0:
+  stage:
+    Test
+  variables:
+    COMPILER:       "gcc"
+    LANGUAGE:       "C++11"
+    QTVERSION:      "QT5.9.0"
+    BUILDTYPE:      "Debug"
+    GIT_STRATEGY: none
+  script: "artifacts/CI/ci-linux-test.sh"
+  tags:
+    - Linux
+  dependencies:
+    - gcc-c++11-Qt5.9.0
+  artifacts:
+    paths:
+       - build-debug-gcc-cpp11-qt5.9.0/Testing/Temporary/LastTest.log
+
 test-clang-c++11-Qt5:
   stage:
     Test
@@ -141,6 +194,25 @@ test-clang-c++11-Qt5.9.0:
   artifacts:
     paths:
        - build-release-clang-cpp11-qt5.9.0/Testing/Temporary/LastTest.log
+
+debug-test-clang-c++11-Qt5.9.0:
+  stage:
+    Test
+  variables:
+    COMPILER:       "clang"
+    LANGUAGE:       "C++11"
+    QTVERSION:      "QT5.9.0"
+    BUILDTYPE:      "Debug"
+    GIT_STRATEGY: none
+  script: "artifacts/CI/ci-linux-test.sh"
+  tags:
+    - Linux
+    - MultiThreads
+  dependencies:
+    - clang-c++11-Qt5.9.0
+  artifacts:
+    paths:
+       - build-debug-clang-cpp11-qt5.9.0/Testing/Temporary/LastTest.log
 
 cppcheck:
   stage:
