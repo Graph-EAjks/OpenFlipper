@@ -14,7 +14,7 @@ set -e
 MY_DIR=$(dirname $(readlink -f $0))
 source $MY_DIR/ci-linux-config.sh
 
-echo "Building with path: build-release-$BUILDPATH"
+echo "Building with path: $BUILDPATH"
 echo "Full cmake options: $OPTIONS  "
 
 ########################################
