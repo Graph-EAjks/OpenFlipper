@@ -2,7 +2,7 @@
 
 OPTIONS=""
 MAKE_OPTIONS=""
-BUILDPATH="build-"
+BUILDPATH="build"
 
 #set default Build type to Release
 if ["$BUILDTYPE" == ""]; then
@@ -10,14 +10,14 @@ if ["$BUILDTYPE" == ""]; then
 fi
 
 # set buildpath according to buildtype
-BUILDPATH=$BUILDPATH-$BUILDTYPE-
+BUILDPATH="$BUILDPATH-$BUILDTYPE"
 
 #set CMake build Type
 OPTIONS="-DCMAKE_BUILD_TYPE=$BUILDTYPE"
 
 if [ "$COMPILER" == "gcc" ]; then
   echo "Setting Compiler to GCC";
-  BUILDPATH="gcc"
+  BUILDPATH="$BUILDPATH-gcc"
 
   # without icecc: no options required
   OPTIONS="$OPTIONS -DCMAKE_CXX_COMPILER=/usr/lib/icecc/bin/g++ -DCMAKE_C_COMPILER=/usr/lib/icecc/bin/gcc"
@@ -32,7 +32,7 @@ elif [ "$COMPILER" == "clang" ]; then
 #  OPTIONS="$OPTIONS -DCMAKE_CXX_COMPILER=/usr/lib/icecc/bin/g++ -DCMAKE_C_COMPILER=/usr/lib/icecc/bin/gcc -DGTEST_PREFIX=~/sw/gtest-1.7.0-clang/ "
 #  export ICECC_CXX=/usr/bin/clang++ ; export ICECC_CC=/usr/bin/clang
 
-  BUILDPATH="clang"
+  BUILDPATH="$BUILDPATH-clang"
   MAKE_OPTIONS="-j6"
 
   echo "Setting compiler to CLANG";
