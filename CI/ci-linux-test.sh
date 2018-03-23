@@ -7,6 +7,7 @@ set -e
 # COMPILER= gcc/clang
 # LANGUAGE= C++98 / C++11
 # QTVERSION= QT4/QT5
+# BUILDTYPE= Debug / Release
 
 #include ci options script
 MY_DIR=$(dirname $(readlink -f $0))
@@ -27,7 +28,7 @@ git clone git@roosevelt:moebius/OpenFlipper-Test-Data.git TestData
 #########################################
 
 # Run tests
-cd build-release-$BUILDPATH
+cd $BUILDPATH
 
 #clean old cmake cache as the path might have changed
 find . -name "CMakeCache.txt" -type f -delete
@@ -43,7 +44,7 @@ then
 	rm DartConfiguration.tcl
 fi
 
-cmake -DCMAKE_BUILD_TYPE=Release -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE -DSTL_VECTOR_CHECKS=ON $OPTIONS ../
+cmake -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE -DSTL_VECTOR_CHECKS=ON $OPTIONS ../
 
 #tell the location to the libs from build jobs
 export LD_LIBRARY_PATH=$(pwd)/Build/lib:$LD_LIBRARY_PATH
