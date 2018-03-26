@@ -157,7 +157,7 @@ debug-test-gcc-c++11-Qt5.9.0:
     - gcc-c++11-Qt5.9.0
   artifacts:
     paths:
-       - build-debug-gcc-cpp11-qt5.9.0/Testing/Temporary/LastTest.log
+       - build-Debug-gcc-cpp11-qt5.9.0/Testing/Temporary/LastTest.log
 
 test-clang-c++11-Qt5:
   stage:
@@ -212,7 +212,7 @@ debug-test-clang-c++11-Qt5.9.0:
     - clang-c++11-Qt5.9.0
   artifacts:
     paths:
-       - build-debug-clang-cpp11-qt5.9.0/Testing/Temporary/LastTest.log
+       - build-Debug-clang-cpp11-qt5.9.0/Testing/Temporary/LastTest.log
 
 cppcheck:
   stage:
