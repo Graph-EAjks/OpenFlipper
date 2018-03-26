@@ -154,7 +154,7 @@ debug-test-gcc-c++11-Qt5.9.0:
   tags:
     - Linux
   dependencies:
-    - gcc-c++11-Qt5.9.0
+    - debug-gcc-c++11-Qt5.9.0
   artifacts:
     paths:
        - build-Debug-gcc-cpp11-qt5.9.0/Testing/Temporary/LastTest.log
@@ -209,7 +209,7 @@ debug-test-clang-c++11-Qt5.9.0:
     - Linux
     - MultiThreads
   dependencies:
-    - clang-c++11-Qt5.9.0
+    - debug-clang-c++11-Qt5.9.0
   artifacts:
     paths:
        - build-Debug-clang-cpp11-qt5.9.0/Testing/Temporary/LastTest.log
