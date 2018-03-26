@@ -538,7 +538,7 @@ Test:Mac-Cpp11:
     - Mac-Cpp11
   artifacts:
     paths:
-      - build-Release/Testing/Temporary/LastTest.log
+      - build-release/Testing/Temporary/LastTest.log
 
 Deploy:Mac-Cpp11:
   stage:
@@ -555,7 +555,7 @@ Deploy:Mac-Cpp11:
     - Mac-Cpp11
   artifacts:
     paths:
-      - build-Release/*.dmg
+      - build-release/*.dmg
 
 Doc-publish:
   stage:
