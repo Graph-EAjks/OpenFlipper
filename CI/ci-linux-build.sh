@@ -7,13 +7,14 @@ set -e
 # COMPILER= gcc/clang
 # LANGUAGE= C++98 / C++11
 # QTVERSION= QT4/QT5
+# BUILDTYPE= Debug / Release
 
 
 #include ci options script
 MY_DIR=$(dirname $(readlink -f $0))
 source $MY_DIR/ci-linux-config.sh
 
-echo "Building with path: build-release-$BUILDPATH"
+echo "Building with path: $BUILDPATH"
 echo "Full cmake options: $OPTIONS  "
 
 ########################################
@@ -28,13 +29,13 @@ git clone git@roosevelt:moebius/OpenFlipper-Test-Data.git TestData
 #########################################
 
 # Make release build folder
-if [ ! -d build-release-$BUILDPATH ]; then
-  mkdir build-release-$BUILDPATH
+if [ ! -d $BUILDPATH ]; then
+  mkdir $BUILDPATH
 fi
 
-cd build-release-$BUILDPATH
+cd $BUILDPATH
 
-cmake -DCMAKE_BUILD_TYPE=Release -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE -DSTL_VECTOR_CHECKS=ON $OPTIONS ../
+cmake -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE -DSTL_VECTOR_CHECKS=ON $OPTIONS ../
 
 #build it
 make $MAKE_OPTIONS
