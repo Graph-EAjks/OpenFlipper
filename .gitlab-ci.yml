@@ -568,7 +568,6 @@ Doc-publish:
      - Linux
   variables:
      GIT_SUBMODULE_STRATEGY: recursive
-  dependencies:
   artifacts:
     paths:
        - build-Release/Doxygen-warning.log 
