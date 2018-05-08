@@ -566,6 +566,7 @@ Doc-publish:
   script: "CI/ci-doc.sh"
   tags:
      - Linux
+  dependencies: []
   variables:
      GIT_SUBMODULE_STRATEGY: recursive
   artifacts:
