@@ -571,8 +571,8 @@ Doc-publish:
      GIT_SUBMODULE_STRATEGY: recursive
   artifacts:
     paths:
-       - build-Release/Doxygen-warning.log 
-       - build-Release/Doxygen-error.log
+       - build-release/Doxygen-warning.log 
+       - build-release/Doxygen-error.log
 
 
 
