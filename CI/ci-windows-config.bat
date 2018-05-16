@@ -66,7 +66,7 @@ set QT_REV=5.9
 )
 if "%QT_VERSION%" == "Qt5.10.1" (
 set QT_REV_LONG=5.10.1
-set QT_REV=5.10
+set QT_REV=5.10.1
 )
 
 set QT_SUFFIX=
