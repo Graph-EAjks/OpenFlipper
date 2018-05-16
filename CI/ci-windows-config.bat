@@ -97,13 +97,19 @@ for /l %%x in (6, 1, 7) do (
    )
 )
 
-:: check for glew version 6.1.1 to 6.1.3 use the highest found version
+:: check for glew version 1.1 to 1.3 use the highest found version
 for /l %%x in (0, 1, 3) do (
    if exist %LIBPATH_BASE%\%ARCHITECTURE%\glew-1.1%%x.0\include (
       set GLEW_INCLUDE_DIR=%LIBPATH_BASE%\%ARCHITECTURE%\glew-1.1%%x.0\include
       set GLEW_LIBRARY_DIR=%LIBPATH_BASE%\%ARCHITECTURE%\glew-1.1%%x.0\lib\glew32.lib
    )
 )
+:: check for glew version 2.0
+if exist %LIBPATH_BASE%\%ARCHITECTURE%\glew-2.0.0\include (
+      set GLEW_INCLUDE_DIR=%LIBPATH_BASE%\%ARCHITECTURE%\glew-2.0.0\include
+      set GLEW_LIBRARY_DIR=%LIBPATH_BASE%\%ARCHITECTURE%\glew-2.0.0\lib\glew32.lib
+   )
+
 
 :: check for qwt version 6.1.1 to 6.1.3 use the highest found version
 for /l %%x in (0, 1, 3) do (
