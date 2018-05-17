@@ -22,7 +22,7 @@ del *.exe
 IF %errorlevel% NEQ 0 exit /b %errorlevel%
 
 :: build Open-Flipper
-
+echo calling: %VS_PATH%
 %VS_PATH% /Build "Release" OpenFlipper.sln /Project "ALL_BUILD"
 
 IF %errorlevel% NEQ 0 exit /b %errorlevel%
