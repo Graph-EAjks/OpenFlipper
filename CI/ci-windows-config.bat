@@ -7,18 +7,29 @@ set QT_COMPILERPREFIX=msvc2012
 set VS_COMPILERVERSION_LONG=11.0
 set VS_COMPILERVERSION_SHORT=11
 set VS_EDITION_YEAR=2012
+set VS_EDITION_PATH= 11.0
 )
 if "%COMPILER%" == "VS2013" (
 set QT_COMPILERPREFIX=msvc2013
 set VS_COMPILERVERSION_LONG=12.0
 set VS_COMPILERVERSION_SHORT=12
 set VS_EDITION_YEAR=2013
+set VS_EDITION_PATH= 12.0
 )
 if "%COMPILER%" == "VS2015" (
 set QT_COMPILERPREFIX=msvc2015
 set VS_COMPILERVERSION_LONG=14.0
 set VS_COMPILERVERSION_SHORT=14
 set VS_EDITION_YEAR=2015
+set VS_EDITION_PATH= 14.0
+)
+if "%COMPILER%" == "VS2017" (
+set QT_COMPILERPREFIX=msvc2017
+set VS_COMPILERVERSION_LONG=15.0
+set VS_COMPILERVERSION_SHORT=15
+set VS_EDITION_YEAR=2017
+::VS2017 default install path is different from other versions
+set VS_EDITION_PATH=\2017\Professional
 )
 
 set BUILD_PLATFORM=%COMPILER%
@@ -35,7 +46,7 @@ set STRING_ARCH=32-Bit
 )
 
 set GENERATOR=Visual Studio %VS_COMPILERVERSION_SHORT% %VS_EDITION_YEAR%%ARCH_VS%
-set VS_PATH="C:\Program Files (x86)\Microsoft Visual Studio %VS_COMPILERVERSION_LONG%\Common7\IDE\devenv.com"
+set VS_PATH="C:\Program Files (x86)\Microsoft Visual Studio%VS_EDITION_PATH%\Common7\IDE\devenv.com"
 
 :: determine Qt Version and set variables
 if "%QT_VERSION%" == "Qt5.5.1" (
@@ -57,6 +68,10 @@ set QT_REV=5.8
 if "%QT_VERSION%" == "Qt5.9.0" (
 set QT_REV_LONG=5.9.0
 set QT_REV=5.9
+)
+if "%QT_VERSION%" == "Qt5.10.1" (
+set QT_REV_LONG=5.10.1
+set QT_REV=5.10.1
 )
 
 set QT_SUFFIX=
@@ -87,13 +102,19 @@ for /l %%x in (6, 1, 7) do (
    )
 )
 
-:: check for glew version 6.1.1 to 6.1.3 use the highest found version
+:: check for glew version 1.1 to 1.3 use the highest found version
 for /l %%x in (0, 1, 3) do (
    if exist %LIBPATH_BASE%\%ARCHITECTURE%\glew-1.1%%x.0\include (
       set GLEW_INCLUDE_DIR=%LIBPATH_BASE%\%ARCHITECTURE%\glew-1.1%%x.0\include
       set GLEW_LIBRARY_DIR=%LIBPATH_BASE%\%ARCHITECTURE%\glew-1.1%%x.0\lib\glew32.lib
    )
 )
+:: check for glew version 2.0
+if exist %LIBPATH_BASE%\%ARCHITECTURE%\glew-2.0.0\include (
+      set GLEW_INCLUDE_DIR=%LIBPATH_BASE%\%ARCHITECTURE%\glew-2.0.0\include
+      set GLEW_LIBRARY_DIR=%LIBPATH_BASE%\%ARCHITECTURE%\glew-2.0.0\lib\glew32.lib
+   )
+
 
 :: check for qwt version 6.1.1 to 6.1.3 use the highest found version
 for /l %%x in (0, 1, 3) do (
