@@ -7,8 +7,7 @@ variables:
   GET_SOURCES_ATTEMPTS: 3
 
 gcc-c++11-Qt5:
-  stage:
-    Build
+  stage: Build
   variables:     
     COMPILER:       "gcc"     
     LANGUAGE:       "C++11"     
@@ -23,8 +22,7 @@ gcc-c++11-Qt5:
        - artifacts
 
 gcc-c++11-Qt5.9.0:
-  stage:
-    Build
+  stage: Build
   variables:     
     COMPILER:       "gcc"     
     LANGUAGE:       "C++11"     
@@ -39,8 +37,7 @@ gcc-c++11-Qt5.9.0:
        - artifacts
 
 debug-gcc-c++11-Qt5.9.0:
-  stage:
-    Build
+  stage: Build
   variables:
     COMPILER:       "gcc"
     LANGUAGE:       "C++11"
@@ -56,8 +53,7 @@ debug-gcc-c++11-Qt5.9.0:
        - artifacts
 
 clang-c++11-Qt5:
-  stage:
-    Build
+  stage: Build
   variables:
     COMPILER:       "clang"     
     LANGUAGE:       "C++11"   
@@ -73,8 +69,7 @@ clang-c++11-Qt5:
        - artifacts
 
 clang-c++11-Qt5.9.0:
-  stage:
-    Build
+  stage: Build
   variables:
     COMPILER:       "clang"     
     LANGUAGE:       "C++11"   
@@ -90,8 +85,7 @@ clang-c++11-Qt5.9.0:
        - artifacts
 
 debug-clang-c++11-Qt5.9.0:
-  stage:
-    Build
+  stage: Build
   variables:
     COMPILER:       "clang"
     LANGUAGE:       "C++11"
@@ -108,8 +102,7 @@ debug-clang-c++11-Qt5.9.0:
        - artifacts
 
 test-gcc-c++11-Qt5:
-  stage:
-    Test
+  stage: Test
   variables:     
     COMPILER:       "gcc"     
     LANGUAGE:       "C++11"     
@@ -125,8 +118,7 @@ test-gcc-c++11-Qt5:
        - build-Release-gcc-cpp11-qt5/Testing/Temporary/LastTest.log
 
 test-gcc-c++11-Qt5.9.0:
-  stage:
-    Test
+  stage: Test
   variables:     
     COMPILER:       "gcc"     
     LANGUAGE:       "C++11"     
@@ -142,8 +134,7 @@ test-gcc-c++11-Qt5.9.0:
        - build-Release-gcc-cpp11-qt5.9.0/Testing/Temporary/LastTest.log
 
 debug-test-gcc-c++11-Qt5.9.0:
-  stage:
-    Test
+  stage: Test
   variables:
     COMPILER:       "gcc"
     LANGUAGE:       "C++11"
@@ -160,8 +151,7 @@ debug-test-gcc-c++11-Qt5.9.0:
        - build-Debug-gcc-cpp11-qt5.9.0/Testing/Temporary/LastTest.log
 
 test-clang-c++11-Qt5:
-  stage:
-    Test
+  stage: Test
   variables:
     COMPILER:       "clang"     
     LANGUAGE:       "C++11"   
@@ -178,8 +168,7 @@ test-clang-c++11-Qt5:
        - build-Release-clang-cpp11-qt5/Testing/Temporary/LastTest.log
 
 test-clang-c++11-Qt5.9.0:
-  stage:
-    Test
+  stage: Test
   variables:
     COMPILER:       "clang"     
     LANGUAGE:       "C++11"   
@@ -196,8 +185,7 @@ test-clang-c++11-Qt5.9.0:
        - build-Release-clang-cpp11-qt5.9.0/Testing/Temporary/LastTest.log
 
 debug-test-clang-c++11-Qt5.9.0:
-  stage:
-    Test
+  stage: Test
   variables:
     COMPILER:       "clang"
     LANGUAGE:       "C++11"
@@ -215,8 +203,7 @@ debug-test-clang-c++11-Qt5.9.0:
        - build-Debug-clang-cpp11-qt5.9.0/Testing/Temporary/LastTest.log
 
 cppcheck:
-  stage:
-    Test
+  stage: Test
   script: "artifacts/CI/ci-cppcheck.sh"
   variables:
      GIT_SUBMODULE_STRATEGY: recursive
@@ -230,8 +217,7 @@ cppcheck:
       - cppcheck.log
 
 VS2015-Qt-5.6.2-x64:
-  stage:
-    Build
+  stage: Build
   script: "CI\\ci-windows-build.bat"
   variables:
      GIT_SUBMODULE_STRATEGY: recursive
@@ -247,8 +233,7 @@ VS2015-Qt-5.6.2-x64:
       - artifacts
 
 VS2015-Qt-5.6.2-x32:
-  stage:
-    Build
+  stage: Build
   script: "CI\\ci-windows-build.bat"
   variables:
     GIT_SUBMODULE_STRATEGY: recursive
@@ -264,8 +249,7 @@ VS2015-Qt-5.6.2-x32:
       - artifacts
 
 VS2015-Qt-5.9.0-x64:
-  stage:
-    Build
+  stage: Build
   script: "CI\\ci-windows-build.bat"
   variables:
      GIT_SUBMODULE_STRATEGY: recursive
@@ -281,8 +265,7 @@ VS2015-Qt-5.9.0-x64:
       - artifacts
 
 VS2015-Qt-5.9.0-x32:
-  stage:
-    Build
+  stage: Build
   script: "CI\\ci-windows-build.bat"
   variables:
     GIT_SUBMODULE_STRATEGY: recursive
@@ -298,8 +281,7 @@ VS2015-Qt-5.9.0-x32:
       - artifacts
       
 VS2017-Qt-5.10.1:
-  stage:
-    Build
+  stage: Build
   script: "CI\\ci-windows-build.bat"
   variables:
     GIT_SUBMODULE_STRATEGY: recursive
@@ -315,8 +297,7 @@ VS2017-Qt-5.10.1:
       - artifacts
       
 VS2013-Qt-5.5.1-x64:
-  stage:
-    Build
+  stage: Build
   script: "CI\\ci-windows-build.bat"
   variables:
      GIT_SUBMODULE_STRATEGY: recursive
@@ -332,8 +313,7 @@ VS2013-Qt-5.5.1-x64:
       - artifacts
 
 Test:VS2015-Qt-5.6.2-x64:
-  stage:
-    Test
+  stage: Test
   script: "artifacts\\CI\\ci-windows-bootstrap.bat"
   variables:
      GIT_STRATEGY: none
@@ -351,8 +331,7 @@ Test:VS2015-Qt-5.6.2-x64:
       - rel/Testing/Temporary/LastTest.log
 
 Test:VS2015-Qt-5.6.2-x32:
-  stage:
-    Test
+  stage: Test
   script: "artifacts\\CI\\ci-windows-bootstrap.bat"
   variables:
     GIT_STRATEGY: none
@@ -370,8 +349,7 @@ Test:VS2015-Qt-5.6.2-x32:
       - rel/Testing/Temporary/LastTest.log
 
 Test:VS2015-Qt-5.9.0-x64:
-  stage:
-    Test
+  stage: Test
   script: "artifacts\\CI\\ci-windows-bootstrap.bat"
   variables:
      GIT_STRATEGY: none
@@ -389,8 +367,7 @@ Test:VS2015-Qt-5.9.0-x64:
       - rel/Testing/Temporary/LastTest.log
 
 Test:VS2015-Qt-5.9.0-x32:
-  stage:
-    Test
+  stage: Test
   script: "artifacts\\CI\\ci-windows-bootstrap.bat"
   variables:
     GIT_STRATEGY: none
@@ -408,8 +385,7 @@ Test:VS2015-Qt-5.9.0-x32:
       - rel/Testing/Temporary/LastTest.log
       
 Test:VS2017-Qt-5.10.1:
-  stage:
-    Test
+  stage: Test
   script: "artifacts\\CI\\ci-windows-bootstrap.bat"
   variables:
     GIT_STRATEGY: none
@@ -427,8 +403,7 @@ Test:VS2017-Qt-5.10.1:
       - rel/Testing/Temporary/LastTest.log
       
 Test:VS2013-Qt-5.5.1-x64:
-  stage:
-    Test
+  stage: Test
   script: "artifacts\\CI\\ci-windows-bootstrap.bat"
   variables:
      GIT_STRATEGY: none
@@ -446,8 +421,7 @@ Test:VS2013-Qt-5.5.1-x64:
       - rel/Testing/Temporary/LastTest.log
 
 Deploy:VS2015-Qt-5.6.2-x64:
-  stage:
-    Deploy
+  stage: Deploy
   only:
     - master
     - unstable
@@ -468,8 +442,7 @@ Deploy:VS2015-Qt-5.6.2-x64:
       - rel/*.exe
 
 Deploy:VS2015-Qt-5.6.2-x32:
-  stage:
-    Deploy
+  stage: Deploy
   only:
     - master
     - unstable
@@ -490,8 +463,7 @@ Deploy:VS2015-Qt-5.6.2-x32:
       - rel/*.exe
 
 Deploy:VS2015-Qt-5.9.0-x64:
-  stage:
-    Deploy
+  stage: Deploy
   only:
     - master
     - unstable
@@ -512,8 +484,7 @@ Deploy:VS2015-Qt-5.9.0-x64:
       - rel/*.exe
 
 Deploy:VS2015-Qt-5.9.0-x32:
-  stage:
-    Deploy
+  stage: Deploy
   only:
     - master
     - unstable
@@ -534,8 +505,7 @@ Deploy:VS2015-Qt-5.9.0-x32:
       - rel/*.exe
       
 Deploy:VS2017-Qt-5.10.1:
-  stage:
-    Deploy
+  stage: Deploy
   only:
     - master
     - unstable
@@ -556,8 +526,7 @@ Deploy:VS2017-Qt-5.10.1:
       - rel/*.exe
 
 Deploy:VS2013-Qt-5.5.1-x64:
-  stage:
-    Deploy
+  stage: Deploy
   only:
     - master
     - unstable
@@ -578,8 +547,7 @@ Deploy:VS2013-Qt-5.5.1-x64:
       - rel/*.exe
 
 Mac-Cpp11:
-  stage:
-    Build
+  stage: Build
   script: "CI/ci-mac-build.sh"
   variables:
      GIT_SUBMODULE_STRATEGY: recursive
@@ -591,8 +559,7 @@ Mac-Cpp11:
       - artifacts
 
 Test:Mac-Cpp11:
-  stage:
-    Test
+  stage: Test
   script: "artifacts/CI/ci-mac-test.sh"
   variables:
      GIT_STRATEGY: none
@@ -605,8 +572,7 @@ Test:Mac-Cpp11:
       - build-release/Testing/Temporary/LastTest.log
 
 Deploy:Mac-Cpp11:
-  stage:
-    Deploy
+  stage: Deploy
   only:
     - master
     - unstable
@@ -622,8 +588,7 @@ Deploy:Mac-Cpp11:
       - build-release/*.dmg
 
 Doc-publish:
-  stage:
-     Deploy 
+  stage: Deploy 
   only:
      - master
      - unstable
