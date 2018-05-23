@@ -65,7 +65,7 @@ mkdir CI
 cd ..
 )
 echo %Time%: restoring bootstrap script ...
-copy %~dp0\ci-windows-bootstrap.bat artifacts/CI/ci-windows-bootstrap.bat
+copy %~dp0\ci-windows-bootstrap.bat artifacts\CI\ci-windows-bootstrap.bat
 
 REM when this script returns, the windows Command interpreter will look
 REM at the original position for the script to continue after the the call command
