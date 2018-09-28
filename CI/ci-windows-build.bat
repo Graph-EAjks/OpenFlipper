@@ -1,8 +1,5 @@
 @echo off
 
-
-echo "CMAKE_CONFIGURATION: %CMAKE_CONFIGURATION%"
-
 ::########################################
 ::# Fetch test data
 ::########################################
@@ -13,6 +10,10 @@ git clone git@roosevelt.informatik.rwth-aachen.de:moebius/OpenFlipper-Test-Data.
 
 ::load configuration and settings
 call %~dp0\ci-windows-config.bat
+
+
+echo "CMAKE_CONFIGURATION: %CMAKE_CONFIGURATION%"
+
 
 mkdir rel
 cd rel
