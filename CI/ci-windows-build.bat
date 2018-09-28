@@ -1,7 +1,7 @@
 @echo off
 
 
-echo CMAKE_CONFIGURATION: %CMAKE_CONFIGURATION%
+echo "CMAKE_CONFIGURATION: %CMAKE_CONFIGURATION%"
 
 ::########################################
 ::# Fetch test data
