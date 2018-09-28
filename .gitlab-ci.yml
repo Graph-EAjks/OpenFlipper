@@ -232,17 +232,17 @@ VS2015-Qt-5.10.1-x64:
     paths:
       - artifacts
 
-VS2015-Qt-5.8.0-x32:
+VS2015-Qt-5.10.1-x32:
   stage: Build
   script: "CI\\ci-windows-build.bat"
   variables:
     GIT_SUBMODULE_STRATEGY: recursive
     ARCHITECTURE: "x32"
-    QT_VERSION: "Qt5.8.0"
+    QT_VERSION: "Qt5.10.1"
     COMPILER: "VS2015"
   tags: 
     - VS2015
-    - Qt580
+    - Qt5101
   artifacts:
     expire_in: 1 week
     paths:
@@ -298,20 +298,20 @@ Test:VS2015-Qt-5.10.1-x64:
     paths:
       - rel/Testing/Temporary/LastTest.log
 
-Test:VS2015-Qt-5.8.0-x32:
+Test:VS2015-Qt-5.10.1-x32:
   stage: Test
   script: "artifacts\\CI\\ci-windows-bootstrap.bat"
   variables:
     GIT_STRATEGY: none
     ARCHITECTURE: "x32"
-    QT_VERSION: "Qt5.8.0"
+    QT_VERSION: "Qt5.10.1"
     COMPILER: "VS2015"
     STAGE2SCRIPT: ci-windows-test.bat
   tags: 
     - VS2015
-    - Qt580
+    - Qt5101
   dependencies:
-    - VS2015-Qt-5.8.0-x32
+    - VS2015-Qt-5.10.1-x32
   artifacts:
     paths:
       - rel/Testing/Temporary/LastTest.log
@@ -373,7 +373,7 @@ Deploy:VS2015-Qt-5.10.1-x64:
     paths:
       - rel/*.exe
 
-Deploy:VS2015-Qt-5.8.0-x32:
+Deploy:VS2015-Qt-5.10.1-x32:
   stage: Deploy
   only:
     - master
@@ -382,14 +382,14 @@ Deploy:VS2015-Qt-5.8.0-x32:
   variables:
     GIT_STRATEGY: none
     ARCHITECTURE: "x32"
-    QT_VERSION: "Qt5.8.0"
+    QT_VERSION: "Qt5.10.1"
     COMPILER: "VS2015"
     STAGE2SCRIPT: ci-windows-deploy.bat
   tags: 
     - VS2015
-    - Qt580
+    - Qt5101
   dependencies:
-    - VS2015-Qt-5.8.0-x32
+    - VS2015-Qt-5.10.1-x32
   artifacts:
     paths:
       - rel/*.exe
