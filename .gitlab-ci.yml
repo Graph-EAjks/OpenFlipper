@@ -413,27 +413,6 @@ Deploy:VS2015-Qt-5.10.1-x64:
     paths:
       - rel/*.exe
 
-Deploy:VS2015-Qt-5.10.1-x32:
-  stage: Deploy
-  only:
-    - master
-    - unstable
-  script: "artifacts\\CI\\ci-windows-bootstrap.bat"
-  variables:
-    GIT_STRATEGY: none
-    ARCHITECTURE: "x32"
-    QT_VERSION: "Qt5.10.1"
-    COMPILER: "VS2015"
-    STAGE2SCRIPT: ci-windows-deploy.bat
-  tags: 
-    - VS2015
-    - Qt5101
-  dependencies:
-    - VS2015-Qt-5.10.1-x32
-  artifacts:
-    paths:
-      - rel/*.exe
-
 Deploy:VS2017-Qt-5.10.1:
   stage: Deploy
   only:
