@@ -52,7 +52,7 @@ if [ "$QTVERSION" == "QT5" ]; then
   BUILDPATH="$BUILDPATH-qt5"
   OPTIONS="$OPTIONS =FALSE -DQWT6_INCLUDE_DIR=~/sw/qwt-6.1.2-qt5/include -DQWT6_LIBRARY_DIR=~/sw/qwt-6.1.2-qt5/lib -DQWT6_LIBRARY=~/sw/qwt-6.1.2-qt5/lib/libqwt-qt5.so -DQT5_INSTALL_PATH=~/sw/qt-5.5.1/5.5/gcc_64"
   export LD_LIBRARY_PATH=~/sw/qt-5.5.1/5.5/gcc_64/lib:$LD_LIBRARY_PATH
-if [ "$QTVERSION" == "QT5.11.2" ]; then
+elif [ "$QTVERSION" == "QT5.11.2" ]; then
   echo "Using QT5.11.2";
   BUILDPATH="$BUILDPATH-qt5.11.2"
   OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=~/sw/qwt-6.1.3-qt5.11.2/include -DQWT6_LIBRARY_DIR=~/sw/qwt-6.1.3-qt5.11.2/lib -DQWT6_LIBRARY=~/sw/qwt-6.1.3-qt5.11.2/lib/libqwt.so -DQT5_INSTALL_PATH=~/sw/Qt/5.11.2/gcc_64"
