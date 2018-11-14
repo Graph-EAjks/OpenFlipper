@@ -47,15 +47,15 @@ elif [ "$LANGUAGE" == "C++11" ]; then
   BUILDPATH="$BUILDPATH-cpp11"
 fi  
 
-if [ "$QTVERSION" == "QT4" ]; then
-  echo "Using QT4";
-  OPTIONS="$OPTIONS -DFORCE_QT4=TRUE "
-  BUILDPATH="$BUILDPATH-qt4"
-elif [ "$QTVERSION" == "QT5" ]; then
+if [ "$QTVERSION" == "QT5" ]; then
   echo "Using QT5";
   BUILDPATH="$BUILDPATH-qt5"
-  OPTIONS="$OPTIONS -DFORCE_QT4=FALSE -DQWT6_INCLUDE_DIR=~/sw/qwt-6.1.2-qt5/include -DQWT6_LIBRARY_DIR=~/sw/qwt-6.1.2-qt5/lib -DQWT6_LIBRARY=~/sw/qwt-6.1.2-qt5/lib/libqwt-qt5.so -DQT5_INSTALL_PATH=~/sw/qt-5.5.1/5.5/gcc_64"
+  OPTIONS="$OPTIONS =FALSE -DQWT6_INCLUDE_DIR=~/sw/qwt-6.1.2-qt5/include -DQWT6_LIBRARY_DIR=~/sw/qwt-6.1.2-qt5/lib -DQWT6_LIBRARY=~/sw/qwt-6.1.2-qt5/lib/libqwt-qt5.so -DQT5_INSTALL_PATH=~/sw/qt-5.5.1/5.5/gcc_64"
   export LD_LIBRARY_PATH=~/sw/qt-5.5.1/5.5/gcc_64/lib:$LD_LIBRARY_PATH
+elif [ "$QTVERSION" == "QT5.11.2" ]; then
+  echo "Using QT5.11.2";
+  BUILDPATH="$BUILDPATH-qt5.11.2"
+  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=~/sw/qwt-6.1.3-qt5.11.2/include -DQWT6_LIBRARY_DIR=~/sw/qwt-6.1.3-qt5.11.2/lib -DQWT6_LIBRARY=~/sw/qwt-6.1.3-qt5.11.2/lib/libqwt.so -DQT5_INSTALL_PATH=~/sw/Qt/5.11.2/gcc_64"
 elif [ "$QTVERSION" == "QT5.9.0" ]; then
   echo "Using QT5.9.0";
   BUILDPATH="$BUILDPATH-qt5.9.0"
