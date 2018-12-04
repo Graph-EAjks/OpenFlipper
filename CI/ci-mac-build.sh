@@ -17,7 +17,7 @@ cd build-release
 # Build without ports to avoid qt4 collision
 /opt/local/bin/cmake ../ -DCMAKE_CXX_FLAGS='-std=c++11' -DQWT6_INCLUDE_DIR=/Users/jenkins/sw/qwt-6.1.3-qt5.11.3/lib/qwt.framework/Headers -DQWT6_LIBRARY=/Users/jenkins/sw/qwt-6.1.3-qt5.11.3/lib/qwt.framework -DQT5_INSTALL_PATH=/Users/jenkins/sw/Qt/5.11.3/clang_64/  -DGLEW_INCLUDE_DIR=/Users/jenkins/sw/glew-1.10.0-installed/include/ -DGLEW_LIBRARY=/Users/jenkins/sw/glew-1.10.0-installed/lib/libGLEW.dylib 
 
-make
+make -j2
 
 # Required for the tests to build, if a package was generated
 make fixbundle
