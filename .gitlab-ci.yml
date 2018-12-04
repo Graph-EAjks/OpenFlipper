@@ -407,6 +407,7 @@ Mac-Cpp11:
      GIT_SUBMODULE_STRATEGY: recursive
   tags:
     - Apple
+    - qt-5.11.3
   artifacts:
     expire_in: 1 week
     paths:
@@ -419,6 +420,7 @@ Test:Mac-Cpp11:
      GIT_STRATEGY: none
   tags:
     - Apple
+    - qt-5.11.3
   dependencies:
     - Mac-Cpp11
   artifacts:
@@ -435,6 +437,7 @@ Deploy:Mac-Cpp11:
      GIT_STRATEGY: none
   tags:
     - Apple
+    - qt-5.11.3
   dependencies:
     - Mac-Cpp11
   artifacts:
