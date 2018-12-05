@@ -37,10 +37,6 @@ test-gcc-c++11-Qt5.11.2:
     paths:
        - build-Release-gcc-cpp11-qt5/Testing/Temporary/LastTest.log
        
-       
-       
-       
-       
 gcc-c++11-Qt5.9.0:
   stage: Build
   variables:     
@@ -285,7 +281,7 @@ cppcheck:
     - Linux
     - MultiThreads
   dependencies:
-    - gcc-c++11-Qt5
+    - gcc-c++11-Qt5.11.2
   artifacts:
     paths:
       - cppcheck.log
