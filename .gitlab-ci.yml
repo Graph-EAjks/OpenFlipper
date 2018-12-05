@@ -175,12 +175,12 @@ debug-test-gcc-c++11-Qt5.11.2:
        
   
 
-clang-c++11-Qt5:
+clang-c++11-Qt5.11.2:
   stage: Build
   variables:
     COMPILER:       "clang"     
     LANGUAGE:       "C++11"   
-    QTVERSION:      "QT5"     
+    QTVERSION:      "QT5.11.2"     
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
@@ -224,19 +224,19 @@ debug-clang-c++11-Qt5.9.0:
     paths:
        - artifacts
 
-test-clang-c++11-Qt5:
+test-clang-c++11-Qt5.11.2:
   stage: Test
   variables:
     COMPILER:       "clang"     
     LANGUAGE:       "C++11"   
-    QTVERSION:      "QT5"     
+    QTVERSION:      "QT5.11.2"     
     GIT_STRATEGY: none
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
     - Linux
     - MultiThreads
   dependencies:
-    - clang-c++11-Qt5
+    - clang-c++11-Qt5.11.2
   artifacts:
     paths:
        - build-Release-clang-cpp11-qt5/Testing/Temporary/LastTest.log
