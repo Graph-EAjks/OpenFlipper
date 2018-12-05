@@ -37,9 +37,11 @@ endif()
 
 
 IF ( APPLE )
-	IF(CMAKE_BUILD_TYPE MATCHES Debug)
-	    message(WARNING "WARNING: Mac Debug mode might mix debug and release libraries (Webkit, ...), which causes strange errors. If you use ports to provide qt, you might want to disable Qt debug libraries to make sure only release qt libraries are linked to OpenFlippers debug build.")
-	ENDIF(CMAKE_BUILD_TYPE MATCHES Debug)
+     set(CMAKE_MACOSX_RPATH 0)
+
+     IF(CMAKE_BUILD_TYPE MATCHES Debug)
+        message(WARNING "WARNING: Mac Debug mode might mix debug and release libraries (Webkit, ...), which causes strange errors. If you use ports to provide qt, you might want to disable Qt debug libraries to make sure only release qt libraries are linked to OpenFlippers debug build.")
+     ENDIF(CMAKE_BUILD_TYPE MATCHES Debug)
 endif()
 
 
