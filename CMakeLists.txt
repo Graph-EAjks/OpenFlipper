@@ -58,9 +58,10 @@ endif()
 # add our macro directory to cmake search path
 set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR}/OpenFlipper/cmake)
 
-# Enable automoc and autouic
+# Enable automoc, autouic and auto rcc
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
 
 
 
