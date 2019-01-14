@@ -63,6 +63,8 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
+#This finder takes very long, so call it once here to avoid calling it multiple times in the subprojects
+FIND_PACKAGE(Doxygen)
 
 
 # Include some of our OpenFlipper cmake macros
