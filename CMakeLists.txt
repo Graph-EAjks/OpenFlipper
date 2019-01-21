@@ -1,6 +1,6 @@
 # Force minimal cmake version
-# Required 3.1 to set C++11 
-cmake_minimum_required(VERSION 3.1.0 FATAL_ERROR)
+# Required 3.8 to use source_group TREE 
+cmake_minimum_required(VERSION 3.8.0 FATAL_ERROR)
 
 file(SHA512 ${CMAKE_SOURCE_DIR}/CMakeLists.txt HASH_TOPLEVEL_CMAKEFILE)
 file(SHA512 ${CMAKE_SOURCE_DIR}/OpenFlipper/cmake/CMakeLists.txt HASH_LATEST_CMAKEFILE)
@@ -63,6 +63,8 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
+#This finder takes very long, so call it once here to avoid calling it multiple times in the subprojects
+FIND_PACKAGE(Doxygen)
 
 
 # Include some of our OpenFlipper cmake macros
