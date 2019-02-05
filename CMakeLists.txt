@@ -1,6 +1,7 @@
 # Force minimal cmake version
 # Required 3.8 to use source_group TREE 
-cmake_minimum_required(VERSION 3.8.0 FATAL_ERROR)
+# Required 3.12 to use findPython3
+cmake_minimum_required(VERSION 3.12.0 FATAL_ERROR)
 
 file(SHA512 ${CMAKE_SOURCE_DIR}/CMakeLists.txt HASH_TOPLEVEL_CMAKEFILE)
 file(SHA512 ${CMAKE_SOURCE_DIR}/OpenFlipper/cmake/CMakeLists.txt HASH_LATEST_CMAKEFILE)
@@ -76,6 +77,24 @@ file (
        "${CMAKE_SOURCE_DIR}/Package-*/cmake"
 )
 set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${_more_macro_directories})
+
+
+# ========================================================================
+# Python support
+# ========================================================================
+
+if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
+  set(DISABLE_OPENFLIPPER_PYTHON_SYSTEM "FALSE" CACHE BOOL "Choose if OpenFlippers integrated Python system should be build" FORCE)
+endif()
+
+if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
+  find_package(Python3 COMPONENTS Development)
+
+  if (NOT TARGET pybind11::module OR NOT TARGET pybind11::embed)
+      add_subdirectory(OpenFlipper/libs_required/pybind11)
+  endif()
+endif()
+
 
 # ========================================================================
 # QT Setup 
