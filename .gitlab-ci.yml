@@ -290,7 +290,7 @@ debug-test-clang-c++11-Qt5.9.0:
 
 cppcheck:
   stage: Build
-  script: "artifacts/CI/ci-cppcheck.sh"
+  script: "CI/ci-cppcheck.sh"
   variables:
      GIT_SUBMODULE_STRATEGY: recursive
   tags:
