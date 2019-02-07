@@ -297,8 +297,6 @@ cppcheck:
     - Linux
     - stretch
     - MultiThreads
-  dependencies:
-    - gcc-c++11-Qt5.11.2
   artifacts:
     paths:
       - cppcheck.log
