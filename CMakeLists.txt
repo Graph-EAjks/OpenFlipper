@@ -202,7 +202,7 @@ include (ACGOutput)
 
 acg_openmp ()
 
-# check for OpenGL, GLEW and GLUT as our required dependencies
+# check for OpenGL, GLEW as our required dependencies
 find_package (OpenGL)
 if (NOT OPENGL_FOUND)
   message (FATAL_ERROR "OpengGL not found!")
@@ -211,11 +211,6 @@ endif ()
 find_package (GLEW)
 if (NOT GLEW_FOUND)
   message (FATAL_ERROR "GLEW not found!")
-endif ()
-
-find_package (GLUT)
-if (NOT GLUT_FOUND)
-  message (FATAL_ERROR "GLUT not found!")
 endif ()
 
 # using the internal openmesh delivered by the svn repo (default) or use some external installation
