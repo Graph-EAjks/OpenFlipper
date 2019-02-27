@@ -208,11 +208,6 @@ if (NOT OPENGL_FOUND)
   message (FATAL_ERROR "OpengGL not found!")
 endif ()
 
-find_package (GLEW)
-if (NOT GLEW_FOUND)
-  message (FATAL_ERROR "GLEW not found!")
-endif ()
-
 # using the internal openmesh delivered by the svn repo (default) or use some external installation
 set (USE_INTERNAL_OPENMESH ON CACHE BOOL "Use and build internal version of OpenMesh found in libs_required")
 
@@ -249,6 +244,7 @@ enable_testing()
 # Build all additional libraries
 # ========================================================================
 
+add_subdirectory (OpenFlipper/libs_required/glew-cmake)
 add_subdirectory (OpenFlipper/libs_required/OpenMesh)
 add_subdirectory (OpenFlipper/libs_required/ACG)
 
