@@ -23,6 +23,7 @@ cppcheck  --enable=all \
           -j4 \
           --quiet \
           -i OpenFlipper/libs_required/OpenMesh \
+          -i OpenFlipper/libs_required/glew-cmake \
           -i build-release \
           -i build-debug \
           -i .svn \
