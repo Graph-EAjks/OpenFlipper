@@ -435,7 +435,10 @@ set (PREFOUND_PACKAGES "${LOADED_PACKAGES}" CACHE INTERNAL "List of packages tha
 # ========================================================================
 
 add_subdirectory (OpenFlipper/CoreApp)
+
+set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${OPENFLIPPER_PRODUCT_STRING} )
 GROUP_PROJECT(${OPENFLIPPER_PRODUCT_STRING} ${OPENFLIPPER_PRODUCT_STRING})
+
 
 
 # ========================================================================
