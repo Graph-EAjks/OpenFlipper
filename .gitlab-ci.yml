@@ -472,6 +472,19 @@ Doc-publish:
        - build-release/Doxygen-warning.log 
        - build-release/Doxygen-error.log
 
+Sources:
+  stage: deploy
+  only:
+     - master
+  script: "CI/ci-source.sh"
+  tags:
+     - Linux
+     - stretch
+  artifacts:
+    paths:
+      - OpenFlipper*.zip
+      - OpenFlipper*.tar.bz2
+      - OpenFlipper*.tar.gz
 
 
 
