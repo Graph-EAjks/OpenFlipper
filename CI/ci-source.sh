@@ -3,23 +3,12 @@
 # Create Build directory and Build documentation
 mkdir build-doc
 
-pwd
-
-ls
-
 cd build-doc
-
-pwd 
-
-ls
 
 cmake ..
 
-pwd 
-
-ls
-
 make doc
+
 cd ..
 
 # Extract Version Information
@@ -29,13 +18,13 @@ VERSION=OpenFlipper-$(cat OpenFlipper/VERSION | grep VERSION | tr -d "VERSION=")
 mkdir $VERSION
 
 # Move all files into Publishing directory
-cp -r OpenFlipper	$VERSION/
-cp -r Plugin-*          $VERSION/
-cp -r PluginCollection* $VERSION/
-cp -r Type* 	        $VERSION/
-cp -r CMakeLists.txt    $VERSION/
-cp -r COPYING           $VERSION/
-cp -r Readme.md         $VERSION/
+mv OpenFlipper	     $VERSION/
+mv Plugin-*          $VERSION/
+mv PluginCollection* $VERSION/
+mv Type* 	     $VERSION/
+mv CMakeLists.txt    $VERSION/
+mv COPYING           $VERSION/
+mv Readme.md         $VERSION/
 
 cd $VERSION
 find . -name "*git*" | xargs rm -rf
