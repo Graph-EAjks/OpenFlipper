@@ -25,10 +25,8 @@ Clone the repository with submodules:
  git clone --recursive https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free.git
  
 ## Required libs: 
-Qt ( >= 5.5 )   http://www.qtsoftware.com/downloads  
+Qt ( >= 5.9 )   http://www.qtsoftware.com/downloads  
 OpenGL          http://www.opengl.org  
-GLUT            http://www.opengl.org/resources/libraries/glut  
-GLEW            http://glew.sourceforge.net  
 qwt ( >=6.0 )   optional http://qwt.sourceforge.net/  
 
 ## Compiling OpenFlipper:
@@ -37,6 +35,7 @@ A detailed compilation manual is available [here](http://openflipper.org/Documen
 Latest NEWS
 ===========
 
+- 03/05/2019: OpenFlipper 4.0 Release (Core Profile support, Integrated Python interpreter)
 - 04/21/2017: Moved all toplevel plugins to separate repositories.
 - 02/28/2017: Removed SimpleOpt Command Line parser and switched to Qt parser
     - Breaking Change: Commandline parameter have to start with a dash, the slash is not recognized as parameter prefix anymore.
