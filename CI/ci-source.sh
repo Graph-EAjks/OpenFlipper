@@ -3,6 +3,10 @@
 # Create Build directory and Build documentation
 mkdir build-doc
 
+pwd
+
+ls
+
 cd build-doc
 cmake ..
 make doc
