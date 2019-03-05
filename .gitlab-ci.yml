@@ -480,6 +480,7 @@ Sources:
   tags:
      - Linux
      - stretch
+  dependencies: []
   artifacts:
     paths:
       - OpenFlipper*.zip
