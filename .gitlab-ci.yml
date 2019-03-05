@@ -473,7 +473,7 @@ Doc-publish:
        - build-release/Doxygen-error.log
 
 Sources:
-  stage: Deploy
+  stage: Build
   only:
      - master
   script: "CI/ci-source.sh"
