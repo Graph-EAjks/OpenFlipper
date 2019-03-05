@@ -9,9 +9,13 @@ ls
 
 cd build-doc
 
+pwd 
+
 ls
 
 cmake ..
+
+pwd 
 
 ls
 
