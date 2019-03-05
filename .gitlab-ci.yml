@@ -481,6 +481,8 @@ Sources:
      - Linux
      - stretch
   dependencies: []
+  variables:
+     GIT_SUBMODULE_STRATEGY: recursive
   artifacts:
     paths:
       - OpenFlipper*.zip
