@@ -8,7 +8,13 @@ pwd
 ls
 
 cd build-doc
+
+ls
+
 cmake ..
+
+ls
+
 make doc
 cd ..
 
