@@ -6,7 +6,7 @@ set -e
 # Expected Settings via environment variables:
 # COMPILER= gcc/clang
 # LANGUAGE= C++98 / C++11
-# QTVERSION= QT4/QT5
+# QTVERSION= QT5
 # BUILDTYPE= Debug / Release
 
 #include ci options script
