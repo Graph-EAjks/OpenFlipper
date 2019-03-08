@@ -22,6 +22,25 @@ gcc-c++11-Qt5.11.2:
     paths:
        - artifacts
 
+gcc-c++11-Qt5.11.2-nopython:
+  stage: Build
+  variables:     
+    COMPILER:       "gcc"     
+    LANGUAGE:       "C++11"     
+    QTVERSION:      "QT5.11.2"    
+    PYTHON:	    "no" 
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Linux
+    - stretch
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - artifacts
+
+
+
 test-gcc-c++11-Qt5.11.2:
   stage: Test
   variables:     
