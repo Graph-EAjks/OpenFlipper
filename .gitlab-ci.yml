@@ -6,40 +6,57 @@ stages:
 variables:
   GET_SOURCES_ATTEMPTS: 3
 
-gcc-c++11-Qt5:
+gcc-c++11-Qt5.11.2:
   stage: Build
   variables:     
     COMPILER:       "gcc"     
     LANGUAGE:       "C++11"     
-    QTVERSION:      "QT5"     
+    QTVERSION:      "QT5.11.2"     
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
+    - stretch
   artifacts:
     expire_in: 1 week
     paths:
        - artifacts
 
-test-gcc-c++11-Qt5:
+gcc-c++11-Qt5.11.2-nopython:
+  stage: Build
+  variables:     
+    COMPILER:       "gcc"     
+    LANGUAGE:       "C++11"     
+    QTVERSION:      "QT5.11.2"    
+    PYTHON:	    "no" 
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Linux
+    - stretch
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - artifacts
+
+
+
+test-gcc-c++11-Qt5.11.2:
   stage: Test
   variables:     
     COMPILER:       "gcc"     
     LANGUAGE:       "C++11"     
-    QTVERSION:      "QT5"     
+    QTVERSION:      "QT5.11.2"     
     GIT_STRATEGY: none
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
     - Linux
+    - stretch
   dependencies:
-    - gcc-c++11-Qt5
+    - gcc-c++11-Qt5.11.2
   artifacts:
     paths:
        - build-Release-gcc-cpp11-qt5/Testing/Temporary/LastTest.log
-       
-       
-       
-       
        
 gcc-c++11-Qt5.9.0:
   stage: Build
@@ -51,6 +68,7 @@ gcc-c++11-Qt5.9.0:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
+    - stretch
   artifacts:
     expire_in: 1 week
     paths:
@@ -66,6 +84,7 @@ test-gcc-c++11-Qt5.9.0:
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
     - Linux
+    - stretch
   dependencies:
     - gcc-c++11-Qt5.9.0
   artifacts:
@@ -85,6 +104,7 @@ debug-gcc-c++11-Qt5.9.0:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
+    - stretch
   artifacts:
     expire_in: 1 week
     paths:
@@ -101,6 +121,7 @@ debug-test-gcc-c++11-Qt5.9.0:
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
     - Linux
+    - stretch
   dependencies:
     - debug-gcc-c++11-Qt5.9.0
   artifacts:
@@ -118,6 +139,7 @@ gcc-c++11-Qt5.11.2:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
+    - stretch
   artifacts:
     expire_in: 1 week
     paths:
@@ -133,6 +155,7 @@ test-gcc-c++11-Qt5.11.2:
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
     - Linux
+    - stretch
   dependencies:
     - gcc-c++11-Qt5.11.2
   artifacts:
@@ -151,6 +174,7 @@ debug-gcc-c++11-Qt5.11.2:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
+    - stretch
   artifacts:
     expire_in: 1 week
     paths:
@@ -167,6 +191,7 @@ debug-test-gcc-c++11-Qt5.11.2:
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
     - Linux
+    - stretch
   dependencies:
     - debug-gcc-c++11-Qt5.11.2
   artifacts:
@@ -175,16 +200,17 @@ debug-test-gcc-c++11-Qt5.11.2:
        
   
 
-clang-c++11-Qt5:
+clang-c++11-Qt5.11.2:
   stage: Build
   variables:
     COMPILER:       "clang"     
     LANGUAGE:       "C++11"   
-    QTVERSION:      "QT5"     
+    QTVERSION:      "QT5.11.2"     
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
+    - stretch
     - MultiThreads
   artifacts:
     expire_in: 1 week
@@ -201,6 +227,7 @@ clang-c++11-Qt5.9.0:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
+    - stretch
     - MultiThreads
   artifacts:
     expire_in: 1 week
@@ -218,25 +245,27 @@ debug-clang-c++11-Qt5.9.0:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
+    - stretch
     - MultiThreads
   artifacts:
     expire_in: 1 week
     paths:
        - artifacts
 
-test-clang-c++11-Qt5:
+test-clang-c++11-Qt5.11.2:
   stage: Test
   variables:
     COMPILER:       "clang"     
     LANGUAGE:       "C++11"   
-    QTVERSION:      "QT5"     
+    QTVERSION:      "QT5.11.2"     
     GIT_STRATEGY: none
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
     - Linux
+    - stretch
     - MultiThreads
   dependencies:
-    - clang-c++11-Qt5
+    - clang-c++11-Qt5.11.2
   artifacts:
     paths:
        - build-Release-clang-cpp11-qt5/Testing/Temporary/LastTest.log
@@ -251,6 +280,7 @@ test-clang-c++11-Qt5.9.0:
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
     - Linux
+    - stretch
     - MultiThreads
   dependencies:
     - clang-c++11-Qt5.9.0
@@ -269,6 +299,7 @@ debug-test-clang-c++11-Qt5.9.0:
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
     - Linux
+    - stretch
     - MultiThreads
   dependencies:
     - debug-clang-c++11-Qt5.9.0
@@ -277,15 +308,14 @@ debug-test-clang-c++11-Qt5.9.0:
        - build-Debug-clang-cpp11-qt5.9.0/Testing/Temporary/LastTest.log
 
 cppcheck:
-  stage: Test
-  script: "artifacts/CI/ci-cppcheck.sh"
+  stage: Build
+  script: "CI/ci-cppcheck.sh"
   variables:
      GIT_SUBMODULE_STRATEGY: recursive
   tags:
     - Linux
+    - stretch
     - MultiThreads
-  dependencies:
-    - gcc-c++11-Qt5
   artifacts:
     paths:
       - cppcheck.log
@@ -322,22 +352,6 @@ VS2017-Qt-5.10.1:
     paths:
       - artifacts
       
-VS2013-Qt-5.10.1-x64:
-  stage: Build
-  script: "CI\\ci-windows-build.bat"
-  variables:
-     GIT_SUBMODULE_STRATEGY: recursive
-     ARCHITECTURE: "x64"
-     QT_VERSION: "Qt5.10.1"
-     COMPILER: "VS2013"
-  tags:
-    - VS2013
-    - Qt5101
-  artifacts:
-    expire_in: 1 week
-    paths:
-      - artifacts
-
 Test:VS2015-Qt-5.10.1-x64:
   stage: Test
   script: "artifacts\\CI\\ci-windows-bootstrap.bat"
@@ -374,24 +388,6 @@ Test:VS2017-Qt-5.10.1:
     paths:
       - rel/Testing/Temporary/LastTest.log
       
-Test:VS2013-Qt-5.10.1-x64:
-  stage: Test
-  script: "artifacts\\CI\\ci-windows-bootstrap.bat"
-  variables:
-     GIT_STRATEGY: none
-     ARCHITECTURE: "x64"
-     QT_VERSION: "Qt5.10.1"
-     COMPILER: "VS2013"
-     STAGE2SCRIPT: ci-windows-test.bat
-  tags:
-    - VS2013
-    - Qt5101
-  dependencies:
-    - VS2013-Qt-5.10.1-x64
-  artifacts:
-    paths:
-      - rel/Testing/Temporary/LastTest.log
-
 Deploy:VS2015-Qt-5.10.1-x64:
   stage: Deploy
   only:
@@ -434,27 +430,6 @@ Deploy:VS2017-Qt-5.10.1:
     paths:
       - rel/*.exe
 
-Deploy:VS2013-Qt-5.10.1-x64:
-  stage: Deploy
-  only:
-    - master
-    - unstable
-  script: "artifacts\\CI\\ci-windows-bootstrap.bat"
-  variables:
-     GIT_STRATEGY: none
-     ARCHITECTURE: "x64"
-     QT_VERSION: "Qt5.10.1"
-     COMPILER: "VS2013"
-     STAGE2SCRIPT: ci-windows-deploy.bat
-  tags:
-    - VS2013
-    - Qt5101
-  dependencies:
-    - VS2013-Qt-5.10.1-x64
-  artifacts:
-    paths:
-      - rel/*.exe
-
 Mac-Cpp11:
   stage: Build
   script: "CI/ci-mac-build.sh"
@@ -462,6 +437,7 @@ Mac-Cpp11:
      GIT_SUBMODULE_STRATEGY: recursive
   tags:
     - Apple
+    - qt5113
   artifacts:
     expire_in: 1 week
     paths:
@@ -474,6 +450,7 @@ Test:Mac-Cpp11:
      GIT_STRATEGY: none
   tags:
     - Apple
+    - qt5113
   dependencies:
     - Mac-Cpp11
   artifacts:
@@ -490,6 +467,7 @@ Deploy:Mac-Cpp11:
      GIT_STRATEGY: none
   tags:
     - Apple
+    - qt5113
   dependencies:
     - Mac-Cpp11
   artifacts:
@@ -504,6 +482,7 @@ Doc-publish:
   script: "CI/ci-doc.sh"
   tags:
      - Linux
+     - stretch
   dependencies: []
   variables:
      GIT_SUBMODULE_STRATEGY: recursive
@@ -512,6 +491,22 @@ Doc-publish:
        - build-release/Doxygen-warning.log 
        - build-release/Doxygen-error.log
 
+Sources:
+  stage: Deploy
+  only:
+     - master
+  script: "CI/ci-source.sh"
+  tags:
+     - Linux
+     - stretch
+  dependencies: []
+  variables:
+     GIT_SUBMODULE_STRATEGY: recursive
+  artifacts:
+    paths:
+      - OpenFlipper*.zip
+      - OpenFlipper*.tar.bz2
+      - OpenFlipper*.tar.gz
 
 
 

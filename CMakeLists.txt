@@ -1,6 +1,7 @@
 # Force minimal cmake version
-# Required 3.1 to set C++11 
-cmake_minimum_required(VERSION 3.1.0 FATAL_ERROR)
+# Required 3.8 to use source_group TREE 
+# Required 3.12 to use findPython3
+cmake_minimum_required(VERSION 3.12.0 FATAL_ERROR)
 
 file(SHA512 ${CMAKE_SOURCE_DIR}/CMakeLists.txt HASH_TOPLEVEL_CMAKEFILE)
 file(SHA512 ${CMAKE_SOURCE_DIR}/OpenFlipper/cmake/CMakeLists.txt HASH_LATEST_CMAKEFILE)
@@ -37,9 +38,11 @@ endif()
 
 
 IF ( APPLE )
-	IF(CMAKE_BUILD_TYPE MATCHES Debug)
-	    message(WARNING "WARNING: Mac Debug mode might mix debug and release libraries (Webkit, ...), which causes strange errors. If you use ports to provide qt, you might want to disable Qt debug libraries to make sure only release qt libraries are linked to OpenFlippers debug build.")
-	ENDIF(CMAKE_BUILD_TYPE MATCHES Debug)
+     set(CMAKE_MACOSX_RPATH 0)
+
+     IF(CMAKE_BUILD_TYPE MATCHES Debug)
+        message(WARNING "WARNING: Mac Debug mode might mix debug and release libraries (Webkit, ...), which causes strange errors. If you use ports to provide qt, you might want to disable Qt debug libraries to make sure only release qt libraries are linked to OpenFlippers debug build.")
+     ENDIF(CMAKE_BUILD_TYPE MATCHES Debug)
 endif()
 
 
@@ -56,6 +59,15 @@ endif()
 # add our macro directory to cmake search path
 set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR}/OpenFlipper/cmake)
 
+# Enable automoc, autouic and auto rcc
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
+
+#This finder takes very long, so call it once here to avoid calling it multiple times in the subprojects
+FIND_PACKAGE(Doxygen)
+
+
 # Include some of our OpenFlipper cmake macros
 include(OpenFlipper_common)
 
@@ -65,6 +77,24 @@ file (
        "${CMAKE_SOURCE_DIR}/Package-*/cmake"
 )
 set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${_more_macro_directories})
+
+
+# ========================================================================
+# Python support
+# ========================================================================
+
+if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
+  set(DISABLE_OPENFLIPPER_PYTHON_SYSTEM "FALSE" CACHE BOOL "Choose if OpenFlippers integrated Python system should be build" FORCE)
+endif()
+
+if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
+  find_package(Python3 COMPONENTS Development)
+
+  if (NOT TARGET pybind11::module OR NOT TARGET pybind11::embed)
+      add_subdirectory(OpenFlipper/libs_required/pybind11)
+  endif()
+endif()
+
 
 # ========================================================================
 # QT Setup 
@@ -172,20 +202,10 @@ include (ACGOutput)
 
 acg_openmp ()
 
-# check for OpenGL, GLEW and GLUT as our required dependencies
+# check for OpenGL, GLEW as our required dependencies
 find_package (OpenGL)
 if (NOT OPENGL_FOUND)
   message (FATAL_ERROR "OpengGL not found!")
-endif ()
-
-find_package (GLEW)
-if (NOT GLEW_FOUND)
-  message (FATAL_ERROR "GLEW not found!")
-endif ()
-
-find_package (GLUT)
-if (NOT GLUT_FOUND)
-  message (FATAL_ERROR "GLUT not found!")
 endif ()
 
 # using the internal openmesh delivered by the svn repo (default) or use some external installation
@@ -224,6 +244,7 @@ enable_testing()
 # Build all additional libraries
 # ========================================================================
 
+add_subdirectory (OpenFlipper/libs_required/glew-cmake)
 add_subdirectory (OpenFlipper/libs_required/OpenMesh)
 add_subdirectory (OpenFlipper/libs_required/ACG)
 
@@ -414,7 +435,10 @@ set (PREFOUND_PACKAGES "${LOADED_PACKAGES}" CACHE INTERNAL "List of packages tha
 # ========================================================================
 
 add_subdirectory (OpenFlipper/CoreApp)
+
+set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${OPENFLIPPER_PRODUCT_STRING} )
 GROUP_PROJECT(${OPENFLIPPER_PRODUCT_STRING} ${OPENFLIPPER_PRODUCT_STRING})
+
 
 
 # ========================================================================

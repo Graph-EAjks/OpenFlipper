@@ -7,11 +7,8 @@ http://www.openflipper.org
 ## Download Binaries
 
 ### Windows
-* [VS2015 Qt-5.9.0 64-Bit](https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free/-/jobs/artifacts/master/browse/rel?job=Deploy:VS2015-Qt-5.9.0-x64)
-* [VS2015 Qt-5.9.0 32-Bit](https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free/-/jobs/artifacts/master/browse/rel?job=Deploy:VS2015-Qt-5.9.0-x32)
-* [VS2015 Qt-5.6.2 64-Bit](https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free/-/jobs/artifacts/master/browse/rel?job=Deploy:VS2015-Qt-5.6.2-x64)
-* [VS2015 Qt-5.6.2 32-Bit](https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free/-/jobs/artifacts/master/browse/rel?job=Deploy:VS2015-Qt-5.6.2-x32)
-* [VS2013 Qt-5.5.1 64-Bit](https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free/-/jobs/artifacts/master/browse/rel?job=Deploy:VS2013-Qt-5.5.1-x64)
+* [VS2017 Qt-5.10.1 64-Bit](https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free/-/jobs/artifacts/master/browse/rel?job=Deploy:VS2017-Qt-5.10.1)
+* [VS2015 Qt-5.10.1 64-Bit](https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free/-/jobs/artifacts/master/browse/rel?job=Deploy:VS2015-Qt-5.10.1-x64)
 
 
 ### macOS 10.13
@@ -24,10 +21,8 @@ Clone the repository with submodules:
  git clone --recursive https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free.git
  
 ## Required libs: 
-Qt ( >= 5.5 )   http://www.qtsoftware.com/downloads  
+Qt ( >= 5.9 )   http://www.qtsoftware.com/downloads  
 OpenGL          http://www.opengl.org  
-GLUT            http://www.opengl.org/resources/libraries/glut  
-GLEW            http://glew.sourceforge.net  
 qwt ( >=6.0 )   optional http://qwt.sourceforge.net/  
 
 ## Compiling OpenFlipper:
@@ -36,6 +31,7 @@ A detailed compilation manual is available [here](http://openflipper.org/Documen
 Latest NEWS
 ===========
 
+- 03/05/2019: OpenFlipper 4.0 Release (Core Profile support, Integrated Python interpreter)
 - 04/21/2017: Moved all toplevel plugins to separate repositories.
 - 02/28/2017: Removed SimpleOpt Command Line parser and switched to Qt parser
     - Breaking Change: Commandline parameter have to start with a dash, the slash is not recognized as parameter prefix anymore.

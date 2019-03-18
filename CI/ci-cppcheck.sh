@@ -3,9 +3,6 @@
 # Exit script on any error
 set -e 
 
-#remove artifacts ... they are copied even since they shouldnt be see https://gitlab.com/gitlab-org/gitlab-ci-multi-runner/issues/1917
-rm -rf artifacts
-
 #=====================================
 # Color Settings:
 #=====================================
@@ -26,6 +23,7 @@ cppcheck  --enable=all \
           -j4 \
           --quiet \
           -i OpenFlipper/libs_required/OpenMesh \
+          -i OpenFlipper/libs_required/glew-cmake \
           -i build-release \
           -i build-debug \
           -i .svn \
@@ -62,7 +60,7 @@ echo "CPPCHECK Summary"
 echo "=============================================================================="
 echo -e "${NC}"
 
-MAX_ERROR=100
+MAX_ERROR=80
 
 if [ $COUNT -gt $MAX_ERROR ]; then
   echo -e ${WARNING}

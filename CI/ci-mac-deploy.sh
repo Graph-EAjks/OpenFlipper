@@ -27,10 +27,10 @@ fi
 
 # Build without ports to avoid qt4 collision
 # fix pathes if run on a different machine
-/opt/local/bin/cmake ../ -DCMAKE_CXX_FLAGS='-std=c++11' -DQWT6_INCLUDE_DIR=/Users/jenkins/sw/qwt-6.1.2-Qt5-installed/lib/qwt.framework/Headers -DQWT6_LIBRARY=/Users/jenkins/sw/qwt-6.1.2-Qt5-installed/lib/qwt.framework -DQT5_INSTALL_PATH=/Qt/Qt5.5.1/5.5/clang_64  -DGLEW_INCLUDE_DIR=/Users/jenkins/sw/glew-1.10.0-installed/include/ -DGLEW_LIBRARY=/Users/jenkins/sw/glew-1.10.0-installed/lib/libGLEW.dylib 
+/opt/local/bin/cmake ../ -DCMAKE_CXX_FLAGS='-std=c++11' -DQWT6_INCLUDE_DIR=/Users/jenkins/sw/qwt-6.1.3-qt5.11.3/lib/qwt.framework/Headers -DQWT6_LIBRARY=/Users/jenkins/sw/qwt-6.1.3-qt5.11.3/lib/qwt.framework -DQT5_INSTALL_PATH=/Users/jenkins/sw/Qt/5.11.3/clang_64/   
 
 rm -f *.dmg 
 
 make OpenFlipper_package
 
-mv *.dmg OpenFlipper-Free-GIT-$CI_BUILD_REF-QT5.5.1-CPP11.dmg
+mv *.dmg OpenFlipper-Free-GIT-$CI_BUILD_REF-QT5.11.3-CPP11.dmg
