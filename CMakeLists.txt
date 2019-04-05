@@ -93,6 +93,9 @@ if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
   if (NOT TARGET pybind11::module OR NOT TARGET pybind11::embed)
       add_subdirectory(OpenFlipper/libs_required/pybind11)
   endif()
+
+  add_compile_definitions(OPENMESH_PYTHON_EMBEDDED_MODULE)
+  add_compile_definitions(OPENMESH_PYTHON_OPENFLIPPER_TYPES)
 endif()
 
 
