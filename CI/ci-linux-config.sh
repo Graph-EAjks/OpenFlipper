@@ -4,6 +4,7 @@ OPTIONS=""
 MAKE_OPTIONS=""
 BUILDPATH="build"
 
+
 #set default Build type to Release
 if [ "$BUILDTYPE" == "" ]; then
   BUILDTYPE="Release"
