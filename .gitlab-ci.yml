@@ -6,6 +6,60 @@ stages:
 variables:
   GET_SOURCES_ATTEMPTS: 3
 
+  
+  
+gcc-c++11-Qt5.12.2:
+  stage: Build
+  variables:     
+    COMPILER:       "gcc"     
+    LANGUAGE:       "C++11"     
+    QTVERSION:      "QT5.12.2"     
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Linux
+    - stretch
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - artifacts
+       
+test-gcc-c++11-Qt5.12.2:
+  stage: Test
+  variables:     
+    COMPILER:       "gcc"     
+    LANGUAGE:       "C++11"     
+    QTVERSION:      "QT5.12.2"     
+    GIT_STRATEGY: none
+  script: "artifacts/CI/ci-linux-test.sh"
+  tags:
+    - Linux
+    - stretch
+  dependencies:
+    - gcc-c++11-Qt5.12.2
+  artifacts:
+    paths:
+       - build-Release-gcc-cpp11-qt5/Testing/Temporary/LastTest.log    
+       
+       
+gcc-c++11-Qt5.12.2-nopython:
+  stage: Build
+  variables:     
+    COMPILER:       "gcc"     
+    LANGUAGE:       "C++11"     
+    QTVERSION:      "QT5.11.2"    
+    PYTHON:	    "no" 
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Linux
+    - stretch
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - artifacts       
+  
+  
 gcc-c++11-Qt5.11.2:
   stage: Build
   variables:     
@@ -21,7 +75,25 @@ gcc-c++11-Qt5.11.2:
     expire_in: 1 week
     paths:
        - artifacts
-
+       
+test-gcc-c++11-Qt5.11.2:
+  stage: Test
+  variables:     
+    COMPILER:       "gcc"     
+    LANGUAGE:       "C++11"     
+    QTVERSION:      "QT5.11.2"     
+    GIT_STRATEGY: none
+  script: "artifacts/CI/ci-linux-test.sh"
+  tags:
+    - Linux
+    - stretch
+  dependencies:
+    - gcc-c++11-Qt5.11.2
+  artifacts:
+    paths:
+       - build-Release-gcc-cpp11-qt5/Testing/Temporary/LastTest.log  
+       
+       
 gcc-c++11-Qt5.11.2-nopython:
   stage: Build
   variables:     
@@ -40,24 +112,6 @@ gcc-c++11-Qt5.11.2-nopython:
        - artifacts
 
 
-
-test-gcc-c++11-Qt5.11.2:
-  stage: Test
-  variables:     
-    COMPILER:       "gcc"     
-    LANGUAGE:       "C++11"     
-    QTVERSION:      "QT5.11.2"     
-    GIT_STRATEGY: none
-  script: "artifacts/CI/ci-linux-test.sh"
-  tags:
-    - Linux
-    - stretch
-  dependencies:
-    - gcc-c++11-Qt5.11.2
-  artifacts:
-    paths:
-       - build-Release-gcc-cpp11-qt5/Testing/Temporary/LastTest.log
-       
 gcc-c++11-Qt5.9.0:
   stage: Build
   variables:     

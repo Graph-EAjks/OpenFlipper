@@ -4,6 +4,7 @@ OPTIONS=""
 MAKE_OPTIONS=""
 BUILDPATH="build"
 
+
 #set default Build type to Release
 if [ "$BUILDTYPE" == "" ]; then
   BUILDTYPE="Release"
@@ -47,7 +48,13 @@ elif [ "$LANGUAGE" == "C++11" ]; then
   BUILDPATH="$BUILDPATH-cpp11"
 fi  
 
-if [ "$QTVERSION" == "QT5.11.2" ]; then
+
+
+if [ "$QTVERSION" == "QT5.12.2" ]; then
+  echo "Using QT5.12.2";
+  BUILDPATH="$BUILDPATH-qt5.12.2"
+  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=~/sw/qwt-6.1.4-qt5.12.2/include -DQWT6_LIBRARY_DIR=~/sw/qwt-6.1.4-qt5.12.2/lib -DQWT6_LIBRARY=~/sw/qwt-6.1.4-qt5.12.2/lib/libqwt.so -DQT5_INSTALL_PATH=~/sw/Qt/5.12.2/gcc_64"
+elif [ "$QTVERSION" == "QT5.11.2" ]; then
   echo "Using QT5.11.2";
   BUILDPATH="$BUILDPATH-qt5.11.2"
   OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=~/sw/qwt-6.1.3-qt5.11.2/include -DQWT6_LIBRARY_DIR=~/sw/qwt-6.1.3-qt5.11.2/lib -DQWT6_LIBRARY=~/sw/qwt-6.1.3-qt5.11.2/lib/libqwt.so -DQT5_INSTALL_PATH=~/sw/Qt/5.11.2/gcc_64"
