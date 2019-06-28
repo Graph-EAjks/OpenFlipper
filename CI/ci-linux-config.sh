@@ -48,9 +48,11 @@ elif [ "$LANGUAGE" == "C++11" ]; then
   BUILDPATH="$BUILDPATH-cpp11"
 fi  
 
-
-
-if [ "$QTVERSION" == "QT5.12.2" ]; then
+if [ "$QTVERSION" == "QT5.13.0" ]; then
+  echo "Using QT5.13.0";
+  BUILDPATH="$BUILDPATH-qt5.13.0"
+  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=~/sw/qwt-6.1.4-qt5.13.0/include -DQWT6_LIBRARY_DIR=~/sw/qwt-6.1.4-qt5.13.0/lib -DQWT6_LIBRARY=~/sw/qwt-6.1.4-qt5.13.0/lib/libqwt.so -DQT5_INSTALL_PATH=~/sw/Qt/5.13.0/gcc_64"
+elif [ "$QTVERSION" == "QT5.12.2" ]; then
   echo "Using QT5.12.2";
   BUILDPATH="$BUILDPATH-qt5.12.2"
   OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=~/sw/qwt-6.1.4-qt5.12.2/include -DQWT6_LIBRARY_DIR=~/sw/qwt-6.1.4-qt5.12.2/lib -DQWT6_LIBRARY=~/sw/qwt-6.1.4-qt5.12.2/lib/libqwt.so -DQT5_INSTALL_PATH=~/sw/Qt/5.12.2/gcc_64"
