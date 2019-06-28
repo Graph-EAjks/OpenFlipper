@@ -271,12 +271,12 @@ clang-c++11-Qt5.11.2:
     paths:
        - artifacts
 
-clang-c++11-Qt5.9.0:
+clang-c++11-Qt5.13.0:
   stage: Build
   variables:
     COMPILER:       "clang"     
     LANGUAGE:       "C++11"   
-    QTVERSION:      "QT5.9.0"     
+    QTVERSION:      "QT5.13.0"     
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
@@ -288,12 +288,12 @@ clang-c++11-Qt5.9.0:
     paths:
        - artifacts
 
-debug-clang-c++11-Qt5.9.0:
+debug-clang-c++11-Qt5.13.0:
   stage: Build
   variables:
     COMPILER:       "clang"
     LANGUAGE:       "C++11"
-    QTVERSION:      "QT5.9.0"
+    QTVERSION:      "QT5.13.0"
     BUILDTYPE:      "Debug"
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
@@ -324,12 +324,12 @@ test-clang-c++11-Qt5.11.2:
     paths:
        - build-Release-clang-cpp11-qt5/Testing/Temporary/LastTest.log
 
-test-clang-c++11-Qt5.9.0:
+test-clang-c++11-Qt5.13.0:
   stage: Test
   variables:
     COMPILER:       "clang"     
     LANGUAGE:       "C++11"   
-    QTVERSION:      "QT5.9.0"     
+    QTVERSION:      "QT5.13.0"     
     GIT_STRATEGY: none
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
@@ -337,17 +337,17 @@ test-clang-c++11-Qt5.9.0:
     - stretch
     - MultiThreads
   dependencies:
-    - clang-c++11-Qt5.9.0
+    - clang-c++11-Qt5.13.0
   artifacts:
     paths:
-       - build-Release-clang-cpp11-qt5.9.0/Testing/Temporary/LastTest.log
+       - build-Release-clang-cpp11-qt5.13.0/Testing/Temporary/LastTest.log
 
-debug-test-clang-c++11-Qt5.9.0:
+debug-test-clang-c++11-Qt5.13.0:
   stage: Test
   variables:
     COMPILER:       "clang"
     LANGUAGE:       "C++11"
-    QTVERSION:      "QT5.9.0"
+    QTVERSION:      "QT5.13.0"
     BUILDTYPE:      "Debug"
     GIT_STRATEGY: none
   script: "artifacts/CI/ci-linux-test.sh"
@@ -356,10 +356,10 @@ debug-test-clang-c++11-Qt5.9.0:
     - stretch
     - MultiThreads
   dependencies:
-    - debug-clang-c++11-Qt5.9.0
+    - debug-clang-c++11-Qt5.13.0
   artifacts:
     paths:
-       - build-Debug-clang-cpp11-qt5.9.0/Testing/Temporary/LastTest.log
+       - build-Debug-clang-cpp11-qt5.13.0/Testing/Temporary/LastTest.log
 
 cppcheck:
   stage: Build
