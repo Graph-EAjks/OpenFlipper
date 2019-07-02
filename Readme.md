@@ -26,7 +26,7 @@ OpenGL          http://www.opengl.org
 qwt ( >=6.0 )   optional http://qwt.sourceforge.net/  
 
 ## Compiling OpenFlipper:
-A detailed compilation manual is available [here](http://openflipper.org/Documentation/latest/a00099.html).
+A detailed compilation manual is available [here](http://openflipper.org/Daily-Builds/Doc/Free/Developer/buildingOpenFlipper.html).
 
 Latest NEWS
 ===========
