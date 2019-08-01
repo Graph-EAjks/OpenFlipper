@@ -5,6 +5,7 @@ stages:
 
 variables:
   GET_SOURCES_ATTEMPTS: 3
+  CTEST_OUTPUT_ON_FAILURE: 1
 
   
   
