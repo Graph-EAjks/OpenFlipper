@@ -38,6 +38,7 @@ test-gcc-c++11-Qt5.12.2:
     - stretch
   dependencies:
     - gcc-c++11-Qt5.12.2
+  needs: [gcc-c++11-Qt5.12.2]
   artifacts:
     paths:
        - build-Release-gcc-cpp11-qt5/Testing/Temporary/LastTest.log    
@@ -90,6 +91,7 @@ test-gcc-c++11-Qt5.11.2:
     - stretch
   dependencies:
     - gcc-c++11-Qt5.11.2
+  needs: [gcc-c++11-Qt5.11.2]
   artifacts:
     paths:
        - build-Release-gcc-cpp11-qt5/Testing/Temporary/LastTest.log  
@@ -142,6 +144,7 @@ test-gcc-c++11-Qt5.13.0:
     - stretch
   dependencies:
     - gcc-c++11-Qt5.13.0
+  needs: [gcc-c++11-Qt5.13.0]
   artifacts:
     paths:
        - build-Release-gcc-cpp11-qt5.13.0/Testing/Temporary/LastTest.log  
@@ -179,6 +182,7 @@ debug-test-gcc-c++11-Qt5.13.0:
     - stretch
   dependencies:
     - debug-gcc-c++11-Qt5.13.0
+  needs: [debug-gcc-c++11-Qt5.13.0]
   artifacts:
     paths:
        - build-Debug-gcc-cpp11-qt5.13.0/Testing/Temporary/LastTest.log
@@ -213,6 +217,7 @@ test-gcc-c++11-Qt5.11.2:
     - stretch
   dependencies:
     - gcc-c++11-Qt5.11.2
+  needs: [gcc-c++11-Qt5.11.2]
   artifacts:
     paths:
        - build-Release-gcc-cpp11-qt5.11.2/Testing/Temporary/LastTest.log  
@@ -249,6 +254,7 @@ debug-test-gcc-c++11-Qt5.11.2:
     - stretch
   dependencies:
     - debug-gcc-c++11-Qt5.11.2
+  needs: [debug-gcc-c++11-Qt5.11.2]
   artifacts:
     paths:
        - build-Debug-gcc-cpp11-qt5.11.2/Testing/Temporary/LastTest.log
@@ -321,6 +327,7 @@ test-clang-c++11-Qt5.11.2:
     - MultiThreads
   dependencies:
     - clang-c++11-Qt5.11.2
+  needs: [clang-c++11-Qt5.11.2]
   artifacts:
     paths:
        - build-Release-clang-cpp11-qt5/Testing/Temporary/LastTest.log
@@ -339,6 +346,7 @@ test-clang-c++11-Qt5.13.0:
     - MultiThreads
   dependencies:
     - clang-c++11-Qt5.13.0
+  needs: [clang-c++11-Qt5.13.0]
   artifacts:
     paths:
        - build-Release-clang-cpp11-qt5.13.0/Testing/Temporary/LastTest.log
@@ -358,6 +366,7 @@ debug-test-clang-c++11-Qt5.13.0:
     - MultiThreads
   dependencies:
     - debug-clang-c++11-Qt5.13.0
+  needs: [debug-clang-c++11-Qt5.13.0]
   artifacts:
     paths:
        - build-Debug-clang-cpp11-qt5.13.0/Testing/Temporary/LastTest.log
@@ -421,6 +430,7 @@ Test:VS2015-Qt-5.10.1-x64:
     - Qt5101
   dependencies:
     - VS2015-Qt-5.10.1-x64
+  needs: [VS2015-Qt-5.10.1-x64]
   artifacts:
     paths:
       - rel/Testing/Temporary/LastTest.log
@@ -439,6 +449,7 @@ Test:VS2017-Qt-5.10.1:
     - Qt5101
   dependencies:
     - VS2017-Qt-5.10.1
+  needs: [VS2017-Qt-5.10.1]
   artifacts:
     paths:
       - rel/Testing/Temporary/LastTest.log
@@ -460,6 +471,7 @@ Deploy:VS2015-Qt-5.10.1-x64:
     - Qt5101
   dependencies:
     - VS2015-Qt-5.10.1-x64
+  needs: [VS2015-Qt-5.10.1-x64]
   artifacts:
     paths:
       - rel/*.exe
@@ -481,6 +493,7 @@ Deploy:VS2017-Qt-5.10.1:
     - Qt5101
   dependencies:
     - VS2017-Qt-5.10.1
+  needs: [VS2017-Qt-5.10.1]
   artifacts:
     paths:
       - rel/*.exe
@@ -508,6 +521,7 @@ Test:Mac-Cpp11:
     - qt5113
   dependencies:
     - Mac-Cpp11
+  needs: [Mac-Cpp11]
   artifacts:
     paths:
       - build-release/Testing/Temporary/LastTest.log
@@ -525,6 +539,7 @@ Deploy:Mac-Cpp11:
     - qt5113
   dependencies:
     - Mac-Cpp11
+  needs: [Mac-Cpp11]
   artifacts:
     paths:
       - build-release/*.dmg
