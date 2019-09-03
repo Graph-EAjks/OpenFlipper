@@ -217,6 +217,11 @@ if(NO_DECREMENT_DEPRECATED_WARNINGS)
   add_definitions( -DNO_DECREMENT_DEPRECATED_WARNINGS )
 endif()
 
+# do not show "opengl is deprecated" warnings
+if (APPLE)
+  add_definitions( -DGL_SILENCE_DEPRECATION )
+endif()
+
 find_package(ACG)
 
 # OpenMesh is a dependent project (in libs_required) so no finder is needed.
@@ -262,9 +267,24 @@ file (
 
 set( REMAINING_LOCAL_LIBS "" )
 
+# move the following libraries to the front of the list
+# to have add_subdirectory() order match the dependency graph.
+set( _local_libs_ordered "" )
+foreach(_pattern CoMISo OpenVolumeMesh libHexEx)
+    foreach (_localLib ${_local_libs_in})
+        if ( "${_localLib}" MATCHES ".*${_pattern}.*" )
+            LIST(APPEND _local_libs_ordered ${_localLib})
+        endif()
+    endforeach()
+endforeach()
+
+LIST(APPEND _local_libs_ordered ${_local_libs_in})
+LIST(REMOVE_DUPLICATES _local_libs_ordered)
+
+
 # Special Comiso case:
 # The library has to be configured first
-foreach (_localLib ${_local_libs_in})
+foreach (_localLib ${_local_libs_ordered})
   if ( "${_localLib}" MATCHES .*CoMISo.* )
     get_filename_component (_local_lib_dir ${_localLib} PATH)
     if ( NOT DEFINED LIB_COMISO_BUILD )
@@ -280,7 +300,6 @@ foreach (_localLib ${_local_libs_in})
     endif()
   endif()
 endforeach ()
-
 
 # add all found libs to the build
 foreach (_localLib ${REMAINING_LOCAL_LIBS})
