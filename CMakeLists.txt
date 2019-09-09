@@ -301,7 +301,6 @@ foreach (_localLib ${_local_libs_ordered})
   endif()
 endforeach ()
 
-
 # add all found libs to the build
 foreach (_localLib ${REMAINING_LOCAL_LIBS})
 
