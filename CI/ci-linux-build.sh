@@ -22,7 +22,7 @@ echo "Full cmake options: $OPTIONS  "
 ########################################
 rm -rf TestData
 #git clone git@roosevelt:moebius/OpenFlipper-Test-Data.git TestData
-git clone https://roosevelt:9000/moebius/OpenFlipper-Test-Data.git TestData
+git clone https://graphics.rwth-aachen.de:9000/moebius/OpenFlipper-Test-Data.git TestData
 
 
 #########################################
