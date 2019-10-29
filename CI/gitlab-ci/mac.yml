@@ -1,0 +1,45 @@
+Mac-Cpp11:
+  stage: Build
+  script: "CI/ci-mac-build.sh"
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  tags:
+    - Apple
+    - qt5113
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - artifacts
+
+Test:Mac-Cpp11:
+  stage: Test
+  script: "artifacts/CI/ci-mac-test.sh"
+  variables:
+    GIT_STRATEGY: none
+  tags:
+    - Apple
+    - qt5113
+  dependencies:
+    - Mac-Cpp11
+  needs: [Mac-Cpp11]
+  artifacts:
+    paths:
+      - build-release/Testing/Temporary/LastTest.log
+
+Deploy:Mac-Cpp11:
+  stage: Deploy
+  only:
+    - master
+    - unstable
+  script: "artifacts/CI/ci-mac-deploy.sh"
+  variables:
+    GIT_STRATEGY: none
+  tags:
+    - Apple
+    - qt5113
+  dependencies:
+    - Mac-Cpp11
+  needs: [Mac-Cpp11]
+  artifacts:
+    paths:
+      - build-release/*.dmg

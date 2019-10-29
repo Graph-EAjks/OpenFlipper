@@ -1,0 +1,48 @@
+stages:
+  - Build
+  - Test
+  - Deploy
+
+variables:
+  GET_SOURCES_ATTEMPTS: 3
+  CTEST_OUTPUT_ON_FAILURE: 1
+
+{linux.yml}
+
+{windows.yml}
+
+{mac.yml}
+
+Doc-publish:
+  stage: Deploy 
+  only:
+     - master
+     - unstable
+  script: "CI/ci-doc.sh"
+  tags:
+     - Linux
+     - stretch
+  dependencies: []
+  variables:
+     GIT_SUBMODULE_STRATEGY: recursive
+  artifacts:
+    paths:
+       - build-release/Doxygen-warning.log 
+       - build-release/Doxygen-error.log
+
+Sources:
+  stage: Deploy
+  only:
+     - master
+  script: "CI/ci-source.sh"
+  tags:
+     - Linux
+     - stretch
+  dependencies: []
+  variables:
+     GIT_SUBMODULE_STRATEGY: recursive
+  artifacts:
+    paths:
+      - OpenFlipper*.zip
+      - OpenFlipper*.tar.bz2
+      - OpenFlipper*.tar.gz
