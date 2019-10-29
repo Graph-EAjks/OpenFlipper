@@ -1,5 +1,6 @@
 gcc-c++11-Qt5.12.2:
   stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "gcc"     
     LANGUAGE:       "C++11"     
@@ -7,8 +8,7 @@ gcc-c++11-Qt5.12.2:
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
-    - Linux
-    - stretch
+    - Docker
   artifacts:
     expire_in: 1 week
     paths:
@@ -16,6 +16,7 @@ gcc-c++11-Qt5.12.2:
 
 test-gcc-c++11-Qt5.12.2:
   stage: Test
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "gcc"     
     LANGUAGE:       "C++11"     
@@ -23,8 +24,7 @@ test-gcc-c++11-Qt5.12.2:
     GIT_STRATEGY: none
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
-    - Linux
-    - stretch
+    - Docker
   dependencies:
     - gcc-c++11-Qt5.12.2
   needs: [gcc-c++11-Qt5.12.2]
@@ -34,6 +34,7 @@ test-gcc-c++11-Qt5.12.2:
 
 gcc-c++11-Qt5.12.2-nopython:
   stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "gcc"     
     LANGUAGE:       "C++11"     
@@ -42,8 +43,7 @@ gcc-c++11-Qt5.12.2-nopython:
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
-    - Linux
-    - stretch
+    - Docker
   artifacts:
     expire_in: 1 week
     paths:
@@ -51,6 +51,7 @@ gcc-c++11-Qt5.12.2-nopython:
 
 gcc-c++11-Qt5.11.2:
   stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "gcc"     
     LANGUAGE:       "C++11"     
@@ -58,8 +59,7 @@ gcc-c++11-Qt5.11.2:
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
-    - Linux
-    - stretch
+    - Docker
   artifacts:
     expire_in: 1 week
     paths:
@@ -67,6 +67,7 @@ gcc-c++11-Qt5.11.2:
 
 test-gcc-c++11-Qt5.11.2:
   stage: Test
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "gcc"     
     LANGUAGE:       "C++11"     
@@ -74,8 +75,7 @@ test-gcc-c++11-Qt5.11.2:
     GIT_STRATEGY: none
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
-    - Linux
-    - stretch
+    - Docker
   dependencies:
     - gcc-c++11-Qt5.11.2
   needs: [gcc-c++11-Qt5.11.2]
@@ -85,6 +85,7 @@ test-gcc-c++11-Qt5.11.2:
 
 gcc-c++11-Qt5.11.2-nopython:
   stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "gcc"     
     LANGUAGE:       "C++11"     
@@ -93,8 +94,7 @@ gcc-c++11-Qt5.11.2-nopython:
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
-    - Linux
-    - stretch
+    - Docker
   artifacts:
     expire_in: 1 week
     paths:
@@ -103,6 +103,7 @@ gcc-c++11-Qt5.11.2-nopython:
 
 gcc-c++11-Qt5.13.0:
   stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "gcc"     
     LANGUAGE:       "C++11"     
@@ -110,8 +111,7 @@ gcc-c++11-Qt5.13.0:
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
-    - Linux
-    - stretch
+    - Docker
   artifacts:
     expire_in: 1 week
     paths:
@@ -119,6 +119,7 @@ gcc-c++11-Qt5.13.0:
   
 test-gcc-c++11-Qt5.13.0:
   stage: Test
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "gcc"     
     LANGUAGE:       "C++11"     
@@ -126,8 +127,7 @@ test-gcc-c++11-Qt5.13.0:
     GIT_STRATEGY: none
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
-    - Linux
-    - stretch
+    - Docker
   dependencies:
     - gcc-c++11-Qt5.13.0
   needs: [gcc-c++11-Qt5.13.0]
@@ -135,10 +135,9 @@ test-gcc-c++11-Qt5.13.0:
     paths:
        - build-Release-gcc-cpp11-qt5.13.0/Testing/Temporary/LastTest.log  
   
-  
-  
 debug-gcc-c++11-Qt5.13.0:
   stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:
     COMPILER:       "gcc"
     LANGUAGE:       "C++11"
@@ -147,8 +146,7 @@ debug-gcc-c++11-Qt5.13.0:
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
-    - Linux
-    - stretch
+    - Docker
   artifacts:
     expire_in: 1 week
     paths:
@@ -156,6 +154,7 @@ debug-gcc-c++11-Qt5.13.0:
        
 debug-test-gcc-c++11-Qt5.13.0:
   stage: Test
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:
     COMPILER:       "gcc"
     LANGUAGE:       "C++11"
@@ -164,8 +163,7 @@ debug-test-gcc-c++11-Qt5.13.0:
     GIT_STRATEGY: none
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
-    - Linux
-    - stretch
+    - Docker
   dependencies:
     - debug-gcc-c++11-Qt5.13.0
   needs: [debug-gcc-c++11-Qt5.13.0]
@@ -176,6 +174,7 @@ debug-test-gcc-c++11-Qt5.13.0:
        
 gcc-c++11-Qt5.11.2:
   stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "gcc"
     LANGUAGE:       "C++11"
@@ -183,8 +182,7 @@ gcc-c++11-Qt5.11.2:
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
-    - Linux
-    - stretch
+    - Docker
   artifacts:
     expire_in: 1 week
     paths:
@@ -192,6 +190,7 @@ gcc-c++11-Qt5.11.2:
   
 test-gcc-c++11-Qt5.11.2:
   stage: Test
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "gcc"
     LANGUAGE:       "C++11"
@@ -199,8 +198,7 @@ test-gcc-c++11-Qt5.11.2:
     GIT_STRATEGY: none
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
-    - Linux
-    - stretch
+    - Docker
   dependencies:
     - gcc-c++11-Qt5.11.2
   needs: [gcc-c++11-Qt5.11.2]
@@ -211,6 +209,7 @@ test-gcc-c++11-Qt5.11.2:
   
 debug-gcc-c++11-Qt5.11.2:
   stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:
     COMPILER:       "gcc"
     LANGUAGE:       "C++11"
@@ -219,8 +218,7 @@ debug-gcc-c++11-Qt5.11.2:
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
-    - Linux
-    - stretch
+    - Docker
   artifacts:
     expire_in: 1 week
     paths:
@@ -228,6 +226,7 @@ debug-gcc-c++11-Qt5.11.2:
        
 debug-test-gcc-c++11-Qt5.11.2:
   stage: Test
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:
     COMPILER:       "gcc"
     LANGUAGE:       "C++11"
@@ -236,18 +235,16 @@ debug-test-gcc-c++11-Qt5.11.2:
     GIT_STRATEGY: none
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
-    - Linux
-    - stretch
+    - Docker
   dependencies:
     - debug-gcc-c++11-Qt5.11.2
   needs: [debug-gcc-c++11-Qt5.11.2]
   artifacts:
     paths:
        - build-Debug-gcc-cpp11-qt5.11.2/Testing/Temporary/LastTest.log
-       
-  
 
 clang-c++11-Qt5.11.2:
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   stage: Build
   variables:
     COMPILER:       "clang"     
@@ -256,15 +253,14 @@ clang-c++11-Qt5.11.2:
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
-    - Linux
-    - stretch
-    - MultiThreads
+    - Docker
   artifacts:
     expire_in: 1 week
     paths:
        - artifacts
 
 clang-c++11-Qt5.13.0:
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   stage: Build
   variables:
     COMPILER:       "clang"     
@@ -273,15 +269,14 @@ clang-c++11-Qt5.13.0:
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
-    - Linux
-    - stretch
-    - MultiThreads
+    - Docker
   artifacts:
     expire_in: 1 week
     paths:
        - artifacts
 
 debug-clang-c++11-Qt5.13.0:
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   stage: Build
   variables:
     COMPILER:       "clang"
@@ -291,15 +286,14 @@ debug-clang-c++11-Qt5.13.0:
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
-    - Linux
-    - stretch
-    - MultiThreads
+    - Docker
   artifacts:
     expire_in: 1 week
     paths:
        - artifacts
 
 test-clang-c++11-Qt5.11.2:
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   stage: Test
   variables:
     COMPILER:       "clang"     
@@ -308,9 +302,7 @@ test-clang-c++11-Qt5.11.2:
     GIT_STRATEGY: none
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
-    - Linux
-    - stretch
-    - MultiThreads
+    - Docker
   dependencies:
     - clang-c++11-Qt5.11.2
   needs: [clang-c++11-Qt5.11.2]
@@ -319,6 +311,7 @@ test-clang-c++11-Qt5.11.2:
        - build-Release-clang-cpp11-qt5/Testing/Temporary/LastTest.log
 
 test-clang-c++11-Qt5.13.0:
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   stage: Test
   variables:
     COMPILER:       "clang"     
@@ -327,9 +320,7 @@ test-clang-c++11-Qt5.13.0:
     GIT_STRATEGY: none
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
-    - Linux
-    - stretch
-    - MultiThreads
+    - Docker
   dependencies:
     - clang-c++11-Qt5.13.0
   needs: [clang-c++11-Qt5.13.0]
@@ -338,6 +329,7 @@ test-clang-c++11-Qt5.13.0:
        - build-Release-clang-cpp11-qt5.13.0/Testing/Temporary/LastTest.log
 
 debug-test-clang-c++11-Qt5.13.0:
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   stage: Test
   variables:
     COMPILER:       "clang"
@@ -347,9 +339,7 @@ debug-test-clang-c++11-Qt5.13.0:
     GIT_STRATEGY: none
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
-    - Linux
-    - stretch
-    - MultiThreads
+    - Docker
   dependencies:
     - debug-clang-c++11-Qt5.13.0
   needs: [debug-clang-c++11-Qt5.13.0]
@@ -358,14 +348,13 @@ debug-test-clang-c++11-Qt5.13.0:
        - build-Debug-clang-cpp11-qt5.13.0/Testing/Temporary/LastTest.log
 
 cppcheck:
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   stage: Build
   script: "CI/ci-cppcheck.sh"
   variables:
      GIT_SUBMODULE_STRATEGY: recursive
   tags:
-    - Linux
-    - stretch
-    - MultiThreads
+    - Docker
   artifacts:
     paths:
       - cppcheck.log
