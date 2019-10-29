@@ -22,7 +22,7 @@ rm -rf artifacts
 ########################################
 rm -rf TestData
 #git clone git@roosevelt:moebius/OpenFlipper-Test-Data.git TestData
-git clone https://roosevelt:moebius/OpenFlipper-Test-Data.git TestData
+git clone https://roosevelt:9000/moebius/OpenFlipper-Test-Data.git TestData
 
 #########################################
 # Run Release Unittests
