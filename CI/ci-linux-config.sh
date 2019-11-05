@@ -21,7 +21,7 @@ if [ "$COMPILER" == "gcc" ]; then
   BUILDPATH="$BUILDPATH-gcc"
 
   # without icecc: no options required
-  OPTIONS="$OPTIONS -DCMAKE_CXX_COMPILER=/usr/bin/g++ -DCMAKE_C_COMPILER=/usr/bin/gcc -DQT_NO_VERSION_TAGGING"
+  OPTIONS="$OPTIONS -DCMAKE_CXX_COMPILER=/usr/bin/g++ -DCMAKE_C_COMPILER=/usr/bin/gcc -DQT_NO_VERSION_TAGGING "
   MAKE_OPTIONS="-j16"
   export ICECC_CXX=/usr/bin/g++ ; export ICECC_CC=/usr/bin/gcc
 
