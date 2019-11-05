@@ -29,9 +29,6 @@ elif [ "$COMPILER" == "clang" ]; then
 
   OPTIONS="$OPTIONS -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang -DGTEST_PREFIX=~/sw/gtest-1.8.0-clang/ "
 
-# DEEBUG ++++++++++++++++++++++++++++++++
-  OPTIONS="$OPTIONS -DCMAKE_VERBOSE_MAKEFILE=ON"
-
 #  Build options with icecc /not working due to strange symbol errors
 #  OPTIONS="$OPTIONS -DCMAKE_CXX_COMPILER=/usr/lib/icecc/bin/g++ -DCMAKE_C_COMPILER=/usr/lib/icecc/bin/gcc -DGTEST_PREFIX=~/sw/gtest-1.7.0-clang/ "
 #  export ICECC_CXX=/usr/bin/clang++ ; export ICECC_CC=/usr/bin/clang
