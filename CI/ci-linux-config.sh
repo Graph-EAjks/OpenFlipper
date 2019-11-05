@@ -21,7 +21,7 @@ if [ "$COMPILER" == "gcc" ]; then
   BUILDPATH="$BUILDPATH-gcc"
 
   # without icecc: no options required
-  OPTIONS="$OPTIONS -DCMAKE_CXX_COMPILER=/usr/bin/g++ -DCMAKE_C_COMPILER=/usr/bin/gcc -DQT_NO_VERSION_TAGGING=TRUE "
+  OPTIONS="$OPTIONS -DCMAKE_CXX_COMPILER=/usr/bin/g++ -DCMAKE_C_COMPILER=/usr/bin/gcc "
   MAKE_OPTIONS="-j16"
   export ICECC_CXX=/usr/bin/g++ ; export ICECC_CC=/usr/bin/gcc
 
@@ -69,6 +69,8 @@ fi
 if [ "$PYTHON" == "no" ]; then
   OPTIONS="$OPTIONS -DDISABLE_OPENFLIPPER_PYTHON_SYSTEM=TRUE"
 fi
+
+OPTIONS="$OPTIONS -DQT_NO_VERSION_TAGGING=TRUE"
 
 if test -z "$SSH_PRIVATE_KEY" 
 then
