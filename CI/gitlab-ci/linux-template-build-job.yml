@@ -1,0 +1,44 @@
+#----------- Jobs:
+# Type:       Build
+# OS:         Linux
+# Compiler:   {{COMPILER}}
+# Language:   {{LANGUAGE}}
+# QT Version: {{QTVERSION}}
+
+build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}:
+  stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "{{COMPILER}}"     
+    LANGUAGE:       "{{LANGUAGE}}"     
+    QTVERSION:      "{{QTVERSION}}"     
+    BUILDTYPE:      "{{BUILDTYPE}}"
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Docker
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - artifacts
+
+build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}-nopython:
+  stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "{{COMPILER}}"     
+    LANGUAGE:       "{{LANGUAGE}}"     
+    QTVERSION:      "{{QTVERSION}}" 
+    BUILDTYPE:      "{{BUILDTYPE}}"
+    PYTHON:	    "no" 
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Docker
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - artifacts  
+
+#
+#-----------

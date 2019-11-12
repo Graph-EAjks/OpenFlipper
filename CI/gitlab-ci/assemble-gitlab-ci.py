@@ -8,9 +8,12 @@ master_file = 'ci-master.yml'
 # Lines in the master file are copied to the resulting
 # assemblied gitlab ci file
 target_file = '../../.gitlab-ci.yml'
-# Lines containing the String {xxx} are interpreted
+# Lines that are {xxx} Strings are interpreted
 # as import statement. Therefore the file xxx is imported
 # into that line.
+# Lines that are {xxx,option1=...,option2=...} includes
+# the file xxx but replaces {{option1}} etc with specified
+# string.
 error_on_path_redirection = True
 # Notice that xxx can not contain path redirections
 # like .. and /
@@ -52,13 +55,31 @@ def readFile(filename):
     file.close()
     return content
 
+# Parse File Import String for variable replacements
+def fetchVariableReplacers(variablesGrep):
+    if (variablesGrep == None):
+        return {}
+
+    regex_option = r"([^\}\n\=,]+)\=([^\}\n\=,]+)"
+    pattern = re.compile(regex_option, flags=re.MULTILINE)
+    result = {}
+
+    for (key, value) in re.findall(pattern, variablesGrep):
+
+        if (key != None and value != None):
+            key = key.strip()
+            result[key] = value
+
+    return result
+
+
 # Assembles the file in memory and returns file content as string
 def assembleTarget(master, depth=3):
     if depth < 0:
         raise "Max depth reached. Possible circular import?"
 
     master_content = readFile(master)
-    regex_import_stmt = r"^\ *\{([^\}\n]+)\}\ *$"
+    regex_import_stmt = r"^\ *\{([^\},\n]+)(,[^=\n\}\,]+\=[^\}\n,]*)*\}\ *$"
     regex_import_comp = re.compile(regex_import_stmt)
     master_content_list = master_content.splitlines()
 
@@ -76,8 +97,17 @@ def assembleTarget(master, depth=3):
 
                 if not isValidImportFilename(importFile):
                     raise "Invalid filename "+importFile+ ". Do not include path redirections"
+                
+                variablesGrep = match.string
+                variableReplacers = fetchVariableReplacers(variablesGrep)
+
+                print("\tReplacers: ", variableReplacers)
 
                 import_content = assembleTarget(importFile, depth=depth-1)
+
+                for key, value in variableReplacers.items():
+                    import_content = import_content.replace(r"{{"+key+r"}}", value)
+
                 import_content_list = import_content.splitlines()
                 master_content_list.pop(cur_index)
                 for new_line in reversed(import_content_list):

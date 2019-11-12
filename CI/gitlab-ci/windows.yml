@@ -1,3 +1,9 @@
+##############################
+#
+#    WINDOWS JOBS
+#
+##############################
+
 VS2015-Qt-5.10.1-x64:
   stage: Build
   script: "CI\\ci-windows-build.bat"
