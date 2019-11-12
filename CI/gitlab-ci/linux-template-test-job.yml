@@ -18,11 +18,11 @@ test-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}:
   tags:
     - Docker
   dependencies:
-    - {{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}
+    - build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}
   needs: [{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}]
   artifacts:
     paths:
-       - build-Release-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}/Testing/Temporary/LastTest.log   
+       - build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}/Testing/Temporary/LastTest.log   
 
 #
 #-----------
