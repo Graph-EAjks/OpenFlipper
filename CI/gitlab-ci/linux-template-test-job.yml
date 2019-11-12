@@ -19,7 +19,7 @@ test-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}:
     - Docker
   dependencies:
     - build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}
-  needs: [{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}]
+  needs: [build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}]
   artifacts:
     paths:
        - build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}/Testing/Temporary/LastTest.log   

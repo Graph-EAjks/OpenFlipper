@@ -92,7 +92,7 @@ test-Debug-gcc-cpp11-qt5.11.2:
     - Docker
   dependencies:
     - build-Debug-gcc-cpp11-qt5.11.2
-  needs: [gcc-cpp11-qt5.11.2]
+  needs: [build-Debug-gcc-cpp11-qt5.11.2]
   artifacts:
     paths:
        - build-Debug-gcc-cpp11-qt5.11.2/Testing/Temporary/LastTest.log   
@@ -165,7 +165,7 @@ test-Debug-clang-cpp11-qt5.11.2:
     - Docker
   dependencies:
     - build-Debug-clang-cpp11-qt5.11.2
-  needs: [clang-cpp11-qt5.11.2]
+  needs: [build-Debug-clang-cpp11-qt5.11.2]
   artifacts:
     paths:
        - build-Debug-clang-cpp11-qt5.11.2/Testing/Temporary/LastTest.log   
@@ -239,7 +239,7 @@ test-Debug-gcc-cpp11-qt5.12.2:
     - Docker
   dependencies:
     - build-Debug-gcc-cpp11-qt5.12.2
-  needs: [gcc-cpp11-qt5.12.2]
+  needs: [build-Debug-gcc-cpp11-qt5.12.2]
   artifacts:
     paths:
        - build-Debug-gcc-cpp11-qt5.12.2/Testing/Temporary/LastTest.log   
@@ -312,7 +312,7 @@ test-Debug-clang-cpp11-qt5.12.2:
     - Docker
   dependencies:
     - build-Debug-clang-cpp11-qt5.12.2
-  needs: [clang-cpp11-qt5.12.2]
+  needs: [build-Debug-clang-cpp11-qt5.12.2]
   artifacts:
     paths:
        - build-Debug-clang-cpp11-qt5.12.2/Testing/Temporary/LastTest.log   
@@ -386,7 +386,7 @@ test-Debug-gcc-cpp11-qt5.13.0:
     - Docker
   dependencies:
     - build-Debug-gcc-cpp11-qt5.13.0
-  needs: [gcc-cpp11-qt5.13.0]
+  needs: [build-Debug-gcc-cpp11-qt5.13.0]
   artifacts:
     paths:
        - build-Debug-gcc-cpp11-qt5.13.0/Testing/Temporary/LastTest.log   
@@ -459,7 +459,7 @@ test-Debug-clang-cpp11-qt5.13.0:
     - Docker
   dependencies:
     - build-Debug-clang-cpp11-qt5.13.0
-  needs: [clang-cpp11-qt5.13.0]
+  needs: [build-Debug-clang-cpp11-qt5.13.0]
   artifacts:
     paths:
        - build-Debug-clang-cpp11-qt5.13.0/Testing/Temporary/LastTest.log   
@@ -533,7 +533,7 @@ test-Debug-gcc-cpp11-qt5.13.2:
     - Docker
   dependencies:
     - build-Debug-gcc-cpp11-qt5.13.2
-  needs: [gcc-cpp11-qt5.13.2]
+  needs: [build-Debug-gcc-cpp11-qt5.13.2]
   artifacts:
     paths:
        - build-Debug-gcc-cpp11-qt5.13.2/Testing/Temporary/LastTest.log   
@@ -606,7 +606,7 @@ test-Debug-clang-cpp11-qt5.13.2:
     - Docker
   dependencies:
     - build-Debug-clang-cpp11-qt5.13.2
-  needs: [clang-cpp11-qt5.13.2]
+  needs: [build-Debug-clang-cpp11-qt5.13.2]
   artifacts:
     paths:
        - build-Debug-clang-cpp11-qt5.13.2/Testing/Temporary/LastTest.log   
@@ -682,7 +682,7 @@ test-Release-gcc-cpp11-qt5.11.2:
     - Docker
   dependencies:
     - build-Release-gcc-cpp11-qt5.11.2
-  needs: [gcc-cpp11-qt5.11.2]
+  needs: [build-Release-gcc-cpp11-qt5.11.2]
   artifacts:
     paths:
        - build-Release-gcc-cpp11-qt5.11.2/Testing/Temporary/LastTest.log   
@@ -755,7 +755,7 @@ test-Release-clang-cpp11-qt5.11.2:
     - Docker
   dependencies:
     - build-Release-clang-cpp11-qt5.11.2
-  needs: [clang-cpp11-qt5.11.2]
+  needs: [build-Release-clang-cpp11-qt5.11.2]
   artifacts:
     paths:
        - build-Release-clang-cpp11-qt5.11.2/Testing/Temporary/LastTest.log   
@@ -829,7 +829,7 @@ test-Release-gcc-cpp11-qt5.12.2:
     - Docker
   dependencies:
     - build-Release-gcc-cpp11-qt5.12.2
-  needs: [gcc-cpp11-qt5.12.2]
+  needs: [build-Release-gcc-cpp11-qt5.12.2]
   artifacts:
     paths:
        - build-Release-gcc-cpp11-qt5.12.2/Testing/Temporary/LastTest.log   
@@ -902,7 +902,7 @@ test-Release-clang-cpp11-qt5.12.2:
     - Docker
   dependencies:
     - build-Release-clang-cpp11-qt5.12.2
-  needs: [clang-cpp11-qt5.12.2]
+  needs: [build-Release-clang-cpp11-qt5.12.2]
   artifacts:
     paths:
        - build-Release-clang-cpp11-qt5.12.2/Testing/Temporary/LastTest.log   
@@ -976,7 +976,7 @@ test-Release-gcc-cpp11-qt5.13.0:
     - Docker
   dependencies:
     - build-Release-gcc-cpp11-qt5.13.0
-  needs: [gcc-cpp11-qt5.13.0]
+  needs: [build-Release-gcc-cpp11-qt5.13.0]
   artifacts:
     paths:
        - build-Release-gcc-cpp11-qt5.13.0/Testing/Temporary/LastTest.log   
@@ -1049,7 +1049,7 @@ test-Release-clang-cpp11-qt5.13.0:
     - Docker
   dependencies:
     - build-Release-clang-cpp11-qt5.13.0
-  needs: [clang-cpp11-qt5.13.0]
+  needs: [build-Release-clang-cpp11-qt5.13.0]
   artifacts:
     paths:
        - build-Release-clang-cpp11-qt5.13.0/Testing/Temporary/LastTest.log   
@@ -1123,7 +1123,7 @@ test-Release-gcc-cpp11-qt5.13.2:
     - Docker
   dependencies:
     - build-Release-gcc-cpp11-qt5.13.2
-  needs: [gcc-cpp11-qt5.13.2]
+  needs: [build-Release-gcc-cpp11-qt5.13.2]
   artifacts:
     paths:
        - build-Release-gcc-cpp11-qt5.13.2/Testing/Temporary/LastTest.log   
@@ -1196,7 +1196,7 @@ test-Release-clang-cpp11-qt5.13.2:
     - Docker
   dependencies:
     - build-Release-clang-cpp11-qt5.13.2
-  needs: [clang-cpp11-qt5.13.2]
+  needs: [build-Release-clang-cpp11-qt5.13.2]
   artifacts:
     paths:
        - build-Release-clang-cpp11-qt5.13.2/Testing/Temporary/LastTest.log   
