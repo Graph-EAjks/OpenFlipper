@@ -1,5 +1,5 @@
-#----------- Jobs:
-# Type:       Build
+#-----------  Job Informations:
+# Type:       Build: {{BUILDTYPE}}
 # OS:         Linux
 # Compiler:   {{COMPILER}}
 # Language:   {{LANGUAGE}}

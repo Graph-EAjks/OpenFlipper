@@ -1,5 +1,5 @@
-#----------- Jobs:
-# Type:       Test
+#-----------  Job Informations:
+# Type:       Test: {{BUILDTYPE}}
 # OS:         Linux
 # Compiler:   {{COMPILER}}
 # Language:   {{LANGUAGE}}
