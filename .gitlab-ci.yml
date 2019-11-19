@@ -25,6 +25,32 @@ variables:
 #
 ##############################
 
+test1:
+  stage: Test
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "gcc"     
+    LANGUAGE:       "cpp11"     
+    QTVERSION:      "qt5.11.2"     
+    BUILDTYPE:      "debug"
+    GIT_STRATEGY: none
+  script: "ls -lah && ls -lah CI/"
+  tags:
+    - Docker
+
+test2:
+  stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "gcc"     
+    LANGUAGE:       "cpp11"     
+    QTVERSION:      "qt5.11.2"     
+    BUILDTYPE:      "debug"
+    GIT_STRATEGY: none
+  script: "ls -lah && ls -lah CI/"
+  tags:
+    - Docker
+
 #-----------  Job Informations:
 # Type:       Build: debug
 # OS:         Linux
