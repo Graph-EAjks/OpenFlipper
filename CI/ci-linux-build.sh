@@ -11,8 +11,8 @@ set -e
 
 
 #include ci options script
-MY_DIR=$(dirname $(readlink -f $0))
-source $MY_DIR/ci-linux-config.sh
+#MY_DIR=$(dirname $(readlink -f $0))
+source CI/ci-linux-config.sh
 
 echo "Building with path: $BUILDPATH"
 echo "Full cmake options: $OPTIONS  "

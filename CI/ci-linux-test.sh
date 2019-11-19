@@ -10,12 +10,11 @@ set -e
 # BUILDTYPE= Debug / Release
 
 #include ci options script
-MY_DIR=$(dirname $(readlink -f $0))
-source $MY_DIR/ci-linux-config.sh
+#MY_DIR=$(dirname $(readlink -f $0))
+source CI/ci-linux-config.sh
 
 # copy artifact files to toplevel and remove subdirectory
-rsync -a $MY_DIR/.. $MY_DIR/../..
-rm -rf artifacts
+#rsync -a $MY_DIR/.. $MY_DIR/../..
 
 ########################################
 # Fetch test data

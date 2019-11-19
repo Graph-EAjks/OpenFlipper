@@ -6,6 +6,7 @@
 # To make persistent changes changes files in               #
 # ./CI/gitlab-ci/ ...                                       #
 # and regenerate this file with the configuration tool      #
+# python3 ./CI/gitlab-ci/assemble-gitlab-ci.py              #
 #                                                           #
 #############################################################
 
