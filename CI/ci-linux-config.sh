@@ -74,8 +74,6 @@ if [ "$PYTHON" == "no" ]; then
   OPTIONS="$OPTIONS -DDISABLE_OPENFLIPPER_PYTHON_SYSTEM=TRUE"
 fi
 
-echo "Running as user $(whoami)"
-
 if test -z "$SSH_PRIVATE_KEY" 
 then
     echo Skipping ssh environment preparation
