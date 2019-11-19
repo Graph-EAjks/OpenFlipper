@@ -86,3 +86,5 @@ else
     mkdir -p ~/.ssh
     chmod 700 ~/.ssh
 fi
+
+git -C "~/sw" pull origin master
