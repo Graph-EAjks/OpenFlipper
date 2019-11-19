@@ -14,7 +14,7 @@ test-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}:
     QTVERSION:      "{{QTVERSION}}"     
     BUILDTYPE:      "{{BUILDTYPE}}"
     GIT_STRATEGY: none
-  script: "artifacts/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -34,7 +34,7 @@ test-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}-nopython:
     BUILDTYPE:      "{{BUILDTYPE}}"
     PYTHON:	    "no" 
     GIT_STRATEGY: none
-  script: "artifacts/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
