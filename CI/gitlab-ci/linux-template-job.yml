@@ -5,3 +5,4 @@
 {linux-template-build-job.yml, BUILDTYPE=release}
 
 {linux-template-test-job.yml, BUILDTYPE=release}
+

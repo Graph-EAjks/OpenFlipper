@@ -204,6 +204,7 @@ test-release-gcc-cpp11-qt5.11.2-nopython:
 
 #
 #-----------
+
 #-----------  Job Informations:
 # Type:       Build: debug
 # OS:         Linux
@@ -384,6 +385,7 @@ test-release-clang-cpp11-qt5.11.2-nopython:
 #
 #-----------
 
+
 #-----------  Job Informations:
 # Type:       Build: debug
 # OS:         Linux
@@ -563,6 +565,7 @@ test-release-gcc-cpp11-qt5.12.2-nopython:
 
 #
 #-----------
+
 #-----------  Job Informations:
 # Type:       Build: debug
 # OS:         Linux
@@ -743,6 +746,7 @@ test-release-clang-cpp11-qt5.12.2-nopython:
 #
 #-----------
 
+
 #-----------  Job Informations:
 # Type:       Build: debug
 # OS:         Linux
@@ -922,6 +926,7 @@ test-release-gcc-cpp11-qt5.13.0-nopython:
 
 #
 #-----------
+
 #-----------  Job Informations:
 # Type:       Build: debug
 # OS:         Linux
@@ -1102,6 +1107,7 @@ test-release-clang-cpp11-qt5.13.0-nopython:
 #
 #-----------
 
+
 #-----------  Job Informations:
 # Type:       Build: debug
 # OS:         Linux
@@ -1281,6 +1287,7 @@ test-release-gcc-cpp11-qt5.13.2-nopython:
 
 #
 #-----------
+
 #-----------  Job Informations:
 # Type:       Build: debug
 # OS:         Linux
@@ -1460,6 +1467,7 @@ test-release-clang-cpp11-qt5.13.2-nopython:
 
 #
 #-----------
+
 
 
 cppcheck:
