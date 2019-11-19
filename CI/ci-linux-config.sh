@@ -87,4 +87,8 @@ else
     chmod 700 ~/.ssh
 fi
 
-git -C "/root/sw" pull origin master
+if [ ! -d "~/sw/.git" ]; then
+    echo Library update skipped
+else
+  git -C "~/sw" pull origin master
+fi
