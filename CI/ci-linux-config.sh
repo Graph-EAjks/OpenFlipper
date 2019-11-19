@@ -7,7 +7,7 @@ BUILDPATH="build"
 
 #set default Build type to Release
 if [ "$BUILDTYPE" == "" ]; then
-  BUILDTYPE="Release"
+  BUILDTYPE="release"
 fi
 
 # set buildpath according to buildtype

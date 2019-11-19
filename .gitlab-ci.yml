@@ -24,23 +24,21 @@ variables:
 #
 ##############################
 
-# Debug jobs
-
 #-----------  Job Informations:
-# Type:       Build: Debug
+# Type:       Build: debug
 # OS:         Linux
 # Compiler:   gcc
 # Language:   cpp11
 # QT Version: qt5.11.2
 
-build-Debug-gcc-cpp11-qt5.11.2:
+build-debug-gcc-cpp11-qt5.11.2:
   stage: Build
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "gcc"     
     LANGUAGE:       "cpp11"     
     QTVERSION:      "qt5.11.2"     
-    BUILDTYPE:      "Debug"
+    BUILDTYPE:      "debug"
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
@@ -48,16 +46,16 @@ build-Debug-gcc-cpp11-qt5.11.2:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-Debug-gcc-cpp11-qt5.11.2/
+       - build-debug-gcc-cpp11-qt5.11.2/
 
-build-Debug-gcc-cpp11-qt5.11.2-nopython:
+build-debug-gcc-cpp11-qt5.11.2-nopython:
   stage: Build
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "gcc"     
     LANGUAGE:       "cpp11"     
     QTVERSION:      "qt5.11.2" 
-    BUILDTYPE:      "Debug"
+    BUILDTYPE:      "debug"
     PYTHON:	    "no" 
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
@@ -66,571 +64,55 @@ build-Debug-gcc-cpp11-qt5.11.2-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-Debug-gcc-cpp11-qt5.11.2/  
+       - build-debug-gcc-cpp11-qt5.11.2/  
 
 #
 #-----------
 
 #-----------  Job Informations:
-# Type:       Test: Debug
+# Type:       Test: debug
 # OS:         Linux
 # Compiler:   gcc
 # Language:   cpp11
 # QT Version: qt5.11.2
 
-test-Debug-gcc-cpp11-qt5.11.2:
+test-debug-gcc-cpp11-qt5.11.2:
   stage: Test
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "gcc"     
     LANGUAGE:       "cpp11"     
     QTVERSION:      "qt5.11.2"     
-    BUILDTYPE:      "Debug"
+    BUILDTYPE:      "debug"
     GIT_STRATEGY: none
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
-    - build-Debug-gcc-cpp11-qt5.11.2
-  needs: [build-Debug-gcc-cpp11-qt5.11.2]
+    - build-debug-gcc-cpp11-qt5.11.2
+  needs: [build-debug-gcc-cpp11-qt5.11.2]
   artifacts:
     paths:
-       - build-Debug-gcc-cpp11-qt5.11.2/Testing/Temporary/LastTest.log   
-
-#
-#-----------
-#-----------  Job Informations:
-# Type:       Build: Debug
-# OS:         Linux
-# Compiler:   clang
-# Language:   cpp11
-# QT Version: qt5.11.2
-
-build-Debug-clang-cpp11-qt5.11.2:
-  stage: Build
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
-  variables:     
-    COMPILER:       "clang"     
-    LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.11.2"     
-    BUILDTYPE:      "Debug"
-    GIT_SUBMODULE_STRATEGY: recursive
-  script: "CI/ci-linux-build.sh"
-  tags:
-    - Docker
-  artifacts:
-    expire_in: 1 week
-    paths:
-       - build-Debug-clang-cpp11-qt5.11.2/
-
-build-Debug-clang-cpp11-qt5.11.2-nopython:
-  stage: Build
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
-  variables:     
-    COMPILER:       "clang"     
-    LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.11.2" 
-    BUILDTYPE:      "Debug"
-    PYTHON:	    "no" 
-    GIT_SUBMODULE_STRATEGY: recursive
-  script: "CI/ci-linux-build.sh"
-  tags:
-    - Docker
-  artifacts:
-    expire_in: 1 week
-    paths:
-       - build-Debug-clang-cpp11-qt5.11.2/  
+       - build-debug-gcc-cpp11-qt5.11.2/Testing/Temporary/LastTest.log   
 
 #
 #-----------
 
 #-----------  Job Informations:
-# Type:       Test: Debug
-# OS:         Linux
-# Compiler:   clang
-# Language:   cpp11
-# QT Version: qt5.11.2
-
-test-Debug-clang-cpp11-qt5.11.2:
-  stage: Test
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
-  variables:     
-    COMPILER:       "clang"     
-    LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.11.2"     
-    BUILDTYPE:      "Debug"
-    GIT_STRATEGY: none
-  script: "artifacts/CI/ci-linux-test.sh"
-  tags:
-    - Docker
-  dependencies:
-    - build-Debug-clang-cpp11-qt5.11.2
-  needs: [build-Debug-clang-cpp11-qt5.11.2]
-  artifacts:
-    paths:
-       - build-Debug-clang-cpp11-qt5.11.2/Testing/Temporary/LastTest.log   
-
-#
-#-----------
-
-#-----------  Job Informations:
-# Type:       Build: Debug
-# OS:         Linux
-# Compiler:   gcc
-# Language:   cpp11
-# QT Version: qt5.12.2
-
-build-Debug-gcc-cpp11-qt5.12.2:
-  stage: Build
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
-  variables:     
-    COMPILER:       "gcc"     
-    LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.12.2"     
-    BUILDTYPE:      "Debug"
-    GIT_SUBMODULE_STRATEGY: recursive
-  script: "CI/ci-linux-build.sh"
-  tags:
-    - Docker
-  artifacts:
-    expire_in: 1 week
-    paths:
-       - build-Debug-gcc-cpp11-qt5.12.2/
-
-build-Debug-gcc-cpp11-qt5.12.2-nopython:
-  stage: Build
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
-  variables:     
-    COMPILER:       "gcc"     
-    LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.12.2" 
-    BUILDTYPE:      "Debug"
-    PYTHON:	    "no" 
-    GIT_SUBMODULE_STRATEGY: recursive
-  script: "CI/ci-linux-build.sh"
-  tags:
-    - Docker
-  artifacts:
-    expire_in: 1 week
-    paths:
-       - build-Debug-gcc-cpp11-qt5.12.2/  
-
-#
-#-----------
-
-#-----------  Job Informations:
-# Type:       Test: Debug
-# OS:         Linux
-# Compiler:   gcc
-# Language:   cpp11
-# QT Version: qt5.12.2
-
-test-Debug-gcc-cpp11-qt5.12.2:
-  stage: Test
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
-  variables:     
-    COMPILER:       "gcc"     
-    LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.12.2"     
-    BUILDTYPE:      "Debug"
-    GIT_STRATEGY: none
-  script: "artifacts/CI/ci-linux-test.sh"
-  tags:
-    - Docker
-  dependencies:
-    - build-Debug-gcc-cpp11-qt5.12.2
-  needs: [build-Debug-gcc-cpp11-qt5.12.2]
-  artifacts:
-    paths:
-       - build-Debug-gcc-cpp11-qt5.12.2/Testing/Temporary/LastTest.log   
-
-#
-#-----------
-#-----------  Job Informations:
-# Type:       Build: Debug
-# OS:         Linux
-# Compiler:   clang
-# Language:   cpp11
-# QT Version: qt5.12.2
-
-build-Debug-clang-cpp11-qt5.12.2:
-  stage: Build
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
-  variables:     
-    COMPILER:       "clang"     
-    LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.12.2"     
-    BUILDTYPE:      "Debug"
-    GIT_SUBMODULE_STRATEGY: recursive
-  script: "CI/ci-linux-build.sh"
-  tags:
-    - Docker
-  artifacts:
-    expire_in: 1 week
-    paths:
-       - build-Debug-clang-cpp11-qt5.12.2/
-
-build-Debug-clang-cpp11-qt5.12.2-nopython:
-  stage: Build
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
-  variables:     
-    COMPILER:       "clang"     
-    LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.12.2" 
-    BUILDTYPE:      "Debug"
-    PYTHON:	    "no" 
-    GIT_SUBMODULE_STRATEGY: recursive
-  script: "CI/ci-linux-build.sh"
-  tags:
-    - Docker
-  artifacts:
-    expire_in: 1 week
-    paths:
-       - build-Debug-clang-cpp11-qt5.12.2/  
-
-#
-#-----------
-
-#-----------  Job Informations:
-# Type:       Test: Debug
-# OS:         Linux
-# Compiler:   clang
-# Language:   cpp11
-# QT Version: qt5.12.2
-
-test-Debug-clang-cpp11-qt5.12.2:
-  stage: Test
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
-  variables:     
-    COMPILER:       "clang"     
-    LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.12.2"     
-    BUILDTYPE:      "Debug"
-    GIT_STRATEGY: none
-  script: "artifacts/CI/ci-linux-test.sh"
-  tags:
-    - Docker
-  dependencies:
-    - build-Debug-clang-cpp11-qt5.12.2
-  needs: [build-Debug-clang-cpp11-qt5.12.2]
-  artifacts:
-    paths:
-       - build-Debug-clang-cpp11-qt5.12.2/Testing/Temporary/LastTest.log   
-
-#
-#-----------
-
-#-----------  Job Informations:
-# Type:       Build: Debug
-# OS:         Linux
-# Compiler:   gcc
-# Language:   cpp11
-# QT Version: qt5.13.0
-
-build-Debug-gcc-cpp11-qt5.13.0:
-  stage: Build
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
-  variables:     
-    COMPILER:       "gcc"     
-    LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.13.0"     
-    BUILDTYPE:      "Debug"
-    GIT_SUBMODULE_STRATEGY: recursive
-  script: "CI/ci-linux-build.sh"
-  tags:
-    - Docker
-  artifacts:
-    expire_in: 1 week
-    paths:
-       - build-Debug-gcc-cpp11-qt5.13.0/
-
-build-Debug-gcc-cpp11-qt5.13.0-nopython:
-  stage: Build
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
-  variables:     
-    COMPILER:       "gcc"     
-    LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.13.0" 
-    BUILDTYPE:      "Debug"
-    PYTHON:	    "no" 
-    GIT_SUBMODULE_STRATEGY: recursive
-  script: "CI/ci-linux-build.sh"
-  tags:
-    - Docker
-  artifacts:
-    expire_in: 1 week
-    paths:
-       - build-Debug-gcc-cpp11-qt5.13.0/  
-
-#
-#-----------
-
-#-----------  Job Informations:
-# Type:       Test: Debug
-# OS:         Linux
-# Compiler:   gcc
-# Language:   cpp11
-# QT Version: qt5.13.0
-
-test-Debug-gcc-cpp11-qt5.13.0:
-  stage: Test
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
-  variables:     
-    COMPILER:       "gcc"     
-    LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.13.0"     
-    BUILDTYPE:      "Debug"
-    GIT_STRATEGY: none
-  script: "artifacts/CI/ci-linux-test.sh"
-  tags:
-    - Docker
-  dependencies:
-    - build-Debug-gcc-cpp11-qt5.13.0
-  needs: [build-Debug-gcc-cpp11-qt5.13.0]
-  artifacts:
-    paths:
-       - build-Debug-gcc-cpp11-qt5.13.0/Testing/Temporary/LastTest.log   
-
-#
-#-----------
-#-----------  Job Informations:
-# Type:       Build: Debug
-# OS:         Linux
-# Compiler:   clang
-# Language:   cpp11
-# QT Version: qt5.13.0
-
-build-Debug-clang-cpp11-qt5.13.0:
-  stage: Build
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
-  variables:     
-    COMPILER:       "clang"     
-    LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.13.0"     
-    BUILDTYPE:      "Debug"
-    GIT_SUBMODULE_STRATEGY: recursive
-  script: "CI/ci-linux-build.sh"
-  tags:
-    - Docker
-  artifacts:
-    expire_in: 1 week
-    paths:
-       - build-Debug-clang-cpp11-qt5.13.0/
-
-build-Debug-clang-cpp11-qt5.13.0-nopython:
-  stage: Build
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
-  variables:     
-    COMPILER:       "clang"     
-    LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.13.0" 
-    BUILDTYPE:      "Debug"
-    PYTHON:	    "no" 
-    GIT_SUBMODULE_STRATEGY: recursive
-  script: "CI/ci-linux-build.sh"
-  tags:
-    - Docker
-  artifacts:
-    expire_in: 1 week
-    paths:
-       - build-Debug-clang-cpp11-qt5.13.0/  
-
-#
-#-----------
-
-#-----------  Job Informations:
-# Type:       Test: Debug
-# OS:         Linux
-# Compiler:   clang
-# Language:   cpp11
-# QT Version: qt5.13.0
-
-test-Debug-clang-cpp11-qt5.13.0:
-  stage: Test
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
-  variables:     
-    COMPILER:       "clang"     
-    LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.13.0"     
-    BUILDTYPE:      "Debug"
-    GIT_STRATEGY: none
-  script: "artifacts/CI/ci-linux-test.sh"
-  tags:
-    - Docker
-  dependencies:
-    - build-Debug-clang-cpp11-qt5.13.0
-  needs: [build-Debug-clang-cpp11-qt5.13.0]
-  artifacts:
-    paths:
-       - build-Debug-clang-cpp11-qt5.13.0/Testing/Temporary/LastTest.log   
-
-#
-#-----------
-
-#-----------  Job Informations:
-# Type:       Build: Debug
-# OS:         Linux
-# Compiler:   gcc
-# Language:   cpp11
-# QT Version: qt5.13.2
-
-build-Debug-gcc-cpp11-qt5.13.2:
-  stage: Build
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
-  variables:     
-    COMPILER:       "gcc"     
-    LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.13.2"     
-    BUILDTYPE:      "Debug"
-    GIT_SUBMODULE_STRATEGY: recursive
-  script: "CI/ci-linux-build.sh"
-  tags:
-    - Docker
-  artifacts:
-    expire_in: 1 week
-    paths:
-       - build-Debug-gcc-cpp11-qt5.13.2/
-
-build-Debug-gcc-cpp11-qt5.13.2-nopython:
-  stage: Build
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
-  variables:     
-    COMPILER:       "gcc"     
-    LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.13.2" 
-    BUILDTYPE:      "Debug"
-    PYTHON:	    "no" 
-    GIT_SUBMODULE_STRATEGY: recursive
-  script: "CI/ci-linux-build.sh"
-  tags:
-    - Docker
-  artifacts:
-    expire_in: 1 week
-    paths:
-       - build-Debug-gcc-cpp11-qt5.13.2/  
-
-#
-#-----------
-
-#-----------  Job Informations:
-# Type:       Test: Debug
-# OS:         Linux
-# Compiler:   gcc
-# Language:   cpp11
-# QT Version: qt5.13.2
-
-test-Debug-gcc-cpp11-qt5.13.2:
-  stage: Test
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
-  variables:     
-    COMPILER:       "gcc"     
-    LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.13.2"     
-    BUILDTYPE:      "Debug"
-    GIT_STRATEGY: none
-  script: "artifacts/CI/ci-linux-test.sh"
-  tags:
-    - Docker
-  dependencies:
-    - build-Debug-gcc-cpp11-qt5.13.2
-  needs: [build-Debug-gcc-cpp11-qt5.13.2]
-  artifacts:
-    paths:
-       - build-Debug-gcc-cpp11-qt5.13.2/Testing/Temporary/LastTest.log   
-
-#
-#-----------
-#-----------  Job Informations:
-# Type:       Build: Debug
-# OS:         Linux
-# Compiler:   clang
-# Language:   cpp11
-# QT Version: qt5.13.2
-
-build-Debug-clang-cpp11-qt5.13.2:
-  stage: Build
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
-  variables:     
-    COMPILER:       "clang"     
-    LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.13.2"     
-    BUILDTYPE:      "Debug"
-    GIT_SUBMODULE_STRATEGY: recursive
-  script: "CI/ci-linux-build.sh"
-  tags:
-    - Docker
-  artifacts:
-    expire_in: 1 week
-    paths:
-       - build-Debug-clang-cpp11-qt5.13.2/
-
-build-Debug-clang-cpp11-qt5.13.2-nopython:
-  stage: Build
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
-  variables:     
-    COMPILER:       "clang"     
-    LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.13.2" 
-    BUILDTYPE:      "Debug"
-    PYTHON:	    "no" 
-    GIT_SUBMODULE_STRATEGY: recursive
-  script: "CI/ci-linux-build.sh"
-  tags:
-    - Docker
-  artifacts:
-    expire_in: 1 week
-    paths:
-       - build-Debug-clang-cpp11-qt5.13.2/  
-
-#
-#-----------
-
-#-----------  Job Informations:
-# Type:       Test: Debug
-# OS:         Linux
-# Compiler:   clang
-# Language:   cpp11
-# QT Version: qt5.13.2
-
-test-Debug-clang-cpp11-qt5.13.2:
-  stage: Test
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
-  variables:     
-    COMPILER:       "clang"     
-    LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.13.2"     
-    BUILDTYPE:      "Debug"
-    GIT_STRATEGY: none
-  script: "artifacts/CI/ci-linux-test.sh"
-  tags:
-    - Docker
-  dependencies:
-    - build-Debug-clang-cpp11-qt5.13.2
-  needs: [build-Debug-clang-cpp11-qt5.13.2]
-  artifacts:
-    paths:
-       - build-Debug-clang-cpp11-qt5.13.2/Testing/Temporary/LastTest.log   
-
-#
-#-----------
-
-# Release jobs
-
-#-----------  Job Informations:
-# Type:       Build: Release
+# Type:       Build: release
 # OS:         Linux
 # Compiler:   gcc
 # Language:   cpp11
 # QT Version: qt5.11.2
 
-build-Release-gcc-cpp11-qt5.11.2:
+build-release-gcc-cpp11-qt5.11.2:
   stage: Build
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "gcc"     
     LANGUAGE:       "cpp11"     
     QTVERSION:      "qt5.11.2"     
-    BUILDTYPE:      "Release"
+    BUILDTYPE:      "release"
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
@@ -638,16 +120,16 @@ build-Release-gcc-cpp11-qt5.11.2:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-Release-gcc-cpp11-qt5.11.2/
+       - build-release-gcc-cpp11-qt5.11.2/
 
-build-Release-gcc-cpp11-qt5.11.2-nopython:
+build-release-gcc-cpp11-qt5.11.2-nopython:
   stage: Build
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "gcc"     
     LANGUAGE:       "cpp11"     
     QTVERSION:      "qt5.11.2" 
-    BUILDTYPE:      "Release"
+    BUILDTYPE:      "release"
     PYTHON:	    "no" 
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
@@ -656,54 +138,54 @@ build-Release-gcc-cpp11-qt5.11.2-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-Release-gcc-cpp11-qt5.11.2/  
+       - build-release-gcc-cpp11-qt5.11.2/  
 
 #
 #-----------
 
 #-----------  Job Informations:
-# Type:       Test: Release
+# Type:       Test: release
 # OS:         Linux
 # Compiler:   gcc
 # Language:   cpp11
 # QT Version: qt5.11.2
 
-test-Release-gcc-cpp11-qt5.11.2:
+test-release-gcc-cpp11-qt5.11.2:
   stage: Test
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "gcc"     
     LANGUAGE:       "cpp11"     
     QTVERSION:      "qt5.11.2"     
-    BUILDTYPE:      "Release"
+    BUILDTYPE:      "release"
     GIT_STRATEGY: none
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
-    - build-Release-gcc-cpp11-qt5.11.2
-  needs: [build-Release-gcc-cpp11-qt5.11.2]
+    - build-release-gcc-cpp11-qt5.11.2
+  needs: [build-release-gcc-cpp11-qt5.11.2]
   artifacts:
     paths:
-       - build-Release-gcc-cpp11-qt5.11.2/Testing/Temporary/LastTest.log   
+       - build-release-gcc-cpp11-qt5.11.2/Testing/Temporary/LastTest.log   
 
 #
 #-----------
 #-----------  Job Informations:
-# Type:       Build: Release
+# Type:       Build: debug
 # OS:         Linux
 # Compiler:   clang
 # Language:   cpp11
 # QT Version: qt5.11.2
 
-build-Release-clang-cpp11-qt5.11.2:
+build-debug-clang-cpp11-qt5.11.2:
   stage: Build
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "clang"     
     LANGUAGE:       "cpp11"     
     QTVERSION:      "qt5.11.2"     
-    BUILDTYPE:      "Release"
+    BUILDTYPE:      "debug"
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
@@ -711,16 +193,16 @@ build-Release-clang-cpp11-qt5.11.2:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-Release-clang-cpp11-qt5.11.2/
+       - build-debug-clang-cpp11-qt5.11.2/
 
-build-Release-clang-cpp11-qt5.11.2-nopython:
+build-debug-clang-cpp11-qt5.11.2-nopython:
   stage: Build
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "clang"     
     LANGUAGE:       "cpp11"     
     QTVERSION:      "qt5.11.2" 
-    BUILDTYPE:      "Release"
+    BUILDTYPE:      "debug"
     PYTHON:	    "no" 
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
@@ -729,55 +211,55 @@ build-Release-clang-cpp11-qt5.11.2-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-Release-clang-cpp11-qt5.11.2/  
+       - build-debug-clang-cpp11-qt5.11.2/  
 
 #
 #-----------
 
 #-----------  Job Informations:
-# Type:       Test: Release
+# Type:       Test: debug
 # OS:         Linux
 # Compiler:   clang
 # Language:   cpp11
 # QT Version: qt5.11.2
 
-test-Release-clang-cpp11-qt5.11.2:
+test-debug-clang-cpp11-qt5.11.2:
   stage: Test
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "clang"     
     LANGUAGE:       "cpp11"     
     QTVERSION:      "qt5.11.2"     
-    BUILDTYPE:      "Release"
+    BUILDTYPE:      "debug"
     GIT_STRATEGY: none
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
-    - build-Release-clang-cpp11-qt5.11.2
-  needs: [build-Release-clang-cpp11-qt5.11.2]
+    - build-debug-clang-cpp11-qt5.11.2
+  needs: [build-debug-clang-cpp11-qt5.11.2]
   artifacts:
     paths:
-       - build-Release-clang-cpp11-qt5.11.2/Testing/Temporary/LastTest.log   
+       - build-debug-clang-cpp11-qt5.11.2/Testing/Temporary/LastTest.log   
 
 #
 #-----------
 
 #-----------  Job Informations:
-# Type:       Build: Release
+# Type:       Build: release
 # OS:         Linux
-# Compiler:   gcc
+# Compiler:   clang
 # Language:   cpp11
-# QT Version: qt5.12.2
+# QT Version: qt5.11.2
 
-build-Release-gcc-cpp11-qt5.12.2:
+build-release-clang-cpp11-qt5.11.2:
   stage: Build
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
-    COMPILER:       "gcc"     
+    COMPILER:       "clang"     
     LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.12.2"     
-    BUILDTYPE:      "Release"
+    QTVERSION:      "qt5.11.2"     
+    BUILDTYPE:      "release"
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
@@ -785,16 +267,90 @@ build-Release-gcc-cpp11-qt5.12.2:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-Release-gcc-cpp11-qt5.12.2/
+       - build-release-clang-cpp11-qt5.11.2/
 
-build-Release-gcc-cpp11-qt5.12.2-nopython:
+build-release-clang-cpp11-qt5.11.2-nopython:
+  stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "clang"     
+    LANGUAGE:       "cpp11"     
+    QTVERSION:      "qt5.11.2" 
+    BUILDTYPE:      "release"
+    PYTHON:	    "no" 
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Docker
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-release-clang-cpp11-qt5.11.2/  
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Test: release
+# OS:         Linux
+# Compiler:   clang
+# Language:   cpp11
+# QT Version: qt5.11.2
+
+test-release-clang-cpp11-qt5.11.2:
+  stage: Test
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "clang"     
+    LANGUAGE:       "cpp11"     
+    QTVERSION:      "qt5.11.2"     
+    BUILDTYPE:      "release"
+    GIT_STRATEGY: none
+  script: "artifacts/CI/ci-linux-test.sh"
+  tags:
+    - Docker
+  dependencies:
+    - build-release-clang-cpp11-qt5.11.2
+  needs: [build-release-clang-cpp11-qt5.11.2]
+  artifacts:
+    paths:
+       - build-release-clang-cpp11-qt5.11.2/Testing/Temporary/LastTest.log   
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Build: debug
+# OS:         Linux
+# Compiler:   gcc
+# Language:   cpp11
+# QT Version: qt5.12.2
+
+build-debug-gcc-cpp11-qt5.12.2:
+  stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "gcc"     
+    LANGUAGE:       "cpp11"     
+    QTVERSION:      "qt5.12.2"     
+    BUILDTYPE:      "debug"
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Docker
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-debug-gcc-cpp11-qt5.12.2/
+
+build-debug-gcc-cpp11-qt5.12.2-nopython:
   stage: Build
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "gcc"     
     LANGUAGE:       "cpp11"     
     QTVERSION:      "qt5.12.2" 
-    BUILDTYPE:      "Release"
+    BUILDTYPE:      "debug"
     PYTHON:	    "no" 
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
@@ -803,54 +359,55 @@ build-Release-gcc-cpp11-qt5.12.2-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-Release-gcc-cpp11-qt5.12.2/  
+       - build-debug-gcc-cpp11-qt5.12.2/  
 
 #
 #-----------
 
 #-----------  Job Informations:
-# Type:       Test: Release
+# Type:       Test: debug
 # OS:         Linux
 # Compiler:   gcc
 # Language:   cpp11
 # QT Version: qt5.12.2
 
-test-Release-gcc-cpp11-qt5.12.2:
+test-debug-gcc-cpp11-qt5.12.2:
   stage: Test
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "gcc"     
     LANGUAGE:       "cpp11"     
     QTVERSION:      "qt5.12.2"     
-    BUILDTYPE:      "Release"
+    BUILDTYPE:      "debug"
     GIT_STRATEGY: none
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
-    - build-Release-gcc-cpp11-qt5.12.2
-  needs: [build-Release-gcc-cpp11-qt5.12.2]
+    - build-debug-gcc-cpp11-qt5.12.2
+  needs: [build-debug-gcc-cpp11-qt5.12.2]
   artifacts:
     paths:
-       - build-Release-gcc-cpp11-qt5.12.2/Testing/Temporary/LastTest.log   
+       - build-debug-gcc-cpp11-qt5.12.2/Testing/Temporary/LastTest.log   
 
 #
 #-----------
+
 #-----------  Job Informations:
-# Type:       Build: Release
+# Type:       Build: release
 # OS:         Linux
-# Compiler:   clang
+# Compiler:   gcc
 # Language:   cpp11
 # QT Version: qt5.12.2
 
-build-Release-clang-cpp11-qt5.12.2:
+build-release-gcc-cpp11-qt5.12.2:
   stage: Build
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
-    COMPILER:       "clang"     
+    COMPILER:       "gcc"     
     LANGUAGE:       "cpp11"     
     QTVERSION:      "qt5.12.2"     
-    BUILDTYPE:      "Release"
+    BUILDTYPE:      "release"
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
@@ -858,16 +415,89 @@ build-Release-clang-cpp11-qt5.12.2:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-Release-clang-cpp11-qt5.12.2/
+       - build-release-gcc-cpp11-qt5.12.2/
 
-build-Release-clang-cpp11-qt5.12.2-nopython:
+build-release-gcc-cpp11-qt5.12.2-nopython:
+  stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "gcc"     
+    LANGUAGE:       "cpp11"     
+    QTVERSION:      "qt5.12.2" 
+    BUILDTYPE:      "release"
+    PYTHON:	    "no" 
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Docker
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-release-gcc-cpp11-qt5.12.2/  
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Test: release
+# OS:         Linux
+# Compiler:   gcc
+# Language:   cpp11
+# QT Version: qt5.12.2
+
+test-release-gcc-cpp11-qt5.12.2:
+  stage: Test
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "gcc"     
+    LANGUAGE:       "cpp11"     
+    QTVERSION:      "qt5.12.2"     
+    BUILDTYPE:      "release"
+    GIT_STRATEGY: none
+  script: "artifacts/CI/ci-linux-test.sh"
+  tags:
+    - Docker
+  dependencies:
+    - build-release-gcc-cpp11-qt5.12.2
+  needs: [build-release-gcc-cpp11-qt5.12.2]
+  artifacts:
+    paths:
+       - build-release-gcc-cpp11-qt5.12.2/Testing/Temporary/LastTest.log   
+
+#
+#-----------
+#-----------  Job Informations:
+# Type:       Build: debug
+# OS:         Linux
+# Compiler:   clang
+# Language:   cpp11
+# QT Version: qt5.12.2
+
+build-debug-clang-cpp11-qt5.12.2:
+  stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "clang"     
+    LANGUAGE:       "cpp11"     
+    QTVERSION:      "qt5.12.2"     
+    BUILDTYPE:      "debug"
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Docker
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-debug-clang-cpp11-qt5.12.2/
+
+build-debug-clang-cpp11-qt5.12.2-nopython:
   stage: Build
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "clang"     
     LANGUAGE:       "cpp11"     
     QTVERSION:      "qt5.12.2" 
-    BUILDTYPE:      "Release"
+    BUILDTYPE:      "debug"
     PYTHON:	    "no" 
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
@@ -876,55 +506,55 @@ build-Release-clang-cpp11-qt5.12.2-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-Release-clang-cpp11-qt5.12.2/  
+       - build-debug-clang-cpp11-qt5.12.2/  
 
 #
 #-----------
 
 #-----------  Job Informations:
-# Type:       Test: Release
+# Type:       Test: debug
 # OS:         Linux
 # Compiler:   clang
 # Language:   cpp11
 # QT Version: qt5.12.2
 
-test-Release-clang-cpp11-qt5.12.2:
+test-debug-clang-cpp11-qt5.12.2:
   stage: Test
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "clang"     
     LANGUAGE:       "cpp11"     
     QTVERSION:      "qt5.12.2"     
-    BUILDTYPE:      "Release"
+    BUILDTYPE:      "debug"
     GIT_STRATEGY: none
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
-    - build-Release-clang-cpp11-qt5.12.2
-  needs: [build-Release-clang-cpp11-qt5.12.2]
+    - build-debug-clang-cpp11-qt5.12.2
+  needs: [build-debug-clang-cpp11-qt5.12.2]
   artifacts:
     paths:
-       - build-Release-clang-cpp11-qt5.12.2/Testing/Temporary/LastTest.log   
+       - build-debug-clang-cpp11-qt5.12.2/Testing/Temporary/LastTest.log   
 
 #
 #-----------
 
 #-----------  Job Informations:
-# Type:       Build: Release
+# Type:       Build: release
 # OS:         Linux
-# Compiler:   gcc
+# Compiler:   clang
 # Language:   cpp11
-# QT Version: qt5.13.0
+# QT Version: qt5.12.2
 
-build-Release-gcc-cpp11-qt5.13.0:
+build-release-clang-cpp11-qt5.12.2:
   stage: Build
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
-    COMPILER:       "gcc"     
+    COMPILER:       "clang"     
     LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.13.0"     
-    BUILDTYPE:      "Release"
+    QTVERSION:      "qt5.12.2"     
+    BUILDTYPE:      "release"
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
@@ -932,16 +562,90 @@ build-Release-gcc-cpp11-qt5.13.0:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-Release-gcc-cpp11-qt5.13.0/
+       - build-release-clang-cpp11-qt5.12.2/
 
-build-Release-gcc-cpp11-qt5.13.0-nopython:
+build-release-clang-cpp11-qt5.12.2-nopython:
+  stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "clang"     
+    LANGUAGE:       "cpp11"     
+    QTVERSION:      "qt5.12.2" 
+    BUILDTYPE:      "release"
+    PYTHON:	    "no" 
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Docker
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-release-clang-cpp11-qt5.12.2/  
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Test: release
+# OS:         Linux
+# Compiler:   clang
+# Language:   cpp11
+# QT Version: qt5.12.2
+
+test-release-clang-cpp11-qt5.12.2:
+  stage: Test
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "clang"     
+    LANGUAGE:       "cpp11"     
+    QTVERSION:      "qt5.12.2"     
+    BUILDTYPE:      "release"
+    GIT_STRATEGY: none
+  script: "artifacts/CI/ci-linux-test.sh"
+  tags:
+    - Docker
+  dependencies:
+    - build-release-clang-cpp11-qt5.12.2
+  needs: [build-release-clang-cpp11-qt5.12.2]
+  artifacts:
+    paths:
+       - build-release-clang-cpp11-qt5.12.2/Testing/Temporary/LastTest.log   
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Build: debug
+# OS:         Linux
+# Compiler:   gcc
+# Language:   cpp11
+# QT Version: qt5.13.0
+
+build-debug-gcc-cpp11-qt5.13.0:
+  stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "gcc"     
+    LANGUAGE:       "cpp11"     
+    QTVERSION:      "qt5.13.0"     
+    BUILDTYPE:      "debug"
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Docker
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-debug-gcc-cpp11-qt5.13.0/
+
+build-debug-gcc-cpp11-qt5.13.0-nopython:
   stage: Build
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "gcc"     
     LANGUAGE:       "cpp11"     
     QTVERSION:      "qt5.13.0" 
-    BUILDTYPE:      "Release"
+    BUILDTYPE:      "debug"
     PYTHON:	    "no" 
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
@@ -950,54 +654,55 @@ build-Release-gcc-cpp11-qt5.13.0-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-Release-gcc-cpp11-qt5.13.0/  
+       - build-debug-gcc-cpp11-qt5.13.0/  
 
 #
 #-----------
 
 #-----------  Job Informations:
-# Type:       Test: Release
+# Type:       Test: debug
 # OS:         Linux
 # Compiler:   gcc
 # Language:   cpp11
 # QT Version: qt5.13.0
 
-test-Release-gcc-cpp11-qt5.13.0:
+test-debug-gcc-cpp11-qt5.13.0:
   stage: Test
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "gcc"     
     LANGUAGE:       "cpp11"     
     QTVERSION:      "qt5.13.0"     
-    BUILDTYPE:      "Release"
+    BUILDTYPE:      "debug"
     GIT_STRATEGY: none
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
-    - build-Release-gcc-cpp11-qt5.13.0
-  needs: [build-Release-gcc-cpp11-qt5.13.0]
+    - build-debug-gcc-cpp11-qt5.13.0
+  needs: [build-debug-gcc-cpp11-qt5.13.0]
   artifacts:
     paths:
-       - build-Release-gcc-cpp11-qt5.13.0/Testing/Temporary/LastTest.log   
+       - build-debug-gcc-cpp11-qt5.13.0/Testing/Temporary/LastTest.log   
 
 #
 #-----------
+
 #-----------  Job Informations:
-# Type:       Build: Release
+# Type:       Build: release
 # OS:         Linux
-# Compiler:   clang
+# Compiler:   gcc
 # Language:   cpp11
 # QT Version: qt5.13.0
 
-build-Release-clang-cpp11-qt5.13.0:
+build-release-gcc-cpp11-qt5.13.0:
   stage: Build
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
-    COMPILER:       "clang"     
+    COMPILER:       "gcc"     
     LANGUAGE:       "cpp11"     
     QTVERSION:      "qt5.13.0"     
-    BUILDTYPE:      "Release"
+    BUILDTYPE:      "release"
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
@@ -1005,16 +710,89 @@ build-Release-clang-cpp11-qt5.13.0:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-Release-clang-cpp11-qt5.13.0/
+       - build-release-gcc-cpp11-qt5.13.0/
 
-build-Release-clang-cpp11-qt5.13.0-nopython:
+build-release-gcc-cpp11-qt5.13.0-nopython:
+  stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "gcc"     
+    LANGUAGE:       "cpp11"     
+    QTVERSION:      "qt5.13.0" 
+    BUILDTYPE:      "release"
+    PYTHON:	    "no" 
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Docker
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-release-gcc-cpp11-qt5.13.0/  
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Test: release
+# OS:         Linux
+# Compiler:   gcc
+# Language:   cpp11
+# QT Version: qt5.13.0
+
+test-release-gcc-cpp11-qt5.13.0:
+  stage: Test
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "gcc"     
+    LANGUAGE:       "cpp11"     
+    QTVERSION:      "qt5.13.0"     
+    BUILDTYPE:      "release"
+    GIT_STRATEGY: none
+  script: "artifacts/CI/ci-linux-test.sh"
+  tags:
+    - Docker
+  dependencies:
+    - build-release-gcc-cpp11-qt5.13.0
+  needs: [build-release-gcc-cpp11-qt5.13.0]
+  artifacts:
+    paths:
+       - build-release-gcc-cpp11-qt5.13.0/Testing/Temporary/LastTest.log   
+
+#
+#-----------
+#-----------  Job Informations:
+# Type:       Build: debug
+# OS:         Linux
+# Compiler:   clang
+# Language:   cpp11
+# QT Version: qt5.13.0
+
+build-debug-clang-cpp11-qt5.13.0:
+  stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "clang"     
+    LANGUAGE:       "cpp11"     
+    QTVERSION:      "qt5.13.0"     
+    BUILDTYPE:      "debug"
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Docker
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-debug-clang-cpp11-qt5.13.0/
+
+build-debug-clang-cpp11-qt5.13.0-nopython:
   stage: Build
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "clang"     
     LANGUAGE:       "cpp11"     
     QTVERSION:      "qt5.13.0" 
-    BUILDTYPE:      "Release"
+    BUILDTYPE:      "debug"
     PYTHON:	    "no" 
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
@@ -1023,55 +801,55 @@ build-Release-clang-cpp11-qt5.13.0-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-Release-clang-cpp11-qt5.13.0/  
+       - build-debug-clang-cpp11-qt5.13.0/  
 
 #
 #-----------
 
 #-----------  Job Informations:
-# Type:       Test: Release
+# Type:       Test: debug
 # OS:         Linux
 # Compiler:   clang
 # Language:   cpp11
 # QT Version: qt5.13.0
 
-test-Release-clang-cpp11-qt5.13.0:
+test-debug-clang-cpp11-qt5.13.0:
   stage: Test
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "clang"     
     LANGUAGE:       "cpp11"     
     QTVERSION:      "qt5.13.0"     
-    BUILDTYPE:      "Release"
+    BUILDTYPE:      "debug"
     GIT_STRATEGY: none
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
-    - build-Release-clang-cpp11-qt5.13.0
-  needs: [build-Release-clang-cpp11-qt5.13.0]
+    - build-debug-clang-cpp11-qt5.13.0
+  needs: [build-debug-clang-cpp11-qt5.13.0]
   artifacts:
     paths:
-       - build-Release-clang-cpp11-qt5.13.0/Testing/Temporary/LastTest.log   
+       - build-debug-clang-cpp11-qt5.13.0/Testing/Temporary/LastTest.log   
 
 #
 #-----------
 
 #-----------  Job Informations:
-# Type:       Build: Release
+# Type:       Build: release
 # OS:         Linux
-# Compiler:   gcc
+# Compiler:   clang
 # Language:   cpp11
-# QT Version: qt5.13.2
+# QT Version: qt5.13.0
 
-build-Release-gcc-cpp11-qt5.13.2:
+build-release-clang-cpp11-qt5.13.0:
   stage: Build
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
-    COMPILER:       "gcc"     
+    COMPILER:       "clang"     
     LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.13.2"     
-    BUILDTYPE:      "Release"
+    QTVERSION:      "qt5.13.0"     
+    BUILDTYPE:      "release"
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
@@ -1079,16 +857,16 @@ build-Release-gcc-cpp11-qt5.13.2:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-Release-gcc-cpp11-qt5.13.2/
+       - build-release-clang-cpp11-qt5.13.0/
 
-build-Release-gcc-cpp11-qt5.13.2-nopython:
+build-release-clang-cpp11-qt5.13.0-nopython:
   stage: Build
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
-    COMPILER:       "gcc"     
+    COMPILER:       "clang"     
     LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.13.2" 
-    BUILDTYPE:      "Release"
+    QTVERSION:      "qt5.13.0" 
+    BUILDTYPE:      "release"
     PYTHON:	    "no" 
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
@@ -1097,54 +875,55 @@ build-Release-gcc-cpp11-qt5.13.2-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-Release-gcc-cpp11-qt5.13.2/  
+       - build-release-clang-cpp11-qt5.13.0/  
 
 #
 #-----------
 
 #-----------  Job Informations:
-# Type:       Test: Release
+# Type:       Test: release
 # OS:         Linux
-# Compiler:   gcc
+# Compiler:   clang
 # Language:   cpp11
-# QT Version: qt5.13.2
+# QT Version: qt5.13.0
 
-test-Release-gcc-cpp11-qt5.13.2:
+test-release-clang-cpp11-qt5.13.0:
   stage: Test
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
-    COMPILER:       "gcc"     
+    COMPILER:       "clang"     
     LANGUAGE:       "cpp11"     
-    QTVERSION:      "qt5.13.2"     
-    BUILDTYPE:      "Release"
+    QTVERSION:      "qt5.13.0"     
+    BUILDTYPE:      "release"
     GIT_STRATEGY: none
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
-    - build-Release-gcc-cpp11-qt5.13.2
-  needs: [build-Release-gcc-cpp11-qt5.13.2]
+    - build-release-clang-cpp11-qt5.13.0
+  needs: [build-release-clang-cpp11-qt5.13.0]
   artifacts:
     paths:
-       - build-Release-gcc-cpp11-qt5.13.2/Testing/Temporary/LastTest.log   
+       - build-release-clang-cpp11-qt5.13.0/Testing/Temporary/LastTest.log   
 
 #
 #-----------
+
 #-----------  Job Informations:
-# Type:       Build: Release
+# Type:       Build: debug
 # OS:         Linux
-# Compiler:   clang
+# Compiler:   gcc
 # Language:   cpp11
 # QT Version: qt5.13.2
 
-build-Release-clang-cpp11-qt5.13.2:
+build-debug-gcc-cpp11-qt5.13.2:
   stage: Build
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
-    COMPILER:       "clang"     
+    COMPILER:       "gcc"     
     LANGUAGE:       "cpp11"     
     QTVERSION:      "qt5.13.2"     
-    BUILDTYPE:      "Release"
+    BUILDTYPE:      "debug"
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
@@ -1152,16 +931,16 @@ build-Release-clang-cpp11-qt5.13.2:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-Release-clang-cpp11-qt5.13.2/
+       - build-debug-gcc-cpp11-qt5.13.2/
 
-build-Release-clang-cpp11-qt5.13.2-nopython:
+build-debug-gcc-cpp11-qt5.13.2-nopython:
   stage: Build
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
-    COMPILER:       "clang"     
+    COMPILER:       "gcc"     
     LANGUAGE:       "cpp11"     
     QTVERSION:      "qt5.13.2" 
-    BUILDTYPE:      "Release"
+    BUILDTYPE:      "debug"
     PYTHON:	    "no" 
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
@@ -1170,39 +949,261 @@ build-Release-clang-cpp11-qt5.13.2-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-Release-clang-cpp11-qt5.13.2/  
+       - build-debug-gcc-cpp11-qt5.13.2/  
 
 #
 #-----------
 
 #-----------  Job Informations:
-# Type:       Test: Release
+# Type:       Test: debug
+# OS:         Linux
+# Compiler:   gcc
+# Language:   cpp11
+# QT Version: qt5.13.2
+
+test-debug-gcc-cpp11-qt5.13.2:
+  stage: Test
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "gcc"     
+    LANGUAGE:       "cpp11"     
+    QTVERSION:      "qt5.13.2"     
+    BUILDTYPE:      "debug"
+    GIT_STRATEGY: none
+  script: "artifacts/CI/ci-linux-test.sh"
+  tags:
+    - Docker
+  dependencies:
+    - build-debug-gcc-cpp11-qt5.13.2
+  needs: [build-debug-gcc-cpp11-qt5.13.2]
+  artifacts:
+    paths:
+       - build-debug-gcc-cpp11-qt5.13.2/Testing/Temporary/LastTest.log   
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Build: release
+# OS:         Linux
+# Compiler:   gcc
+# Language:   cpp11
+# QT Version: qt5.13.2
+
+build-release-gcc-cpp11-qt5.13.2:
+  stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "gcc"     
+    LANGUAGE:       "cpp11"     
+    QTVERSION:      "qt5.13.2"     
+    BUILDTYPE:      "release"
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Docker
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-release-gcc-cpp11-qt5.13.2/
+
+build-release-gcc-cpp11-qt5.13.2-nopython:
+  stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "gcc"     
+    LANGUAGE:       "cpp11"     
+    QTVERSION:      "qt5.13.2" 
+    BUILDTYPE:      "release"
+    PYTHON:	    "no" 
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Docker
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-release-gcc-cpp11-qt5.13.2/  
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Test: release
+# OS:         Linux
+# Compiler:   gcc
+# Language:   cpp11
+# QT Version: qt5.13.2
+
+test-release-gcc-cpp11-qt5.13.2:
+  stage: Test
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "gcc"     
+    LANGUAGE:       "cpp11"     
+    QTVERSION:      "qt5.13.2"     
+    BUILDTYPE:      "release"
+    GIT_STRATEGY: none
+  script: "artifacts/CI/ci-linux-test.sh"
+  tags:
+    - Docker
+  dependencies:
+    - build-release-gcc-cpp11-qt5.13.2
+  needs: [build-release-gcc-cpp11-qt5.13.2]
+  artifacts:
+    paths:
+       - build-release-gcc-cpp11-qt5.13.2/Testing/Temporary/LastTest.log   
+
+#
+#-----------
+#-----------  Job Informations:
+# Type:       Build: debug
 # OS:         Linux
 # Compiler:   clang
 # Language:   cpp11
 # QT Version: qt5.13.2
 
-test-Release-clang-cpp11-qt5.13.2:
+build-debug-clang-cpp11-qt5.13.2:
+  stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "clang"     
+    LANGUAGE:       "cpp11"     
+    QTVERSION:      "qt5.13.2"     
+    BUILDTYPE:      "debug"
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Docker
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-debug-clang-cpp11-qt5.13.2/
+
+build-debug-clang-cpp11-qt5.13.2-nopython:
+  stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "clang"     
+    LANGUAGE:       "cpp11"     
+    QTVERSION:      "qt5.13.2" 
+    BUILDTYPE:      "debug"
+    PYTHON:	    "no" 
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Docker
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-debug-clang-cpp11-qt5.13.2/  
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Test: debug
+# OS:         Linux
+# Compiler:   clang
+# Language:   cpp11
+# QT Version: qt5.13.2
+
+test-debug-clang-cpp11-qt5.13.2:
   stage: Test
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
     COMPILER:       "clang"     
     LANGUAGE:       "cpp11"     
     QTVERSION:      "qt5.13.2"     
-    BUILDTYPE:      "Release"
+    BUILDTYPE:      "debug"
     GIT_STRATEGY: none
   script: "artifacts/CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
-    - build-Release-clang-cpp11-qt5.13.2
-  needs: [build-Release-clang-cpp11-qt5.13.2]
+    - build-debug-clang-cpp11-qt5.13.2
+  needs: [build-debug-clang-cpp11-qt5.13.2]
   artifacts:
     paths:
-       - build-Release-clang-cpp11-qt5.13.2/Testing/Temporary/LastTest.log   
+       - build-debug-clang-cpp11-qt5.13.2/Testing/Temporary/LastTest.log   
 
 #
 #-----------
+
+#-----------  Job Informations:
+# Type:       Build: release
+# OS:         Linux
+# Compiler:   clang
+# Language:   cpp11
+# QT Version: qt5.13.2
+
+build-release-clang-cpp11-qt5.13.2:
+  stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "clang"     
+    LANGUAGE:       "cpp11"     
+    QTVERSION:      "qt5.13.2"     
+    BUILDTYPE:      "release"
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Docker
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-release-clang-cpp11-qt5.13.2/
+
+build-release-clang-cpp11-qt5.13.2-nopython:
+  stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "clang"     
+    LANGUAGE:       "cpp11"     
+    QTVERSION:      "qt5.13.2" 
+    BUILDTYPE:      "release"
+    PYTHON:	    "no" 
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Docker
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-release-clang-cpp11-qt5.13.2/  
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Test: release
+# OS:         Linux
+# Compiler:   clang
+# Language:   cpp11
+# QT Version: qt5.13.2
+
+test-release-clang-cpp11-qt5.13.2:
+  stage: Test
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "clang"     
+    LANGUAGE:       "cpp11"     
+    QTVERSION:      "qt5.13.2"     
+    BUILDTYPE:      "release"
+    GIT_STRATEGY: none
+  script: "artifacts/CI/ci-linux-test.sh"
+  tags:
+    - Docker
+  dependencies:
+    - build-release-clang-cpp11-qt5.13.2
+  needs: [build-release-clang-cpp11-qt5.13.2]
+  artifacts:
+    paths:
+       - build-release-clang-cpp11-qt5.13.2/Testing/Temporary/LastTest.log   
+
+#
+#-----------
+
 
 cppcheck:
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container

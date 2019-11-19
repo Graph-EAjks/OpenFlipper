@@ -74,7 +74,7 @@ def fetchVariableReplacers(variablesGrep):
 
 
 # Assembles the file in memory and returns file content as string
-def assembleTarget(master, depth=3):
+def assembleTarget(master, depth=10):
     if depth < 0:
         raise "Max depth reached. Possible circular import?"
 
