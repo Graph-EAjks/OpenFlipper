@@ -87,4 +87,4 @@ else
     chmod 700 ~/.ssh
 fi
 
-git -C "~/sw" pull origin master
+git -C "/root/sw" pull origin master
