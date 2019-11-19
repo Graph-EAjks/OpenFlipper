@@ -27,10 +27,20 @@ git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@www.graphics.rwth-aachen.de:90
 # Run Release Unittests
 #########################################
 
-tar -xvf $BUILDPATH.tar
-rsync -a ./artifacts .
-
 cd $BUILDPATH
+
+mkdir Build
+
+# copy the used shared libraries to the lib folder
+cd Build
+
+if [ ! -d systemlib ]; then
+  mkdir systemlib
+fi
+
+ldd bin/OpenFlipper | grep "=> /" | awk '{print $3}' | xargs -I '{}' cp -v '{}' systemlib
+
+cd ..
 
 #clean old cmake cache as the path might have changed
 find . -name "CMakeCache.txt" -type f -delete

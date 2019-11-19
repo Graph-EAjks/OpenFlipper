@@ -20,7 +20,7 @@ build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}.tar
+       - build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}/
 
 build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}-nopython:
   stage: Build
@@ -38,7 +38,7 @@ build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}-nopython.tar  
+       - build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}-nopython/
 
 #
 #-----------
