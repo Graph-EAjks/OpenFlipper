@@ -2,7 +2,7 @@
 
 import sys, os, re, yaml
 
-# Version 3.1
+# Version 3.1.1
 
 # Script for automated gitlab-ci creation
 # Assembles the gitlab ci from master template file:
@@ -149,6 +149,7 @@ def main():
 
     try:
         yaml.load(target_content)
+        print("Yaml syntax check: OK")
     except Exception as e:
         print("Invalid yaml syntax:", e)
 

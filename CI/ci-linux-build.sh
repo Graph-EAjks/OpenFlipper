@@ -6,8 +6,8 @@ set -e
 # Expected Settings via environment variables:
 # COMPILER= gcc/clang
 # LANGUAGE= C++98 / C++11
-# QTVERSION= QT5
-# BUILDTYPE= Debug / Release
+# QTVERSION= qt5
+# BUILDTYPE= debug / eelease
 
 
 #include ci options script
@@ -64,7 +64,4 @@ rm -rf artifacts
 
 cd ..
 # create an archive with all the build files so we can use them in the test script
-tar -cvf ../buildfiles.tar .
-
-cd ..
-mv buildfiles.tar $BUILDPATH.tar
+tar -cvf $BUILDPATH.tar artifacts/

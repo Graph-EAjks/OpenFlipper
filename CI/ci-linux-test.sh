@@ -6,8 +6,8 @@ set -e
 # Expected Settings via environment variables:
 # COMPILER= gcc/clang
 # LANGUAGE= C++98 / C++11
-# QTVERSION= QT5
-# BUILDTYPE= Debug / Release
+# QTVERSION= qt5
+# BUILDTYPE= debug / release
 
 #include ci options script
 #MY_DIR=$(dirname $(readlink -f $0))
@@ -27,13 +27,10 @@ git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@www.graphics.rwth-aachen.de:90
 # Run Release Unittests
 #########################################
 
-if [ ! -d $BUILDPATH ]; then
-  mkdir $BUILDPATH
-fi
+tar -xvf $BUILDPATH.tar
+rsync -a ./artifacts .
 
-mv $BUILDPATH.tar buildfiles.tar
 cd $BUILDPATH
-tar -xvf ../buildfiles.tar
 
 #clean old cmake cache as the path might have changed
 find . -name "CMakeCache.txt" -type f -delete
