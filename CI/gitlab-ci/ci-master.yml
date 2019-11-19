@@ -7,11 +7,37 @@ variables:
   GET_SOURCES_ATTEMPTS: 3
   CTEST_OUTPUT_ON_FAILURE: 1
 
-{linux.yml}
+test1:
+  stage: Test
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "gcc"     
+    LANGUAGE:       "cpp11"     
+    QTVERSION:      "qt5.11.2"     
+    BUILDTYPE:      "debug"
+    GIT_STRATEGY: none
+  script: "echo $(pwd) && ls -lah && ls -lah CI/"
+  tags:
+    - Docker
 
-{windows.yml}
+test2:
+  stage: Build
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  variables:     
+    COMPILER:       "gcc"     
+    LANGUAGE:       "cpp11"     
+    QTVERSION:      "qt5.11.2"     
+    BUILDTYPE:      "debug"
+    GIT_STRATEGY: none
+  script: "echo $(pwd) && ls -lah && ls -lah CI/"
+  tags:
+    - Docker
 
-{mac.yml}
+#{linux.yml}
+
+#{windows.yml}
+
+#{mac.yml}
 
 ##############################
 #
