@@ -2,6 +2,8 @@
 
 import sys, os, re
 
+# Version 3
+
 # Script for automated gitlab-ci creation
 # Assembles the gitlab ci from master template file:
 master_file = 'ci-master.yml'
@@ -17,6 +19,11 @@ target_file = '../../.gitlab-ci.yml'
 error_on_path_redirection = True
 # Notice that xxx can not contain path redirections
 # like .. and /
+
+# Max import recursion
+maxFileRecursionDepth = 4
+# Max filename used for pretty print
+maxFilnameChars = 30
 
 
 # Prefix to prepend to master file
@@ -75,9 +82,15 @@ def fetchVariableReplacers(variablesGrep):
 
 
 # Assembles the file in memory and returns file content as string
-def assembleTarget(master, depth=4):
+def assembleTarget(master, depth=maxFileRecursionDepth):
     if depth < 0:
         raise "Max depth reached. Possible circular import?"
+    print_prefix = ""
+    for i in range(0, maxFileRecursionDepth-depth):
+        print_prefix = " | \t" + print_prefix
+    print_prefix_inverse = ""
+    for i in range(0, depth):
+        print_prefix_inverse = print_prefix_inverse + "\t"
 
     master_content = readFile(master)
     regex_import_stmt = r"^\ *\{([^\},\n]+)(,[^=\n\}\,]+\=[^\}\n,]*)*\}\ *$"
@@ -94,7 +107,7 @@ def assembleTarget(master, depth=4):
             importFile = match.groups()[0]
             if importFile:
                 # Found import statement
-                print("Importing file: "+importFile)
+                print(print_prefix+"Importing file: "+importFile.ljust(maxFilnameChars), end="")
 
                 if not isValidImportFilename(importFile):
                     raise "Invalid filename "+importFile+ ". Do not include path redirections"
@@ -102,7 +115,7 @@ def assembleTarget(master, depth=4):
                 variablesGrep = match.string
                 variableReplacers = fetchVariableReplacers(variablesGrep)
 
-                print("\tReplacers: ", variableReplacers)
+                print(print_prefix_inverse, variableReplacers)
 
                 import_content = assembleTarget(importFile, depth=depth-1)
 

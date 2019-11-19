@@ -85,8 +85,7 @@ test-debug-gcc-cpp11-qt5.11.2:
     LANGUAGE:       "cpp11"
     QTVERSION:      "qt5.11.2"
     BUILDTYPE:      "debug"
-    GIT_STRATEGY: none
-  script: "build-debug-gcc-cpp11-qt5.11.2/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -105,8 +104,7 @@ test-debug-gcc-cpp11-qt5.11.2-nopython:
     QTVERSION:      "qt5.11.2"
     BUILDTYPE:      "debug"
     PYTHON:	    "no" 
-    GIT_STRATEGY: none
-  script: "build-debug-gcc-cpp11-qt5.11.2/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -179,8 +177,7 @@ test-release-gcc-cpp11-qt5.11.2:
     LANGUAGE:       "cpp11"
     QTVERSION:      "qt5.11.2"
     BUILDTYPE:      "release"
-    GIT_STRATEGY: none
-  script: "build-release-gcc-cpp11-qt5.11.2/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -199,8 +196,7 @@ test-release-gcc-cpp11-qt5.11.2-nopython:
     QTVERSION:      "qt5.11.2"
     BUILDTYPE:      "release"
     PYTHON:	    "no" 
-    GIT_STRATEGY: none
-  script: "build-release-gcc-cpp11-qt5.11.2/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -272,8 +268,7 @@ test-debug-clang-cpp11-qt5.11.2:
     LANGUAGE:       "cpp11"
     QTVERSION:      "qt5.11.2"
     BUILDTYPE:      "debug"
-    GIT_STRATEGY: none
-  script: "build-debug-clang-cpp11-qt5.11.2/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -292,8 +287,7 @@ test-debug-clang-cpp11-qt5.11.2-nopython:
     QTVERSION:      "qt5.11.2"
     BUILDTYPE:      "debug"
     PYTHON:	    "no" 
-    GIT_STRATEGY: none
-  script: "build-debug-clang-cpp11-qt5.11.2/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -366,8 +360,7 @@ test-release-clang-cpp11-qt5.11.2:
     LANGUAGE:       "cpp11"
     QTVERSION:      "qt5.11.2"
     BUILDTYPE:      "release"
-    GIT_STRATEGY: none
-  script: "build-release-clang-cpp11-qt5.11.2/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -386,8 +379,7 @@ test-release-clang-cpp11-qt5.11.2-nopython:
     QTVERSION:      "qt5.11.2"
     BUILDTYPE:      "release"
     PYTHON:	    "no" 
-    GIT_STRATEGY: none
-  script: "build-release-clang-cpp11-qt5.11.2/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -460,8 +452,7 @@ test-debug-gcc-cpp11-qt5.12.2:
     LANGUAGE:       "cpp11"
     QTVERSION:      "qt5.12.2"
     BUILDTYPE:      "debug"
-    GIT_STRATEGY: none
-  script: "build-debug-gcc-cpp11-qt5.12.2/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -480,8 +471,7 @@ test-debug-gcc-cpp11-qt5.12.2-nopython:
     QTVERSION:      "qt5.12.2"
     BUILDTYPE:      "debug"
     PYTHON:	    "no" 
-    GIT_STRATEGY: none
-  script: "build-debug-gcc-cpp11-qt5.12.2/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -554,8 +544,7 @@ test-release-gcc-cpp11-qt5.12.2:
     LANGUAGE:       "cpp11"
     QTVERSION:      "qt5.12.2"
     BUILDTYPE:      "release"
-    GIT_STRATEGY: none
-  script: "build-release-gcc-cpp11-qt5.12.2/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -574,8 +563,7 @@ test-release-gcc-cpp11-qt5.12.2-nopython:
     QTVERSION:      "qt5.12.2"
     BUILDTYPE:      "release"
     PYTHON:	    "no" 
-    GIT_STRATEGY: none
-  script: "build-release-gcc-cpp11-qt5.12.2/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -647,8 +635,7 @@ test-debug-clang-cpp11-qt5.12.2:
     LANGUAGE:       "cpp11"
     QTVERSION:      "qt5.12.2"
     BUILDTYPE:      "debug"
-    GIT_STRATEGY: none
-  script: "build-debug-clang-cpp11-qt5.12.2/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -667,8 +654,7 @@ test-debug-clang-cpp11-qt5.12.2-nopython:
     QTVERSION:      "qt5.12.2"
     BUILDTYPE:      "debug"
     PYTHON:	    "no" 
-    GIT_STRATEGY: none
-  script: "build-debug-clang-cpp11-qt5.12.2/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -741,8 +727,7 @@ test-release-clang-cpp11-qt5.12.2:
     LANGUAGE:       "cpp11"
     QTVERSION:      "qt5.12.2"
     BUILDTYPE:      "release"
-    GIT_STRATEGY: none
-  script: "build-release-clang-cpp11-qt5.12.2/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -761,8 +746,7 @@ test-release-clang-cpp11-qt5.12.2-nopython:
     QTVERSION:      "qt5.12.2"
     BUILDTYPE:      "release"
     PYTHON:	    "no" 
-    GIT_STRATEGY: none
-  script: "build-release-clang-cpp11-qt5.12.2/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -835,8 +819,7 @@ test-debug-gcc-cpp11-qt5.13.0:
     LANGUAGE:       "cpp11"
     QTVERSION:      "qt5.13.0"
     BUILDTYPE:      "debug"
-    GIT_STRATEGY: none
-  script: "build-debug-gcc-cpp11-qt5.13.0/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -855,8 +838,7 @@ test-debug-gcc-cpp11-qt5.13.0-nopython:
     QTVERSION:      "qt5.13.0"
     BUILDTYPE:      "debug"
     PYTHON:	    "no" 
-    GIT_STRATEGY: none
-  script: "build-debug-gcc-cpp11-qt5.13.0/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -929,8 +911,7 @@ test-release-gcc-cpp11-qt5.13.0:
     LANGUAGE:       "cpp11"
     QTVERSION:      "qt5.13.0"
     BUILDTYPE:      "release"
-    GIT_STRATEGY: none
-  script: "build-release-gcc-cpp11-qt5.13.0/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -949,8 +930,7 @@ test-release-gcc-cpp11-qt5.13.0-nopython:
     QTVERSION:      "qt5.13.0"
     BUILDTYPE:      "release"
     PYTHON:	    "no" 
-    GIT_STRATEGY: none
-  script: "build-release-gcc-cpp11-qt5.13.0/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -1022,8 +1002,7 @@ test-debug-clang-cpp11-qt5.13.0:
     LANGUAGE:       "cpp11"
     QTVERSION:      "qt5.13.0"
     BUILDTYPE:      "debug"
-    GIT_STRATEGY: none
-  script: "build-debug-clang-cpp11-qt5.13.0/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -1042,8 +1021,7 @@ test-debug-clang-cpp11-qt5.13.0-nopython:
     QTVERSION:      "qt5.13.0"
     BUILDTYPE:      "debug"
     PYTHON:	    "no" 
-    GIT_STRATEGY: none
-  script: "build-debug-clang-cpp11-qt5.13.0/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -1116,8 +1094,7 @@ test-release-clang-cpp11-qt5.13.0:
     LANGUAGE:       "cpp11"
     QTVERSION:      "qt5.13.0"
     BUILDTYPE:      "release"
-    GIT_STRATEGY: none
-  script: "build-release-clang-cpp11-qt5.13.0/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -1136,8 +1113,7 @@ test-release-clang-cpp11-qt5.13.0-nopython:
     QTVERSION:      "qt5.13.0"
     BUILDTYPE:      "release"
     PYTHON:	    "no" 
-    GIT_STRATEGY: none
-  script: "build-release-clang-cpp11-qt5.13.0/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -1210,8 +1186,7 @@ test-debug-gcc-cpp11-qt5.13.2:
     LANGUAGE:       "cpp11"
     QTVERSION:      "qt5.13.2"
     BUILDTYPE:      "debug"
-    GIT_STRATEGY: none
-  script: "build-debug-gcc-cpp11-qt5.13.2/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -1230,8 +1205,7 @@ test-debug-gcc-cpp11-qt5.13.2-nopython:
     QTVERSION:      "qt5.13.2"
     BUILDTYPE:      "debug"
     PYTHON:	    "no" 
-    GIT_STRATEGY: none
-  script: "build-debug-gcc-cpp11-qt5.13.2/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -1304,8 +1278,7 @@ test-release-gcc-cpp11-qt5.13.2:
     LANGUAGE:       "cpp11"
     QTVERSION:      "qt5.13.2"
     BUILDTYPE:      "release"
-    GIT_STRATEGY: none
-  script: "build-release-gcc-cpp11-qt5.13.2/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -1324,8 +1297,7 @@ test-release-gcc-cpp11-qt5.13.2-nopython:
     QTVERSION:      "qt5.13.2"
     BUILDTYPE:      "release"
     PYTHON:	    "no" 
-    GIT_STRATEGY: none
-  script: "build-release-gcc-cpp11-qt5.13.2/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -1397,8 +1369,7 @@ test-debug-clang-cpp11-qt5.13.2:
     LANGUAGE:       "cpp11"
     QTVERSION:      "qt5.13.2"
     BUILDTYPE:      "debug"
-    GIT_STRATEGY: none
-  script: "build-debug-clang-cpp11-qt5.13.2/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -1417,8 +1388,7 @@ test-debug-clang-cpp11-qt5.13.2-nopython:
     QTVERSION:      "qt5.13.2"
     BUILDTYPE:      "debug"
     PYTHON:	    "no" 
-    GIT_STRATEGY: none
-  script: "build-debug-clang-cpp11-qt5.13.2/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -1491,8 +1461,7 @@ test-release-clang-cpp11-qt5.13.2:
     LANGUAGE:       "cpp11"
     QTVERSION:      "qt5.13.2"
     BUILDTYPE:      "release"
-    GIT_STRATEGY: none
-  script: "build-release-clang-cpp11-qt5.13.2/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -1511,8 +1480,7 @@ test-release-clang-cpp11-qt5.13.2-nopython:
     QTVERSION:      "qt5.13.2"
     BUILDTYPE:      "release"
     PYTHON:	    "no" 
-    GIT_STRATEGY: none
-  script: "build-release-clang-cpp11-qt5.13.2/CI/ci-linux-test.sh"
+  script: "CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
