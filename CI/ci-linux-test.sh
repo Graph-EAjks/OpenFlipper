@@ -29,8 +29,6 @@ git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@www.graphics.rwth-aachen.de:90
 
 cd $BUILDPATH
 
-mkdir Build
-
 # copy the used shared libraries to the lib folder
 cd Build
 
