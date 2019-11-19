@@ -63,3 +63,5 @@ cd ../..
 
 # create an archive with all the build files so we can use them in the test script
 #tar -cvf ../buildfiles.tar .
+
+cp -R CI/ $BUILDPATH
