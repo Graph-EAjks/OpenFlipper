@@ -11,7 +11,7 @@ test-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}:
   variables:
     COMPILER: "{{COMPILER}}"
     LANGUAGE:  "{{LANGUAGE}}"
-    QTVERSION: {{QTVERSION}}"
+    QTVERSION: "{{QTVERSION}}"
     BUILDTYPE: "{{BUILDTYPE}}"
   script: "CI/ci-linux-test.sh"
   tags:
