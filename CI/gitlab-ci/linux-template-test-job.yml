@@ -9,12 +9,12 @@ test-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}:
   stage: Test
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
-    COMPILER:       "{{COMPILER}}"     
-    LANGUAGE:       "{{LANGUAGE}}"     
-    QTVERSION:      "{{QTVERSION}}"     
+    COMPILER:       "{{COMPILER}}"
+    LANGUAGE:       "{{LANGUAGE}}"
+    QTVERSION:      "{{QTVERSION}}"
     BUILDTYPE:      "{{BUILDTYPE}}"
     GIT_STRATEGY: none
-  script: "CI/ci-linux-test.sh"
+  script: "build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}/CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -28,13 +28,13 @@ test-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}-nopython:
   stage: Test
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:     
-    COMPILER:       "{{COMPILER}}"     
-    LANGUAGE:       "{{LANGUAGE}}"     
-    QTVERSION:      "{{QTVERSION}}"     
+    COMPILER:       "{{COMPILER}}"
+    LANGUAGE:       "{{LANGUAGE}}"
+    QTVERSION:      "{{QTVERSION}}"
     BUILDTYPE:      "{{BUILDTYPE}}"
     PYTHON:	    "no" 
     GIT_STRATEGY: none
-  script: "CI/ci-linux-test.sh"
+  script: "build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}/CI/ci-linux-test.sh"
   tags:
     - Docker
   dependencies:
@@ -42,7 +42,7 @@ test-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}-nopython:
   needs: [build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}-nopython]
   artifacts:
     paths:
-       - build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}/Testing/Temporary/LastTest.log   
+       - build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}/Testing/Temporary/LastTest.log
 
 #
 #-----------
