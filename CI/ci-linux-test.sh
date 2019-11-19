@@ -27,8 +27,13 @@ git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@www.graphics.rwth-aachen.de:90
 # Run Release Unittests
 #########################################
 
-# Run tests
+if [ ! -d $BUILDPATH ]; then
+  mkdir $BUILDPATH
+fi
+
+mv $BUILDPATH.tar buildfiles.tar
 cd $BUILDPATH
+tar -xvf ../buildfiles.tar
 
 #clean old cmake cache as the path might have changed
 find . -name "CMakeCache.txt" -type f -delete

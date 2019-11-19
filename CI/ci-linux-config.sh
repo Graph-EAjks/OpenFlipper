@@ -71,6 +71,8 @@ elif [ "$QTVERSION" == "qt5.13.2" ]; then
 fi
 
 if [ "$PYTHON" == "no" ]; then
+  echo "No python";
+  BUILDPATH="$BUILDPATH-nopython"
   OPTIONS="$OPTIONS -DDISABLE_OPENFLIPPER_PYTHON_SYSTEM=TRUE"
 fi
 
