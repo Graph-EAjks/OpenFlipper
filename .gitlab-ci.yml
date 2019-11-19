@@ -83,7 +83,7 @@ test-debug-gcc-cpp11-qt5.11.2:
   variables:
     COMPILER: "gcc"
     LANGUAGE:  "cpp11"
-    QTVERSION: qt5.11.2"
+    QTVERSION: "qt5.11.2"
     BUILDTYPE: "debug"
   script: "CI/ci-linux-test.sh"
   tags:
@@ -173,7 +173,7 @@ test-release-gcc-cpp11-qt5.11.2:
   variables:
     COMPILER: "gcc"
     LANGUAGE:  "cpp11"
-    QTVERSION: qt5.11.2"
+    QTVERSION: "qt5.11.2"
     BUILDTYPE: "release"
   script: "CI/ci-linux-test.sh"
   tags:
@@ -262,7 +262,7 @@ test-debug-clang-cpp11-qt5.11.2:
   variables:
     COMPILER: "clang"
     LANGUAGE:  "cpp11"
-    QTVERSION: qt5.11.2"
+    QTVERSION: "qt5.11.2"
     BUILDTYPE: "debug"
   script: "CI/ci-linux-test.sh"
   tags:
@@ -352,7 +352,7 @@ test-release-clang-cpp11-qt5.11.2:
   variables:
     COMPILER: "clang"
     LANGUAGE:  "cpp11"
-    QTVERSION: qt5.11.2"
+    QTVERSION: "qt5.11.2"
     BUILDTYPE: "release"
   script: "CI/ci-linux-test.sh"
   tags:
@@ -442,7 +442,7 @@ test-debug-gcc-cpp11-qt5.12.2:
   variables:
     COMPILER: "gcc"
     LANGUAGE:  "cpp11"
-    QTVERSION: qt5.12.2"
+    QTVERSION: "qt5.12.2"
     BUILDTYPE: "debug"
   script: "CI/ci-linux-test.sh"
   tags:
@@ -532,7 +532,7 @@ test-release-gcc-cpp11-qt5.12.2:
   variables:
     COMPILER: "gcc"
     LANGUAGE:  "cpp11"
-    QTVERSION: qt5.12.2"
+    QTVERSION: "qt5.12.2"
     BUILDTYPE: "release"
   script: "CI/ci-linux-test.sh"
   tags:
@@ -621,7 +621,7 @@ test-debug-clang-cpp11-qt5.12.2:
   variables:
     COMPILER: "clang"
     LANGUAGE:  "cpp11"
-    QTVERSION: qt5.12.2"
+    QTVERSION: "qt5.12.2"
     BUILDTYPE: "debug"
   script: "CI/ci-linux-test.sh"
   tags:
@@ -711,7 +711,7 @@ test-release-clang-cpp11-qt5.12.2:
   variables:
     COMPILER: "clang"
     LANGUAGE:  "cpp11"
-    QTVERSION: qt5.12.2"
+    QTVERSION: "qt5.12.2"
     BUILDTYPE: "release"
   script: "CI/ci-linux-test.sh"
   tags:
@@ -801,7 +801,7 @@ test-debug-gcc-cpp11-qt5.13.0:
   variables:
     COMPILER: "gcc"
     LANGUAGE:  "cpp11"
-    QTVERSION: qt5.13.0"
+    QTVERSION: "qt5.13.0"
     BUILDTYPE: "debug"
   script: "CI/ci-linux-test.sh"
   tags:
@@ -891,7 +891,7 @@ test-release-gcc-cpp11-qt5.13.0:
   variables:
     COMPILER: "gcc"
     LANGUAGE:  "cpp11"
-    QTVERSION: qt5.13.0"
+    QTVERSION: "qt5.13.0"
     BUILDTYPE: "release"
   script: "CI/ci-linux-test.sh"
   tags:
@@ -980,7 +980,7 @@ test-debug-clang-cpp11-qt5.13.0:
   variables:
     COMPILER: "clang"
     LANGUAGE:  "cpp11"
-    QTVERSION: qt5.13.0"
+    QTVERSION: "qt5.13.0"
     BUILDTYPE: "debug"
   script: "CI/ci-linux-test.sh"
   tags:
@@ -1070,7 +1070,7 @@ test-release-clang-cpp11-qt5.13.0:
   variables:
     COMPILER: "clang"
     LANGUAGE:  "cpp11"
-    QTVERSION: qt5.13.0"
+    QTVERSION: "qt5.13.0"
     BUILDTYPE: "release"
   script: "CI/ci-linux-test.sh"
   tags:
@@ -1160,7 +1160,7 @@ test-debug-gcc-cpp11-qt5.13.2:
   variables:
     COMPILER: "gcc"
     LANGUAGE:  "cpp11"
-    QTVERSION: qt5.13.2"
+    QTVERSION: "qt5.13.2"
     BUILDTYPE: "debug"
   script: "CI/ci-linux-test.sh"
   tags:
@@ -1250,7 +1250,7 @@ test-release-gcc-cpp11-qt5.13.2:
   variables:
     COMPILER: "gcc"
     LANGUAGE:  "cpp11"
-    QTVERSION: qt5.13.2"
+    QTVERSION: "qt5.13.2"
     BUILDTYPE: "release"
   script: "CI/ci-linux-test.sh"
   tags:
@@ -1339,7 +1339,7 @@ test-debug-clang-cpp11-qt5.13.2:
   variables:
     COMPILER: "clang"
     LANGUAGE:  "cpp11"
-    QTVERSION: qt5.13.2"
+    QTVERSION: "qt5.13.2"
     BUILDTYPE: "debug"
   script: "CI/ci-linux-test.sh"
   tags:
@@ -1429,7 +1429,7 @@ test-release-clang-cpp11-qt5.13.2:
   variables:
     COMPILER: "clang"
     LANGUAGE:  "cpp11"
-    QTVERSION: qt5.13.2"
+    QTVERSION: "qt5.13.2"
     BUILDTYPE: "release"
   script: "CI/ci-linux-test.sh"
   tags:
