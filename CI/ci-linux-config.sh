@@ -97,3 +97,5 @@ else
   git -C "~/sw" pull alt master
   git -C "~/sw" remote remove alt
 fi
+
+echo "Buildpath is: $BUILDPATH"
