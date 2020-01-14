@@ -21,9 +21,9 @@ set( CMAKE_CXX_STANDARD 11 )
 
 # ACG Environment default settings
 # This is ugly but currently we need to work around the default installed on debian
-if ( EXISTS /ACG/acgdev/gcc-x86_64/qt-5.13.0/5.13.0/gcc_64 )
+if ( EXISTS /ACG/acgdev/gcc-x86_64/qt-5.13.2/5.13.2/gcc_64 )
   # Default to this install path for QT%_INSTALL_DIR
-  set (QT5_INSTALL_PATH /ACG/acgdev/gcc-x86_64/qt-5.13.0/5.13.0/gcc_64/ CACHE PATH "Qt5 install path set for ACG environment using QT 5.13.0" )
+  set (QT5_INSTALL_PATH /ACG/acgdev/gcc-x86_64/qt-5.13.2/5.13.2/gcc_64/ CACHE PATH "Qt5 install path set for ACG environment using QT 5.13.2" )
 endif()
 
 if ( WIN32 )
@@ -217,6 +217,11 @@ if(NO_DECREMENT_DEPRECATED_WARNINGS)
   add_definitions( -DNO_DECREMENT_DEPRECATED_WARNINGS )
 endif()
 
+# do not show "opengl is deprecated" warnings
+if (APPLE)
+  add_definitions( -DGL_SILENCE_DEPRECATION )
+endif()
+
 find_package(ACG)
 
 # OpenMesh is a dependent project (in libs_required) so no finder is needed.
@@ -262,9 +267,24 @@ file (
 
 set( REMAINING_LOCAL_LIBS "" )
 
+# move the following libraries to the front of the list
+# to have add_subdirectory() order match the dependency graph.
+set( _local_libs_ordered "" )
+foreach(_pattern CoMISo OpenVolumeMesh libHexEx)
+    foreach (_localLib ${_local_libs_in})
+        if ( "${_localLib}" MATCHES ".*${_pattern}.*" )
+            LIST(APPEND _local_libs_ordered ${_localLib})
+        endif()
+    endforeach()
+endforeach()
+
+LIST(APPEND _local_libs_ordered ${_local_libs_in})
+LIST(REMOVE_DUPLICATES _local_libs_ordered)
+
+
 # Special Comiso case:
 # The library has to be configured first
-foreach (_localLib ${_local_libs_in})
+foreach (_localLib ${_local_libs_ordered})
   if ( "${_localLib}" MATCHES .*CoMISo.* )
     get_filename_component (_local_lib_dir ${_localLib} PATH)
     if ( NOT DEFINED LIB_COMISO_BUILD )
