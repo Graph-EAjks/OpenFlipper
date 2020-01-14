@@ -4,17 +4,17 @@
 #
 ##############################
 
-{linux-template-job.yml, COMPILER=gcc,   LANGUAGE=cpp11, QTVERSION=qt5.11.2}
-{linux-template-job.yml, COMPILER=clang, LANGUAGE=cpp11, QTVERSION=qt5.11.2}
+{linux-template-job.yml, COMPILER=gcc,   LANGUAGE=cpp11, QT_VERSION=qt5.11.2}
+{linux-template-job.yml, COMPILER=clang, LANGUAGE=cpp11, QT_VERSION=qt5.11.2}
 
-{linux-template-job.yml, COMPILER=gcc,   LANGUAGE=cpp11, QTVERSION=qt5.12.2}
-{linux-template-job.yml, COMPILER=clang, LANGUAGE=cpp11, QTVERSION=qt5.12.2}
+{linux-template-job.yml, COMPILER=gcc,   LANGUAGE=cpp11, QT_VERSION=qt5.12.2}
+{linux-template-job.yml, COMPILER=clang, LANGUAGE=cpp11, QT_VERSION=qt5.12.2}
 
-{linux-template-job.yml, COMPILER=gcc,   LANGUAGE=cpp11, QTVERSION=qt5.13.0}
-{linux-template-job.yml, COMPILER=clang, LANGUAGE=cpp11, QTVERSION=qt5.13.0}
+{linux-template-job.yml, COMPILER=gcc,   LANGUAGE=cpp11, QT_VERSION=qt5.13.0}
+{linux-template-job.yml, COMPILER=clang, LANGUAGE=cpp11, QT_VERSION=qt5.13.0}
 
-{linux-template-job.yml, COMPILER=gcc,   LANGUAGE=cpp11, QTVERSION=qt5.13.2}
-{linux-template-job.yml, COMPILER=clang, LANGUAGE=cpp11, QTVERSION=qt5.13.2}
+{linux-template-job.yml, COMPILER=gcc,   LANGUAGE=cpp11, QT_VERSION=qt5.13.2}
+{linux-template-job.yml, COMPILER=clang, LANGUAGE=cpp11, QT_VERSION=qt5.13.2}
 
 
 cppcheck:

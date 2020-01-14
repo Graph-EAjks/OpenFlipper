@@ -3,15 +3,15 @@
 # OS:         Linux
 # Compiler:   {{COMPILER}}
 # Language:   {{LANGUAGE}}
-# QT Version: {{QTVERSION}}
+# QT Version: {{QT_VERSION}}
 
-build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}:
+build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}:
   stage: Build
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:
     COMPILER: "{{COMPILER}}"
     LANGUAGE: "{{LANGUAGE}}"
-    QTVERSION: "{{QTVERSION}}"
+    QTVERSION: "{{QT_VERSION}}"
     BUILDTYPE: "{{BUILDTYPE}}"
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
@@ -20,15 +20,15 @@ build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}/
+       - build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}/
 
-build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}-nopython:
+build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-nopython:
   stage: Build
   image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   variables:
     COMPILER: "{{COMPILER}}"
     LANGUAGE: "{{LANGUAGE}}"
-    QTVERSION: "{{QTVERSION}}"
+    QTVERSION: "{{QT_VERSION}}"
     BUILDTYPE: "{{BUILDTYPE}}"
     PYTHON: "no" 
     GIT_SUBMODULE_STRATEGY: recursive
@@ -38,7 +38,7 @@ build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QTVERSION}}-nopython/
+       - build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-nopython/
 
 #
 #-----------
