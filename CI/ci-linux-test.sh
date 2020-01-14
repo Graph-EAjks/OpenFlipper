@@ -56,13 +56,13 @@ fi
 
 cp -R root_cmake/ ../cmake
 
-cmake -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE -DSTL_VECTOR_CHECKS=ON $OPTIONS ../
+#cmake -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE -DSTL_VECTOR_CHECKS=ON $OPTIONS ../
 
 #tell the location to the libs from build jobs
 export LD_LIBRARY_PATH=$(pwd)/Build/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$(pwd)/Build/systemlib:$LD_LIBRARY_PATH
 
-#make test
+make test
 
 cd tests
 bash run_tests.sh
