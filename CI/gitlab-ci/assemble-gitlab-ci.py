@@ -163,7 +163,7 @@ def main():
         target_file_handle.close()
 
     try:
-        yaml.load(target_content)
+        yaml.load(target_content, Loader=yaml.FullLoader)
         print("Yaml syntax check: OK")
     except Exception as e:
         print("Invalid yaml syntax:", e)

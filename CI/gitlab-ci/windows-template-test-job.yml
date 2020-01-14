@@ -19,7 +19,7 @@ Test:{{COMPILER}}-{{QT_VERSION}}-{{ARCH}}:
       - {{COMPILER}}
       - {{QT_TAG}}
     dependencies:
-      - {{COMPILER}}-{{QT_VERSION}}
+      - {{COMPILER}}-{{QT_VERSION}}-{{ARCH}}
     needs: [{{COMPILER}}-{{QT_VERSION}}-{{ARCH}}]
     artifacts:
       paths:
