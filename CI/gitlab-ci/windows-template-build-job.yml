@@ -1,0 +1,26 @@
+#-----------  Job Informations:
+# Type:       Build
+# OS:         Windows
+# Arch:       {{ARCH}}
+# QT Version: {{QT_VERSION}}
+# QT Tag:     {{QT_TAG}}
+# Compiler:   {{COMPILER}}
+
+{{COMPILER}}-{{QT_VERSION}}-{{ARCH}}:
+    stage: Build
+    script: "CI\\ci-windows-build.bat"
+    variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+      ARCHITECTURE: "{{ARCH}}"
+      QT_VERSION: "{{QT_VERSION}}"
+      COMPILER: "{{COMPILER}}"
+    tags:
+      - {{COMPILER}}
+      - {{QT_TAG}}
+    artifacts:
+      expire_in: 1 week
+      paths:
+        - artifacts
+
+#
+#-----------

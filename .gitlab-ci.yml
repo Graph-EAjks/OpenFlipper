@@ -10,6 +10,12 @@
 #                                                           #
 #############################################################
 
+###########################
+#                         #
+# OpenFlipper GitLAB CI   #
+#                         #
+###########################
+
 stages:
   - Build
   - Test
@@ -1489,119 +1495,187 @@ cppcheck:
 #
 ##############################
 
-VS2015-Qt-5.10.1-x64:
-  stage: Build
-  script: "CI\\ci-windows-build.bat"
-  variables:
-    GIT_SUBMODULE_STRATEGY: recursive
-    ARCHITECTURE: "x64"
-    QT_VERSION: "Qt5.10.1"
-    COMPILER: "VS2015"
-  tags:
-    - VS2015
-    - Qt5101
-  artifacts:
-    expire_in: 1 week
-    paths:
-      - artifacts
+#-----------  Job Informations:
+# Type:       Build
+# OS:         Windows
+# Arch:       x64
+# QT Version: Qt5.10.1
+# QT Tag:     Qt5101
+# Compiler:   VS2015
 
-VS2017-Qt-5.10.1:
-  stage: Build
-  script: "CI\\ci-windows-build.bat"
-  variables:
-    GIT_SUBMODULE_STRATEGY: recursive
-    ARCHITECTURE: "x64"
-    QT_VERSION: "Qt5.10.1"
-    COMPILER: "VS2017"
-  tags:
-    - VS2017
-    - Qt5101
-  artifacts:
-    expire_in: 1 week
-    paths:
-      - artifacts
+VS2015-Qt5.10.1-x64:
+    stage: Build
+    script: "CI\\ci-windows-build.bat"
+    variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt5.10.1"
+      COMPILER: "VS2015"
+    tags:
+      - VS2015
+      - Qt5101
+    artifacts:
+      expire_in: 1 week
+      paths:
+        - artifacts
 
-Test:VS2015-Qt-5.10.1-x64:
-  stage: Test
-  script: "artifacts\\CI\\ci-windows-bootstrap.bat"
-  variables:
-    GIT_STRATEGY: none
-    ARCHITECTURE: "x64"
-    QT_VERSION: "Qt5.10.1"
-    COMPILER: "VS2015"
-    STAGE2SCRIPT: ci-windows-test.bat
-  tags:
-    - VS2015
-    - Qt5101
-  dependencies:
-    - VS2015-Qt-5.10.1-x64
-  needs: [VS2015-Qt-5.10.1-x64]
-  artifacts:
-    paths:
-      - rel/Testing/Temporary/LastTest.log
+#
+#-----------
 
-Test:VS2017-Qt-5.10.1:
-  stage: Test
-  script: "artifacts\\CI\\ci-windows-bootstrap.bat"
-  variables:
-    GIT_STRATEGY: none
-    ARCHITECTURE: "x64"
-    QT_VERSION: "Qt5.10.1"
-    COMPILER: "VS2017"
-    STAGE2SCRIPT: ci-windows-test.bat
-  tags:
-    - VS2017
-    - Qt5101
-  dependencies:
-    - VS2017-Qt-5.10.1
-  needs: [VS2017-Qt-5.10.1]
-  artifacts:
-    paths:
-      - rel/Testing/Temporary/LastTest.log
+#-----------  Job Informations:
+# Type:       Test
+# OS:         Windows
+# Arch:       x64
+# QT Version: Qt5.10.1
+# QT Tag:     Qt5101
+# Compiler:   VS2015
 
-Deploy:VS2015-Qt-5.10.1-x64:
-  stage: Deploy
-  only:
-    - master
-    - unstable
-  script: "artifacts\\CI\\ci-windows-bootstrap.bat"
-  variables:
-    GIT_STRATEGY: none
-    ARCHITECTURE: "x64"
-    QT_VERSION: "Qt5.10.1"
-    COMPILER: "VS2015"
-    STAGE2SCRIPT: ci-windows-deploy.bat
-  tags:
-    - VS2015
-    - Qt5101
-  dependencies:
-    - VS2015-Qt-5.10.1-x64
-  needs: [VS2015-Qt-5.10.1-x64]
-  artifacts:
-    paths:
-      - rel/*.exe
+Test:VS2015-Qt5.10.1-x64:
+    stage: Test
+    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
+    variables:
+      GIT_STRATEGY: none
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt5.10.1"
+      COMPILER: "VS2015"
+      STAGE2SCRIPT: ci-windows-test.bat
+    tags:
+      - VS2015
+      - Qt5101
+    dependencies:
+      - VS2015-Qt5.10.1
+    needs: [VS2015-Qt5.10.1-x64]
+    artifacts:
+      paths:
+        - rel/Testing/Temporary/LastTest.log
 
-Deploy:VS2017-Qt-5.10.1:
-  stage: Deploy
-  only:
-    - master
-    - unstable
-  script: "artifacts\\CI\\ci-windows-bootstrap.bat"
-  variables:
-    GIT_STRATEGY: none
-    ARCHITECTURE: "x64"
-    QT_VERSION: "Qt5.10.1"
-    COMPILER: "VS2017"
-    STAGE2SCRIPT: ci-windows-deploy.bat
-  tags:
-    - VS2017
-    - Qt5101
-  dependencies:
-    - VS2017-Qt-5.10.1
-  needs: [VS2017-Qt-5.10.1]
-  artifacts:
-    paths:
-      - rel/*.exe
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Deploy
+# OS:         Windows
+# Arch:       x64
+# QT Version: Qt5.10.1
+# QT Tag:     Qt5101
+# Compiler:   VS2015
+
+Deploy:VS2015-Qt5.10.1-x64:
+    stage: Deploy
+    only:
+      - master
+      - unstable
+    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
+    variables:
+      GIT_STRATEGY: none
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt5.10.1"
+      COMPILER: "VS2015"
+      STAGE2SCRIPT: ci-windows-deploy.bat
+    tags:
+      - VS2015
+      - Qt5101
+    dependencies:
+      - VS2015-Qt5.10.1-x64
+    needs: [VS2015-Qt5.10.1-x64]
+    artifacts:
+      paths:
+        - rel/*.exe
+
+#
+#-----------
+
+
+#-----------  Job Informations:
+# Type:       Build
+# OS:         Windows
+# Arch:       x64
+# QT Version: Qt5.10.1
+# QT Tag:     Qt5101
+# Compiler:   VS2017
+
+VS2017-Qt5.10.1-x64:
+    stage: Build
+    script: "CI\\ci-windows-build.bat"
+    variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt5.10.1"
+      COMPILER: "VS2017"
+    tags:
+      - VS2017
+      - Qt5101
+    artifacts:
+      expire_in: 1 week
+      paths:
+        - artifacts
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Test
+# OS:         Windows
+# Arch:       x64
+# QT Version: Qt5.10.1
+# QT Tag:     Qt5101
+# Compiler:   VS2017
+
+Test:VS2017-Qt5.10.1-x64:
+    stage: Test
+    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
+    variables:
+      GIT_STRATEGY: none
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt5.10.1"
+      COMPILER: "VS2017"
+      STAGE2SCRIPT: ci-windows-test.bat
+    tags:
+      - VS2017
+      - Qt5101
+    dependencies:
+      - VS2017-Qt5.10.1
+    needs: [VS2017-Qt5.10.1-x64]
+    artifacts:
+      paths:
+        - rel/Testing/Temporary/LastTest.log
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Deploy
+# OS:         Windows
+# Arch:       x64
+# QT Version: Qt5.10.1
+# QT Tag:     Qt5101
+# Compiler:   VS2017
+
+Deploy:VS2017-Qt5.10.1-x64:
+    stage: Deploy
+    only:
+      - master
+      - unstable
+    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
+    variables:
+      GIT_STRATEGY: none
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt5.10.1"
+      COMPILER: "VS2017"
+      STAGE2SCRIPT: ci-windows-deploy.bat
+    tags:
+      - VS2017
+      - Qt5101
+    dependencies:
+      - VS2017-Qt5.10.1-x64
+    needs: [VS2017-Qt5.10.1-x64]
+    artifacts:
+      paths:
+        - rel/*.exe
+
+#
+#-----------
+
 
 ##############################
 #
@@ -1609,52 +1683,78 @@ Deploy:VS2017-Qt-5.10.1:
 #
 ##############################
 
+#-----------  Job Informations:
+# Type:       Build
+# OS:         Apple
+# QT Tag:     qt5113
+# Language:   Cpp11
 
 Mac-Cpp11:
-  stage: Build
-  script: "CI/ci-mac-build.sh"
-  variables:
-    GIT_SUBMODULE_STRATEGY: recursive
-  tags:
-    - Apple
-    - qt5113
-  artifacts:
-    expire_in: 1 week
-    paths:
-      - artifacts
+    stage: Build
+    script: "CI/ci-mac-build.sh"
+    variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+    tags:
+      - Apple
+      - qt5113
+    artifacts:
+      expire_in: 1 week
+      paths:
+        - artifacts
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Test
+# OS:         Apple
+# QT Tag:     qt5113
+# Language:   Cpp11
 
 Test:Mac-Cpp11:
-  stage: Test
-  script: "artifacts/CI/ci-mac-test.sh"
-  variables:
-    GIT_STRATEGY: none
-  tags:
-    - Apple
-    - qt5113
-  dependencies:
-    - Mac-Cpp11
-  needs: [Mac-Cpp11]
-  artifacts:
-    paths:
-      - build-release/Testing/Temporary/LastTest.log
+    stage: Test
+    script: "artifacts/CI/ci-mac-test.sh"
+    variables:
+      GIT_STRATEGY: none
+    tags:
+      - Apple
+      - qt5113
+    dependencies:
+      - Mac-Cpp11
+    needs: [Mac-Cpp11]
+    artifacts:
+      paths:
+        - build-release/Testing/Temporary/LastTest.log
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Deploy
+# OS:         Apple
+# QT Tag:     qt5113
+# Language:   Cpp11
 
 Deploy:Mac-Cpp11:
-  stage: Deploy
-  only:
-    - master
-    - unstable
-  script: "artifacts/CI/ci-mac-deploy.sh"
-  variables:
-    GIT_STRATEGY: none
-  tags:
-    - Apple
-    - qt5113
-  dependencies:
-    - Mac-Cpp11
-  needs: [Mac-Cpp11]
-  artifacts:
-    paths:
-      - build-release/*.dmg
+    stage: Deploy
+    only:
+      - master
+      - unstable
+    script: "artifacts/CI/ci-mac-deploy.sh"
+    variables:
+      GIT_STRATEGY: none
+    tags:
+      - Apple
+      - qt5113
+    dependencies:
+      - Mac-Cpp11
+    needs: [Mac-Cpp11]
+    artifacts:
+      paths:
+        - build-release/*.dmg
+
+#
+#-----------
 
 ##############################
 #
@@ -1663,36 +1763,37 @@ Deploy:Mac-Cpp11:
 ##############################
 
 Doc-publish:
-  stage: Deploy 
-  only:
-     - master
-     - unstable
-  script: "CI/ci-doc.sh"
-  tags:
-     - Linux
-     - stretch
-  dependencies: []
-  variables:
-     GIT_SUBMODULE_STRATEGY: recursive
-  artifacts:
-    paths:
-       - build-release/Doxygen-warning.log 
-       - build-release/Doxygen-error.log
+   stage: Deploy 
+   only:
+      - master
+      - unstable
+   script: "CI/ci-doc.sh"
+   tags:
+      - Linux
+      - stretch
+   dependencies: []
+   variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+   artifacts:
+     paths:
+        - build-release/Doxygen-warning.log 
+        - build-release/Doxygen-error.log
 
 Sources:
-  stage: Deploy
-  only:
-     - master
-  script: "CI/ci-source.sh"
-  tags:
-     - Linux
-     - stretch
-  dependencies: []
-  variables:
-     GIT_SUBMODULE_STRATEGY: recursive
-  artifacts:
-    paths:
-      - OpenFlipper*.zip
-      - OpenFlipper*.tar.bz2
-      - OpenFlipper*.tar.gz
+   stage: Deploy
+   only:
+      - master
+   script: "CI/ci-source.sh"
+   tags:
+      - Linux
+      - stretch
+   dependencies: []
+   variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+   artifacts:
+      paths:
+        - OpenFlipper*.zip
+        - OpenFlipper*.tar.bz2
+        - OpenFlipper*.tar.gz
+ 
 

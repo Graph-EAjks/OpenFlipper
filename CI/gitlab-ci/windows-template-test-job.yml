@@ -1,0 +1,29 @@
+#-----------  Job Informations:
+# Type:       Test
+# OS:         Windows
+# Arch:       {{ARCH}}
+# QT Version: {{QT_VERSION}}
+# QT Tag:     {{QT_TAG}}
+# Compiler:   {{COMPILER}}
+
+Test:{{COMPILER}}-{{QT_VERSION}}-{{ARCH}}:
+    stage: Test
+    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
+    variables:
+      GIT_STRATEGY: none
+      ARCHITECTURE: "{{ARCH}}"
+      QT_VERSION: "{{QT_VERSION}}"
+      COMPILER: "{{COMPILER}}"
+      STAGE2SCRIPT: ci-windows-test.bat
+    tags:
+      - {{COMPILER}}
+      - {{QT_TAG}}
+    dependencies:
+      - {{COMPILER}}-{{QT_VERSION}}
+    needs: [{{COMPILER}}-{{QT_VERSION}}-{{ARCH}}]
+    artifacts:
+      paths:
+        - rel/Testing/Temporary/LastTest.log
+
+#
+#-----------
