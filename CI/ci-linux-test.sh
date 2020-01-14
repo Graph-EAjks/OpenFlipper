@@ -54,6 +54,8 @@ then
 	rm DartConfiguration.tcl
 fi
 
+cp -R root_cmake/ ../cmake
+
 cmake -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE -DSTL_VECTOR_CHECKS=ON $OPTIONS ../
 
 #tell the location to the libs from build jobs
