@@ -34,18 +34,11 @@ if [ ! -d $BUILDPATH ]; then
   mkdir $BUILDPATH
 fi
 
-set -x
-
 cd $BUILDPATH
 
 cmake -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE -DSTL_VECTOR_CHECKS=ON $OPTIONS ../
 
 #build it
 make $MAKE_OPTIONS
-
-#build tests
-make tests
-
-set +x
 
 cd ..
