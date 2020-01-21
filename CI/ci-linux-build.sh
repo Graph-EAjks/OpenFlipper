@@ -11,7 +11,7 @@ set -e
 
 
 #include ci options script
-#MY_DIR=$(dirname $(readlink -f $0))
+MY_DIR=$(dirname $(readlink -f $0))
 source CI/ci-linux-config.sh
 
 echo "Building with path: $BUILDPATH"
@@ -23,7 +23,6 @@ echo "Full cmake options: $OPTIONS  "
 rm -rf TestData
 #git clone git@roosevelt:moebius/OpenFlipper-Test-Data.git TestData
 git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@www.graphics.rwth-aachen.de:9000/moebius/OpenFlipper-Test-Data.git TestData
-
 
 #########################################
 # Build Release version and Unittests
@@ -41,4 +40,27 @@ cmake -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE -DSTL_VECTOR_CHECKS=ON $OPTIONS ../
 #build it
 make $MAKE_OPTIONS
 
+# copy the used shared libraries to the lib folder
+cd Build
+
+if [ ! -d systemlib ]; then
+  mkdir systemlib
+fi
+
+ldd bin/OpenFlipper | grep "=> /" | awk '{print $3}' | xargs -I '{}' cp -v '{}' systemlib
+cd ../..
+
+#create an artifact directory
+if [ ! -d artifacts ]; then
+  mkdir artifacts
+fi
+
+#cp -R * artifacts
+rsync -a --exclude=artifacts --exclude=.git . ./artifacts
+cd artifacts
+#rm -rf .git
+
+# create an archive with all the build files so we can use them in the test script
+#tar -cvf ../buildfiles.tar .
 cd ..
+mv artifacts artifacts-$BUILDPATH

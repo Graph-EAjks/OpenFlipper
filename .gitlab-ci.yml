@@ -53,7 +53,7 @@ build-debug-gcc-cpp11-qt5.11.2:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-debug-gcc-cpp11-qt5.11.2/
+       - artifcats-build-debug-gcc-cpp11-qt5.11.2/
 
 build-debug-gcc-cpp11-qt5.11.2-nopython:
   stage: Build
@@ -71,7 +71,7 @@ build-debug-gcc-cpp11-qt5.11.2-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-debug-gcc-cpp11-qt5.11.2-nopython/
+       - artifcats-build-debug-gcc-cpp11-qt5.11.2-nopython/
 
 #
 #-----------
@@ -143,7 +143,7 @@ build-release-gcc-cpp11-qt5.11.2:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-release-gcc-cpp11-qt5.11.2/
+       - artifcats-build-release-gcc-cpp11-qt5.11.2/
 
 build-release-gcc-cpp11-qt5.11.2-nopython:
   stage: Build
@@ -161,7 +161,7 @@ build-release-gcc-cpp11-qt5.11.2-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-release-gcc-cpp11-qt5.11.2-nopython/
+       - artifcats-build-release-gcc-cpp11-qt5.11.2-nopython/
 
 #
 #-----------
@@ -233,7 +233,7 @@ build-debug-clang-cpp11-qt5.11.2:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-debug-clang-cpp11-qt5.11.2/
+       - artifcats-build-debug-clang-cpp11-qt5.11.2/
 
 build-debug-clang-cpp11-qt5.11.2-nopython:
   stage: Build
@@ -251,7 +251,7 @@ build-debug-clang-cpp11-qt5.11.2-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-debug-clang-cpp11-qt5.11.2-nopython/
+       - artifcats-build-debug-clang-cpp11-qt5.11.2-nopython/
 
 #
 #-----------
@@ -323,7 +323,7 @@ build-release-clang-cpp11-qt5.11.2:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-release-clang-cpp11-qt5.11.2/
+       - artifcats-build-release-clang-cpp11-qt5.11.2/
 
 build-release-clang-cpp11-qt5.11.2-nopython:
   stage: Build
@@ -341,7 +341,7 @@ build-release-clang-cpp11-qt5.11.2-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-release-clang-cpp11-qt5.11.2-nopython/
+       - artifcats-build-release-clang-cpp11-qt5.11.2-nopython/
 
 #
 #-----------
@@ -414,7 +414,7 @@ build-debug-gcc-cpp11-qt5.12.2:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-debug-gcc-cpp11-qt5.12.2/
+       - artifcats-build-debug-gcc-cpp11-qt5.12.2/
 
 build-debug-gcc-cpp11-qt5.12.2-nopython:
   stage: Build
@@ -432,7 +432,7 @@ build-debug-gcc-cpp11-qt5.12.2-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-debug-gcc-cpp11-qt5.12.2-nopython/
+       - artifcats-build-debug-gcc-cpp11-qt5.12.2-nopython/
 
 #
 #-----------
@@ -504,7 +504,7 @@ build-release-gcc-cpp11-qt5.12.2:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-release-gcc-cpp11-qt5.12.2/
+       - artifcats-build-release-gcc-cpp11-qt5.12.2/
 
 build-release-gcc-cpp11-qt5.12.2-nopython:
   stage: Build
@@ -522,7 +522,7 @@ build-release-gcc-cpp11-qt5.12.2-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-release-gcc-cpp11-qt5.12.2-nopython/
+       - artifcats-build-release-gcc-cpp11-qt5.12.2-nopython/
 
 #
 #-----------
@@ -594,7 +594,7 @@ build-debug-clang-cpp11-qt5.12.2:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-debug-clang-cpp11-qt5.12.2/
+       - artifcats-build-debug-clang-cpp11-qt5.12.2/
 
 build-debug-clang-cpp11-qt5.12.2-nopython:
   stage: Build
@@ -612,7 +612,7 @@ build-debug-clang-cpp11-qt5.12.2-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-debug-clang-cpp11-qt5.12.2-nopython/
+       - artifcats-build-debug-clang-cpp11-qt5.12.2-nopython/
 
 #
 #-----------
@@ -684,7 +684,7 @@ build-release-clang-cpp11-qt5.12.2:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-release-clang-cpp11-qt5.12.2/
+       - artifcats-build-release-clang-cpp11-qt5.12.2/
 
 build-release-clang-cpp11-qt5.12.2-nopython:
   stage: Build
@@ -702,7 +702,7 @@ build-release-clang-cpp11-qt5.12.2-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-release-clang-cpp11-qt5.12.2-nopython/
+       - artifcats-build-release-clang-cpp11-qt5.12.2-nopython/
 
 #
 #-----------
@@ -775,7 +775,7 @@ build-debug-gcc-cpp11-qt5.13.0:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-debug-gcc-cpp11-qt5.13.0/
+       - artifcats-build-debug-gcc-cpp11-qt5.13.0/
 
 build-debug-gcc-cpp11-qt5.13.0-nopython:
   stage: Build
@@ -793,7 +793,7 @@ build-debug-gcc-cpp11-qt5.13.0-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-debug-gcc-cpp11-qt5.13.0-nopython/
+       - artifcats-build-debug-gcc-cpp11-qt5.13.0-nopython/
 
 #
 #-----------
@@ -865,7 +865,7 @@ build-release-gcc-cpp11-qt5.13.0:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-release-gcc-cpp11-qt5.13.0/
+       - artifcats-build-release-gcc-cpp11-qt5.13.0/
 
 build-release-gcc-cpp11-qt5.13.0-nopython:
   stage: Build
@@ -883,7 +883,7 @@ build-release-gcc-cpp11-qt5.13.0-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-release-gcc-cpp11-qt5.13.0-nopython/
+       - artifcats-build-release-gcc-cpp11-qt5.13.0-nopython/
 
 #
 #-----------
@@ -955,7 +955,7 @@ build-debug-clang-cpp11-qt5.13.0:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-debug-clang-cpp11-qt5.13.0/
+       - artifcats-build-debug-clang-cpp11-qt5.13.0/
 
 build-debug-clang-cpp11-qt5.13.0-nopython:
   stage: Build
@@ -973,7 +973,7 @@ build-debug-clang-cpp11-qt5.13.0-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-debug-clang-cpp11-qt5.13.0-nopython/
+       - artifcats-build-debug-clang-cpp11-qt5.13.0-nopython/
 
 #
 #-----------
@@ -1045,7 +1045,7 @@ build-release-clang-cpp11-qt5.13.0:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-release-clang-cpp11-qt5.13.0/
+       - artifcats-build-release-clang-cpp11-qt5.13.0/
 
 build-release-clang-cpp11-qt5.13.0-nopython:
   stage: Build
@@ -1063,7 +1063,7 @@ build-release-clang-cpp11-qt5.13.0-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-release-clang-cpp11-qt5.13.0-nopython/
+       - artifcats-build-release-clang-cpp11-qt5.13.0-nopython/
 
 #
 #-----------
@@ -1136,7 +1136,7 @@ build-debug-gcc-cpp11-qt5.13.2:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-debug-gcc-cpp11-qt5.13.2/
+       - artifcats-build-debug-gcc-cpp11-qt5.13.2/
 
 build-debug-gcc-cpp11-qt5.13.2-nopython:
   stage: Build
@@ -1154,7 +1154,7 @@ build-debug-gcc-cpp11-qt5.13.2-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-debug-gcc-cpp11-qt5.13.2-nopython/
+       - artifcats-build-debug-gcc-cpp11-qt5.13.2-nopython/
 
 #
 #-----------
@@ -1226,7 +1226,7 @@ build-release-gcc-cpp11-qt5.13.2:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-release-gcc-cpp11-qt5.13.2/
+       - artifcats-build-release-gcc-cpp11-qt5.13.2/
 
 build-release-gcc-cpp11-qt5.13.2-nopython:
   stage: Build
@@ -1244,7 +1244,7 @@ build-release-gcc-cpp11-qt5.13.2-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-release-gcc-cpp11-qt5.13.2-nopython/
+       - artifcats-build-release-gcc-cpp11-qt5.13.2-nopython/
 
 #
 #-----------
@@ -1316,7 +1316,7 @@ build-debug-clang-cpp11-qt5.13.2:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-debug-clang-cpp11-qt5.13.2/
+       - artifcats-build-debug-clang-cpp11-qt5.13.2/
 
 build-debug-clang-cpp11-qt5.13.2-nopython:
   stage: Build
@@ -1334,7 +1334,7 @@ build-debug-clang-cpp11-qt5.13.2-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-debug-clang-cpp11-qt5.13.2-nopython/
+       - artifcats-build-debug-clang-cpp11-qt5.13.2-nopython/
 
 #
 #-----------
@@ -1406,7 +1406,7 @@ build-release-clang-cpp11-qt5.13.2:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-release-clang-cpp11-qt5.13.2/
+       - artifcats-build-release-clang-cpp11-qt5.13.2/
 
 build-release-clang-cpp11-qt5.13.2-nopython:
   stage: Build
@@ -1424,7 +1424,7 @@ build-release-clang-cpp11-qt5.13.2-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-release-clang-cpp11-qt5.13.2-nopython/
+       - artifcats-build-release-clang-cpp11-qt5.13.2-nopython/
 
 #
 #-----------

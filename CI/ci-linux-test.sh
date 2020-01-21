@@ -10,8 +10,13 @@ set -e
 # BUILDTYPE= debug / release
 
 #include ci options script
-#MY_DIR=$(dirname $(readlink -f $0))
+MY_DIR=$(dirname $(readlink -f $0))
 source CI/ci-linux-config.sh
+
+# copy artifact files to toplevel and remove subdirectory
+mv artifacts-$BUILDPATH artifacts
+rsync -a $MY_DIR/.. $MY_DIR/../..
+rm -rf artifacts
 
 ########################################
 # Fetch test data
@@ -26,26 +31,30 @@ git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@www.graphics.rwth-aachen.de:90
 
 cd $BUILDPATH
 
-# copy the used shared libraries to the lib folder
-cd Build
+#clean old cmake cache as the path might have changed
+find . -name "CMakeCache.txt" -type f -delete
 
-if [ ! -d systemlib ]; then
-  mkdir systemlib
+#just to be safe clean the test file definitions too
+if [ -f CTestTestfile.cmake ]
+then
+	rm CTestTestfile.cmake
+fi
+#just to be safe clean the test file definitions too
+if [ -f DartConfiguration.tcl ]
+then
+	rm DartConfiguration.tcl
 fi
 
-ldd bin/OpenFlipper | grep "=> /" | awk '{print $3}' | xargs -I '{}' cp -v '{}' systemlib
-
-cd ..
-
-#cmake -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE -DSTL_VECTOR_CHECKS=ON $OPTIONS ../
+cmake -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE -DSTL_VECTOR_CHECKS=ON $OPTIONS ../
 
 #tell the location to the libs from build jobs
 export LD_LIBRARY_PATH=$(pwd)/Build/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$(pwd)/Build/systemlib:$LD_LIBRARY_PATH
 
-cp -R ../TestData/ tests/
+#make test
 
 cd tests
 bash run_tests.sh
 
 cd ..
+
