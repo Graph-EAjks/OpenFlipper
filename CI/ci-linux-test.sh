@@ -31,21 +31,31 @@ git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@www.graphics.rwth-aachen.de:90
 
 cd $BUILDPATH
 
+# copy the used shared libraries to the lib folder
+cd Build
+
+if [ ! -d systemlib ]; then
+  mkdir systemlib
+fi
+
+ldd bin/OpenFlipper | grep "=> /" | awk '{print $3}' | xargs -I '{}' cp -v '{}' systemlib
+cd ..
+
 #clean old cmake cache as the path might have changed
-find . -name "CMakeCache.txt" -type f -delete
+#find . -name "CMakeCache.txt" -type f -delete
 
 #just to be safe clean the test file definitions too
-if [ -f CTestTestfile.cmake ]
-then
-	rm CTestTestfile.cmake
-fi
+#if [ -f CTestTestfile.cmake ]
+#then
+#	rm CTestTestfile.cmake
+#fi
 #just to be safe clean the test file definitions too
-if [ -f DartConfiguration.tcl ]
-then
-	rm DartConfiguration.tcl
-fi
+#if [ -f DartConfiguration.tcl ]
+#then
+#	rm DartConfiguration.tcl
+#fi
 
-cmake -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE -DSTL_VECTOR_CHECKS=ON $OPTIONS ../
+#cmake -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE -DSTL_VECTOR_CHECKS=ON $OPTIONS ../
 
 #tell the location to the libs from build jobs
 export LD_LIBRARY_PATH=$(pwd)/Build/lib:$LD_LIBRARY_PATH

@@ -51,16 +51,15 @@ ldd bin/OpenFlipper | grep "=> /" | awk '{print $3}' | xargs -I '{}' cp -v '{}' 
 cd ../..
 
 #create an artifact directory
-if [ ! -d artifacts ]; then
-  mkdir artifacts
-fi
+#if [ ! -d artifacts ]; then
+#  mkdir artifacts
+#fi
 
 #cp -R * artifacts
-rsync -a --exclude=artifacts --exclude=.git . ./artifacts
+#rsync -a --exclude=artifacts --exclude=.git . ./artifacts
 cd artifacts
 #rm -rf .git
 
 # create an archive with all the build files so we can use them in the test script
 #tar -cvf ../buildfiles.tar .
 cd ..
-mv artifacts artifacts-$BUILDPATH
