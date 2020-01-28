@@ -57,7 +57,7 @@ cd ../..
 
 #cp -R * artifacts
 #rsync -a --exclude=artifacts --exclude=.git . ./artifacts
-cd artifacts
+#cd artifacts
 #rm -rf .git
 
 # create an archive with all the build files so we can use them in the test script
