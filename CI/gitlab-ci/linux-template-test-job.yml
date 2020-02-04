@@ -4,10 +4,11 @@
 # Compiler:   {{COMPILER}}
 # Language:   {{LANGUAGE}}
 # QT Version: {{QT_VERSION}}
+# Runner:     {{ISO_TAG}}
 
-test-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}:
+test-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}:
   stage: Test
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "{{COMPILER}}"
     LANGUAGE:  "{{LANGUAGE}}"
@@ -16,15 +17,15 @@ test-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}:
   script: "CI/ci-linux-test.sh"
   tags:
     - Docker
-  dependencies: [build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}]
-  needs: [build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}]
+  dependencies: [build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}]
+  needs: [build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}]
   artifacts:
     paths:
        - build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}/Testing/Temporary/LastTest.log   
   
-test-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-nopython:
+test-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}-nopython:
   stage: Test
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "{{COMPILER}}"
     LANGUAGE: "{{LANGUAGE}}"
@@ -34,8 +35,8 @@ test-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-nopython:
   script: "CI/ci-linux-test.sh"
   tags:
     - Docker
-  dependencies: [build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-nopython]
-  needs: [build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-nopython]
+  dependencies: [build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}-nopython]
+  needs: [build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}-nopython]
   artifacts:
     paths:
        - build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}/Testing/Temporary/LastTest.log
