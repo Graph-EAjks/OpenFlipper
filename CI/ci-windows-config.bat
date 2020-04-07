@@ -59,6 +59,14 @@ if "%QT_VERSION%" == "Qt5.10.1" (
 set QT_REV_LONG=5.10.1
 set QT_REV=5.10.1
 )
+if "%QT_VERSION%" == "Qt5.13.2" (
+set QT_REV_LONG=5.13.2
+set QT_REV=5.13.2
+)
+if "%QT_VERSION%" == "Qt5.14.1" (
+set QT_REV_LONG=5.14.1
+set QT_REV=5.14.1
+)
 
 set QT_SUFFIX=
 set QT_BASE_CONFIG=-DQT5_INSTALL_PATH=E:\Qt\%QT_VERSION%\%QT_REV%\%QT_COMPILERPREFIX%%ARCHBITS%%QT_SUFFIX%
@@ -75,13 +83,15 @@ for /l %%x in (6, 1, 7) do (
 )
 
 :: check for qwt version 6.1.1 to 6.1.3 use the highest found version
-for /l %%x in (0, 1, 3) do (
+for /l %%x in (0, 1, 5) do (
+   echo "Checking for QWT in : %LIBPATH_BASE%\%ARCHITECTURE%\qwt-6.1.%%x-qt%QT_REV_LONG%\include"
    if exist %LIBPATH_BASE%\%ARCHITECTURE%\qwt-6.1.%%x-qt%QT_REV_LONG%\include (
       set QWT6_INCLUDE_DIR=%LIBPATH_BASE%\%ARCHITECTURE%\qwt-6.1.%%x-qt%QT_REV_LONG%\include
       set QWT6_LIBRARY=%LIBPATH_BASE%\%ARCHITECTURE%\qwt-6.1.%%x-qt%QT_REV_LONG%\lib\qwt.lib
       set QWT6_LIBRARY_DIR=%LIBPATH_BASE%\%ARCHITECTURE%\qwt-6.1.%%x-qt%QT_REV_LONG%\lib
    )
 :: unfortunately qwt is not named consistently in our repos so we also have to check for a different folder named
+ echo "Checking for QWT in : %LIBPATH_BASE%\%ARCHITECTURE%\qwt-6.1.%%x-qt-%QT_REV_LONG%\include"
    if exist %LIBPATH_BASE%\%ARCHITECTURE%\qwt-6.1.%%x-qt-%QT_REV_LONG%\include (
       set QWT6_INCLUDE_DIR=%LIBPATH_BASE%\%ARCHITECTURE%\qwt-6.1.%%x-qt-%QT_REV_LONG%\include
       set QWT6_LIBRARY=%LIBPATH_BASE%\%ARCHITECTURE%\qwt-6.1.%%x-qt-%QT_REV_LONG%\lib\qwt.lib

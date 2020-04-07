@@ -3009,21 +3009,21 @@ cppcheck:
 # Type:       Build
 # OS:         Windows
 # Arch:       x64
-# QT Version: Qt5.10.1
-# QT Tag:     Qt5101
+# QT Version: Qt5.14.1
+# QT Tag:     Qt5141
 # Compiler:   VS2015
 
-VS2015-Qt5.10.1-x64:
+VS2015-Qt5.14.1-x64:
     stage: Build
     script: "CI\\ci-windows-build.bat"
     variables:
       GIT_SUBMODULE_STRATEGY: recursive
       ARCHITECTURE: "x64"
-      QT_VERSION: "Qt5.10.1"
+      QT_VERSION: "Qt5.14.1"
       COMPILER: "VS2015"
     tags:
       - VS2015
-      - Qt5101
+      - Qt5141
     artifacts:
       expire_in: 1 week
       paths:
@@ -3036,25 +3036,25 @@ VS2015-Qt5.10.1-x64:
 # Type:       Test
 # OS:         Windows
 # Arch:       x64
-# QT Version: Qt5.10.1
-# QT Tag:     Qt5101
+# QT Version: Qt5.14.1
+# QT Tag:     Qt5141
 # Compiler:   VS2015
 
-Test:VS2015-Qt5.10.1-x64:
+Test:VS2015-Qt5.14.1-x64:
     stage: Test
     script: "artifacts\\CI\\ci-windows-bootstrap.bat"
     variables:
       GIT_STRATEGY: none
       ARCHITECTURE: "x64"
-      QT_VERSION: "Qt5.10.1"
+      QT_VERSION: "Qt5.14.1"
       COMPILER: "VS2015"
       STAGE2SCRIPT: ci-windows-test.bat
     tags:
       - VS2015
-      - Qt5101
+      - Qt5141
     dependencies:
-      - VS2015-Qt5.10.1-x64
-    needs: [VS2015-Qt5.10.1-x64]
+      - VS2015-Qt5.14.1-x64
+    needs: [VS2015-Qt5.14.1-x64]
     artifacts:
       paths:
         - rel/Testing/Temporary/LastTest.log
@@ -3066,11 +3066,11 @@ Test:VS2015-Qt5.10.1-x64:
 # Type:       Deploy
 # OS:         Windows
 # Arch:       x64
-# QT Version: Qt5.10.1
-# QT Tag:     Qt5101
+# QT Version: Qt5.14.1
+# QT Tag:     Qt5141
 # Compiler:   VS2015
 
-Deploy:VS2015-Qt5.10.1-x64:
+Deploy:VS2015-Qt5.14.1-x64:
     stage: Deploy
     only:
       - master
@@ -3079,15 +3079,15 @@ Deploy:VS2015-Qt5.10.1-x64:
     variables:
       GIT_STRATEGY: none
       ARCHITECTURE: "x64"
-      QT_VERSION: "Qt5.10.1"
+      QT_VERSION: "Qt5.14.1"
       COMPILER: "VS2015"
       STAGE2SCRIPT: ci-windows-deploy.bat
     tags:
       - VS2015
-      - Qt5101
+      - Qt5141
     dependencies:
-      - VS2015-Qt5.10.1-x64
-    needs: [VS2015-Qt5.10.1-x64]
+      - VS2015-Qt5.14.1-x64
+    needs: [VS2015-Qt5.14.1-x64]
     artifacts:
       paths:
         - rel/*.exe
@@ -3100,21 +3100,21 @@ Deploy:VS2015-Qt5.10.1-x64:
 # Type:       Build
 # OS:         Windows
 # Arch:       x64
-# QT Version: Qt5.10.1
-# QT Tag:     Qt5101
+# QT Version: Qt5.14.1
+# QT Tag:     Qt5141
 # Compiler:   VS2017
 
-VS2017-Qt5.10.1-x64:
+VS2017-Qt5.14.1-x64:
     stage: Build
     script: "CI\\ci-windows-build.bat"
     variables:
       GIT_SUBMODULE_STRATEGY: recursive
       ARCHITECTURE: "x64"
-      QT_VERSION: "Qt5.10.1"
+      QT_VERSION: "Qt5.14.1"
       COMPILER: "VS2017"
     tags:
       - VS2017
-      - Qt5101
+      - Qt5141
     artifacts:
       expire_in: 1 week
       paths:
@@ -3127,25 +3127,25 @@ VS2017-Qt5.10.1-x64:
 # Type:       Test
 # OS:         Windows
 # Arch:       x64
-# QT Version: Qt5.10.1
-# QT Tag:     Qt5101
+# QT Version: Qt5.14.1
+# QT Tag:     Qt5141
 # Compiler:   VS2017
 
-Test:VS2017-Qt5.10.1-x64:
+Test:VS2017-Qt5.14.1-x64:
     stage: Test
     script: "artifacts\\CI\\ci-windows-bootstrap.bat"
     variables:
       GIT_STRATEGY: none
       ARCHITECTURE: "x64"
-      QT_VERSION: "Qt5.10.1"
+      QT_VERSION: "Qt5.14.1"
       COMPILER: "VS2017"
       STAGE2SCRIPT: ci-windows-test.bat
     tags:
       - VS2017
-      - Qt5101
+      - Qt5141
     dependencies:
-      - VS2017-Qt5.10.1-x64
-    needs: [VS2017-Qt5.10.1-x64]
+      - VS2017-Qt5.14.1-x64
+    needs: [VS2017-Qt5.14.1-x64]
     artifacts:
       paths:
         - rel/Testing/Temporary/LastTest.log
@@ -3157,11 +3157,11 @@ Test:VS2017-Qt5.10.1-x64:
 # Type:       Deploy
 # OS:         Windows
 # Arch:       x64
-# QT Version: Qt5.10.1
-# QT Tag:     Qt5101
+# QT Version: Qt5.14.1
+# QT Tag:     Qt5141
 # Compiler:   VS2017
 
-Deploy:VS2017-Qt5.10.1-x64:
+Deploy:VS2017-Qt5.14.1-x64:
     stage: Deploy
     only:
       - master
@@ -3170,15 +3170,15 @@ Deploy:VS2017-Qt5.10.1-x64:
     variables:
       GIT_STRATEGY: none
       ARCHITECTURE: "x64"
-      QT_VERSION: "Qt5.10.1"
+      QT_VERSION: "Qt5.14.1"
       COMPILER: "VS2017"
       STAGE2SCRIPT: ci-windows-deploy.bat
     tags:
       - VS2017
-      - Qt5101
+      - Qt5141
     dependencies:
-      - VS2017-Qt5.10.1-x64
-    needs: [VS2017-Qt5.10.1-x64]
+      - VS2017-Qt5.14.1-x64
+    needs: [VS2017-Qt5.14.1-x64]
     artifacts:
       paths:
         - rel/*.exe
