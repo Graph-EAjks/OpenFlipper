@@ -3,12 +3,8 @@
 # Required 3.12 to use findPython3
 cmake_minimum_required(VERSION 3.12.0 FATAL_ERROR)
 
-message("${CMAKE_VERSION}")
-
-
 # AutoMOC/AutoUIC
 if(${CMAKE_VERSION} VERSION_GREATER_EQUAL "3.17") 
-   message("Setting Policy")
    cmake_policy(SET CMP0100 NEW)
 endif()
 
