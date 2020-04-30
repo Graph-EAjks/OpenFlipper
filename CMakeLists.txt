@@ -3,6 +3,12 @@
 # Required 3.12 to use findPython3
 cmake_minimum_required(VERSION 3.12.0 FATAL_ERROR)
 
+
+# AutoMOC/AutoUIC
+if(${CMAKE_VERSION} VERSION_GREATER_EQUAL "3.17") 
+   cmake_policy(SET CMP0100 NEW)
+endif()
+
 file(SHA512 ${CMAKE_SOURCE_DIR}/CMakeLists.txt HASH_TOPLEVEL_CMAKEFILE)
 file(SHA512 ${CMAKE_SOURCE_DIR}/OpenFlipper/cmake/CMakeLists.txt HASH_LATEST_CMAKEFILE)
 
