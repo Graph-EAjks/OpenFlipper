@@ -458,7 +458,8 @@ Deploy:VS2015-Qt-5.14.1-x64:
   stage: Deploy
   only:
     - master
-    - unstable
+    - unstable 
+    - staging
   script: "artifacts\\CI\\ci-windows-bootstrap.bat"
   variables:
      GIT_STRATEGY: none
@@ -481,6 +482,7 @@ Deploy:VS2017-Qt-5.14.1:
   only:
     - master
     - unstable
+    - staging
   script: "artifacts\\CI\\ci-windows-bootstrap.bat"
   variables:
     GIT_STRATEGY: none
@@ -531,6 +533,7 @@ Deploy:Mac-Cpp11:
   only:
     - master
     - unstable
+    - staging
   script: "artifacts/CI/ci-mac-deploy.sh"
   variables:
      GIT_STRATEGY: none
