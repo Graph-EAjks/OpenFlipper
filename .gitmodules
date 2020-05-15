@@ -249,3 +249,18 @@
 [submodule "Package-Staging/PluginCollection-PostProcessors/Plugin-BilateralBlur"]
 	path = Package-Staging/PluginCollection-PostProcessors/Plugin-BilateralBlur
 	url = https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/Plugin-BilateralBlur.git
+[submodule "Package-Staging/PluginCollection-PostProcessors/Plugin-DoF"]
+	path = Package-Staging/PluginCollection-PostProcessors/Plugin-DoF
+	url = https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/Plugin-DoF.git
+[submodule "Package-Staging/PluginCollection-PostProcessors/Plugin-FXAA"]
+	path = Package-Staging/PluginCollection-PostProcessors/Plugin-FXAA
+	url = https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/Plugin-FXAA.git
+[submodule "Package-Staging/PluginCollection-PostProcessors/Plugin-GaussBlur"]
+	path = Package-Staging/PluginCollection-PostProcessors/Plugin-GaussBlur
+	url = https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/Plugin-GaussBlur.git
+[submodule "Package-Staging/PluginCollection-PostProcessors/Plugin-PoissonBlur"]
+	path = Package-Staging/PluginCollection-PostProcessors/Plugin-PoissonBlur
+	url = https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/Plugin-PoissonBlur.git
+[submodule "Package-Staging/PluginCollection-PostProcessors/Plugin-RadialBlur"]
+	path = Package-Staging/PluginCollection-PostProcessors/Plugin-RadialBlur
+	url = https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/Plugin-RadialBlur.git
