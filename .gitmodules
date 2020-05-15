@@ -243,3 +243,6 @@
 [submodule "Package-Staging/PluginCollection-FilePlugins/Plugin-Assimp"]
 	path = Package-Staging/PluginCollection-FilePlugins/Plugin-Assimp
 	url = https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/Plugin-Assimp.git
+[submodule "Package-Staging/Plugin-PoissonReconstruction"]
+	path = Package-Staging/Plugin-PoissonReconstruction
+	url = https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/Plugin-PoissonReconstruction.git
