@@ -279,3 +279,6 @@
 [submodule "Package-Staging/PluginCollection-Renderers/Plugin-Render-DeferredShading"]
 	path = Package-Staging/PluginCollection-Renderers/Plugin-Render-DeferredShading
 	url = https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/Plugin-Render-DeferredShading.git
+[submodule "Package-Staging/Plugin-Align"]
+	path = Package-Staging/Plugin-Align
+	url = https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/Plugin-Align.git
