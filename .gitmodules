@@ -264,3 +264,18 @@
 [submodule "Package-Staging/PluginCollection-PostProcessors/Plugin-RadialBlur"]
 	path = Package-Staging/PluginCollection-PostProcessors/Plugin-RadialBlur
 	url = https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/Plugin-RadialBlur.git
+[submodule "Package-Staging/Plugin-TangentSpace"]
+	path = Package-Staging/Plugin-TangentSpace
+	url = https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/Plugin-TangentSpace.git
+[submodule "Package-Staging/Plugin-PanoramaControl"]
+	path = Package-Staging/Plugin-PanoramaControl
+	url = https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/Plugin-PanoramaControl.git
+[submodule "Package-Staging/Type-SkyDome"]
+	path = Package-Staging/Type-SkyDome
+	url = https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/Type-SkyDome.git
+[submodule "Package-Staging/PluginCollection-Renderers/Plugin-Render-OITLinkedList"]
+	path = Package-Staging/PluginCollection-Renderers/Plugin-Render-OITLinkedList
+	url = https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/Plugin-Render-OITLinkedList.git
+[submodule "Package-Staging/PluginCollection-Renderers/Plugin-Render-DeferredShading"]
+	path = Package-Staging/PluginCollection-Renderers/Plugin-Render-DeferredShading
+	url = https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/Plugin-Render-DeferredShading.git
