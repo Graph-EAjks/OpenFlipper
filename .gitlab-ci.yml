@@ -565,6 +565,7 @@ Sources:
   stage: Deploy
   only:
      - master
+     - staging
   script: "CI/ci-source.sh"
   tags:
      - Linux
