@@ -384,22 +384,6 @@ cppcheck:
     paths:
       - cppcheck.log
 
-VS2015-Qt-5.14.1-x64:
-  stage: Build
-  script: "CI\\ci-windows-build.bat"
-  variables:
-     GIT_SUBMODULE_STRATEGY: recursive
-     ARCHITECTURE: "x64"
-     QT_VERSION: "Qt5.14.1"
-     COMPILER: "VS2015"
-  tags: 
-    - VS2015
-    - Qt5141
-  artifacts:
-    expire_in: 1 week
-    paths:
-      - artifacts
-
 VS2017-Qt-5.14.1:
   stage: Build
   script: "CI\\ci-windows-build.bat"
@@ -416,25 +400,6 @@ VS2017-Qt-5.14.1:
     paths:
       - artifacts
       
-Test:VS2015-Qt-5.14.1-x64:
-  stage: Test
-  script: "artifacts\\CI\\ci-windows-bootstrap.bat"
-  variables:
-     GIT_STRATEGY: none
-     ARCHITECTURE: "x64"
-     QT_VERSION: "Qt5.14.1"
-     COMPILER: "VS2015"
-     STAGE2SCRIPT: ci-windows-test.bat
-  tags: 
-    - VS2015
-    - Qt5141
-  dependencies:
-    - VS2015-Qt-5.14.1-x64
-  needs: [VS2015-Qt-5.14.1-x64]
-  artifacts:
-    paths:
-      - rel/Testing/Temporary/LastTest.log
-
 Test:VS2017-Qt-5.14.1:
   stage: Test
   script: "artifacts\\CI\\ci-windows-bootstrap.bat"
@@ -454,28 +419,6 @@ Test:VS2017-Qt-5.14.1:
     paths:
       - rel/Testing/Temporary/LastTest.log
       
-Deploy:VS2015-Qt-5.14.1-x64:
-  stage: Deploy
-  only:
-    - master
-    - unstable
-  script: "artifacts\\CI\\ci-windows-bootstrap.bat"
-  variables:
-     GIT_STRATEGY: none
-     ARCHITECTURE: "x64"
-     QT_VERSION: "Qt5.14.1"
-     COMPILER: "VS2015"
-     STAGE2SCRIPT: ci-windows-deploy.bat
-  tags: 
-    - VS2015
-    - Qt5141
-  dependencies:
-    - VS2015-Qt-5.14.1-x64
-  needs: [VS2015-Qt-5.14.1-x64]
-  artifacts:
-    paths:
-      - rel/*.exe
-
 Deploy:VS2017-Qt-5.14.1:
   stage: Deploy
   only:
