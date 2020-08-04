@@ -240,3 +240,6 @@
 [submodule "Plugin-VolumeMeshConvert"]
 	path = Plugin-VolumeMeshConvert
 	url = https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/Plugin-VolumeMeshConvert.git
+[submodule "Plugin-ICP"]
+	path = Plugin-ICP
+	url = https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/plugin-icp.git
