@@ -72,30 +72,30 @@ set QT_SUFFIX=
 set QT_BASE_CONFIG=-DQT5_INSTALL_PATH=E:\Qt\%QT_VERSION%\%QT_REV%\%QT_COMPILERPREFIX%%ARCHBITS%%QT_SUFFIX%
 
 :: set up Libraty Paths
-set LIBPATH_BASE=E:\libs\%COMPILER%
-set CMAKE_WINDOWS_LIBS_DIR=E:\libs
+set LIBPATH_BASE=E:/libs/%COMPILER%
+set CMAKE_WINDOWS_LIBS_DIR=E:/libs
 
 :: check for gtest version 1.6 or 1.7 use the highest found version
 for /l %%x in (6, 1, 7) do (
-   if exist %LIBPATH_BASE%\%ARCHITECTURE%\gtest-1.%%x.0 (
+   if exist %LIBPATH_BASE%/%ARCHITECTURE%/gtest-1.%%x.0 (
       set GTESTVERSION=gtest-1.%%x.0
    )
 )
 
 :: check for qwt version 6.1.1 to 6.1.3 use the highest found version
 for /l %%x in (0, 1, 5) do (
-   echo "Checking for QWT in : %LIBPATH_BASE%\%ARCHITECTURE%\qwt-6.1.%%x-qt%QT_REV_LONG%\include"
-   if exist %LIBPATH_BASE%\%ARCHITECTURE%\qwt-6.1.%%x-qt%QT_REV_LONG%\include (
-      set QWT6_INCLUDE_DIR=%LIBPATH_BASE%\%ARCHITECTURE%\qwt-6.1.%%x-qt%QT_REV_LONG%\include
-      set QWT6_LIBRARY=%LIBPATH_BASE%\%ARCHITECTURE%\qwt-6.1.%%x-qt%QT_REV_LONG%\lib\qwt.lib
-      set QWT6_LIBRARY_DIR=%LIBPATH_BASE%\%ARCHITECTURE%\qwt-6.1.%%x-qt%QT_REV_LONG%\lib
+   echo "Checking for QWT in : %LIBPATH_BASE%/%ARCHITECTURE%/qwt-6.1.%%x-qt%QT_REV_LONG%/include"
+   if exist %LIBPATH_BASE%/%ARCHITECTURE%/qwt-6.1.%%x-qt%QT_REV_LONG%/include (
+      set QWT6_INCLUDE_DIR=%LIBPATH_BASE%/%ARCHITECTURE%/qwt-6.1.%%x-qt%QT_REV_LONG%/include
+      set QWT6_LIBRARY=%LIBPATH_BASE%/%ARCHITECTURE%/qwt-6.1.%%x-qt%QT_REV_LONG%/lib/qwt.lib
+      set QWT6_LIBRARY_DIR=%LIBPATH_BASE%/%ARCHITECTURE%/qwt-6.1.%%x-qt%QT_REV_LONG%/lib
    )
 :: unfortunately qwt is not named consistently in our repos so we also have to check for a different folder named
- echo "Checking for QWT in : %LIBPATH_BASE%\%ARCHITECTURE%\qwt-6.1.%%x-qt-%QT_REV_LONG%\include"
-   if exist %LIBPATH_BASE%\%ARCHITECTURE%\qwt-6.1.%%x-qt-%QT_REV_LONG%\include (
-      set QWT6_INCLUDE_DIR=%LIBPATH_BASE%\%ARCHITECTURE%\qwt-6.1.%%x-qt-%QT_REV_LONG%\include
-      set QWT6_LIBRARY=%LIBPATH_BASE%\%ARCHITECTURE%\qwt-6.1.%%x-qt-%QT_REV_LONG%\lib\qwt.lib
-      set QWT6_LIBRARY_DIR=%LIBPATH_BASE%\%ARCHITECTURE%\qwt-6.1.%%x-qt-%QT_REV_LONG%\lib
+ echo "Checking for QWT in : %LIBPATH_BASE%/%ARCHITECTURE%/qwt-6.1.%%x-qt-%QT_REV_LONG%/include"
+   if exist %LIBPATH_BASE%/%ARCHITECTURE%/qwt-6.1.%%x-qt-%QT_REV_LONG%/include (
+      set QWT6_INCLUDE_DIR=%LIBPATH_BASE%/%ARCHITECTURE%/qwt-6.1.%%x-qt-%QT_REV_LONG%/include
+      set QWT6_LIBRARY=%LIBPATH_BASE%/%ARCHITECTURE%/qwt-6.1.%%x-qt-%QT_REV_LONG%/lib/qwt.lib
+      set QWT6_LIBRARY_DIR=%LIBPATH_BASE%/%ARCHITECTURE%/qwt-6.1.%%x-qt-%QT_REV_LONG%/lib
    )
 )
 
