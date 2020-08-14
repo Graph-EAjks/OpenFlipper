@@ -400,7 +400,7 @@ VS2017-Qt-5.14.1:
     paths:
       - artifacts
       
-VS2017-Qt-5.15.0:
+VS2019-Qt-5.15.0:
   stage: Build
   script: "CI\\ci-windows-build.bat"
   variables:
