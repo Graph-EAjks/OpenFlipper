@@ -415,6 +415,25 @@ VS2019-Qt-5.15.0:
     expire_in: 1 week
     paths:
       - artifacts
+
+VS2019-Qt-5.15.0-NOPYTHON:
+  stage: Build
+  script: "CI\\ci-windows-build.bat"
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+    ARCHITECTURE: "x64"
+    QT_VERSION: "Qt5.15.0"
+    COMPILER: "VS2019"
+    PYTHON : "no"
+  tags:
+    - VS2019
+    - Qt5150
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - artifacts
+
+
       
 Test:VS2017-Qt-5.14.1:
   stage: Test
