@@ -1,6 +1,18 @@
 :: use 4 threads for parallel compilation of the project
 set CL=/MP4
 
+:: determine architecture and set variables
+if "%ARCHITECTURE%" == "x64" (
+set ARCHBITS=_64
+set ARCH_VS= Win64
+set STRING_ARCH=64-Bit
+) else (
+set ARCHBITS=
+set ARCH_VS=
+set STRING_ARCH=32-Bit
+)
+
+
 :: determine VS version and set variables
 if "%COMPILER%" == "VS2015" (
 set QT_COMPILERPREFIX=msvc2015
@@ -24,22 +36,14 @@ set QT_COMPILERPREFIX=msvc2019
 set VS_COMPILERVERSION_LONG=16.0
 set VS_COMPILERVERSION_SHORT=16
 set VS_EDITION_YEAR=2019
+set ARCH_VS=
 ::VS2017 default install path is different from other versions
 set VS_EDITION_PATH=\2019\Professional
 )
 
 set BUILD_PLATFORM=%COMPILER%
 
-:: determine architecture and set variables
-if "%ARCHITECTURE%" == "x64" (
-set ARCHBITS=_64
-set ARCH_VS= Win64
-set STRING_ARCH=64-Bit
-) else (
-set ARCHBITS=
-set ARCH_VS=
-set STRING_ARCH=32-Bit
-)
+
 
 set GENERATOR=Visual Studio %VS_COMPILERVERSION_SHORT% %VS_EDITION_YEAR%%ARCH_VS%
 set VS_PATH="C:\Program Files (x86)\Microsoft Visual Studio%VS_EDITION_PATH%\Common7\IDE\devenv.com"
