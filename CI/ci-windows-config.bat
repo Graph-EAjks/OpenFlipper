@@ -93,8 +93,8 @@ set QT_BASE_CONFIG=-DQT5_INSTALL_PATH=E:\Qt\%QT_VERSION%\%QT_REV%\%QT_COMPILERPR
 set LIBPATH_BASE=E:/libs/%COMPILER%
 set CMAKE_WINDOWS_LIBS_DIR=E:/libs
 
-:: check for gtest version 1.6 or 1.7 use the highest found version
-for /l %%x in (6, 1, 7) do (
+:: check for gtest version 1.6 or 1.10 use the highest found version
+for /l %%x in (6, 1, 10) do (
    if exist %LIBPATH_BASE%/%ARCHITECTURE%/gtest-1.%%x.0 (
       set GTESTVERSION=gtest-1.%%x.0
    )
