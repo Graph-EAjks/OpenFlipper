@@ -9,6 +9,7 @@ set VS_COMPILERVERSION_SHORT=14
 set VS_EDITION_YEAR=2015
 set VS_EDITION_PATH= 14.0
 )
+
 if "%COMPILER%" == "VS2017" (
 set QT_COMPILERPREFIX=msvc2017
 set VS_COMPILERVERSION_LONG=15.0
@@ -16,6 +17,15 @@ set VS_COMPILERVERSION_SHORT=15
 set VS_EDITION_YEAR=2017
 ::VS2017 default install path is different from other versions
 set VS_EDITION_PATH=\2017\Professional
+)
+
+if "%COMPILER%" == "VS2019" (
+set QT_COMPILERPREFIX=msvc2019
+set VS_COMPILERVERSION_LONG=16.0
+set VS_COMPILERVERSION_SHORT=16
+set VS_EDITION_YEAR=2019
+::VS2017 default install path is different from other versions
+set VS_EDITION_PATH=\2019\Professional
 )
 
 set BUILD_PLATFORM=%COMPILER%
@@ -66,6 +76,10 @@ set QT_REV=5.13.2
 if "%QT_VERSION%" == "Qt5.14.1" (
 set QT_REV_LONG=5.14.1
 set QT_REV=5.14.1
+)
+if "%QT_VERSION%" == "Qt5.15.0" (
+set QT_REV_LONG=5.15.0
+set QT_REV=5.15.0
 )
 
 set QT_SUFFIX=
