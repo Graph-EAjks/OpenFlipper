@@ -117,7 +117,8 @@ for /l %%x in (0, 1, 5) do (
    )
 )
 
-if ($PYTHON = "no" ) {
+echo "Python settings for this Job:"
+if ( $PYTHON -eq "no" ) {
   echo "Building without python support"
   set CMAKE_CONFIGURATION=%QT_BASE_CONFIG% -DDISABLE_OPENFLIPPER_PYTHON_SYSTEM=TRUE -DQWT6_INCLUDE_DIR=%QWT6_INCLUDE_DIR% -DQWT6_LIBRARY=%QWT6_LIBRARY% -DQWT6_LIBRARY_DIR=%QWT6_LIBRARY_DIR% -DCMAKE_WINDOWS_LIBS_DIR=%CMAKE_WINDOWS_LIBS_DIR% 
 } else {
