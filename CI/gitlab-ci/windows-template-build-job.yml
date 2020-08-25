@@ -22,5 +22,22 @@
       paths:
         - artifacts
 
+{{COMPILER}}-{{QT_VERSION}}-{{ARCH}}-NOPYTHON:
+    stage: Build
+    script: "CI\\ci-windows-build.bat"
+    variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+      ARCHITECTURE: "{{ARCH}}"
+      QT_VERSION: "{{QT_VERSION}}"
+      COMPILER: "{{COMPILER}}"
+      PYTHON: "no"
+    tags:
+      - {{COMPILER}}
+      - {{QT_TAG}}
+    artifacts:
+      expire_in: 1 week
+      paths:
+        - artifacts
+
 #
 #-----------

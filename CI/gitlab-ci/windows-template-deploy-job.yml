@@ -28,5 +28,28 @@ Deploy:{{COMPILER}}-{{QT_VERSION}}-{{ARCH}}:
       paths:
         - rel/*.exe
 
+Deploy:{{COMPILER}}-{{QT_VERSION}}-{{ARCH}}-NOPYTHON:
+    stage: Deploy
+    only:
+      - master
+      - unstable
+    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
+    variables:
+      GIT_STRATEGY: none
+      ARCHITECTURE: "{{ARCH}}"
+      QT_VERSION: "{{QT_VERSION}}"
+      COMPILER: "{{COMPILER}}"
+      STAGE2SCRIPT: ci-windows-deploy.bat
+      PYTHON: "no"
+    tags:
+      - {{COMPILER}}
+      - {{QT_TAG}}
+    dependencies:
+      - {{COMPILER}}-{{QT_VERSION}}-{{ARCH}}-NOPYTHON
+    needs: [{{COMPILER}}-{{QT_VERSION}}-{{ARCH}}-NOPYTHON]
+    artifacts:
+      paths:
+        - rel/*.exe
+
 #
 #-----------
