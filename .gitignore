@@ -10,3 +10,7 @@
 /build_dbg
 /build_rel
 /build
+
+
+# QtCreator specific annoying files
+CMakeLists.txt.user*
