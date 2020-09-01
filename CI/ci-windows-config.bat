@@ -48,27 +48,6 @@ set BUILD_PLATFORM=%COMPILER%
 set GENERATOR=Visual Studio %VS_COMPILERVERSION_SHORT% %VS_EDITION_YEAR%%ARCH_VS%
 set VS_PATH="C:\Program Files (x86)\Microsoft Visual Studio%VS_EDITION_PATH%\Common7\IDE\devenv.com"
 
-:: determine Qt Version and set variables
-if "%QT_VERSION%" == "Qt5.5.1" (
-set QT_REV_LONG=5.5.1
-set QT_REV=5.5
-)
-if "%QT_VERSION%" == "Qt5.6.2" (
-set QT_REV_LONG=5.6.2
-set QT_REV=5.6
-)
-if "%QT_VERSION%" == "Qt5.7.0" (
-set QT_REV_LONG=5.7.0
-set QT_REV=5.7
-)
-if "%QT_VERSION%" == "Qt5.8.0" (
-set QT_REV_LONG=5.8.0
-set QT_REV=5.8
-)
-if "%QT_VERSION%" == "Qt5.9.0" (
-set QT_REV_LONG=5.9.0
-set QT_REV=5.9
-)
 if "%QT_VERSION%" == "Qt5.10.1" (
 set QT_REV_LONG=5.10.1
 set QT_REV=5.10.1
