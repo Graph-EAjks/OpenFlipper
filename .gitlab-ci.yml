@@ -400,6 +400,41 @@ VS2017-Qt-5.14.1:
     paths:
       - artifacts
       
+VS2019-Qt-5.15.0:
+  stage: Build
+  script: "CI\\ci-windows-build.bat"
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+    ARCHITECTURE: "x64"
+    QT_VERSION: "Qt5.15.0"
+    COMPILER: "VS2019"
+  tags: 
+    - VS2019
+    - Qt5150
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - artifacts
+
+VS2019-Qt-5.15.0-NOPYTHON:
+  stage: Build
+  script: "CI\\ci-windows-build.bat"
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+    ARCHITECTURE: "x64"
+    QT_VERSION: "Qt5.15.0"
+    COMPILER: "VS2019"
+    PYTHON : "no"
+  tags:
+    - VS2019
+    - Qt5150
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - artifacts
+
+
+      
 Test:VS2017-Qt-5.14.1:
   stage: Test
   script: "artifacts\\CI\\ci-windows-bootstrap.bat"
@@ -419,12 +454,30 @@ Test:VS2017-Qt-5.14.1:
     paths:
       - rel/Testing/Temporary/LastTest.log
       
+Test:VS2019-Qt-5.15.0:
+  stage: Test
+  script: "artifacts\\CI\\ci-windows-bootstrap.bat"
+  variables:
+    GIT_STRATEGY: none
+    ARCHITECTURE: "x64"
+    QT_VERSION: "Qt5.15.0"
+    COMPILER: "VS2019"
+    STAGE2SCRIPT: ci-windows-test.bat
+  tags: 
+    - VS2019
+    - Qt5150
+  dependencies:
+    - VS2019-Qt-5.15.0
+  needs: [VS2019-Qt-5.15.0]
+  artifacts:
+    paths:
+      - rel/Testing/Temporary/LastTest.log      
+      
 Deploy:VS2017-Qt-5.14.1:
   stage: Deploy
   only:
     - master
     - unstable
-    - staging
   script: "artifacts\\CI\\ci-windows-bootstrap.bat"
   variables:
     GIT_STRATEGY: none
@@ -441,6 +494,28 @@ Deploy:VS2017-Qt-5.14.1:
   artifacts:
     paths:
       - rel/*.exe
+      
+Deploy:VS2019-Qt-5.15.0:
+  stage: Deploy
+  only:
+    - master
+    - unstable
+  script: "artifacts\\CI\\ci-windows-bootstrap.bat"
+  variables:
+    GIT_STRATEGY: none
+    ARCHITECTURE: "x64"
+    QT_VERSION: "Qt5.15.9"
+    COMPILER: "VS2019"
+    STAGE2SCRIPT: ci-windows-deploy.bat
+  tags: 
+    - VS2019
+    - Qt5150
+  dependencies:
+    - VS2019-Qt-5.15.0
+  needs: [VS2019-Qt-5.15.0]
+  artifacts:
+    paths:
+      - rel/*.exe      
 
 Mac-Cpp11:
   stage: Build
@@ -475,7 +550,6 @@ Deploy:Mac-Cpp11:
   only:
     - master
     - unstable
-    - staging
   script: "artifacts/CI/ci-mac-deploy.sh"
   variables:
      GIT_STRATEGY: none
@@ -510,7 +584,6 @@ Sources:
   stage: Deploy
   only:
      - master
-     - staging
   script: "CI/ci-source.sh"
   tags:
      - Linux
@@ -523,6 +596,7 @@ Sources:
       - OpenFlipper*.zip
       - OpenFlipper*.tar.bz2
       - OpenFlipper*.tar.gz
+
 
 
 
