@@ -24,27 +24,24 @@ test-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}:
     paths:
        - build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}/Testing/Temporary/LastTest.log   
   
-#
-# Requires cmake test fix on Plugin-Smoother to work
-#
-#test-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}-nopython:
-#  stage: Test
-#  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
-#  variables:
-#    COMPILER: "{{COMPILER}}"
-#    LANGUAGE: "{{LANGUAGE}}"
-#    QTVERSION: "{{QT_VERSION}}"
-#    BUILDTYPE: "{{BUILDTYPE}}"
-#    PYTHON: "no"
-#    GIT_SUBMODULE_STRATEGY: recursive
-#  script: "CI/ci-linux-test.sh"
-#  tags:
-#    - Docker
-#  dependencies: [build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}-nopython]
-#  needs: [build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}-nopython]
-#  artifacts:
-#    paths:
-#       - build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}/Testing/Temporary/LastTest.log
+test-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}-nopython:
+  stage: Test
+  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+  variables:
+    COMPILER: "{{COMPILER}}"
+    LANGUAGE: "{{LANGUAGE}}"
+    QTVERSION: "{{QT_VERSION}}"
+    BUILDTYPE: "{{BUILDTYPE}}"
+    PYTHON: "no"
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-test.sh"
+  tags:
+    - Docker
+  dependencies: [build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}-nopython]
+  needs: [build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}-nopython]
+  artifacts:
+    paths:
+       - build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}/Testing/Temporary/LastTest.log
 
 #
 #-----------
