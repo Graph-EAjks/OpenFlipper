@@ -243,3 +243,6 @@
 [submodule "Plugin-ICP"]
 	path = Plugin-ICP
 	url = https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/plugin-icp.git
+[submodule "Plugin-Plane"]
+	path = Plugin-Plane
+	url = https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/Plugin-Plane.git
