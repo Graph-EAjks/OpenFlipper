@@ -26,9 +26,9 @@ set( CMAKE_CXX_STANDARD 11 )
 
 # ACG Environment default settings
 # This is ugly but currently we need to work around the default installed on debian
-if ( EXISTS /ACG/acgdev/gcc-x86_64/qt-5.13.2/5.13.2/gcc_64 )
+if ( EXISTS /ACG/acgdev/gcc-x86_64/qt-5.15.1/5.15.1/gcc_64 )
   # Default to this install path for QT%_INSTALL_DIR
-  set (QT5_INSTALL_PATH /ACG/acgdev/gcc-x86_64/qt-5.13.2/5.13.2/gcc_64/ CACHE PATH "Qt5 install path set for ACG environment using QT 5.13.2" )
+  set (QT5_INSTALL_PATH /ACG/acgdev/gcc-x86_64/qt-5.15.1/5.15.1/gcc_64/ CACHE PATH "Qt5 install path set for ACG environment using QT 5.15.1" )
 endif()
 
 if ( WIN32 )
@@ -133,7 +133,7 @@ if ( WIN32 )
   endif()
 endif()
 
-set (OF_MAX_QT_VERSION "5.14.1")
+set (OF_MAX_QT_VERSION "5.15.1")
 
 if (${Qt5Core_VERSION_STRING} STRGREATER ${OF_MAX_QT_VERSION})
   message(WARNING "Detected QT Version higher than ${OF_MAX_QT_VERSION}!\n" "OpenFlipper has not been tested with this QT Version.")
