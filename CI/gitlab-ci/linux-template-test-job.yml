@@ -8,7 +8,7 @@
 
 test-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}:
   stage: Test
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "{{COMPILER}}"
     LANGUAGE:  "{{LANGUAGE}}"
@@ -17,7 +17,9 @@ test-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}:
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-test.sh"
   tags:
-    - Docker
+    - Linux
+    - stretch
+    - MultiThreads
   dependencies: [build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}]
   needs: [build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}]
   artifacts:

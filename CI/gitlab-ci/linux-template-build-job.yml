@@ -8,7 +8,7 @@
 
 build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}:
   stage: Build
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "{{COMPILER}}"
     LANGUAGE: "{{LANGUAGE}}"
@@ -17,7 +17,8 @@ build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}:
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
-    - Docker
+    - Linux
+    - stretch
   artifacts:
     expire_in: 1 week
     paths:
@@ -25,7 +26,7 @@ build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}:
 
 build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}-nopython:
   stage: Build
-  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "{{COMPILER}}"
     LANGUAGE: "{{LANGUAGE}}"
@@ -35,7 +36,8 @@ build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}-nopytho
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
-    - Docker
+    - Linux
+    - stretch
   artifacts:
     expire_in: 1 week
     paths:
