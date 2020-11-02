@@ -395,6 +395,7 @@ VS2017-Qt-5.14.1:
   tags: 
     - VS2017
     - Qt5141
+    - Python37
   artifacts:
     expire_in: 1 week
     paths:
@@ -411,6 +412,7 @@ VS2019-Qt-5.15.0:
   tags: 
     - VS2019
     - Qt5150
+    - Python37
   artifacts:
     expire_in: 1 week
     paths:
@@ -447,6 +449,7 @@ Test:VS2017-Qt-5.14.1:
   tags: 
     - VS2017
     - Qt5141
+    - Python37
   dependencies:
     - VS2017-Qt-5.14.1
   needs: [VS2017-Qt-5.14.1]
@@ -466,6 +469,7 @@ Test:VS2019-Qt-5.15.0:
   tags: 
     - VS2019
     - Qt5150
+    - Python37
   dependencies:
     - VS2019-Qt-5.15.0
   needs: [VS2019-Qt-5.15.0]
@@ -488,6 +492,7 @@ Deploy:VS2017-Qt-5.14.1:
   tags: 
     - VS2017
     - Qt5141
+    - Python37
   dependencies:
     - VS2017-Qt-5.14.1
   needs: [VS2017-Qt-5.14.1]
@@ -510,6 +515,7 @@ Deploy:VS2019-Qt-5.15.0:
   tags: 
     - VS2019
     - Qt5150
+    - Python37
   dependencies:
     - VS2019-Qt-5.15.0
   needs: [VS2019-Qt-5.15.0]
