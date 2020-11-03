@@ -4,32 +4,13 @@
 #
 ##############################
 
-{linux-template-job.yml, COMPILER=gcc,   LANGUAGE=cpp11, QT_VERSION=qt5.11.2, ISO_TAG=debian}
-{linux-template-job.yml, COMPILER=clang, LANGUAGE=cpp11, QT_VERSION=qt5.11.2, ISO_TAG=debian}
+{linux-template-job-full.yml,    COMPILER=gcc,   LANGUAGE=cpp11, QT_VERSION=qt5.11.2}
+{linux-template-job-full.yml,    COMPILER=clang, LANGUAGE=cpp11, QT_VERSION=qt5.11.2}
 
-{linux-template-job.yml, COMPILER=gcc,   LANGUAGE=cpp11, QT_VERSION=qt5.12.2, ISO_TAG=debian}
-{linux-template-job.yml, COMPILER=clang, LANGUAGE=cpp11, QT_VERSION=qt5.12.2, ISO_TAG=debian}
+{linux-template-job-release.yml, COMPILER=gcc,   LANGUAGE=cpp11, QT_VERSION=qt5.12.2}
 
-{linux-template-job.yml, COMPILER=gcc,   LANGUAGE=cpp11, QT_VERSION=qt5.13.0, ISO_TAG=debian}
-{linux-template-job.yml, COMPILER=clang, LANGUAGE=cpp11, QT_VERSION=qt5.13.0, ISO_TAG=debian}
-
-{linux-template-job.yml, COMPILER=gcc,   LANGUAGE=cpp11, QT_VERSION=qt5.13.2, ISO_TAG=debian}
-{linux-template-job.yml, COMPILER=clang, LANGUAGE=cpp11, QT_VERSION=qt5.13.2, ISO_TAG=debian}
-
-##############################
-
-# Temporarly disabled ubuntu builds
-#{linux-template-job.yml, COMPILER=gcc,   LANGUAGE=cpp11, QT_VERSION=qt5.11.2, ISO_TAG=ubuntu}
-#{linux-template-job.yml, COMPILER=clang, LANGUAGE=cpp11, QT_VERSION=qt5.11.2, ISO_TAG=ubuntu}
-#
-#{linux-template-job.yml, COMPILER=gcc,   LANGUAGE=cpp11, QT_VERSION=qt5.12.2, ISO_TAG=ubuntu}
-#{linux-template-job.yml, COMPILER=clang, LANGUAGE=cpp11, QT_VERSION=qt5.12.2, ISO_TAG=ubuntu}
-#
-#{linux-template-job.yml, COMPILER=gcc,   LANGUAGE=cpp11, QT_VERSION=qt5.13.0, ISO_TAG=ubuntu}
-#{linux-template-job.yml, COMPILER=clang, LANGUAGE=cpp11, QT_VERSION=qt5.13.0, ISO_TAG=ubuntu}
-#
-#{linux-template-job.yml, COMPILER=gcc,   LANGUAGE=cpp11, QT_VERSION=qt5.13.2, ISO_TAG=ubuntu}
-#{linux-template-job.yml, COMPILER=clang, LANGUAGE=cpp11, QT_VERSION=qt5.13.2, ISO_TAG=ubuntu}
+{linux-template-job-full.yml,    COMPILER=gcc,   LANGUAGE=cpp11, QT_VERSION=qt5.13.0}
+{linux-template-job-full.yml,    COMPILER=clang, LANGUAGE=cpp11, QT_VERSION=qt5.13.0}
 
 
 cppcheck:

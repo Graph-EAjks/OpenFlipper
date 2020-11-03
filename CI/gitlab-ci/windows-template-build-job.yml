@@ -17,6 +17,7 @@
     tags:
       - {{COMPILER}}
       - {{QT_TAG}}
+      - Python37
     artifacts:
       expire_in: 1 week
       paths:
