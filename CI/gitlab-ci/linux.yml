@@ -12,6 +12,7 @@
 {linux-template-job-full.yml,    COMPILER=gcc,   LANGUAGE=cpp11, QT_VERSION=qt5.13.0}
 {linux-template-job-full.yml,    COMPILER=clang, LANGUAGE=cpp11, QT_VERSION=qt5.13.0}
 
+{linux-template-job-full.yml,    COMPILER=gcc,   LANGUAGE=cpp11, QT_VERSION=qt5.15.1}
 
 cppcheck:
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
