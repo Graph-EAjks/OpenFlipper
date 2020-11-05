@@ -1,0 +1,49 @@
+#-----------  Job Informations:
+# Type:       Test: {{BUILDTYPE}}
+# OS:         Linux
+# Compiler:   {{COMPILER}}
+# Language:   {{LANGUAGE}}
+# QT Version: {{QT_VERSION}}
+
+test-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}:
+  stage: Test
+  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+  variables:
+    COMPILER: "{{COMPILER}}"
+    LANGUAGE:  "{{LANGUAGE}}"
+    QTVERSION: "{{QT_VERSION}}"
+    BUILDTYPE: "{{BUILDTYPE}}"
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-test.sh"
+  tags:
+    - Linux
+    - stretch
+    - MultiThreads
+  dependencies: [build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}]
+  needs: [build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}]
+  artifacts:
+    paths:
+       - build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}/Testing/Temporary/LastTest.log
+  
+# Disabled due to issues with tests requiring python to work
+#test-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}-nopython:
+#  stage: Test
+#  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+#  variables:
+#    COMPILER: "{{COMPILER}}"
+#    LANGUAGE: "{{LANGUAGE}}"
+#    QTVERSION: "{{QT_VERSION}}"
+#    BUILDTYPE: "{{BUILDTYPE}}"
+#    PYTHON: "no"
+#    GIT_SUBMODULE_STRATEGY: recursive
+#  script: "CI/ci-linux-test.sh"
+#  tags:
+#    - Docker
+#  dependencies: [build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}-nopython]
+#  needs: [build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}-nopython]
+#  artifacts:
+#    paths:
+#       - build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}/Testing/Temporary/LastTest.log
+
+#
+#-----------

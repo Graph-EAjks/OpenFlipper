@@ -6,13 +6,13 @@ set -e
 # Expected Settings via environment variables:
 # COMPILER= gcc/clang
 # LANGUAGE= C++98 / C++11
-# QTVERSION= QT5
-# BUILDTYPE= Debug / Release
+# QTVERSION= qt5
+# BUILDTYPE= debug / eelease
 
 
 #include ci options script
 MY_DIR=$(dirname $(readlink -f $0))
-source $MY_DIR/ci-linux-config.sh
+source CI/ci-linux-config.sh
 
 echo "Building with path: $BUILDPATH"
 echo "Full cmake options: $OPTIONS  "
@@ -21,8 +21,8 @@ echo "Full cmake options: $OPTIONS  "
 # Fetch test data
 ########################################
 rm -rf TestData
-git clone git@roosevelt:moebius/OpenFlipper-Test-Data.git TestData
-
+#git clone git@roosevelt:moebius/OpenFlipper-Test-Data.git TestData
+git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@www.graphics.rwth-aachen.de:9000/moebius/OpenFlipper-Test-Data.git TestData
 
 #########################################
 # Build Release version and Unittests
@@ -51,14 +51,15 @@ ldd bin/OpenFlipper | grep "=> /" | awk '{print $3}' | xargs -I '{}' cp -v '{}' 
 cd ../..
 
 #create an artifact directory
-if [ ! -d artifacts ]; then
-  mkdir artifacts
-fi
+#if [ ! -d artifacts ]; then
+#  mkdir artifacts
+#fi
 
 #cp -R * artifacts
-rsync -a --exclude=artifacts --exclude=.git . ./artifacts
-cd artifacts
+#rsync -a --exclude=artifacts --exclude=.git . ./artifacts
+#cd artifacts
 #rm -rf .git
 
 # create an archive with all the build files so we can use them in the test script
 #tar -cvf ../buildfiles.tar .
+cd ..

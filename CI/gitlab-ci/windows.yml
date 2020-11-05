@@ -1,0 +1,9 @@
+##############################
+#
+#    WINDOWS JOBS
+#
+##############################
+
+{windows-template-job.yml, COMPILER=VS2019, QT_VERSION=Qt5.15.0, QT_TAG=Qt5150, ARCH=x64}
+
+{windows-template-job.yml, COMPILER=VS2017, QT_VERSION=Qt5.14.1, QT_TAG=Qt5141, ARCH=x64}

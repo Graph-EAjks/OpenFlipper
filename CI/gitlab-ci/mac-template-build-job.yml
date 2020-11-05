@@ -1,0 +1,21 @@
+#-----------  Job Informations:
+# Type:       Build
+# OS:         Apple
+# QT Tag:     {{QT_TAG}}
+# Language:   {{LANGUAGE}}
+
+Mac-{{LANGUAGE}}:
+    stage: Build
+    script: "CI/ci-mac-build.sh"
+    variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+    tags:
+      - Apple
+      - {{QT_TAG}}
+    artifacts:
+      expire_in: 1 week
+      paths:
+        - artifacts
+
+#
+#-----------
