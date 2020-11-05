@@ -18,7 +18,7 @@ Test:{{COMPILER}}-{{QT_VERSION}}-{{ARCH}}:
     tags:
       - {{COMPILER}}
       - {{QT_TAG}}
-      - Python37
+      - Python39
     dependencies:
       - {{COMPILER}}-{{QT_VERSION}}-{{ARCH}}
     needs: [{{COMPILER}}-{{QT_VERSION}}-{{ARCH}}]
