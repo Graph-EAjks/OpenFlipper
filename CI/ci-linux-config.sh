@@ -68,6 +68,10 @@ elif [ "$QTVERSION" == "qt5.13.2" ]; then
   echo "Using QT5.13.2";
   BUILDPATH="$BUILDPATH-qt5.13.2"
   OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=~/sw/qwt-6.1.4-qt5.13.2/include -DQWT6_LIBRARY_DIR=~/sw/qwt-6.1.4-qt5.13.2/lib -DQWT6_LIBRARY=~/sw/qwt-6.1.4-qt5.13.2/lib/libqwt.so -DQT5_INSTALL_PATH=~/sw/Qt/5.13.2/gcc_64"
+elif [ "$QTVERSION" == "qt5.15.1" ]; then
+  echo "Using QT5.15.1";
+  BUILDPATH="$BUILDPATH-qt5.15.1"
+  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=~/sw/qwt-6.1.5-qt5.15.1/include -DQWT6_LIBRARY_DIR=~/sw/qwt-6.1.5-qt5.15.1/lib -DQWT6_LIBRARY=~/sw/qwt-6.1.5-qt5.15.1/lib/libqwt.so -DQT5_INSTALL_PATH=~/sw/Qt/5.15.1/gcc_64"
 fi
 
 if [ "$PYTHON" == "no" ]; then
