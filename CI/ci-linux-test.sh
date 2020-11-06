@@ -13,6 +13,12 @@ set -e
 MY_DIR=$(dirname $(readlink -f $0))
 source CI/ci-linux-config.sh
 
+echo "Current directory structure:"
+ls 
+
+ls artifacts*
+
+
 # copy artifact files to toplevel and remove subdirectory
 mv artifacts-$BUILDPATH artifacts
 rsync -a $MY_DIR/.. $MY_DIR/../..
