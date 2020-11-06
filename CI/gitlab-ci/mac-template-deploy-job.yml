@@ -1,0 +1,26 @@
+#-----------  Job Informations:
+# Type:       Deploy
+# OS:         Apple
+# QT Tag:     {{QT_TAG}}
+# Language:   {{LANGUAGE}}
+
+Deploy:Mac-{{LANGUAGE}}:
+    stage: Deploy
+    only:
+      - master
+      - unstable
+    script: "artifacts/CI/ci-mac-deploy.sh"
+    variables:
+      GIT_STRATEGY: none
+    tags:
+      - Apple
+      - {{QT_TAG}}
+    dependencies:
+      - Mac-{{LANGUAGE}}
+    needs: [Mac-{{LANGUAGE}}]
+    artifacts:
+      paths:
+        - build-release/*.dmg
+
+#
+#-----------

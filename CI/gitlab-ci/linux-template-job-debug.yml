@@ -1,0 +1,3 @@
+{linux-template-build-job.yml, BUILDTYPE=debug}
+
+{linux-template-test-job.yml, BUILDTYPE=debug}

@@ -6,7 +6,7 @@ rm -rf artifacts
 # Fetch test data
 ########################################
 rm -rf TestData
-git clone git@roosevelt:moebius/OpenFlipper-Test-Data.git TestData
+git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@www.graphics.rwth-aachen.de:9000/moebius/OpenFlipper-Test-Data.git TestData
 
 #expect the build-release folder to be present the program binaries are there
 cd build-release
