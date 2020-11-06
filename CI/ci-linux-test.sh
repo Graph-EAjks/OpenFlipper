@@ -14,15 +14,14 @@ MY_DIR=$(dirname $(readlink -f $0))
 source CI/ci-linux-config.sh
 
 # copy artifact files to toplevel and remove subdirectory
-#mv artifacts-$BUILDPATH artifacts
-#rsync -a $MY_DIR/.. $MY_DIR/../..
-#rm -rf artifacts
+mv artifacts-$BUILDPATH artifacts
+rsync -a $MY_DIR/.. $MY_DIR/../..
+rm -rf artifacts
 
 ########################################
 # Fetch test data
 ########################################
 rm -rf TestData
-#git clone git@roosevelt:moebius/OpenFlipper-Test-Data.git TestData
 git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@www.graphics.rwth-aachen.de:9000/moebius/OpenFlipper-Test-Data.git TestData
 
 #########################################
@@ -42,18 +41,20 @@ ldd bin/OpenFlipper | grep "=> /" | awk '{print $3}' | xargs -I '{}' cp -v '{}' 
 cd ..
 
 #clean old cmake cache as the path might have changed
-#find . -name "CMakeCache.txt" -type f -delete
+find . -name "CMakeCache.txt" -type f -delete
 
 #just to be safe clean the test file definitions too
-#if [ -f CTestTestfile.cmake ]
-#then
-#	rm CTestTestfile.cmake
-#fi
+if [ -f CTestTestfile.cmake ]
+then
+	echo "Removing old CTestTestfile.cmake"
+	rm CTestTestfile.cmake
+fi
 #just to be safe clean the test file definitions too
-#if [ -f DartConfiguration.tcl ]
-#then
-#	rm DartConfiguration.tcl
-#fi
+if [ -f DartConfiguration.tcl ]
+then
+	echo "Removing old DartConfiguration.tcl"
+	rm DartConfiguration.tcl
+fi
 
 #cmake -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE -DSTL_VECTOR_CHECKS=ON $OPTIONS ../
 
