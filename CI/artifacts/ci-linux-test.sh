@@ -13,27 +13,14 @@ set -e
 MY_DIR=$(dirname $(readlink -f $0))
 source CI/ci-linux-config.sh
 
-echo "====================================="
-echo "====================================="
-echo "Current Directory structure:"
-echo "====================================="
-echo "====================================="
-
-ls 
-
-ls */
-
 # copy artifact files to toplevel and remove subdirectory
-#mv artifacts-$BUILDPATH artifacts
-#rsync -a $MY_DIR/.. $MY_DIR/../..
-#rm -rf artifacts
+mv artifacts-$BUILDPATH artifacts
+rsync -a $MY_DIR/.. $MY_DIR/../..
+rm -rf artifacts
 
-echo "====================================="
-echo "====================================="
-echo "Cloning Test Data:"
-echo "====================================="
-echo "====================================="
-
+########################################
+# Fetch test data
+########################################
 rm -rf TestData
 git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@www.graphics.rwth-aachen.de:9000/moebius/OpenFlipper-Test-Data.git TestData
 
