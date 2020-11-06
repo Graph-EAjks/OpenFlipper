@@ -43,23 +43,27 @@ make $MAKE_OPTIONS
 # copy the used shared libraries to the lib folder
 cd Build
 
+# Creating System Library folder to contain all dependend libraries to run OpenFlipper
 if [ ! -d systemlib ]; then
+  echo "Creating systemlib folder"
   mkdir systemlib
 fi
 
+echo "Copying all required libraries of OpenFlipper to the systemlib directory"
 ldd bin/OpenFlipper | grep "=> /" | awk '{print $3}' | xargs -I '{}' cp -v '{}' systemlib
 cd ../..
 
 #create an artifact directory
 if [ ! -d artifacts ]; then
+  echo "Creating artifacts folder"
   mkdir artifacts
 fi
 
-cp -R * artifacts
-rsync -a --exclude=artifacts --exclude=.git . ./artifacts
-cd artifacts
-rm -rf .git
+echo "Current directory is : $(pwd)"
+
+# Copy all Build 
+rsync -a * artifacts --exclude=artifacts --exclude=.git
 
 # create an archive with all the build files so we can use them in the test script
-tar -cvf ../buildfiles.tar .
+tar -cvf buildfiles.tar artifacts
 cd ..
