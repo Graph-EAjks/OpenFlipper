@@ -70,23 +70,23 @@ ldd bin/OpenFlipper | grep "=> /" | awk '{print $3}' | xargs -I '{}' cp -v '{}' 
 cd ../..
 
 
-echo "====================================="
-echo "====================================="
-echo "Collecting artifacts"
-echo "====================================="
-echo "====================================="
+#echo "====================================="
+#echo "====================================="
+#echo "Collecting artifacts"
+#echo "====================================="
+#echo "====================================="
 
 #create an artifact directory
-if [ ! -d artifacts ]; then
-  echo "Creating artifacts folder"
-  mkdir artifacts
-fi
+#if [ ! -d artifacts ]; then
+#  echo "Creating artifacts folder"
+#  mkdir artifacts
+#fi
 
-echo "Current directory is : $(pwd)"
+#echo "Current directory is : $(pwd)"
 
 # Copy all Build 
-rsync -aq * artifacts --exclude=artifacts --exclude=.git
+#rsync -aq * artifacts --exclude=artifacts --exclude=.git
 
 # create an archive with all the build files so we can use them in the test script
-tar -cvf buildfiles.tar artifacts
-cd ..
+#tar -cvf buildfiles.tar artifacts
+#cd ..
