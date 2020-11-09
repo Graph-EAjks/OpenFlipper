@@ -19,10 +19,6 @@ echo "Current Directory structure:"
 echo "====================================="
 echo "====================================="
 
-ls 
-
-ls */
-
 # copy artifact files to toplevel and remove subdirectory
 #mv artifacts-$BUILDPATH artifacts
 #rsync -a $MY_DIR/.. $MY_DIR/../..
@@ -40,8 +36,18 @@ git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@www.graphics.rwth-aachen.de:90
 #########################################
 # Run Release Unittests
 #########################################
+# Make release build folder
+if [ ! -d $BUILDPATH ]; then
+  echo "ERROR!!! Build Path not found !!!!"
+  exit 10
+else
+  echo "Changing to build path $BUILDPATH"
+  cd $BUILDPATH
+fi
 
-cd $BUILDPATH
+
+ls
+
 
 # copy the used shared libraries to the lib folder
 cd Build
@@ -78,6 +84,9 @@ export LD_LIBRARY_PATH=$(pwd)/Build/systemlib:$LD_LIBRARY_PATH
 #make test
 
 cd tests
+
+ls
+
 bash run_tests.sh
 
 cd ..
