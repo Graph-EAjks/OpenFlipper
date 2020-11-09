@@ -82,7 +82,7 @@ export LD_LIBRARY_PATH=$(pwd)/Build/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$(pwd)/Build/systemlib:$LD_LIBRARY_PATH
 
 # The tests should be build by the build job already!
-#make test
+make test
 
 echo "====================================="
 echo "====================================="
