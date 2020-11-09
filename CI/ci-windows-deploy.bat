@@ -10,6 +10,38 @@
 ::load configuration and settings
 call %~dp0\ci-windows-config.bat
 
+ECHO "============================================================="
+ECHO "============================================================="
+ECHO "Building with :"
+whoami
+ECHO "ARCHITECTURE        : %ARCHITECTURE%"
+ECHO "BUILD_PLATFORM      : %BUILD_PLATFORM%"
+ECHO "GTESTVERSION        : %GTESTVERSION%"
+ECHO "GENERATOR           : %GENERATOR%"
+ECHO "VS_PATH             : %VS_PATH%"
+ECHO "LIBPATH             : %LIBPATH%"
+ECHO "QT_INSTALL_PATH     : %QT_INSTALL_PATH%"
+ECHO "CMAKE_CONFIGURATION : %CMAKE_CONFIGURATION%"
+ECHO "============================================================="
+ECHO "============================================================="
+ECHO ""
+ECHO "Running Build environment checks"
+
+IF EXIST %LIBPATH%\ (
+  ECHO "LIBPATH ... Ok"
+) ELSE (
+  ECHO "LIBPATH not found!"
+  exit 10;
+)
+
+
+IF EXIST %QT_INSTALL_PATH%\ (
+  ECHO "QT_INSTALL_PATH ... Ok"
+) ELSE (
+  ECHO "QT_INSTALL_PATH: %QT_INSTALL_PATH%\ not found!"
+  exit 10;
+)
+
 mkdir rel
 cd rel
 
