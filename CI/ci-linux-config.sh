@@ -21,7 +21,7 @@ if [ "$COMPILER" == "gcc" ]; then
   BUILDPATH="$BUILDPATH-gcc"
 
   # without icecc: no options required
-  # OPTIONS="$OPTIONS -DCMAKE_CXX_COMPILER=/usr/lib/icecc/bin/g++ -DCMAKE_C_COMPILER=/usr/lib/icecc/bin/gcc"
+  OPTIONS="$OPTIONS -DCMAKE_CXX_COMPILER=/usr/lib/icecc/bin/g++ -DCMAKE_C_COMPILER=/usr/lib/icecc/bin/gcc"
   MAKE_OPTIONS="-j16"
   export ICECC_CXX=/usr/bin/g++ ; export ICECC_CC=/usr/bin/gcc
 
@@ -80,18 +80,20 @@ if [ "$PYTHON" == "no" ]; then
   OPTIONS="$OPTIONS -DDISABLE_OPENFLIPPER_PYTHON_SYSTEM=TRUE"
 fi
 
-if test -z "$SSH_PRIVATE_KEY" 
-then
-    echo Skipping ssh environment preparation
-else
-    # Preparing ssh environment
-    echo Prepare ssh environment
-    which ssh-agent || ( echo No SSH Agent found && exit 1 )
-    eval $(ssh-agent -s)
-    echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
-    mkdir -p ~/.ssh
-    chmod 700 ~/.ssh
-fi
+# Not in Docker, so don't mess with the keys
+
+#if test -z "$SSH_PRIVATE_KEY" 
+#then
+#    echo Skipping ssh environment preparation
+#else
+#    # Preparing ssh environment
+#    echo Prepare ssh environment
+#    which ssh-agent || ( echo No SSH Agent found && exit 1 )
+#    eval $(ssh-agent -s)
+#    echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+#    mkdir -p ~/.ssh
+#    chmod 700 ~/.ssh
+#fi
 
 if [ ! -d "~/sw/.git" ]; then
     echo Library update skipped
