@@ -50,14 +50,14 @@ ls
 
 
 # copy the used shared libraries to the lib folder
-cd Build
+#cd Build
 
-if [ ! -d systemlib ]; then
-  mkdir systemlib
-fi
+#if [ ! -d systemlib ]; then
+#  mkdir systemlib
+#fi
 
-ldd bin/OpenFlipper | grep "=> /" | awk '{print $3}' | xargs -I '{}' cp -v '{}' systemlib
-cd ..
+#ldd bin/OpenFlipper | grep "=> /" | awk '{print $3}' | xargs -I '{}' cp -v '{}' systemlib
+#cd ..
 
 #clean old cmake cache as the path might have changed
 find . -name "CMakeCache.txt" -type f -delete
@@ -75,6 +75,7 @@ then
 	rm DartConfiguration.tcl
 fi
 
+# Run cmake to make sure the tests are configured correctly for this system
 cmake -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE -DSTL_VECTOR_CHECKS=ON $OPTIONS ../
 
 #tell the location to the libs from build jobs
