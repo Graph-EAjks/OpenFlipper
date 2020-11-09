@@ -66,13 +66,13 @@ find . -name "CMakeCache.txt" -type f -delete
 if [ -f CTestTestfile.cmake ]
 then
 	echo "Removing old CTestTestfile.cmake"
-#	rm CTestTestfile.cmake
+	rm CTestTestfile.cmake
 fi
 #just to be safe clean the test file definitions too
 if [ -f DartConfiguration.tcl ]
 then
 	echo "Removing old DartConfiguration.tcl"
-#	rm DartConfiguration.tcl
+	rm DartConfiguration.tcl
 fi
 
 #cmake -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE -DSTL_VECTOR_CHECKS=ON $OPTIONS ../
@@ -81,11 +81,26 @@ fi
 export LD_LIBRARY_PATH=$(pwd)/Build/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$(pwd)/Build/systemlib:$LD_LIBRARY_PATH
 
+# The tests should be build by the build job already!
 #make test
+
+echo "====================================="
+echo "====================================="
+echo "Test directory:"
+echo "====================================="
+echo "====================================="
+
 
 cd tests
 
 ls
+
+echo "====================================="
+echo "====================================="
+echo "Running tests:"
+echo "====================================="
+echo "====================================="
+
 
 bash run_tests.sh
 
