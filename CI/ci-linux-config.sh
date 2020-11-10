@@ -95,13 +95,14 @@ fi
 #    chmod 700 ~/.ssh
 #fi
 
-if [ ! -d "~/sw/.git" ]; then
-    echo Library update skipped
-else
-  git -C "~/sw" remote add alt https://gitlab-ci-token:${CI_JOB_TOKEN}@www.graphics.rwth-aachen.de:9000/Library-Management/Linux-Libraries.git openflipper/Linux-Libraries
-  git -C "~/sw" checkout master
-  git -C "~/sw" pull alt master
-  git -C "~/sw" remote remove alt
-fi
+# Don't mess with the repo here.
+#if [ ! -d "~/sw/.git" ]; then
+#    echo Library update skipped
+#else
+#  git -C "~/sw" remote add alt https://gitlab-ci-token:${CI_JOB_TOKEN}@www.graphics.rwth-aachen.de:9000/Library-Management/Linux-Libraries.git openflipper/Linux-Libraries
+#  git -C "~/sw" checkout master
+#  git -C "~/sw" pull alt master
+#  git -C "~/sw" remote remove alt
+#fi
 
 echo "Buildpath is: $BUILDPATH"
