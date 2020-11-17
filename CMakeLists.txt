@@ -93,7 +93,7 @@ if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
 endif()
 
 if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
-  find_package(Python3 COMPONENTS Development)
+  find_package(Python3 COMPONENTS Interpreter Development)
 
   if (NOT TARGET pybind11::module OR NOT TARGET pybind11::embed)
       add_subdirectory(OpenFlipper/libs_required/pybind11)
