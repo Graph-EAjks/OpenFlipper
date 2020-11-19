@@ -36,4 +36,4 @@ fi
 
 # Run tests
 cd tests
-bash run_tests.sh
+/opt/local/bin/python3 run_tests.py

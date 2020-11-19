@@ -17,58 +17,23 @@ REM #######################################
 REM # bootstrap level 0 
 REM #######################################
 
-
-
-
-IF "%BOOTSTRAPLEVEL%" == "" ( 
-set BOOTSTRAPLEVEL=0
-)
-
-IF "%BOOTSTRAPLEVEL%" == "0" (
+echo %Time%: Bootstrap script line 1 at level 0 with working directory %CD% and current error level %errorlevel% ...
 
 REM copy all files from artifacts folder to root folder
 echo %TIME%: Restoring artifacts from artifacts directory ...
 robocopy artifacts ./ /e /NFL /NDL /NJH /NJS /nc /ns /np
 
 REM set the bootstrap level to 1
-echo %TIME%: Entering bootstrap level 1 ...
-set BOOTSTRAPLEVEL=1
+echo %Time%: Returning after robocopy with working directory %CD% with current error level %errorlevel% ...
+
+cmd /c "exit /b 0"
+
+echo %Time%: Preparing to enter Bootstrap level 1 from working directory %CD% with current error level %errorlevel% ...
+
+echo %Time%: Now calling %~dp0..\..\CI\ci-windows-bootstrap.bat
 
 REM call the copy of this script outside artifacts folder
-call %~dp0\..\..\CI\ci-windows-bootstrap.bat
+call  %~dp0..\..\CI\ci-windows-bootstrap-level1.bat
 
 REM return the error code if not 0
 IF "%errorlevel%" NEQ "0" exit /b %errorlevel%
-) else (
-
-REM #######################################
-REM # bootstrap level 1
-REM #######################################
-REM remove the artifacts folder, it may cause problems with e.g. cmake
-echo %Time%: Removing artifacts directory ...
-rmdir /Q /S artifacts
-
-REM call the stage 2 script
-echo %Time%: Calling %~dp0\%STAGE2SCRIPT% ...
-call %~dp0\%STAGE2SCRIPT%
-
-REM store the error code of the stage 2 script
-set bootstrapretval=%errorlevel%
-
-REM copy this script back to the artifacts folder 
-if not exist ./artifacts (
-echo %Time%: recrerating artifacts directory ...
-cd %~dp0\..
-mkdir artifacts
-cd artifacts
-mkdir CI
-cd ..
-)
-echo %Time%: restoring bootstrap script ...
-copy %~dp0\ci-windows-bootstrap.bat artifacts\CI\ci-windows-bootstrap.bat
-
-REM when this script returns, the windows Command interpreter will look
-REM at the original position for the script to continue after the the call command
-REM of level 0
-IF "%bootstrapretval%" NEQ "0" exit /b %bootstrapretval%
-)

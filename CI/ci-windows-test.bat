@@ -13,60 +13,16 @@ call %~dp0\ci-windows-config.bat
 
 ECHO "============================================================="
 ECHO "============================================================="
-ECHO "Building with :"
+ECHO "Building as user :"
 whoami
-ECHO "ARCHITECTURE        : %ARCHITECTURE%"
-ECHO "BUILD_PLATFORM      : %BUILD_PLATFORM%"
-ECHO "GTESTVERSION        : %GTESTVERSION%"
-ECHO "GENERATOR           : %GENERATOR%"
-ECHO "VS_PATH             : %VS_PATH%"
-ECHO "LIBPATH             : %LIBPATH%"
-ECHO "QT_INSTALL_PATH     : %QT_INSTALL_PATH%"
-ECHO "CMAKE_CONFIGURATION : %CMAKE_CONFIGURATION%"
-ECHO "============================================================="
-ECHO "============================================================="
-ECHO ""
-ECHO "Running Build environment checks"
 
-IF EXIST %LIBPATH%\ (
-  ECHO "LIBPATH ... Ok"
-) ELSE (
-  ECHO "LIBPATH not found!"
-  exit 10;
-)
-
-
-IF EXIST %QT_INSTALL_PATH%\ (
-  ECHO "QT_INSTALL_PATH ... Ok"
-) ELSE (
-  ECHO "QT_INSTALL_PATH: %QT_INSTALL_PATH%\ not found!"
-  exit 10;
-)
-
-
-echo %Time%: Entering rel directory ...
-::enter build directory
-cd rel
-
-echo %Time%: Removing CMakeCache ...
-::delete cmake cache
-del /s /q CMakeCache.txt
-
-echo %Time%: Removing CTestFile ...
-del /q CTestTestfile.cmake
-echo %Time%: Removing DartConfiguration ...
-del /q DartConfiguration.tcl
-
-echo %Time%: running cmake ...
-::invoke cmake to fix paths
-"C:\Program Files\CMake\bin\cmake.exe"  -DGTEST_PREFIX="%LIBPATH_BASE%\%ARCHITECTURE%\%GTESTVERSION%" -G "%GENERATOR%"  -DCMAKE_BUILD_TYPE=Release -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE %CMAKE_CONFIGURATION% ..
+"C:\Program Files\Python39\python.exe" rel\tests\run_tests.py
 
 IF %errorlevel% NEQ 0 exit /b %errorlevel%
 
-::run tests
-cd tests
-copy ..\Build\Qt*.dll testBinaries
-copy ..\Build\icu*.dll testBinaries
-run_tests.bat
+echo %Time%: Python ctest runner executed successfully with errorlevel: %errorlevel%
+echo %Time%: At working directory: %CD%
 
-IF %errorlevel% NEQ 0 exit /b %errorlevel%
+cd ..
+cd ..
+
