@@ -184,13 +184,13 @@ if ( EXISTS ${BRANDING_DIRECTORY}/branding.cmake )
 endif()
 
 if ( EXISTS ${BRANDING_DIRECTORY}/branding.h )
-  set( BRANDING_HEADER true CACHE String "Indicate there is a branding.h inside the branding folder that should be included.")
+  set( BRANDING_HEADER true CACHE STRING "Indicate there is a branding.h inside the branding folder that should be included.")
 endif()
 
 
 #Initialize with defaults, if not already set via branding cmake file
-set( OPENFLIPPER_PRODUCT_STRING "OpenFlipper" CACHE String "Product string used e.g. to determine the config file path. Should only contain alphanumeric characters (no spaces)." )
-set( OPENFLIPPER_PRODUCT_NAME "OpenFlipper" CACHE String "Product name used in all visible places (e.g. about box)." )
+set( OPENFLIPPER_PRODUCT_STRING "OpenFlipper" CACHE STRING "Product string used e.g. to determine the config file path. Should only contain alphanumeric characters (no spaces)." )
+set( OPENFLIPPER_PRODUCT_NAME "OpenFlipper" CACHE STRING "Product name used in all visible places (e.g. about box)." )
 
 if (BRANDING_HEADER)
 add_definitions(-DBRANDING_HEADER)
