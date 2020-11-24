@@ -10,6 +10,8 @@
 /build_dbg
 /build_rel
 /build
+/cmake-build-debug
+/.idea
 
 
 # QtCreator specific annoying files

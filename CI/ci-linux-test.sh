@@ -76,7 +76,7 @@ then
 fi
 
 # Run cmake to make sure the tests are configured correctly for this system
-cmake -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE -DSTL_VECTOR_CHECKS=ON $OPTIONS ../
+cmake -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE -DSTL_VECTOR_CHECKS=ON -DCMAKE_CXX_INCLUDE_WHAT_YOU_USE="iwyu" $OPTIONS ../
 
 #tell the location to the libs from build jobs
 export LD_LIBRARY_PATH=$(pwd)/Build/lib:$LD_LIBRARY_PATH
