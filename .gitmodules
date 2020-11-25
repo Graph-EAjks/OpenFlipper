@@ -246,9 +246,3 @@
 [submodule "Plugin-Plane"]
 	path = Plugin-Plane
 	url = https://www.graphics.rwth-aachen.de:9000/OpenFlipper-Free/Plugin-Plane.git
-[submodule "Plugin-Render-Clipped-Geometry"]
-	path = Plugin-Render-Clipped-Geometry
-	url = git@www.graphics.rwth-aachen.de:zselman/Plugin-Render-Normals.git
-[submodule "Plugin-ReconstructionPainting"]
-	path = Plugin-ReconstructionPainting
-	url = git@www.graphics.rwth-aachen.de:zselman/plugin-reconstructionpainting.git
