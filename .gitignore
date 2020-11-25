@@ -10,6 +10,7 @@
 /build_dbg
 /build_rel
 /build
+/bin
 
 
 # QtCreator specific annoying files
