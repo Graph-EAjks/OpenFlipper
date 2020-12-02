@@ -108,6 +108,25 @@ endif()
 # Qt setup
 include(ACGQt)
 
+set(QT5_REQUIRED_PACKAGES
+  Qt5Core
+  Qt5Widgets
+  Qt5Gui
+  Qt5OpenGL
+  Qt5Network
+  Qt5Sql
+  Qt5Script
+  Qt5ScriptTools
+  Qt5Xml
+  Qt5XmlPatterns
+  Qt5Help
+  Qt5UiTools
+  Qt5Svg
+  Qt5PrintSupport
+  Qt5Concurrent
+  Qt5Quick
+  )
+
 acg_qt5 ()
 
 if (NOT QT5_FOUND)
