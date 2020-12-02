@@ -62,7 +62,7 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 endif()
 
 # add our macro directory to cmake search path
-set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR}/OpenFlipper/cmake)
+set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR}/OpenFlipper/cmake ${CMAKE_SOURCE_DIR}/OpenFlipper/cmake-library/finders ${CMAKE_SOURCE_DIR}/OpenFlipper/cmake-library/VCI )
 
 # Enable automoc, autouic and auto rcc
 set(CMAKE_AUTOMOC ON)
