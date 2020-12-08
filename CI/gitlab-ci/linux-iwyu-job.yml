@@ -6,7 +6,7 @@
 # QT Version: {{QT_VERSION}}
 # Include what you use test
 
-build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-iwyu:
+iwyu-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}:
   stage: Build
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
