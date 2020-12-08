@@ -106,7 +106,7 @@ endif()
 # ========================================================================
 
 # Qt setup
-include(ACGQt)
+include(VCIQt)
 
 set(QT5_REQUIRED_PACKAGES
   Qt5Core
@@ -127,7 +127,7 @@ set(QT5_REQUIRED_PACKAGES
   Qt5Quick
   )
 
-acg_qt5 ()
+vci_qt5 ()
 
 if (NOT QT5_FOUND)
   message(FATAL_ERROR "Could not find any QT Version. Please specify QT5_INSTALL_PATH (path to bin and include dir) to build with QT5. Note that this error is also shown if not all required qt modules were found, e.g. Qt5Script.")
@@ -162,10 +162,10 @@ endif()
 # ========================================================================
 
 # include our cmake files
-include (ACGCommon)
+include (VCICommon)
 include (MSVCMacros)
 
-acg_get_version (OpenFlipper)
+vci_get_version (OpenFlipper)
 
 # ========================================================================
 # Branding 
@@ -222,9 +222,9 @@ add_definitions(-DPRODUCT_NAME=${OPENFLIPPER_PRODUCT_NAME})
 # ========================================================================
 
 include (package)
-include (ACGOutput)
+include (VCIOutput)
 
-acg_openmp ()
+vci_openmp ()
 
 # check for OpenGL, GLEW as our required dependencies
 find_package (OpenGL)
@@ -395,16 +395,16 @@ foreach (DATATYPE_DIR ${_data_types})
 endforeach()
 
 # info header for Available data types
-acg_color_message ("\n${_escape}[40;37m************************************************************${_escape}[0m")
-acg_color_message ("${_escape}[40;37m* Available OpenFlipper Types:                             *${_escape}[0m")
-acg_color_message ("${_escape}[40;37m************************************************************${_escape}[0m")
-acg_color_message (" ")
+vci_color_message ("\n${_escape}[40;37m************************************************************${_escape}[0m")
+vci_color_message ("${_escape}[40;37m* Available OpenFlipper Types:                             *${_escape}[0m")
+vci_color_message ("${_escape}[40;37m************************************************************${_escape}[0m")
+vci_color_message (" ")
 
 foreach (DATATYPE ${TYPE_LIST})
-  acg_color_message ("${DATATYPE}")
+  vci_color_message ("${DATATYPE}")
 endforeach()
 
-acg_color_message (" ")
+vci_color_message (" ")
 
 # ========================================================================
 # Tests
@@ -416,8 +416,8 @@ add_subdirectory (OpenFlipper/tests)
 # ========================================================================
 
 # Create dirs to make doxygen happy
-file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/Build/${ACG_PROJECT_DATADIR}/Doc )
-file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/Build/${ACG_PROJECT_DATADIR}/Help )
+file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/Build/${VCI_PROJECT_DATADIR}/Doc )
+file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/Build/${VCI_PROJECT_DATADIR}/Help )
 
 # Add the documentation targets
 add_subdirectory (OpenFlipper/Documentation/DeveloperTarget)
@@ -458,10 +458,10 @@ endif()
 # ========================================================================
 
 # start with an empty plugin list
-acg_set (OPENFLIPPER_PLUGINS "")
-acg_set (OPENFLIPPER_STATIC_PLUGINS "")
-acg_set (OPENFLIPPER_STATIC_PLUGIN_FILES "")
-acg_set (OPENFLIPPER_STATIC_PLUGIN_NAMES "")
+vci_set (OPENFLIPPER_PLUGINS "")
+vci_set (OPENFLIPPER_STATIC_PLUGINS "")
+vci_set (OPENFLIPPER_STATIC_PLUGIN_FILES "")
+vci_set (OPENFLIPPER_STATIC_PLUGIN_NAMES "")
 
 foreach (package ${PREFOUND_PACKAGES})
 find_package(${package})
@@ -570,6 +570,6 @@ endif()
 # ========================================================================
 
 # display results
-acg_print_configure_header (OPENFLIPPER "OpenFlipper")
+vci_print_configure_header (OPENFLIPPER "OpenFlipper")
 of_print_plugin_stats ()
-acg_print_configure_footer ()
+vci_print_configure_footer ()
