@@ -709,6 +709,37 @@ test-release-clang-cpp11-qt5.15.1:
 #
 #-----------
 
+# include what you use
+#-----------  Job Informations:
+# Type:       Build: release
+# OS:         Linux
+# Compiler:   gcc
+# Language:   cpp11
+# QT Version: qt5.13.0
+# Include what you use test
+
+build-release-gcc-cpp11-qt5.13.0-iwyu:
+  stage: Build
+  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+  variables:
+    COMPILER: "gcc"
+    LANGUAGE: "cpp11"
+    QTVERSION: "qt5.13.0"
+    BUILDTYPE: "release"
+    GIT_SUBMODULE_STRATEGY: recursive
+    IWYU: "yes"
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Linux
+    - stretch
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - build-release-gcc-cpp11-qt5.13.0-iwyu/
+
+#
+#-----------
+
 cppcheck:
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   stage: Build
@@ -719,11 +750,10 @@ cppcheck:
     - Linux
     - stretch
     - MultiThreads
-
   artifacts:
     paths:
       - cppcheck.log
-      
+
 
 ##############################
 #
