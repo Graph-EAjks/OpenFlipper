@@ -713,16 +713,16 @@ test-release-clang-cpp11-qt5.15.1:
 #-----------  Job Informations:
 # Type:       Build: release
 # OS:         Linux
-# Compiler:   gcc
+# Compiler:   clang
 # Language:   cpp11
 # QT Version: qt5.13.0
 # Include what you use test
 
-iwyu-release-gcc-cpp11-qt5.13.0:
+iwyu-release-clang-cpp11-qt5.13.0:
   stage: Build
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
-    COMPILER: "gcc"
+    COMPILER: "clang"
     LANGUAGE: "cpp11"
     QTVERSION: "qt5.13.0"
     BUILDTYPE: "release"
@@ -735,7 +735,7 @@ iwyu-release-gcc-cpp11-qt5.13.0:
   artifacts:
     expire_in: 1 week
     paths:
-      - build-release-gcc-cpp11-qt5.13.0-iwyu/
+      - build-release-clang-cpp11-qt5.13.0-iwyu/
 
 #
 #-----------
