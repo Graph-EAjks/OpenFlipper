@@ -14,7 +14,7 @@
 {linux-template-job-full.yml,    COMPILER=clang, LANGUAGE=cpp11, QT_VERSION=qt5.15.1}
 
 # include what you use
-{linux-iwyu-job.yml, BUILDTYPE=release, COMPILER=gcc, LANGUAGE=cpp11, QT_VERSION=qt5.13.0}
+{linux-iwyu-job.yml, BUILDTYPE=release, COMPILER=clang, LANGUAGE=cpp11, QT_VERSION=qt5.13.0}
 
 cppcheck:
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
