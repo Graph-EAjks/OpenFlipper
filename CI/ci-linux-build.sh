@@ -50,10 +50,7 @@ make $MAKE_OPTIONS
 
 if [ "$IWYU" == "yes" ]; then
   # do iwyu check
-  iwyu_tool -p . -- \
-  -Xiwyu --mapping_file=/usr/share/include-what-you-use/qt5_4.imp \
-  -Xiwyu --mapping_file=/usr/share/include-what-you-use/gcc.libc.imp \
-  -Xiwyu --mapping_file=/usr/share/include-what-you-use/clang-6.intrinsics.imp
+  iwyu_tool -j 4 -p .
 fi
 
 echo "====================================="
