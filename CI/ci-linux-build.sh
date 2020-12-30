@@ -53,7 +53,7 @@ if [ "$IWYU" == "yes" ]; then
   if echo $(iwyu --version) | grep -q "0.11"
   then
     # support older tool version
-    iwyu_tool -j 4 -p . \
+    iwyu_tool -j 4 -p . -- \
     --mapping_file=/usr/share/include-what-you-use/qt5_4.imp \
     --mapping_file=/usr/share/include-what-you-use/gcc.libc.imp \
     --mapping_file=/usr/share/include-what-you-use/clang-6.intrinsics.imp
