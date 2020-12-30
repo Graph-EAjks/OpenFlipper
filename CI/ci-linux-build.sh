@@ -50,7 +50,20 @@ make $MAKE_OPTIONS
 
 if [ "$IWYU" == "yes" ]; then
   # do iwyu check
-  iwyu_tool -j 4 -p .
+  if echo $(iwyu --version) | grep -q "0.11"
+  then
+    # support older tool version
+    iwyu_tool -j 4 -p . \
+    --mapping_file=/usr/share/include-what-you-use/qt5_4.imp \
+    --mapping_file=/usr/share/include-what-you-use/gcc.libc.imp \
+    --mapping_file=/usr/share/include-what-you-use/clang-6.intrinsics.imp
+  else
+    # current tool version
+    iwyu_tool -j 4 -p . -- \
+    -Xiwyu --mapping_file=/usr/share/include-what-you-use/qt5_4.imp \
+    -Xiwyu --mapping_file=/usr/share/include-what-you-use/gcc.libc.imp \
+    -Xiwyu --mapping_file=/usr/share/include-what-you-use/clang-6.intrinsics.imp
+  fi
 fi
 
 echo "====================================="
