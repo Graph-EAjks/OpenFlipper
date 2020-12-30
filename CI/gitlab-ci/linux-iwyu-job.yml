@@ -23,7 +23,8 @@ iwyu-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}:
   artifacts:
     expire_in: 1 week
     paths:
-      - build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-iwyu/
+      - build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-iwyu/compile_commands.json
+      - build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-iwyu/iwyu.dump
 
 #
 #-----------

@@ -735,7 +735,8 @@ iwyu-release-clang-cpp11-qt5.13.0:
   artifacts:
     expire_in: 1 week
     paths:
-      - build-release-clang-cpp11-qt5.13.0-iwyu/
+      - build-release-clang-cpp11-qt5.13.0-iwyu/compile_commands.json
+      - build-release-clang-cpp11-qt5.13.0-iwyu/iwyu.dump
 
 #
 #-----------

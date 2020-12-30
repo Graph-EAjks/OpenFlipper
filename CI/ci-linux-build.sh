@@ -53,13 +53,15 @@ if [ "$IWYU" == "yes" ]; then
     iwyu_tool -j 4 -p . -- \
     --mapping_file=/usr/share/include-what-you-use/qt5_4.imp \
     --mapping_file=/usr/share/include-what-you-use/gcc.libc.imp \
-    --mapping_file=/usr/share/include-what-you-use/clang-6.intrinsics.imp
+    --mapping_file=/usr/share/include-what-you-use/clang-6.intrinsics.imp \
+    | tee iwyu.dump
   else
     # current tool version
     iwyu_tool -j 4 -p . -- \
     -Xiwyu --mapping_file=/usr/share/include-what-you-use/qt5_4.imp \
     -Xiwyu --mapping_file=/usr/share/include-what-you-use/gcc.libc.imp \
-    -Xiwyu --mapping_file=/usr/share/include-what-you-use/clang-6.intrinsics.imp
+    -Xiwyu --mapping_file=/usr/share/include-what-you-use/clang-6.intrinsics.imp \
+    | tee iwyu.dump
   fi
 
   cd ..
