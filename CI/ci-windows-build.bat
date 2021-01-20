@@ -13,7 +13,6 @@ call %~dp0\ci-windows-config.bat
 
 
 echo "CMAKE_CONFIGURATION: %CMAKE_CONFIGURATION%"
-s
 ECHO "============================================================="
 ECHO "============================================================="
 ECHO "Building with :"
