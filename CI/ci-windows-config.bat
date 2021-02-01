@@ -60,6 +60,10 @@ if "%QT_VERSION%" == "Qt5.14.1" (
 set QT_REV_LONG=5.14.1
 set QT_REV=5.14.1
 )
+if "%QT_VERSION%" == "Qt5.14.2" (
+set QT_REV_LONG=5.14.2
+set QT_REV=5.14.2
+)
 if "%QT_VERSION%" == "Qt5.15.0" (
 set QT_REV_LONG=5.15.0
 set QT_REV=5.15.0
@@ -67,6 +71,13 @@ set QT_REV=5.15.0
 
 set QT_SUFFIX=
 set QT_BASE_CONFIG=-DQT5_INSTALL_PATH=E:\Qt\%QT_REV%\%QT_COMPILERPREFIX%%ARCHBITS%%QT_SUFFIX%
+
+
+echo "QT config infos :"
+echo "QT_VERSION input is : %QT_VERSION%"
+echo "QT_REV_LONG :         %QT_REV_LONG%"
+echo "QT_REV :              %QT_REV%"
+echo "QT Base Config :      %QT_BASE_CONFIG%"
 
 :: set up Libraty Paths
 set LIBPATH_BASE=E:/libs/%COMPILER%
