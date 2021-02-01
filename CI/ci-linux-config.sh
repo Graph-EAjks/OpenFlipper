@@ -80,6 +80,12 @@ if [ "$PYTHON" == "no" ]; then
   OPTIONS="$OPTIONS -DDISABLE_OPENFLIPPER_PYTHON_SYSTEM=TRUE"
 fi
 
+if [ "$IWYU" == "yes" ]; then
+  echo "Include what you use enabled.";
+  BUILDPATH="$BUILDPATH-iwyu"
+  OPTIONS="$OPTIONS -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+fi
+
 # Not in Docker, so don't mess with the keys
 
 #if test -z "$SSH_PRIVATE_KEY" 
