@@ -91,7 +91,7 @@ for /l %%x in (6, 1, 10) do (
 )
 
 :: check for qwt version 6.1.1 to 6.1.3 use the highest found version
-for /l %%x in (0, 1, 5) do (
+for /l %%x in (0, 1, 6) do (
    echo "Checking for QWT in : %LIBPATH_BASE%/%ARCHITECTURE%/qwt-6.1.%%x-qt%QT_REV_LONG%/include"
    if exist %LIBPATH_BASE%/%ARCHITECTURE%/qwt-6.1.%%x-qt%QT_REV_LONG%/include (
       set QWT6_INCLUDE_DIR=%LIBPATH_BASE%/%ARCHITECTURE%/qwt-6.1.%%x-qt%QT_REV_LONG%/include
