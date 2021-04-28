@@ -1,0 +1,1826 @@
+cppcheck: unusedFunction check can't be used with '-j' option. Disabling unusedFunction check.
+OpenFlipper/BasePlugin/PluginFunctions.hh:467:4: style: Class 'ObjectIterator' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+   ObjectIterator(BaseObjectData* pos, const IteratorRestriction &_restriction = ALL_OBJECTS , DataType _dataType = DATA_ALL );
+   ^
+OpenFlipper/BasePlugin/PluginFunctions.hh:703:4: style: Class 'BaseObjectIterator' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+   BaseObjectIterator(BaseObject* pos, const IteratorRestriction &_restriction = ALL_OBJECTS , DataType _dataType = DATA_ALL );
+   ^
+OpenFlipper/BasePlugin/PluginFunctions.cc:359:18: style: Consider using std::transform algorithm instead of a raw loop. [useStlAlgorithm]
+    _identifiers.push_back( o_it->id() );
+                 ^
+OpenFlipper/BasePlugin/PluginFunctions.cc:371:18: style: Consider using std::transform algorithm instead of a raw loop. [useStlAlgorithm]
+    _identifiers.push_back( o_it->id() );
+                 ^
+OpenFlipper/BasePlugin/PluginFunctions.cc:1017:7: style: Consider using std::distance algorithm instead of a raw loop. [useStlAlgorithm]
+    ++count;
+      ^
+OpenFlipper/BasePlugin/PluginFunctions.cc:1047:14: style: Consider using std::copy algorithm instead of a raw loop. [useStlAlgorithm]
+    _objects.push_back( o_it );
+             ^
+OpenFlipper/BasePlugin/PostProcessorInterface.hh:282:1: error: There is an unknown macro here somewhere. Configuration is required. If Q_DECLARE_INTERFACE is a macro then please configure it. [unknownMacro]
+Q_DECLARE_INTERFACE(PostProcessorInterface,"OpenFlipper.PostProcessorInterface/1.0")
+^
+OpenFlipper/BasePlugin/PluginFunctionsBaseIterator.cc:76:17: style: Variable 'found' is assigned a value that is never used. [unreadVariable]
+          found = true;
+                ^
+OpenFlipper/BasePlugin/PluginFunctionsBaseIterator.cc:144:17: style: Variable 'found' is assigned a value that is never used. [unreadVariable]
+          found = true;
+                ^
+OpenFlipper/Core/Core.cc:1726:258: error: There is an unknown macro here somewhere. Configuration is required. If TOSTRING is a macro then please configure it. [unknownMacro]
+                          QStringList(tr("Path of the file to save the settings to.;Save objects in current setting.;Restrict to targeted objects.;<no idea what this parameter does>;Prompt before overwriting files that already exist (gui mode only).;Save " TOSTRING( PRODUCT_NAME ) " program settings.;Save plugin settings.").split(";")));
+                                                                                                                                                                                                                                                                 ^
+OpenFlipper/Core/openFunctions.cc:749:20: style: Variable 'filename' is assigned a value that is never used. [unreadVariable]
+  QString filename = object->path() + OpenFlipper::Options::dirSeparator() + object->name();
+                   ^
+OpenFlipper/INIFile/INIFile.cc:250:43: performance: Searching before insertion is not necessary. [stlFindInsert]
+      m_iniData[ _sectionname ] = EntryMap();
+                                          ^
+OpenFlipper/LicenseManager/LicenseManagerActive.cc:167:19: style: Redundant initialization for 'lastTimestamp'. The initialized value is overwritten before it is read. [redundantInitialization]
+    lastTimestamp = lastTimestampEntryNum;
+                  ^
+OpenFlipper/LicenseManager/LicenseManagerActive.cc:132:27: note: lastTimestamp is initialized
+    quint64 lastTimestamp = timestamp;
+                          ^
+OpenFlipper/LicenseManager/LicenseManagerActive.cc:167:19: note: lastTimestamp is overwritten
+    lastTimestamp = lastTimestampEntryNum;
+                  ^
+OpenFlipper/Logging/PluginLogging.hh:80:5: style: Class 'PluginLogger' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    PluginLogger(const QString &_pluginName , Logtype _type = LOGOUT);
+    ^
+OpenFlipper/PythonInterpreter/PythonTypeConversions.hh:369:23: style: Local variable 'convert' shadows outer argument [shadowArgument]
+               double convert[16] =  { PyFloat_AsDouble(PyList_GetItem(source,0)),
+                      ^
+OpenFlipper/PythonInterpreter/PythonTypeConversions.hh:356:36: note: Shadowed declaration
+        bool load(handle src, bool convert ) {
+                                   ^
+OpenFlipper/PythonInterpreter/PythonTypeConversions.hh:369:23: note: Shadow variable
+               double convert[16] =  { PyFloat_AsDouble(PyList_GetItem(source,0)),
+                      ^
+OpenFlipper/PythonInterpreter/PythonTypeConversions.hh:396:23: style: Local variable 'convert' shadows outer argument [shadowArgument]
+               double convert[16] =  { PyFloat_AsDouble(PyTuple_GetItem(source,0)),
+                      ^
+OpenFlipper/PythonInterpreter/PythonTypeConversions.hh:356:36: note: Shadowed declaration
+        bool load(handle src, bool convert ) {
+                                   ^
+OpenFlipper/PythonInterpreter/PythonTypeConversions.hh:396:23: note: Shadow variable
+               double convert[16] =  { PyFloat_AsDouble(PyTuple_GetItem(source,0)),
+                      ^
+OpenFlipper/Scripting/scriptWrappers/matrix4x4Wrapper.cc:71:67: style: Parameter 's' can be declared with const [constParameter]
+void fromScriptValueMatrix4x4(const QScriptValue &obj, Matrix4x4 &s)
+                                                                  ^
+OpenFlipper/Core/PluginLoader.cc:2452:15: style: Variable 'supported' is assigned a value that is never used. [unreadVariable]
+    supported = supported + "Type ";
+              ^
+OpenFlipper/Windows/windows-startup.cc:44:3: error: Resource leak: check [resourceLeak]
+  check = freopen("CONOUT$", "w", stdout);
+  ^
+OpenFlipper/Windows/windows-startup.cc:48:3: error: Resource leak: check [resourceLeak]
+  check = freopen("CONOUT$", "w", stderr);
+  ^
+OpenFlipper/Windows/windows-startup.cc:58:1: error: Resource leak: check [resourceLeak]
+}
+^
+OpenFlipper/Windows/StackWalker/StackWalker.cc:259:5: performance: Variable 'm_hDbhHelp' is assigned in constructor body. Consider performing initialization in initialization list. [useInitializationList]
+    m_hDbhHelp = NULL;
+    ^
+OpenFlipper/Windows/StackWalker/StackWalker.cc:261:5: performance: Variable 'm_hProcess' is assigned in constructor body. Consider performing initialization in initialization list. [useInitializationList]
+    m_hProcess = hProcess;
+    ^
+OpenFlipper/Windows/StackWalker/StackWalker.cc:262:5: performance: Variable 'm_szSymPath' is assigned in constructor body. Consider performing initialization in initialization list. [useInitializationList]
+    m_szSymPath = NULL;
+    ^
+OpenFlipper/Windows/StackWalker/StackWalker.cc:857:9: warning: Class 'StackWalker' does not have a copy constructor which is recommended since it has dynamic memory/resource allocation(s). [noCopyConstructor]
+  this->m_sw = new StackWalkerInternal(this, this->m_hProcess);
+        ^
+OpenFlipper/Windows/StackWalker/StackWalker.cc:857:9: warning: Class 'StackWalker' does not have a operator= which is recommended since it has dynamic memory/resource allocation(s). [noOperatorEq]
+  this->m_sw = new StackWalkerInternal(this, this->m_hProcess);
+        ^
+OpenFlipper/Windows/StackWalker/StackWalker.cc:823:43: style: C-style pointer casting [cstyleCast]
+      if (this->pSGMI(hProcess, baseAddr, (IMAGEHLP_MODULE64_V3*) pData) != FALSE)
+                                          ^
+OpenFlipper/Windows/StackWalker/StackWalker.cc:837:41: style: C-style pointer casting [cstyleCast]
+    if (this->pSGMI(hProcess, baseAddr, (IMAGEHLP_MODULE64_V3*) pData) != FALSE)
+                                        ^
+OpenFlipper/Windows/StackWalker/StackWalker.cc:244:20: style: Checking if unsigned expression 'nMaxDestSize' is less than zero. [unsignedLessThanZero]
+  if (nMaxDestSize <= 0) return;
+                   ^
+OpenFlipper/common/GroupObject.hh:91:17: style: The function 'copy' overrides a function in a base class but is not marked with a 'override' specifier. [missingOverride]
+    BaseObject* copy();
+                ^
+OpenFlipper/common/BaseObject.hh:290:25: note: Virtual function in base class
+    virtual BaseObject* copy();
+                        ^
+OpenFlipper/common/GroupObject.hh:91:17: note: Function in derived class
+    BaseObject* copy();
+                ^
+OpenFlipper/Windows/StackWalker/StackWalker.cc:661:59: warning: Division by result of sizeof(). malloc() expects a size in bytes, did you intend to multiply instead? [sizeofDivisionMemfunc]
+    hMods = (HMODULE*) malloc(sizeof(HMODULE) * (TTBUFLEN / sizeof(HMODULE)));
+                                                          ^
+OpenFlipper/libs_required/ACG/GL/DrawMesh.hh:1028:11: error: syntax error [syntaxError]
+  template<typename Mesh::Normal (DrawMeshT::*NormalLookup)(typename Mesh::FaceHandle)>
+          ^
+OpenFlipper/libs_required/ACG/Math/Matrix4x4T.hh:107:10: style: Class 'Matrix4x4T' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+  inline Matrix4x4T(const Scalar _array[16]) {
+         ^
+OpenFlipper/libs_required/ACG/Math/GLMatrixT.hh:91:10: style: Class 'GLMatrixT' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+  inline GLMatrixT(const Matrix4x4T<OtherScalar>& _rhs)
+         ^
+OpenFlipper/libs_required/ACG/Math/GLMatrixT.hh:100:10: style: Class 'GLMatrixT' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+  inline GLMatrixT(const Scalar _array[16]) : Matrix4x4T<Scalar>(_array) {}
+         ^
+OpenFlipper/libs_required/ACG/GL/FilterKernels.cc:68:3: warning: Class 'BaseSeparableFilterKernel' does not have a copy constructor which is recommended since it has dynamic memory/resource allocation(s). [noCopyConstructor]
+  tempRT_(new FBO())
+  ^
+OpenFlipper/libs_required/ACG/GL/FilterKernels.cc:68:3: warning: Class 'BaseSeparableFilterKernel' does not have a operator= which is recommended since it has dynamic memory/resource allocation(s). [noOperatorEq]
+  tempRT_(new FBO())
+  ^
+OpenFlipper/libs_required/ACG/GL/FilterKernels.cc:528:22: error: Array index -1 is out of bounds. [negativeContainerIndex]
+    ACG::Vec2f x_i = samples_[sample_i];
+                     ^
+OpenFlipper/libs_required/ACG/GL/FilterKernels.cc:517:21: note: Assignment 'sample_i=-1', assigned value is -1
+    int sample_i = -1;
+                    ^
+OpenFlipper/libs_required/ACG/GL/FilterKernels.cc:528:22: note: Negative array index
+    ACG::Vec2f x_i = samples_[sample_i];
+                     ^
+OpenFlipper/libs_required/ACG/GL/GLPrimitives.cc:1535:21: style: Variable 'segmentOffset' is assigned a value that is never used. [unreadVariable]
+  int segmentOffset = nsides_;
+                    ^
+OpenFlipper/libs_required/ACG/GL/GLPrimitives.cc:1536:16: style: Variable 'oddIndex' is assigned a value that is never used. [unreadVariable]
+  int oddIndex = 0;
+               ^
+OpenFlipper/libs_required/ACG/GL/GLState.cc:1632:15: style: Variable '_srcAlpha' is assigned a value that is never used. [unreadVariable]
+    _srcAlpha = stateStack_.back().blendFuncState_[2];
+              ^
+OpenFlipper/libs_required/ACG/GL/GLState.cc:1633:15: style: Variable '_dstAlpha' is assigned a value that is never used. [unreadVariable]
+    _dstAlpha = stateStack_.back().blendFuncState_[3];
+              ^
+OpenFlipper/libs_required/ACG/GL/IRenderer.cc:504:31: error: Reference to stack that may be invalid. [invalidContainerReference]
+                        cIt = cur.node->childrenBegin(),
+                              ^
+OpenFlipper/libs_required/ACG/GL/IRenderer.cc:460:41: note: Assigned to reference.
+        ScenegraphTraversalStackEl &cur = stack.back();
+                                        ^
+OpenFlipper/libs_required/ACG/GL/IRenderer.cc:460:49: note: Accessing container.
+        ScenegraphTraversalStackEl &cur = stack.back();
+                                                ^
+OpenFlipper/libs_required/ACG/GL/IRenderer.cc:459:12: note: Assuming condition is true.
+    while (!stack.empty()) {
+           ^
+OpenFlipper/libs_required/ACG/GL/IRenderer.cc:466:13: note: Assuming condition is true.
+        if (!cur.leave) {
+            ^
+OpenFlipper/libs_required/ACG/GL/IRenderer.cc:491:36: note: Assuming condition is true.
+            if (cur.node->status() != ACG::SceneGraph::BaseNode::HideChildren) {
+                                   ^
+OpenFlipper/libs_required/ACG/GL/IRenderer.cc:495:61: note: Assuming condition is true.
+                        cEnd = cur.node->childrenEnd(); cIt != cEnd; ++cIt) {
+                                                            ^
+OpenFlipper/libs_required/ACG/GL/IRenderer.cc:497:66: note: Assuming condition is true.
+                          ACG::SceneGraph::BaseNode::SecondPass) &&
+                                                                 ^
+OpenFlipper/libs_required/ACG/GL/IRenderer.cc:497:66: note: Assuming condition is true.
+                          ACG::SceneGraph::BaseNode::SecondPass) &&
+                                                                 ^
+OpenFlipper/libs_required/ACG/GL/IRenderer.cc:495:61: note: Assuming condition is true.
+                        cEnd = cur.node->childrenEnd(); cIt != cEnd; ++cIt) {
+                                                            ^
+OpenFlipper/libs_required/ACG/GL/IRenderer.cc:499:23: note: After calling 'emplace_back', iterators or references to the container's data may be invalid .
+                      stack.emplace_back(*cIt, cur_mat);
+                      ^
+OpenFlipper/libs_required/ACG/GL/IRenderer.cc:504:31: note: Reference to stack that may be invalid.
+                        cIt = cur.node->childrenBegin(),
+                              ^
+OpenFlipper/libs_required/ACG/GL/MeshCompiler.cc:1286:24: style: Condition 'bSearchSplit' is always true [knownConditionTrueFalse]
+    while (pos >= 0 && bSearchSplit)
+                       ^
+OpenFlipper/libs_required/ACG/GL/MeshCompiler.cc:1283:24: note: Assignment 'bSearchSplit=1', assigned value is 1
+    int bSearchSplit = 1;
+                       ^
+OpenFlipper/libs_required/ACG/GL/MeshCompiler.cc:1286:24: note: Condition 'bSearchSplit' is always true
+    while (pos >= 0 && bSearchSplit)
+                       ^
+OpenFlipper/libs_required/ACG/GL/MeshCompiler.cc:1586:25: performance: Searching before insertion is not necessary. [stlFindInsert]
+      GroupIDs[texID] = face;
+                        ^
+OpenFlipper/libs_required/ACG/GL/ShaderCache.cc:244:9: style: Condition 'tessControlShader' is always false [knownConditionTrueFalse]
+    if (tessControlShader && progGen.hasTessControlShader())
+        ^
+OpenFlipper/libs_required/ACG/GL/ShaderCache.cc:237:39: note: Assignment 'tessControlShader=0', assigned value is 0
+    GLSL::Shader* tessControlShader = 0, *tessEvalShader = 0;
+                                      ^
+OpenFlipper/libs_required/ACG/GL/ShaderCache.cc:244:9: note: Condition 'tessControlShader' is always false
+    if (tessControlShader && progGen.hasTessControlShader())
+        ^
+OpenFlipper/libs_required/ACG/GL/ShaderCache.cc:251:9: style: Condition 'tessEvalShader' is always false [knownConditionTrueFalse]
+    if (tessEvalShader && progGen.hasTessEvaluationShader())
+        ^
+OpenFlipper/libs_required/ACG/GL/ShaderCache.cc:237:60: note: Assignment 'tessEvalShader=0', assigned value is 0
+    GLSL::Shader* tessControlShader = 0, *tessEvalShader = 0;
+                                                           ^
+OpenFlipper/libs_required/ACG/GL/ShaderCache.cc:244:27: note: Assuming condition is false
+    if (tessControlShader && progGen.hasTessControlShader())
+                          ^
+OpenFlipper/libs_required/ACG/GL/ShaderCache.cc:251:9: note: Condition 'tessEvalShader' is always false
+    if (tessEvalShader && progGen.hasTessEvaluationShader())
+        ^
+OpenFlipper/libs_required/ACG/GL/ShaderGenerator.cc:2341:10: style: Variable 'it' is reassigned a value before the old one has been used. [redundantAssignment]
+      it = _templateSrc.begin() + offset;
+         ^
+OpenFlipper/libs_required/ACG/GL/ShaderGenerator.cc:2336:9: note: it is assigned
+        ++it;
+        ^
+OpenFlipper/libs_required/ACG/GL/ShaderGenerator.cc:2341:10: note: it is overwritten
+      it = _templateSrc.begin() + offset;
+         ^
+OpenFlipper/libs_required/ACG/GL/VertexDeclaration.cc:204:49: performance: Searching before insertion is not necessary. [stlFindInsert]
+          vboFirstElements[elements_[i].vbo_] = &elements_[i];
+                                                ^
+OpenFlipper/libs_required/ACG/Geometry/GPUCacheOptimizer.cc:344:2: portability: Using memset() on struct which contains a floating point number. [memsetClassFloat]
+ memset(pVerts, 0, sizeof(Opt_Vertex) * NumVerts);
+ ^
+OpenFlipper/libs_required/ACG/Geometry/GPUCacheOptimizer.hh:297:7: warning: Struct 'RingStack' does not have a operator= which is recommended since it has dynamic memory/resource allocation(s). [noOperatorEq]
+      pStack = new unsigned int[uiSize];
+      ^
+OpenFlipper/libs_required/ACG/Geometry/GPUCacheOptimizer.hh:274:7: style: The function 'MakeAbstract' overrides a function in a base class but is not marked with a 'override' specifier. [missingOverride]
+ void MakeAbstract(){}
+      ^
+OpenFlipper/libs_required/ACG/Geometry/GPUCacheOptimizer.hh:180:15: note: Virtual function in base class
+ virtual void MakeAbstract() = 0;
+              ^
+OpenFlipper/libs_required/ACG/Geometry/GPUCacheOptimizer.hh:274:7: note: Function in derived class
+ void MakeAbstract(){}
+      ^
+OpenFlipper/libs_required/ACG/Geometry/GPUCacheOptimizer.hh:350:7: style: The function 'MakeAbstract' overrides a function in a base class but is not marked with a 'override' specifier. [missingOverride]
+ void MakeAbstract(){}
+      ^
+OpenFlipper/libs_required/ACG/Geometry/GPUCacheOptimizer.hh:180:15: note: Virtual function in base class
+ virtual void MakeAbstract() = 0;
+              ^
+OpenFlipper/libs_required/ACG/Geometry/GPUCacheOptimizer.hh:350:7: note: Function in derived class
+ void MakeAbstract(){}
+      ^
+OpenFlipper/libs_required/ACG/Geometry/GPUCacheOptimizer.cc:226:22: style: Local variable 'k' shadows outer variable [shadowVariable]
+   for (unsigned int k = 0; k < NumSlotsInUse && !bInCache; ++k)
+                     ^
+OpenFlipper/libs_required/ACG/Geometry/GPUCacheOptimizer.cc:221:12: note: Shadowed declaration
+  for (int k = 0; k < 3; ++k)
+           ^
+OpenFlipper/libs_required/ACG/Geometry/GPUCacheOptimizer.cc:226:22: note: Shadow variable
+   for (unsigned int k = 0; k < NumSlotsInUse && !bInCache; ++k)
+                     ^
+OpenFlipper/libs_required/ACG/Geometry/GPUCacheOptimizer.cc:455:17: style: Local variable 'pV' shadows outer variable [shadowVariable]
+    Opt_Vertex* pV = pVerts + N[k];
+                ^
+OpenFlipper/libs_required/ACG/Geometry/GPUCacheOptimizer.cc:414:15: note: Shadowed declaration
+  Opt_Vertex* pV = pVerts + f;
+              ^
+OpenFlipper/libs_required/ACG/Geometry/GPUCacheOptimizer.cc:455:17: note: Shadow variable
+    Opt_Vertex* pV = pVerts + N[k];
+                ^
+OpenFlipper/libs_required/ACG/Math/Matrix3x3T.hh:64:19: style: Class 'Matrix3x3T' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+        constexpr Matrix3x3T(std::array<Scalar, 9> row_major) :
+                  ^
+OpenFlipper/libs_required/ACG/Geometry/Algorithms.hh:636:22: style: Condition 'delta>=1' is always true [knownConditionTrueFalse]
+    } else if (delta >= 1) {
+                     ^
+OpenFlipper/libs_required/ACG/Geometry/Algorithms.hh:633:15: note: Assuming that condition 'delta<=0' is not redundant
+    if (delta <= 0) {
+              ^
+OpenFlipper/libs_required/ACG/Geometry/Algorithms.hh:636:22: note: Condition 'delta>=1' is always true
+    } else if (delta >= 1) {
+                     ^
+OpenFlipper/libs_required/ACG/QtWidgets/QtBaseViewer.hh:458:54: performance: Function parameter '_mode' should be passed by const reference. [passedByValue]
+  void drawMode(ACG::SceneGraph::DrawModes::DrawMode _mode)
+                                                     ^
+OpenFlipper/libs_required/ACG/Scenegraph/SceneGraph.hh:644:3: style: Class 'SetDrawModesAction' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+  SetDrawModesAction(const DrawModes::DrawMode& _mode, bool _force = false ) : newModes_(_mode),force_(_force) {}
+  ^
+OpenFlipper/libs_required/ACG/Scenegraph/BaseNode.hh:433:37: performance: Function parameter '_drawMode' should be passed by const reference. [passedByValue]
+  void drawMode(DrawModes::DrawMode _drawMode) { drawMode_ = _drawMode; }
+                                    ^
+OpenFlipper/libs_required/ACG/QtWidgets/QtPrincipalAxisDialog.hh:96:4: style: Class 'QtPrincipalAxisDialog' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+   QtPrincipalAxisDialog( SceneGraph::PrincipalAxisNode& _pnode,
+   ^
+OpenFlipper/libs_required/ACG/QtWidgets/QtShaderDialog.cc:117:30: style: Variable 'shaderDirectory' is assigned a value that is never used. [unreadVariable]
+  std::string shaderDirectory("");
+                             ^
+OpenFlipper/libs_required/ACG/Scenegraph/ArrowNode.cc:67:57: performance: Function parameter '_name' should be passed by const reference. [passedByValue]
+ArrowNode::ArrowNode(BaseNode*    _parent, std::string  _name )
+                                                        ^
+OpenFlipper/libs_required/ACG/Scenegraph/BaseNode.cc:130:27: warning: Assert statement calls a function which may have desired side effects: 'childrenEnd'. [assertWithSideEffect]
+    assert(me != parent_->childrenEnd());
+                          ^
+OpenFlipper/libs_required/ACG/Scenegraph/BaseNode.cc:206:38: style: Condition '_i==0' is always false [knownConditionTrueFalse]
+      multipassStatus_ |=  (1 << (_i == 0 ? 0 : _i - 1));
+                                     ^
+OpenFlipper/libs_required/ACG/Scenegraph/BaseNode.cc:197:11: note: Assuming that condition '_i==NOPASS' is not redundant
+  if ( _i == NOPASS ) {
+          ^
+OpenFlipper/libs_required/ACG/Scenegraph/BaseNode.cc:206:38: note: Condition '_i==0' is always false
+      multipassStatus_ |=  (1 << (_i == 0 ? 0 : _i - 1));
+                                     ^
+OpenFlipper/libs_required/ACG/Scenegraph/BaseNode.cc:208:39: style: Condition '_i==0' is always false [knownConditionTrueFalse]
+      multipassStatus_ &=  ~(1 << (_i == 0 ? 0 : _i - 1));
+                                      ^
+OpenFlipper/libs_required/ACG/Scenegraph/BaseNode.cc:197:11: note: Assuming that condition '_i==NOPASS' is not redundant
+  if ( _i == NOPASS ) {
+          ^
+OpenFlipper/libs_required/ACG/Scenegraph/BaseNode.cc:208:39: note: Condition '_i==0' is always false
+      multipassStatus_ &=  ~(1 << (_i == 0 ? 0 : _i - 1));
+                                      ^
+OpenFlipper/libs_required/ACG/Scenegraph/BaseNode.cc:239:36: style: Condition '_i==0' is always false [knownConditionTrueFalse]
+      multipassNode_ |=  (1 << (_i == 0 ? 0 : _i - 1));
+                                   ^
+OpenFlipper/libs_required/ACG/Scenegraph/BaseNode.cc:230:11: note: Assuming that condition '_i==NOPASS' is not redundant
+  if ( _i == NOPASS ) {
+          ^
+OpenFlipper/libs_required/ACG/Scenegraph/BaseNode.cc:239:36: note: Condition '_i==0' is always false
+      multipassNode_ |=  (1 << (_i == 0 ? 0 : _i - 1));
+                                   ^
+OpenFlipper/libs_required/ACG/Scenegraph/BaseNode.cc:241:37: style: Condition '_i==0' is always false [knownConditionTrueFalse]
+      multipassNode_ &=  ~(1 << (_i == 0 ? 0 : _i - 1));
+                                    ^
+OpenFlipper/libs_required/ACG/Scenegraph/BaseNode.cc:230:11: note: Assuming that condition '_i==NOPASS' is not redundant
+  if ( _i == NOPASS ) {
+          ^
+OpenFlipper/libs_required/ACG/Scenegraph/BaseNode.cc:241:37: note: Condition '_i==0' is always false
+      multipassNode_ &=  ~(1 << (_i == 0 ? 0 : _i - 1));
+                                    ^
+OpenFlipper/libs_required/ACG/Scenegraph/BaseNode.cc:75:41: performance: Function parameter '_name' should be passed by const reference. [passedByValue]
+BaseNode(BaseNode* _parent, std::string _name)
+                                        ^
+OpenFlipper/libs_required/ACG/Scenegraph/BaseNode.cc:99:59: performance: Function parameter '_name' should be passed by const reference. [passedByValue]
+BaseNode(BaseNode* _parent, BaseNode* _child, std::string _name)
+                                                          ^
+OpenFlipper/libs_required/ACG/Scenegraph/BoundingBoxNode.cc:72:66: performance: Function parameter '_name' should be passed by const reference. [passedByValue]
+BoundingBoxNode::BoundingBoxNode( BaseNode* _parent, std::string _name ) :
+                                                                 ^
+OpenFlipper/libs_required/ACG/Scenegraph/CoordFrameNode.cc:77:13: performance: Variable 'bb_max_' is assigned in constructor body. Consider performing initialization in initialization list. [useInitializationList]
+  bb_min_ = bb_max_ = Vec3f(0,0,0);
+            ^
+OpenFlipper/libs_required/ACG/Scenegraph/CoordFrameNode.cc:145:8: style: Unused variable: s [unusedVariable]
+  char s[20], axis;
+       ^
+OpenFlipper/libs_required/ACG/Scenegraph/CoordsysNode.cc:68:59: performance: Function parameter '_name' should be passed by const reference. [passedByValue]
+CoordsysNode::CoordsysNode(BaseNode* _parent, std::string _name, CoordsysMode _mode, ProjectionMode _projectionMode) :
+                                                          ^
+OpenFlipper/libs_required/ACG/Scenegraph/CoordsysNode.cc:829:24: style: Variable 'modelview(2,3)' is assigned a value that is never used. [unreadVariable]
+        modelview(2,3) = 0.0;
+                       ^
+OpenFlipper/libs_required/ACG/Scenegraph/DrawModes.cc:355:38: style: Variable 'curProps' is assigned a value that is never used. [unreadVariable]
+  const DrawModeProperties* curProps = 0;
+                                     ^
+OpenFlipper/libs_required/ACG/Scenegraph/FloatingSubtreeNode.hh:72:9: style: Class 'FloatingSubtreeNode' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+        FloatingSubtreeNode(GLMatrixd modelview_override,
+        ^
+OpenFlipper/libs_required/ACG/Scenegraph/GlutPrimitiveNode.hh:175:3: style: Class 'GlutPrimitiveNode' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+  GlutPrimitiveNode( GlutPrimitiveType        _type,
+  ^
+OpenFlipper/libs_required/ACG/Scenegraph/GlutPrimitiveNode.cc:448:17: style: Local variable 'i' shadows outer variable [shadowVariable]
+    for (size_t i = 0; i < n_layers; ++i)
+                ^
+OpenFlipper/libs_required/ACG/Scenegraph/GlutPrimitiveNode.cc:428:12: note: Shadowed declaration
+  for (int i = 0; i < (int)primitives_.size(); ++i)
+           ^
+OpenFlipper/libs_required/ACG/Scenegraph/GlutPrimitiveNode.cc:448:17: note: Shadow variable
+    for (size_t i = 0; i < n_layers; ++i)
+                ^
+OpenFlipper/libs_required/ACG/Scenegraph/LightSourceNode.hh:98:7: performance: Variable 'ambientColor' is assigned in constructor body. Consider performing initialization in initialization list. [useInitializationList]
+      ambientColor  = Vec4f(0.1f,0.1f,0.1f,1.0f);
+      ^
+OpenFlipper/libs_required/ACG/Scenegraph/LineNode.hh:107:3: style: Class 'LineNode' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+  LineNode( LineMode     _mode,
+  ^
+OpenFlipper/libs_required/ACG/Scenegraph/LineNode.cc:67:35: performance: Function parameter '_name' should be passed by const reference. [passedByValue]
+                     std::string  _name ) :
+                                  ^
+OpenFlipper/libs_required/ACG/Math/QuaternionT.hh:97:3: style: Class 'QuaternionT' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+  QuaternionT(const Vec3& _p)
+  ^
+OpenFlipper/libs_required/ACG/Math/QuaternionT.hh:101:3: style: Class 'QuaternionT' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+  QuaternionT(const Vec4& _p)
+  ^
+OpenFlipper/libs_required/ACG/Math/QuaternionT.hh:118:3: style: Class 'QuaternionT' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+  QuaternionT(const MatrixT& _rot)
+  ^
+OpenFlipper/libs_required/ACG/Scenegraph/MeshNode2T.hh:113:3: style: Class 'MeshNodeT' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+  MeshNodeT(      Mesh&         _mesh,
+  ^
+OpenFlipper/libs_required/ACG/Scenegraph/MeshNode2.cc:51:59: performance: Function parameter '_name' should be passed by const reference. [passedByValue]
+MeshNodeBase::MeshNodeBase(BaseNode* _parent, std::string _name) :
+                                                          ^
+OpenFlipper/libs_required/ACG/Scenegraph/OBJNode.cc:318:13: warning: Identical inner 'if' condition is always true. [identicalInnerCondition]
+        if (p1)
+            ^
+OpenFlipper/libs_required/ACG/Scenegraph/OBJNode.cc:313:13: note: outer condition: p1
+      while(p1)
+            ^
+OpenFlipper/libs_required/ACG/Scenegraph/OBJNode.cc:318:13: note: identical inner condition: p1
+        if (p1)
+            ^
+OpenFlipper/libs_required/ACG/Scenegraph/PrincipalAxisNode.hh:102:5: performance: Variable 'p' is assigned in constructor body. Consider performing initialization in initialization list. [useInitializationList]
+    p = _p;
+    ^
+OpenFlipper/libs_required/ACG/Scenegraph/ShaderNode.cc:392:27: performance: Function parameter '_shaderDir' should be passed by const reference. [passedByValue]
+setShaderDir( std::string _shaderDir) {
+                          ^
+OpenFlipper/libs_required/ACG/Scenegraph/StatusNodesT.hh:216:3: style: Class 'StatusNodeT' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+  StatusNodeT( const Mesh&         _mesh,
+  ^
+OpenFlipper/libs_required/ACG/Scenegraph/StatusNodesT.hh:379:3: style: Class 'SelectionNodeT' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+  SelectionNodeT( const Mesh&         _mesh,
+  ^
+OpenFlipper/libs_required/ACG/Scenegraph/StatusNodesT.hh:401:3: style: Class 'LockNodeT' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+  LockNodeT( const Mesh&         _mesh,
+  ^
+OpenFlipper/libs_required/ACG/Scenegraph/StatusNodesT_impl.hh:361:7: style: Condition 'shaded' is always true [knownConditionTrueFalse]
+  if (shaded)  ACG::GLState::enable(GL_LIGHTING);
+      ^
+OpenFlipper/libs_required/ACG/Scenegraph/StatusNodesT_impl.hh:354:12: note: Assignment 'shaded=true', assigned value is 1
+  shaded = true;
+           ^
+OpenFlipper/libs_required/ACG/Scenegraph/StatusNodesT_impl.hh:361:7: note: Condition 'shaded' is always true
+  if (shaded)  ACG::GLState::enable(GL_LIGHTING);
+      ^
+OpenFlipper/libs_required/ACG/Scenegraph/StatusNodesT_impl.hh:382:9: style: Condition 'shaded' is always true [knownConditionTrueFalse]
+    if (shaded && mesh_.has_vertex_normals()) {
+        ^
+OpenFlipper/libs_required/ACG/Scenegraph/StatusNodesT_impl.hh:354:12: note: Assignment 'shaded=true', assigned value is 1
+  shaded = true;
+           ^
+OpenFlipper/libs_required/ACG/Scenegraph/StatusNodesT_impl.hh:382:9: note: Condition 'shaded' is always true
+    if (shaded && mesh_.has_vertex_normals()) {
+        ^
+OpenFlipper/libs_required/ACG/Scenegraph/StatusNodesT_impl.hh:402:7: style: Condition 'shaded' is always true [knownConditionTrueFalse]
+  if (shaded && !smooth)
+      ^
+OpenFlipper/libs_required/ACG/Scenegraph/StatusNodesT_impl.hh:354:12: note: Assignment 'shaded=true', assigned value is 1
+  shaded = true;
+           ^
+OpenFlipper/libs_required/ACG/Scenegraph/StatusNodesT_impl.hh:402:7: note: Condition 'shaded' is always true
+  if (shaded && !smooth)
+      ^
+OpenFlipper/libs_required/ACG/Scenegraph/StatusNodesT_impl.hh:633:7: style: Condition 'shaded' is always false [knownConditionTrueFalse]
+  if (shaded && mesh_.has_vertex_normals())
+      ^
+OpenFlipper/libs_required/ACG/Scenegraph/StatusNodesT_impl.hh:606:17: note: Assignment 'shaded=false', assigned value is 0
+  bool shaded = false,
+                ^
+OpenFlipper/libs_required/ACG/Scenegraph/StatusNodesT_impl.hh:633:7: note: Condition 'shaded' is always false
+  if (shaded && mesh_.has_vertex_normals())
+      ^
+OpenFlipper/libs_required/ACG/Scenegraph/StatusNodesT_impl.hh:644:7: style: Condition 'shaded' is always false [knownConditionTrueFalse]
+  if (shaded)
+      ^
+OpenFlipper/libs_required/ACG/Scenegraph/StatusNodesT_impl.hh:606:17: note: Assignment 'shaded=false', assigned value is 0
+  bool shaded = false,
+                ^
+OpenFlipper/libs_required/ACG/Scenegraph/StatusNodesT_impl.hh:644:7: note: Condition 'shaded' is always false
+  if (shaded)
+      ^
+OpenFlipper/libs_required/ACG/Scenegraph/StatusNodesT_impl.hh:354:10: style: Variable 'shaded' is reassigned a value before the old one has been used. [redundantAssignment]
+  shaded = true;
+         ^
+OpenFlipper/libs_required/ACG/Scenegraph/StatusNodesT_impl.hh:346:14: note: shaded is assigned
+      shaded = true;
+             ^
+OpenFlipper/libs_required/ACG/Scenegraph/StatusNodesT_impl.hh:354:10: note: shaded is overwritten
+  shaded = true;
+         ^
+OpenFlipper/libs_required/ACG/Scenegraph/TextNode.cc:203:21: performance: Function parameter '_text' should be passed by const reference. [passedByValue]
+setText(std::string _text) {
+                    ^
+OpenFlipper/libs_required/ACG/Scenegraph/TextNode.cc:406:16: style: Variable 'height' is assigned a value that is never used. [unreadVariable]
+  qreal height = fontMetric_.height();
+               ^
+OpenFlipper/libs_required/ACG/Scenegraph/TextNode.cc:723:27: style: Variable 'nullUnproj' is assigned a value that is never used. [unreadVariable]
+    ACG::Vec3d nullUnproj = _state.unproject(nullProj);
+                          ^
+OpenFlipper/libs_required/ACG/ShaderUtils/GLSLShader.cc:1162:26: style: Variable 'shaderFile' is assigned a value that is never used. [unreadVariable]
+      QString shaderFile = inputFile;
+                         ^
+OpenFlipper/libs_required/ACG/ShaderUtils/GLSLShader.cc:1164:20: style: Variable 'shaderFile' is assigned a value that is never used. [unreadVariable]
+        shaderFile = ACG::ShaderProgGenerator::getShaderDir() + QDir::separator() + inputFile;
+                   ^
+OpenFlipper/libs_required/ACG/Utils/HuePartitioningColors.hh:77:23: style: The function 'generateNextColor' overrides a function in a base class but is not marked with a 'override' specifier. [missingOverride]
+        virtual Vec4f generateNextColor();
+                      ^
+OpenFlipper/libs_required/ACG/Utils/ColorGenerator.hh:63:23: note: Virtual function in base class
+        virtual Vec4f generateNextColor() = 0;
+                      ^
+OpenFlipper/libs_required/ACG/Utils/HuePartitioningColors.hh:77:23: note: Function in derived class
+        virtual Vec4f generateNextColor();
+                      ^
+OpenFlipper/libs_required/ACG/Utils/Tracing.hh:124:3: style: Class 'Tracing' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+  Tracing(const std::string& _text,
+  ^
+OpenFlipper/libs_required/ACG/Utils/Tracing.hh:187:3: style: Class 'TimedTracing' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+  TimedTracing( const std::string& _text,
+  ^
+OpenFlipper/libs_required/ACG/tests/Algorithm/DBSCAN_test.cc:179:1: error: syntax error [syntaxError]
+TEST(DBSCAN, manual_test_1) {
+^
+OpenFlipper/libs_required/ACG/tests/Geometry/Algorithms_ClosestPoints_tests.cc:82:1: error: syntax error [syntaxError]
+TEST(Algorithms_ClosestPoints, closestPointTri_onEdge) {
+^
+OpenFlipper/libs_required/ACG/tests/Geometry/Spherical_test.cc:72:1: error: syntax error [syntaxError]
+TEST_F(Spherical, sphericalInnerAngleSum_zeroTriangle) {
+^
+OpenFlipper/libs_required/ACG/tests/Math/Matrix3x3.cc:21:1: error: syntax error [syntaxError]
+TYPED_TEST(Matrix3x3Test, access) {
+^
+OpenFlipper/publicWidgets/objectSelectionWidget/TreeModelObjectSelection.cc:158:11: style: Redundant initialization for 'flags'. The initialized value is overwritten before it is read. [redundantInitialization]
+    flags = Qt::ItemIsEnabled | Qt::ItemIsSelectable;
+          ^
+OpenFlipper/publicWidgets/objectSelectionWidget/TreeModelObjectSelection.cc:153:25: note: flags is initialized
+    Qt::ItemFlags flags = Qt::ItemFlags();
+                        ^
+OpenFlipper/publicWidgets/objectSelectionWidget/TreeModelObjectSelection.cc:158:11: note: flags is overwritten
+    flags = Qt::ItemIsEnabled | Qt::ItemIsSelectable;
+          ^
+OpenFlipper/publicWidgets/objectSelectionWidget/objectPickDialog.cc:124:17: style: Variable 'found' is assigned a value that is never used. [unreadVariable]
+          found = true;
+                ^
+OpenFlipper/publicWidgets/objectSelectionWidget/objectSelectionWidget.cc:106:17: style: Variable 'found' is assigned a value that is never used. [unreadVariable]
+          found = true;
+                ^
+OpenFlipper/widgets/PluginDialog/PluginDialog.hh:53:5: style: Class 'PluginDialog' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    PluginDialog(std::vector<PluginInfo>& _plugins, QWidget *parent = 0);
+    ^
+OpenFlipper/widgets/viewModeWidget/viewModeChangeWidget.hh:57:5: style: Class 'viewModeChangeWidget' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    viewModeChangeWidget(const QVector< ViewMode* >& _modes, QWidget *parent = 0 );
+    ^
+OpenFlipper/widgets/coreWidget/keyHandling.cc:455:17: style: Local variable 'i' shadows outer variable [shadowVariable]
+      for (uint i=0; i < plugins().size(); i++)
+                ^
+OpenFlipper/widgets/coreWidget/keyHandling.cc:448:12: note: Shadowed declaration
+  for (int i=0; i < keys.count(); i++){
+           ^
+OpenFlipper/widgets/coreWidget/keyHandling.cc:455:17: note: Shadow variable
+      for (uint i=0; i < plugins().size(); i++)
+                ^
+OpenFlipper/widgets/coreWidget/viewMode.cc:357:23: style: Variable '_contextmenus' is assigned a value that is never used. [unreadVariable]
+        _contextmenus = viewModes_[i]->visibleContextMenus;
+                      ^
+OpenFlipper/widgets/glWidget/PostProcessing.cc:412:21: style: The comparison 'resolveMethod == 0' is always true. [knownConditionTrueFalse]
+  if (resolveMethod == 0)
+                    ^
+OpenFlipper/widgets/glWidget/PostProcessing.cc:407:29: note: 'resolveMethod' is assigned value '0' here.
+  const int resolveMethod = 0;
+                            ^
+OpenFlipper/widgets/glWidget/PostProcessing.cc:412:21: note: The comparison 'resolveMethod == 0' is always true.
+  if (resolveMethod == 0)
+                    ^
+OpenFlipper/widgets/glWidget/PostProcessing.cc:236:19: style: Variable 'postProcSrc' is assigned a value that is never used. [unreadVariable]
+  int postProcSrc = 1;
+                  ^
+OpenFlipper/widgets/glWidget/QtBaseViewer.cc:2415:8: style: The if condition is the same as the previous if condition [duplicateCondition]
+   if (rval)
+       ^
+OpenFlipper/widgets/glWidget/QtBaseViewer.cc:2412:8: note: First condition
+   if (rval)
+       ^
+OpenFlipper/widgets/glWidget/QtBaseViewer.cc:2415:8: note: Second condition
+   if (rval)
+       ^
+OpenFlipper/widgets/glWidget/QtBaseViewer.cc:1182:25: style: Parameter 'm' can be declared with const [constParameter]
+        ACG::GLMatrixd &m, ACG::GLMatrixd &p, int &pMode, double &ortho_width,
+                        ^
+OpenFlipper/widgets/glWidget/QtBaseViewer.cc:1182:44: style: Parameter 'p' can be declared with const [constParameter]
+        ACG::GLMatrixd &m, ACG::GLMatrixd &p, int &pMode, double &ortho_width,
+                                           ^
+OpenFlipper/widgets/glWidget/QtGraphicsButton.hh:79:5: style: Class 'QtGraphicsButton' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    QtGraphicsButton (const QImage &_image, QGraphicsItem *_parent = 0, int _width = -1, int _height = -1);
+    ^
+OpenFlipper/widgets/helpWidget/helpBrowser.hh:68:2: style: Class 'HelpBrowser' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+ HelpBrowser(QHelpEngine* _helpEngine, QWidget* parent = 0);
+ ^
+OpenFlipper/widgets/helpWidget/helpWidget.cc:182:19: style: Variable 'tmp' is assigned a value that is never used. [unreadVariable]
+  QStringList tmp = helpEngine_->registeredDocumentations ();
+                  ^
+OpenFlipper/widgets/loadWidget/loadWidget.hh:60:5: style: Class 'LoadWidget' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    LoadWidget(std::vector<fileTypes>& _supportedTypes , QWidget *parent = 0 );
+    ^
+OpenFlipper/widgets/optionsWidget/downloader.cc:80:12: style: Variable 'path' is assigned a value that is never used. [unreadVariable]
+      path = "/";
+           ^
+OpenFlipper/widgets/optionsWidget/downloader.cc:142:22: style: Variable 'fileName' is assigned a value that is never used. [unreadVariable]
+    QString fileName = QFileInfo(QUrl(updateURL->text()).path()).fileName();
+                     ^
+OpenFlipper/widgets/optionsWidget/keyBindings.cc:248:25: performance: Searching before insertion is not necessary. [stlFindInsert]
+      parentMap[name] = new QTreeWidgetItem(keyTree, QStringList(name));
+                        ^
+OpenFlipper/widgets/pythonWidget/PythonSyntaxHighlighter.hh:38:5: performance: Variable 'originalRuleStr' is assigned in constructor body. Consider performing initialization in initialization list. [useInitializationList]
+    originalRuleStr = patternStr;
+    ^
+OpenFlipper/widgets/pythonWidget/PythonSyntaxHighlighter.hh:39:5: performance: Variable 'pattern' is assigned in constructor body. Consider performing initialization in initialization list. [useInitializationList]
+    pattern = QRegExp(patternStr);
+    ^
+OpenFlipper/widgets/pythonWidget/PythonSyntaxHighlighter.cc:29:2: performance: Variable 'keywords' is assigned in constructor body. Consider performing initialization in initialization list. [useInitializationList]
+ keywords = QStringList() << "and" << "assert" << "break" << "class" << "continue" << "def" <<
+ ^
+OpenFlipper/widgets/pythonWidget/PythonSyntaxHighlighter.cc:133:13: style: Variable 'length' is assigned a value that is never used. [unreadVariable]
+ int length = 0;
+            ^
+OpenFlipper/widgets/pythonWidget/pythonWidget.cc:64:46: style: Variable 'pythonHighlighter' is assigned a value that is never used. [unreadVariable]
+  PythonSyntaxHighlighter *pythonHighlighter = new PythonSyntaxHighlighter(scriptWidget->document());
+                                             ^
+OpenFlipper/widgets/viewModeWidget/viewModeWidget.hh:55:5: style: Class 'viewModeWidget' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    viewModeWidget(const QVector< ViewMode* >& _modes, QWidget *parent = 0 );
+    ^
+Plugin-Color/ColorPlugin.cc:61:3: performance: Variable 'backgroundColorDefault_' is assigned in constructor body. Consider performing initialization in initialization list. [useInitializationList]
+  backgroundColorDefault_      = ACG::GLState::default_clear_color;
+  ^
+Plugin-Color/ColorPlugin.cc:62:3: performance: Variable 'backgroundColorPaper_' is assigned in constructor body. Consider performing initialization in initialization list. [useInitializationList]
+  backgroundColorPaper_        = OpenMesh::Vec4f(1.00f, 1.00f, 1.00f, 1.0f);
+  ^
+Plugin-Color/ColorPlugin.cc:437:10: style: Unused variable: ok [unusedVariable]
+    bool ok;
+         ^
+Plugin-Datacontrol/DataControlPluginScripting.cc:585:10: style: Consider using std::transform algorithm instead of a raw loop. [useStlAlgorithm]
+    list.push_back( o_it->id() );
+         ^
+Plugin-Datacontrol/DataControlPluginScripting.cc:601:10: style: Consider using std::transform algorithm instead of a raw loop. [useStlAlgorithm]
+    list.push_back( o_it->id() );
+         ^
+Plugin-Datacontrol/Popup.cc:223:21: style: Local variable 'item' shadows outer variable [shadowVariable]
+        BaseObject* item = 0;
+                    ^
+Plugin-Datacontrol/Popup.cc:185:13: note: Shadowed declaration
+  TreeItem* item = model_->getItem(popupIndex_);
+            ^
+Plugin-Datacontrol/Popup.cc:223:21: note: Shadow variable
+        BaseObject* item = 0;
+                    ^
+Plugin-Datacontrol/TreeModel.cc:241:13: style: Redundant initialization for 'flags'. The initialized value is overwritten before it is read. [redundantInitialization]
+      flags = Qt::ItemIsUserCheckable | Qt::ItemIsEnabled | Qt::ItemIsSelectable;
+            ^
+Plugin-Datacontrol/TreeModel.cc:233:25: note: flags is initialized
+    Qt::ItemFlags flags = Qt::ItemFlags();
+                        ^
+Plugin-Datacontrol/TreeModel.cc:241:13: note: flags is overwritten
+      flags = Qt::ItemIsUserCheckable | Qt::ItemIsEnabled | Qt::ItemIsSelectable;
+            ^
+Plugin-HoleFilling/HoleFillerT_impl.hh:402:19: style: Variable 'fei' is assigned a value that is never used. [unreadVariable]
+  EH  e2  = *fei; ++fei;
+                  ^
+Plugin-HoleFilling/HoleFillerT_impl.hh:411:20: style: Variable 'fvi' is assigned a value that is never used. [unreadVariable]
+  VH    v2 = *fvi; ++fvi;
+                   ^
+Plugin-ICP/ICPPlugin.cc:707:26: style: Variable 'icpContext.sourceID_' is assigned a value that is never used. [unreadVariable]
+    icpContext.sourceID_ = icpContext.targetID_ = -1;
+                         ^
+Plugin-InfoMeshObject/ValenceHistogramDialog.hh:55:9: style: Class 'ValenceHistogramDialog' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+        ValenceHistogramDialog(TriMesh &mesh, QWidget *parent = 0);
+        ^
+Plugin-InfoMeshObject/ValenceHistogramDialog.hh:56:9: style: Class 'ValenceHistogramDialog' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+        ValenceHistogramDialog(PolyMesh &mesh, QWidget *parent = 0);
+        ^
+Plugin-InfoSkeleton/SkeletonObjectInfoScripting.cc:235:28: warning: Either the condition '!skeleton' is redundant or there is possible null pointer dereference: skeleton. [nullPointerRedundantCheck]
+ Skeleton::Joint* parent = skeleton->joint(_jointID)->parent();
+                           ^
+Plugin-InfoSkeleton/SkeletonObjectInfoScripting.cc:230:7: note: Assuming that condition '!skeleton' is not redundant
+ if ( !skeleton )
+      ^
+Plugin-InfoSkeleton/SkeletonObjectInfoScripting.cc:235:28: note: Null pointer dereference
+ Skeleton::Joint* parent = skeleton->joint(_jointID)->parent();
+                           ^
+Plugin-InfoSkeleton/SkeletonObjectInfoScripting.cc:241:26: warning: Either the condition '!parent' is redundant or there is possible null pointer dereference: parent. [nullPointerRedundantCheck]
+ unsigned int parentID = parent->id();
+                         ^
+Plugin-InfoSkeleton/SkeletonObjectInfoScripting.cc:236:6: note: Assuming that condition '!parent' is not redundant
+ if (!parent)
+     ^
+Plugin-InfoSkeleton/SkeletonObjectInfoScripting.cc:241:26: note: Null pointer dereference
+ unsigned int parentID = parent->id();
+                         ^
+Plugin-InfoSkeleton/SkeletonObjectInfoScripting.cc:244:25: warning: Either the condition '!skeleton' is redundant or there is possible null pointer dereference: skeleton. [nullPointerRedundantCheck]
+ Skeleton::Pose* pose = skeleton->referencePose();
+                        ^
+Plugin-InfoSkeleton/SkeletonObjectInfoScripting.cc:230:7: note: Assuming that condition '!skeleton' is not redundant
+ if ( !skeleton )
+      ^
+Plugin-InfoSkeleton/SkeletonObjectInfoScripting.cc:244:25: note: Null pointer dereference
+ Skeleton::Pose* pose = skeleton->referencePose();
+                        ^
+Plugin-InfoVolumeMeshObject/VolumeMeshInfoBar.hh:57:16: style: Variable 'v' is assigned a value that is never used. [unreadVariable]
+        auto v = mesh->n_logical_vertices();
+               ^
+Plugin-InfoMeshObject/MeshObjectInfoPlugin.cc:761:12: style: Redundant initialization for 'target'. The initialized value is overwritten before it is read. [redundantInitialization]
+    target = ACG::SceneGraph::PICK_FACE;
+           ^
+Plugin-InfoMeshObject/MeshObjectInfoPlugin.cc:720:40: note: target is initialized
+    ACG::SceneGraph::PickTarget target = ACG::SceneGraph::PICK_FACE;
+                                       ^
+Plugin-InfoMeshObject/MeshObjectInfoPlugin.cc:761:12: note: target is overwritten
+    target = ACG::SceneGraph::PICK_FACE;
+           ^
+Plugin-InfoMeshObject/MeshObjectInfoPlugin.cc:617:22: style: Variable 'vTemp' is assigned a value that is never used. [unreadVariable]
+    ACG::Vec3d vTemp = ACG::Vec3d(0.0, 0.0, 0.0);
+                     ^
+Plugin-IsotropicRemesher/IsotropicRemesherPlugin.cc:110:12: warning: Return value of function log() is not used. [ignoredReturnValue]
+      emit log("Remeshing currently only implemented for triangle Meshes");
+           ^
+Plugin-IsotropicRemesher/IsotropicRemesherPlugin.cc:238:12: warning: Return value of function log() is not used. [ignoredReturnValue]
+      emit log("Remeshing currently only implemented for triangle Meshes");
+           ^
+Plugin-IsotropicRemesher/IsotropicRemesherPlugin.cc:242:10: warning: Return value of function log() is not used. [ignoredReturnValue]
+    emit log("Unable to get object");
+         ^
+Plugin-MaterialPicker/MaterialPicker.cc:557:14: style: Local variable 'action' shadows outer variable [shadowVariable]
+    QAction* action = menu->addAction(tr("Key %1").arg(i+1));
+             ^
+Plugin-MaterialPicker/MaterialPicker.cc:538:12: note: Shadowed declaration
+  QAction* action = menu->addAction(tr("Material Properties"));
+           ^
+Plugin-MaterialPicker/MaterialPicker.cc:557:14: note: Shadow variable
+    QAction* action = menu->addAction(tr("Key %1").arg(i+1));
+             ^
+Plugin-Merge/MergePlugin.cc:73:18: style: Consider using std::copy algorithm instead of a raw loop. [useStlAlgorithm]
+        _objects.push_back( o_it );
+                 ^
+Plugin-MeshCompare/QwtFunctionPlot.cc:135:20: style: Variable 'lastColor' is assigned a value that is never used. [unreadVariable]
+  QColor lastColor = Qt::black;
+                   ^
+Plugin-MeshCompare/QwtFunctionPlot.cc:149:15: style: Variable 'lastColor' is assigned a value that is never used. [unreadVariable]
+    lastColor = colors.back();
+              ^
+Plugin-MeshRepair/EdgeFunctions.cc:201:18: style: Variable 'angle' is assigned a value that is never used. [unreadVariable]
+    double angle = 0.0;
+                 ^
+Plugin-MillingSimulator/Machine/Machine.cc:6:10: warning: Member variable 'Machine::error_Encountered_' is not initialized in the constructor. [uninitMemberVar]
+Machine::Machine() :
+         ^
+Plugin-MeshRepair/MeshRepairPluginT_impl.hh:165:49: style: Local variable 'vhandles' shadows outer variable [shadowVariable]
+    std::vector< typename MeshT::VertexHandle > vhandles;
+                                                ^
+Plugin-MeshRepair/MeshRepairPluginT_impl.hh:56:47: note: Shadowed declaration
+  std::vector< typename MeshT::VertexHandle > vhandles;
+                                              ^
+Plugin-MeshRepair/MeshRepairPluginT_impl.hh:165:49: note: Shadow variable
+    std::vector< typename MeshT::VertexHandle > vhandles;
+                                                ^
+Plugin-MeshRepair/MeshFixingT_impl.hh:223:34: style: Local variable 'vfaces' shadows outer variable [shadowVariable]
+      std::vector<unsigned int>& vfaces = vertices_[v].faces;
+                                 ^
+Plugin-MeshRepair/MeshFixingT_impl.hh:152:38: note: Shadowed declaration
+    const std::vector<unsigned int>& vfaces = vertices_[v].faces;
+                                     ^
+Plugin-MeshRepair/MeshFixingT_impl.hh:223:34: note: Shadow variable
+      std::vector<unsigned int>& vfaces = vertices_[v].faces;
+                                 ^
+Plugin-MeshRepair/MeshFixingT_impl.hh:224:43: style: Local variable 'f_it' shadows outer variable [shadowVariable]
+      std::vector<unsigned int>::iterator f_it, f_end(vfaces.end());
+                                          ^
+Plugin-MeshRepair/MeshFixingT_impl.hh:153:47: note: Shadowed declaration
+    std::vector<unsigned int>::const_iterator f_it, f_end(vfaces.end());
+                                              ^
+Plugin-MeshRepair/MeshFixingT_impl.hh:224:43: note: Shadow variable
+      std::vector<unsigned int>::iterator f_it, f_end(vfaces.end());
+                                          ^
+Plugin-MillingSimulator/MillingSimulatorPlugin.cc:135:16: style: Variable 'filePath' is assigned a value that is never used. [unreadVariable]
+ auto filePath = QFileDialog::getOpenFileName(toolbox_,  tr("Open GCode File"), "", tr("(*.gcode *.cnc)"));
+               ^
+Plugin-MeshRepair/MeshFixingT_impl.hh:224:49: style: Local variable 'f_end' shadows outer variable [shadowVariable]
+      std::vector<unsigned int>::iterator f_it, f_end(vfaces.end());
+                                                ^
+Plugin-MeshRepair/MeshFixingT_impl.hh:153:53: note: Shadowed declaration
+    std::vector<unsigned int>::const_iterator f_it, f_end(vfaces.end());
+                                                    ^
+Plugin-MeshRepair/MeshFixingT_impl.hh:224:49: note: Shadow variable
+      std::vector<unsigned int>::iterator f_it, f_end(vfaces.end());
+                                                ^
+Plugin-MeshRepair/MeshFixingT_impl.hh:313:12: style: Variable 'fh' is assigned a value that is never used. [unreadVariable]
+  int   fh = 0;
+           ^
+Plugin-MeshRepair/VertexFunctions.cc:68:43: style: Variable 'vh' is assigned a value that is never used. [unreadVariable]
+    std::vector<TriMesh::VertexHandle>  vh(3);
+                                          ^
+Plugin-MeshRepair/MeshFixingT_impl.hh:446:10: style: Variable 'fh' is assigned a value that is never used. [unreadVariable]
+      fh = mesh_.add_face(v0, v1, v2);
+         ^
+Plugin-MeshRepair/VertexFunctions.cc:124:13: style: Variable 'vf_it' is assigned a value that is never used. [unreadVariable]
+      vf_it = mesh->vf_iter(*v_it);
+            ^
+Plugin-Move/MoveProps.hh:53:5: style: Class 'movePropsWidget' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    movePropsWidget(int obj, QWidget *parent = 0);
+    ^
+Plugin-Move/MovePluginScript.cc:1717:7: style: Condition 'noneSelected' is always true [knownConditionTrueFalse]
+  if (noneSelected)
+      ^
+Plugin-Move/MovePluginScript.cc:1619:23: note: Assignment 'noneSelected=true', assigned value is 1
+  bool noneSelected = true;
+                      ^
+Plugin-Move/MovePluginScript.cc:1717:7: note: Condition 'noneSelected' is always true
+  if (noneSelected)
+      ^
+Plugin-Noise/NoisePlugin.hh:58:1: style: The class 'NoisePlugin' does not have a constructor although it has private member variables. [noConstructor]
+class NoisePlugin : public QObject, BaseInterface , ToolboxInterface, BackupInterface, LoggingInterface, PythonInterface
+^
+Plugin-Plane/PlanePlugin.hh:105:38: performance: Function parameter '_mode' should be passed by const reference. [passedByValue]
+  void addPickMode(const std::string _mode);
+                                     ^
+Plugin-PolyLine/PolyLinePlugin.cc:487:12: warning: Return value of function log() is not used. [ignoredReturnValue]
+      emit log("Only Meshes are supported at the moment ");
+           ^
+Plugin-PolyLine/PolyLinePlugin_Circle.cc:66:13: performance: Variable 'x' is assigned in constructor body. Consider performing initialization in initialization list. [useInitializationList]
+            x = _circleData->circleMainAxis_;
+            ^
+Plugin-PolyLine/PolyLinePlugin_Circle.cc:67:13: performance: Variable 'z' is assigned in constructor body. Consider performing initialization in initialization list. [useInitializationList]
+            z = _circleData->circleSideAxis_;
+            ^
+Plugin-PolyLine/PolyLinePlugin_Circle.cc:68:13: performance: Variable 'y' is assigned in constructor body. Consider performing initialization in initialization list. [useInitializationList]
+            y = _circleData->circleNormal_;
+            ^
+Plugin-PrimitivesGenerator/PrimitivesGenerator.cc:786:12: style: Variable 'vh' is assigned a value that is never used. [unreadVariable]
+        vh = triMesh_->add_vertex(positionOnCylinder(sl, st,_position,_axis,_radius,_height));
+           ^
+Plugin-PropertyVis/Models/MultiObjectPropertyModel.hh:56:5: style: Class 'MultiObjectPropertyModel' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    MultiObjectPropertyModel(const QStringList& res, QObject *parent = 0);
+    ^
+Plugin-PropertyVis/Models/PropertyModelFactory.cc:87:33: performance: Searching before insertion is not necessary. [stlFindInsert]
+   propertyModelMap[objectID] = 0;
+                                ^
+Plugin-PropertyVis/Nodes/BoxesNode.hh:63:3: error: There is an unknown macro here somewhere. Configuration is required. If ACG_CLASSNAME is a macro then please configure it. [unknownMacro]
+  ACG_CLASSNAME(BoxesNode)
+  ^
+Plugin-PropertyVis/Models/SingleObjectPropertyModel.cc:301:14: warning: Return value of function log() is not used. [ignoredReturnValue]
+        emit log("Property could not be loaded.");
+             ^
+Plugin-PropertyVis/ScriptObjects/ScriptSettingsVector.hh:24:5: error: There is an unknown macro here somewhere. Configuration is required. If Q_ENUM is a macro then please configure it. [unknownMacro]
+    Q_ENUM(Type)
+    ^
+Plugin-PropertyVis/ScriptObjects/ScriptSettingsBoolean.hh:32:1: error: There is an unknown macro here somewhere. Configuration is required. If Q_DECLARE_METATYPE is a macro then please configure it. [unknownMacro]
+Q_DECLARE_METATYPE(ScriptSettingsBoolean)
+^
+Plugin-PropertyVis/ScriptObjects/ScriptSettingsDouble.hh:54:1: error: There is an unknown macro here somewhere. Configuration is required. If Q_DECLARE_METATYPE is a macro then please configure it. [unknownMacro]
+Q_DECLARE_METATYPE(ScriptSettingsDouble)
+^
+Plugin-PropertyVis/Utils.hh:76:9: style: Class 'TypeInfoWrapper' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+        TypeInfoWrapper(const std::type_info & ti) : ti(&ti),friendlyName("") {}
+        ^
+Plugin-Remesher/Algorithms/UniformRemesherT.hh:81:3: style: Class 'UniformRemesherT < TriMesh >' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+  UniformRemesherT(Mesh& _mesh, ProgressEmitter* _progress = NULL) : Base(_mesh, _progress) {}
+  ^
+Plugin-Remesher/Algorithms/AdaptiveRemesherT.hh:83:3: style: Class 'AdaptiveRemesherT < TriMesh >' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+  AdaptiveRemesherT(Mesh& _mesh, ProgressEmitter* _progress = NULL) : Base(_mesh, _progress) {}
+  ^
+Plugin-Remesher/RemesherPlugin.cc:238:23: style: Variable 'max_feature_angle' is assigned a value that is never used. [unreadVariable]
+    max_feature_angle = max_feature_angle * (M_PI / 2.0);
+                      ^
+Plugin-Remesher/Algorithms/BaseRemesherT_impl.hh:1249:20: style: Consider using std::transform algorithm instead of a raw loop. [useStlAlgorithm]
+    normals_before.push_back(mesh_.calc_face_normal(fh));
+                   ^
+Plugin-SimpleSmoother/SmootherPlugin.cc:177:16: style: Local variable 'mesh' shadows outer variable [shadowVariable]
+      TriMesh* mesh = PluginFunctions::triMesh(*o_it);
+               ^
+Plugin-SimpleSmoother/SmootherPlugin.cc:152:11: note: Shadowed declaration
+    auto& mesh = *PluginFunctions::triMesh(id);
+          ^
+Plugin-SimpleSmoother/SmootherPlugin.cc:177:16: note: Shadow variable
+      TriMesh* mesh = PluginFunctions::triMesh(*o_it);
+               ^
+Plugin-SimpleSmoother/SmootherPlugin.cc:246:17: style: Local variable 'mesh' shadows outer variable [shadowVariable]
+      PolyMesh* mesh = PluginFunctions::polyMesh(*o_it);
+                ^
+Plugin-SimpleSmoother/SmootherPlugin.cc:152:11: note: Shadowed declaration
+    auto& mesh = *PluginFunctions::triMesh(id);
+          ^
+Plugin-SimpleSmoother/SmootherPlugin.cc:246:17: note: Shadow variable
+      PolyMesh* mesh = PluginFunctions::polyMesh(*o_it);
+                ^
+Plugin-SimpleSmoother/SmootherPlugin.cc:151:11: style: Variable 'mesh_obj' can be declared with const [constVariable]
+    auto& mesh_obj = *PluginFunctions::triMeshObject(id);
+          ^
+Plugin-SkeletalAnimation/SkeletalAnimationPlugin.cc:295:21: style: Condition 'skeleton!=0' is always true [knownConditionTrueFalse]
+        if(skeleton != 0 && h.isValid()) {
+                    ^
+Plugin-SkeletalAnimation/SkeletalAnimationPlugin.cc:292:12: note: Assuming that condition '!skeleton' is not redundant
+        if(!skeleton) continue;
+           ^
+Plugin-SkeletalAnimation/SkeletalAnimationPlugin.cc:295:21: note: Condition 'skeleton!=0' is always true
+        if(skeleton != 0 && h.isValid()) {
+                    ^
+Plugin-SkeletonEditing/SkeletonEditingPlugin.cc:701:12: style: Condition 'rightRotation' is always true [knownConditionTrueFalse]
+   }while( rightRotation && tries <= 5);
+           ^
+Plugin-SkeletonEditing/SkeletonEditingPlugin.cc:648:25: note: Assignment 'rightRotation=true', assigned value is 1
+   bool rightRotation = true;
+                        ^
+Plugin-SkeletonEditing/SkeletonEditingPlugin.cc:701:12: note: Condition 'rightRotation' is always true
+   }while( rightRotation && tries <= 5);
+           ^
+Plugin-SkeletonEditing/SkeletonEditingPlugin.cc:683:10: style: Local variable 'rightRotation' shadows outer variable [shadowVariable]
+    bool rightRotation = !( (pickedJointPos -dest).sqrnorm() > (pickedJointPosOld -dest).sqrnorm());
+         ^
+Plugin-SkeletonEditing/SkeletonEditingPlugin.cc:648:9: note: Shadowed declaration
+   bool rightRotation = true;
+        ^
+Plugin-SkeletonEditing/SkeletonEditingPlugin.cc:683:10: note: Shadow variable
+    bool rightRotation = !( (pickedJointPos -dest).sqrnorm() > (pickedJointPosOld -dest).sqrnorm());
+         ^
+Plugin-SkeletonEditing/SkeletonEditingPlugin.cc:775:52: style: Local variable 'iter' shadows outer variable [shadowVariable]
+      for (std::vector<Skeleton::Joint*>::iterator iter = rotatableJoints.begin() ; iter != rotatableJoints.end();  ++iter)
+                                                   ^
+Plugin-SkeletonEditing/SkeletonEditingPlugin.cc:761:25: note: Shadowed declaration
+     Skeleton::Iterator iter = pickedJoint->parent();
+                        ^
+Plugin-SkeletonEditing/SkeletonEditingPlugin.cc:775:52: note: Shadow variable
+      for (std::vector<Skeleton::Joint*>::iterator iter = rotatableJoints.begin() ; iter != rotatableJoints.end();  ++iter)
+                                                   ^
+Plugin-Smoother/SmootherPlugin.cc:261:17: style: Redundant initialization for 'component'. The initialized value is overwritten before it is read. [redundantInitialization]
+      component = OpenMesh::Smoother::SmootherT< TriMesh >::Tangential_and_Normal;
+                ^
+Plugin-Smoother/SmootherPlugin.cc:256:67: note: component is initialized
+    OpenMesh::Smoother::SmootherT< TriMesh >::Component component = OpenMesh::Smoother::SmootherT< TriMesh >::Tangential_and_Normal;
+                                                                  ^
+Plugin-Smoother/SmootherPlugin.cc:261:17: note: component is overwritten
+      component = OpenMesh::Smoother::SmootherT< TriMesh >::Tangential_and_Normal;
+                ^
+Plugin-TextureControl/Dialogs/QwtFunctionPlot.cc:127:57: style: Parameter '_values' can be declared with const [constParameter]
+void QwtFunctionPlot::setFunction( std::vector<double>& _values)
+                                                        ^
+Plugin-TextureControl/Dialogs/QwtFunctionPlot.cc:220:20: style: Variable 'lastColor' is assigned a value that is never used. [unreadVariable]
+  QColor lastColor = Qt::black;
+                   ^
+Plugin-TextureControl/Dialogs/QwtFunctionPlot.cc:244:17: style: Variable 'lastColor' is assigned a value that is never used. [unreadVariable]
+      lastColor = colors.back();
+                ^
+Plugin-TextureControl/HistogramItem.cc:121:55: style: Parameter '_colors' can be declared with const [constParameter]
+void HistogramItem::setColors( std::vector< QColor >& _colors)
+                                                      ^
+Plugin-SkeletonEditing/SkeletonEditingScripting.cc:510:26: style: Local variable 'parentRotAxis' shadows outer variable [shadowVariable]
+              ACG::Vec3d parentRotAxis(0.0, 0.0, 0.0);
+                         ^
+Plugin-SkeletonEditing/SkeletonEditingScripting.cc:425:20: note: Shadowed declaration
+        ACG::Vec3d parentRotAxis(0.0, 0.0, 0.0);
+                   ^
+Plugin-SkeletonEditing/SkeletonEditingScripting.cc:510:26: note: Shadow variable
+              ACG::Vec3d parentRotAxis(0.0, 0.0, 0.0);
+                         ^
+Plugin-SkeletonEditing/SkeletonEditingScripting.cc:511:22: style: Local variable 'parentRotAngle' shadows outer variable [shadowVariable]
+              double parentRotAngle = 0.0;
+                     ^
+Plugin-SkeletonEditing/SkeletonEditingScripting.cc:427:16: note: Shadowed declaration
+        double parentRotAngle = 0.0;
+               ^
+Plugin-SkeletonEditing/SkeletonEditingScripting.cc:511:22: note: Shadow variable
+              double parentRotAngle = 0.0;
+                     ^
+Plugin-SkeletonEditing/SkeletonEditingScripting.cc:532:26: style: Local variable 'jointRotAxis' shadows outer variable [shadowVariable]
+              ACG::Vec3d jointRotAxis(0.0, 0.0, 0.0);
+                         ^
+Plugin-SkeletonEditing/SkeletonEditingScripting.cc:426:20: note: Shadowed declaration
+        ACG::Vec3d jointRotAxis(0.0, 0.0, 0.0);
+                   ^
+Plugin-SkeletonEditing/SkeletonEditingScripting.cc:532:26: note: Shadow variable
+              ACG::Vec3d jointRotAxis(0.0, 0.0, 0.0);
+                         ^
+Plugin-SkeletonEditing/SkeletonEditingScripting.cc:533:22: style: Local variable 'jointRotAngle' shadows outer variable [shadowVariable]
+              double jointRotAngle = 0.0;
+                     ^
+Plugin-SkeletonEditing/SkeletonEditingScripting.cc:428:16: note: Shadowed declaration
+        double jointRotAngle = 0.0;
+               ^
+Plugin-SkeletonEditing/SkeletonEditingScripting.cc:533:22: note: Shadow variable
+              double jointRotAngle = 0.0;
+                     ^
+Plugin-TextureControl/Dialogs/textureProperties.cc:327:14: style: Local variable 'ok' shadows outer variable [shadowVariable]
+        bool ok = false;
+             ^
+Plugin-TextureControl/Dialogs/textureProperties.cc:292:8: note: Shadowed declaration
+  bool ok = false;
+       ^
+Plugin-TextureControl/Dialogs/textureProperties.cc:327:14: note: Shadow variable
+        bool ok = false;
+             ^
+Plugin-VSI/scene/graphicsScene.hh:87:5: style: Class 'GraphicsScene' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    GraphicsScene (VSI::Context *_ctx, ElementFunction *_function = NULL);
+    ^
+Plugin-VSI/toolBoxElement.hh:67:5: style: Class 'ToolBoxElement' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    ToolBoxElement (Element *_element, QWidget *_parent = NULL);
+    ^
+Plugin-VSI/config/configDialog.hh:72:5: style: Class 'ConfigDialog' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    ConfigDialog (QVector<ElementInput *> _inputs, QString _name = QString (), QWidget *_parent = 0);
+    ^
+Plugin-VSI/config/dynamicDialog.hh:72:5: style: Class 'DynamicDialog' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    DynamicDialog (QVector<Input *> _inputs, QWidget *_parent = 0);
+    ^
+Plugin-VSI/parser/context.cc:642:29: style: Variable 'placeHolder' is assigned a value that is never used. [unreadVariable]
+        QString placeHolder = "";
+                            ^
+Plugin-VSI/scene/text.hh:76:5: style: Class 'Text' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    Text (const QString &_text, QGraphicsItem *_parent = 0);
+    ^
+Plugin-VSI/scene/button.hh:75:5: style: Class 'Button' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    Button (const QString &_text, QGraphicsItem *_parent = 0);
+    ^
+Plugin-VSI/scene/elementArea.hh:62:1: style: The class 'ElementArea' does not have a constructor although it has private member variables. [noConstructor]
+class ElementArea : public QObject, public QGraphicsItem
+^
+Plugin-VSI/scene/elementInOut.cc:72:3: warning: Class 'ElementInOut' does not have a operator= which is recommended since it has dynamic memory/resource allocation(s). [noOperatorEq]
+  conn_ = new ConnectionPoint (this, _parent);
+  ^
+Plugin-VSI/scene/sceneElement.cc:194:7: style: Variable 'row' is reassigned a value before the old one has been used. [redundantAssignment]
+  row = 0;
+      ^
+Plugin-VSI/scene/sceneElement.cc:178:9: note: row is assigned
+    row ++;
+        ^
+Plugin-VSI/scene/sceneElement.cc:194:7: note: row is overwritten
+  row = 0;
+      ^
+Plugin-VSI/scene/sceneElement.cc:783:7: style: Variable 'val' is assigned a value that is never used. [unreadVariable]
+  val = Context::getXmlString (_xml, "is_set/string(text())");
+      ^
+Plugin-VSI/scene/graphicsScene.cc:567:25: style: C-style pointer casting [cstyleCast]
+  SceneElement *found = (SceneElement*)1;
+                        ^
+Plugin-VSI/types/objectId/TreeModel.cc:157:11: style: Redundant initialization for 'flags'. The initialized value is overwritten before it is read. [redundantInitialization]
+    flags = Qt::ItemIsEnabled | Qt::ItemIsSelectable;
+          ^
+Plugin-VSI/types/objectId/TreeModel.cc:152:25: note: flags is initialized
+    Qt::ItemFlags flags = Qt::ItemFlags();
+                        ^
+Plugin-VSI/types/objectId/TreeModel.cc:157:11: note: flags is overwritten
+    flags = Qt::ItemIsEnabled | Qt::ItemIsSelectable;
+          ^
+Plugin-VSI/types/objectId/objectIdWidget.cc:108:17: style: Variable 'found' is assigned a value that is never used. [unreadVariable]
+          found = true;
+                ^
+Plugin-VSI/types/objectId/objectPickDialog.cc:124:17: style: Variable 'found' is assigned a value that is never used. [unreadVariable]
+          found = true;
+                ^
+Plugin-VSI/vsiPlugin.hh:157:3: style: Class 'QContinueBox' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+  QContinueBox(QString _message,QWidget* _parent = 0) :
+  ^
+Plugin-VSI/vsiPlugin.cc:204:11: style: Condition '!first' is always false [knownConditionTrueFalse]
+      if (!first) result += ",";
+          ^
+Plugin-VSI/vsiPlugin.cc:201:16: note: Assignment 'first=true', assigned value is 1
+  bool first = true;
+               ^
+Plugin-VSI/vsiPlugin.cc:204:11: note: Condition '!first' is always false
+      if (!first) result += ",";
+          ^
+PluginCollection-FilePlugins/Plugin-FileHeightFieldImage/ImageDialog.hh:49:5: style: Class 'ImageDialog' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    ImageDialog(QImage _image, QWidget *parent = 0);
+    ^
+PluginCollection-FilePlugins/Plugin-FileLgt/FileLgt.cc:87:19: style: Local variable 'name' shadows outer variable [shadowVariable]
+          QString name = settings.value("Name").toString();
+                  ^
+PluginCollection-FilePlugins/Plugin-FileLgt/FileLgt.cc:80:17: note: Shadowed declaration
+        QString name = lightObject->name();
+                ^
+PluginCollection-FilePlugins/Plugin-FileLgt/FileLgt.cc:87:19: note: Shadow variable
+          QString name = settings.value("Name").toString();
+                  ^
+PluginCollection-FilePlugins/Plugin-FileLgt/FileLgt.cc:80:22: style: Variable 'name' is assigned a value that is never used. [unreadVariable]
+        QString name = lightObject->name();
+                     ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/Material.hh:59:5: warning: Member variable 'Material::Ni_' is not initialized in the constructor. [uninitMemberVar]
+    Material() :
+    ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/Material.hh:59:5: warning: Member variable 'Material::Ns_' is not initialized in the constructor. [uninitMemberVar]
+    Material() :
+    ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/Material.hh:59:5: warning: Member variable 'Material::illum_' is not initialized in the constructor. [uninitMemberVar]
+    Material() :
+    ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/Material.hh:179:34: performance: Function parameter '_name' should be passed by const reference. [passedByValue]
+    void set_map_Kd( std::string _name, int _index_Kd )
+                                 ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/Material.hh:125:32: style: Parameter '_mat' can be declared with const [constParameter]
+    bool operator== (Material& _mat) {
+                               ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/Material.hh:140:32: style: Parameter '_mat' can be declared with const [constParameter]
+    bool operator!= (Material& _mat) { return !(*this == _mat); }
+                               ^
+PluginCollection-FilePlugins/Plugin-FileOFF/FileOFF.cc:294:38: style: Condition 'remainingChars>0' is always true [knownConditionTrueFalse]
+        } else if ( ( remainingChars > 0 ) && ( p[0] == 'C') ) {
+                                     ^
+PluginCollection-FilePlugins/Plugin-FileOFF/FileOFF.cc:288:26: note: Assuming that condition 'remainingChars>0' is not redundant
+    while(remainingChars > 0) {
+                         ^
+PluginCollection-FilePlugins/Plugin-FileOFF/FileOFF.cc:294:38: note: Condition 'remainingChars>0' is always true
+        } else if ( ( remainingChars > 0 ) && ( p[0] == 'C') ) {
+                                     ^
+PluginCollection-FilePlugins/Plugin-FileOFF/FileOFF.cc:298:38: style: Condition 'remainingChars>0' is always true [knownConditionTrueFalse]
+        } else if ( ( remainingChars > 0 ) && ( p[0] == 'N') ) {
+                                     ^
+PluginCollection-FilePlugins/Plugin-FileOFF/FileOFF.cc:288:26: note: Assuming that condition 'remainingChars>0' is not redundant
+    while(remainingChars > 0) {
+                         ^
+PluginCollection-FilePlugins/Plugin-FileOFF/FileOFF.cc:298:38: note: Condition 'remainingChars>0' is always true
+        } else if ( ( remainingChars > 0 ) && ( p[0] == 'N') ) {
+                                     ^
+PluginCollection-FilePlugins/Plugin-FileOFF/FileOFF.cc:302:38: style: Condition 'remainingChars>0' is always true [knownConditionTrueFalse]
+        } else if ( ( remainingChars > 0 ) && (p[0] == '3' ) ) {
+                                     ^
+PluginCollection-FilePlugins/Plugin-FileOFF/FileOFF.cc:288:26: note: Assuming that condition 'remainingChars>0' is not redundant
+    while(remainingChars > 0) {
+                         ^
+PluginCollection-FilePlugins/Plugin-FileOFF/FileOFF.cc:302:38: note: Condition 'remainingChars>0' is always true
+        } else if ( ( remainingChars > 0 ) && (p[0] == '3' ) ) {
+                                     ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:720:14: style: The comparison 'mode == NONE' is always true because 'mode' and 'NONE' represent the same value. [knownConditionTrueFalse]
+    if (mode == NONE && keyWrd == QLatin1String("mtllib"))
+             ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:636:21: note: 'mode' is assigned value 'NONE' here.
+  ReaderMode mode = NONE;
+                    ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:720:14: note: The comparison 'mode == NONE' is always true because 'mode' and 'NONE' represent the same value.
+    if (mode == NONE && keyWrd == QLatin1String("mtllib"))
+             ^
+PluginCollection-FilePlugins/Plugin-FileOFF/FileOFF.cc:305:38: style: Condition 'remainingChars>0' is always true [knownConditionTrueFalse]
+        } else if ( ( remainingChars > 0 ) && (p[0] == '4' ) ) {
+                                     ^
+PluginCollection-FilePlugins/Plugin-FileOFF/FileOFF.cc:288:26: note: Assuming that condition 'remainingChars>0' is not redundant
+    while(remainingChars > 0) {
+                         ^
+PluginCollection-FilePlugins/Plugin-FileOFF/FileOFF.cc:305:38: note: Condition 'remainingChars>0' is always true
+        } else if ( ( remainingChars > 0 ) && (p[0] == '4' ) ) {
+                                     ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:735:19: style: The comparison 'mode == NONE' is always true because 'mode' and 'NONE' represent the same value. [knownConditionTrueFalse]
+    else if (mode == NONE && keyWrd == QLatin1String("usemtl"))
+                  ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:636:21: note: 'mode' is assigned value 'NONE' here.
+  ReaderMode mode = NONE;
+                    ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:735:19: note: The comparison 'mode == NONE' is always true because 'mode' and 'NONE' represent the same value.
+    else if (mode == NONE && keyWrd == QLatin1String("usemtl"))
+                  ^
+PluginCollection-FilePlugins/Plugin-FileOFF/FileOFF.cc:310:38: style: Condition 'remainingChars>0' is always true [knownConditionTrueFalse]
+        } else if ( ( remainingChars > 0 ) && (p[0] == 'n' ) ) {
+                                     ^
+PluginCollection-FilePlugins/Plugin-FileOFF/FileOFF.cc:288:26: note: Assuming that condition 'remainingChars>0' is not redundant
+    while(remainingChars > 0) {
+                         ^
+PluginCollection-FilePlugins/Plugin-FileOFF/FileOFF.cc:310:38: note: Condition 'remainingChars>0' is always true
+        } else if ( ( remainingChars > 0 ) && (p[0] == 'n' ) ) {
+                                     ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:757:19: style: The comparison 'mode == NONE' is always true because 'mode' and 'NONE' represent the same value. [knownConditionTrueFalse]
+    else if (mode == NONE && keyWrd == QLatin1String("v"))
+                  ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:636:21: note: 'mode' is assigned value 'NONE' here.
+  ReaderMode mode = NONE;
+                    ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:757:19: note: The comparison 'mode == NONE' is always true because 'mode' and 'NONE' represent the same value.
+    else if (mode == NONE && keyWrd == QLatin1String("v"))
+                  ^
+PluginCollection-FilePlugins/Plugin-FileOFF/FileOFF.cc:323:38: style: Condition 'remainingChars>0' is always true [knownConditionTrueFalse]
+        } else if ( ( remainingChars > 0 ) && ( p[0] == '#' ) ) {
+                                     ^
+PluginCollection-FilePlugins/Plugin-FileOFF/FileOFF.cc:288:26: note: Assuming that condition 'remainingChars>0' is not redundant
+    while(remainingChars > 0) {
+                         ^
+PluginCollection-FilePlugins/Plugin-FileOFF/FileOFF.cc:323:38: note: Condition 'remainingChars>0' is always true
+        } else if ( ( remainingChars > 0 ) && ( p[0] == '#' ) ) {
+                                     ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:765:19: style: The comparison 'mode == NONE' is always true because 'mode' and 'NONE' represent the same value. [knownConditionTrueFalse]
+    else if (mode == NONE && keyWrd == QLatin1String("vt"))
+                  ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:636:21: note: 'mode' is assigned value 'NONE' here.
+  ReaderMode mode = NONE;
+                    ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:765:19: note: The comparison 'mode == NONE' is always true because 'mode' and 'NONE' represent the same value.
+    else if (mode == NONE && keyWrd == QLatin1String("vt"))
+                  ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:788:19: style: The comparison 'mode == NONE' is always true because 'mode' and 'NONE' represent the same value. [knownConditionTrueFalse]
+    else if (mode == NONE && keyWrd == QLatin1String("vn"))
+                  ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:636:21: note: 'mode' is assigned value 'NONE' here.
+  ReaderMode mode = NONE;
+                    ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:788:19: note: The comparison 'mode == NONE' is always true because 'mode' and 'NONE' represent the same value.
+    else if (mode == NONE && keyWrd == QLatin1String("vn"))
+                  ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:808:19: style: The comparison 'mode == NONE' is always true because 'mode' and 'NONE' represent the same value. [knownConditionTrueFalse]
+    else if (mode == NONE && keyWrd == QLatin1String("deg"))
+                  ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:636:21: note: 'mode' is assigned value 'NONE' here.
+  ReaderMode mode = NONE;
+                    ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:808:19: note: The comparison 'mode == NONE' is always true because 'mode' and 'NONE' represent the same value.
+    else if (mode == NONE && keyWrd == QLatin1String("deg"))
+                  ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:822:19: style: The comparison 'mode == NONE' is always true because 'mode' and 'NONE' represent the same value. [knownConditionTrueFalse]
+    else if (mode == NONE && keyWrd == QLatin1String("g")){
+                  ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:636:21: note: 'mode' is assigned value 'NONE' here.
+  ReaderMode mode = NONE;
+                    ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:822:19: note: The comparison 'mode == NONE' is always true because 'mode' and 'NONE' represent the same value.
+    else if (mode == NONE && keyWrd == QLatin1String("g")){
+                  ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:849:19: style: The comparison 'mode == NONE' is always true because 'mode' and 'NONE' represent the same value. [knownConditionTrueFalse]
+    else if (mode == NONE && keyWrd == QLatin1String("f"))
+                  ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:636:21: note: 'mode' is assigned value 'NONE' here.
+  ReaderMode mode = NONE;
+                    ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:849:19: note: The comparison 'mode == NONE' is always true because 'mode' and 'NONE' represent the same value.
+    else if (mode == NONE && keyWrd == QLatin1String("f"))
+                  ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:1418:14: style: The comparison 'mode == NONE' is always true because 'mode' and 'NONE' represent the same value. [knownConditionTrueFalse]
+    if (mode == NONE && keyWrd == QLatin1String("call")){
+             ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:1358:21: note: 'mode' is assigned value 'NONE' here.
+  ReaderMode mode = NONE;
+                    ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:1418:14: note: The comparison 'mode == NONE' is always true because 'mode' and 'NONE' represent the same value.
+    if (mode == NONE && keyWrd == QLatin1String("call")){
+             ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:1444:19: style: The comparison 'mode == NONE' is always true because 'mode' and 'NONE' represent the same value. [knownConditionTrueFalse]
+    else if (mode == NONE && keyWrd == QLatin1String("v"))
+                  ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:1358:21: note: 'mode' is assigned value 'NONE' here.
+  ReaderMode mode = NONE;
+                    ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:1444:19: note: The comparison 'mode == NONE' is always true because 'mode' and 'NONE' represent the same value.
+    else if (mode == NONE && keyWrd == QLatin1String("v"))
+                  ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:1460:19: style: The comparison 'mode == NONE' is always true because 'mode' and 'NONE' represent the same value. [knownConditionTrueFalse]
+    else if (mode == NONE && keyWrd == QLatin1String("g")){
+                  ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:1358:21: note: 'mode' is assigned value 'NONE' here.
+  ReaderMode mode = NONE;
+                    ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:1460:19: note: The comparison 'mode == NONE' is always true because 'mode' and 'NONE' represent the same value.
+    else if (mode == NONE && keyWrd == QLatin1String("g")){
+                  ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:1491:19: style: The comparison 'mode == NONE' is always true because 'mode' and 'NONE' represent the same value. [knownConditionTrueFalse]
+    else if (mode == NONE && keyWrd == QLatin1String("f")){
+                  ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:1358:21: note: 'mode' is assigned value 'NONE' here.
+  ReaderMode mode = NONE;
+                    ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:1491:19: note: The comparison 'mode == NONE' is always true because 'mode' and 'NONE' represent the same value.
+    else if (mode == NONE && keyWrd == QLatin1String("f")){
+                  ^
+PluginCollection-FilePlugins/Plugin-FileOM/FileOM.cc:142:33: style: Local variable 'object' shadows outer variable [shadowVariable]
+                PolyMeshObject* object(0);
+                                ^
+PluginCollection-FilePlugins/Plugin-FileOM/FileOM.cc:128:25: note: Shadowed declaration
+        PolyMeshObject *object = 0;
+                        ^
+PluginCollection-FilePlugins/Plugin-FileOM/FileOM.cc:142:33: note: Shadow variable
+                PolyMeshObject* object(0);
+                                ^
+PluginCollection-FilePlugins/Plugin-FileOM/FileOM.cc:186:29: style: Local variable 'object' shadows outer variable [shadowVariable]
+            PolyMeshObject* object(0);
+                            ^
+PluginCollection-FilePlugins/Plugin-FileOM/FileOM.cc:160:25: note: Shadowed declaration
+        PolyMeshObject *object = 0;
+                        ^
+PluginCollection-FilePlugins/Plugin-FileOM/FileOM.cc:186:29: note: Shadow variable
+            PolyMeshObject* object(0);
+                            ^
+PluginCollection-FilePlugins/Plugin-FilePLY/FilePLY.cc:231:12: style: Condition '!isTriMesh' is always false [knownConditionTrueFalse]
+        if(!isTriMesh) {
+           ^
+PluginCollection-FilePlugins/Plugin-FilePLY/FilePLY.cc:217:24: note: Assignment 'isTriMesh=true', assigned value is 1
+      bool isTriMesh = true;
+                       ^
+PluginCollection-FilePlugins/Plugin-FilePLY/FilePLY.cc:231:12: note: Condition '!isTriMesh' is always false
+        if(!isTriMesh) {
+           ^
+PluginCollection-FilePlugins/Plugin-FilePLY/FilePLY.cc:245:44: style: Condition '!isTriMesh' is always false [knownConditionTrueFalse]
+            (trimeshOptions_ == TYPEASK && !isTriMesh)) {
+                                           ^
+PluginCollection-FilePlugins/Plugin-FilePLY/FilePLY.cc:217:24: note: Assignment 'isTriMesh=true', assigned value is 1
+      bool isTriMesh = true;
+                       ^
+PluginCollection-FilePlugins/Plugin-FilePLY/FilePLY.cc:245:44: note: Condition '!isTriMesh' is always false
+            (trimeshOptions_ == TYPEASK && !isTriMesh)) {
+                                           ^
+PluginCollection-FilePlugins/Plugin-FilePLY/FilePLY.cc:232:29: style: Local variable 'object' shadows outer variable [shadowVariable]
+            PolyMeshObject* object(0);
+                            ^
+PluginCollection-FilePlugins/Plugin-FilePLY/FilePLY.cc:213:23: note: Shadowed declaration
+      PolyMeshObject *object = 0;
+                      ^
+PluginCollection-FilePlugins/Plugin-FilePLY/FilePLY.cc:232:29: note: Shadow variable
+            PolyMeshObject* object(0);
+                            ^
+PluginCollection-FilePlugins/Plugin-FilePLY/FilePLY.cc:247:27: style: Local variable 'object' shadows outer variable [shadowVariable]
+          PolyMeshObject* object(0);
+                          ^
+PluginCollection-FilePlugins/Plugin-FilePLY/FilePLY.cc:213:23: note: Shadowed declaration
+      PolyMeshObject *object = 0;
+                      ^
+PluginCollection-FilePlugins/Plugin-FilePLY/FilePLY.cc:247:27: note: Shadow variable
+          PolyMeshObject* object(0);
+                          ^
+PluginCollection-FilePlugins/Plugin-FilePLY/FilePLY.cc:105:16: style: Variable 'objectId' is assigned a value that is never used. [unreadVariable]
+  int objectId = -1;
+               ^
+PluginCollection-FilePlugins/Plugin-FilePLY/FilePLY.cc:338:26: style: Variable 'hadVNormals' is assigned a value that is never used. [unreadVariable]
+        bool hadVNormals = mesh->has_vertex_normals();
+                         ^
+PluginCollection-FilePlugins/Plugin-FilePLY/FilePLY.cc:341:26: style: Variable 'hadFNormals' is assigned a value that is never used. [unreadVariable]
+        bool hadFNormals = mesh->has_face_normals();
+                         ^
+PluginCollection-FilePlugins/Plugin-FilePLY/FilePLY.cc:423:26: style: Variable 'hadVNormals' is assigned a value that is never used. [unreadVariable]
+        bool hadVNormals = mesh->has_vertex_normals();
+                         ^
+PluginCollection-FilePlugins/Plugin-FilePLY/FilePLY.cc:426:26: style: Variable 'hadFNormals' is assigned a value that is never used. [unreadVariable]
+        bool hadFNormals = mesh->has_face_normals();
+                         ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:1042:15: style: Local variable 'tmp' shadows outer variable [shadowVariable]
+      QString tmp;
+              ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:628:15: note: Shadowed declaration
+  QTextStream tmp;
+              ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:1042:15: note: Shadow variable
+      QString tmp;
+              ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:1602:21: style: Local variable 'tmp' shadows outer variable [shadowVariable]
+            QString tmp = _importer.groupName(first);
+                    ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:1351:15: note: Shadowed declaration
+  QTextStream tmp;
+              ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:1602:21: note: Shadow variable
+            QString tmp = _importer.groupName(first);
+                    ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:660:32: style: Unused variable: knotsV [unusedVariable]
+  std::vector< double > knotsU,knotsV;
+                               ^
+PluginCollection-FilePlugins/Plugin-FilePTS/FilePTS.cc:140:5: style: Class 'AdaptorSplat' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    AdaptorSplat(SplatCloud& _cloud) : cloud_(_cloud),splatIdx_(-1) {
+    ^
+PluginCollection-FilePlugins/Plugin-FilePTS/FilePTS.cc:304:23: style: Variable 'loadPositions' is assigned a value that is never used. [unreadVariable]
+  bool loadPositions  = OpenFlipperSettings().value( "FilePTS/Load/Positions", true ).toBool();
+                      ^
+PluginCollection-FilePlugins/Plugin-FilePTS/FilePTS.cc:314:20: style: Variable 'loadPositions' is assigned a value that is never used. [unreadVariable]
+    loadPositions  = loadOptions_->listWidget->findItems("Position",Qt::MatchExactly)[0]->isSelected();
+                   ^
+PluginCollection-FilePlugins/Plugin-FilePTS/Snappy/snappy-sinksource.h:150:18: style: The function 'Available' overrides a function in a base class but is not marked with a 'override' specifier. [missingOverride]
+  virtual size_t Available() const;
+                 ^
+PluginCollection-FilePlugins/Plugin-FilePTS/Snappy/snappy-sinksource.h:117:18: note: Virtual function in base class
+  virtual size_t Available() const = 0;
+                 ^
+PluginCollection-FilePlugins/Plugin-FilePTS/Snappy/snappy-sinksource.h:150:18: note: Function in derived class
+  virtual size_t Available() const;
+                 ^
+PluginCollection-FilePlugins/Plugin-FilePTS/Snappy/snappy-sinksource.h:151:23: style: The function 'Peek' overrides a function in a base class but is not marked with a 'override' specifier. [missingOverride]
+  virtual const char* Peek(size_t* len);
+                      ^
+PluginCollection-FilePlugins/Plugin-FilePTS/Snappy/snappy-sinksource.h:132:23: note: Virtual function in base class
+  virtual const char* Peek(size_t* len) = 0;
+                      ^
+PluginCollection-FilePlugins/Plugin-FilePTS/Snappy/snappy-sinksource.h:151:23: note: Function in derived class
+  virtual const char* Peek(size_t* len);
+                      ^
+PluginCollection-FilePlugins/Plugin-FilePTS/Snappy/snappy-sinksource.h:152:16: style: The function 'Skip' overrides a function in a base class but is not marked with a 'override' specifier. [missingOverride]
+  virtual void Skip(size_t n);
+               ^
+PluginCollection-FilePlugins/Plugin-FilePTS/Snappy/snappy-sinksource.h:137:16: note: Virtual function in base class
+  virtual void Skip(size_t n) = 0;
+               ^
+PluginCollection-FilePlugins/Plugin-FilePTS/Snappy/snappy-sinksource.h:152:16: note: Function in derived class
+  virtual void Skip(size_t n);
+               ^
+PluginCollection-FilePlugins/Plugin-FilePTS/Snappy/snappy-sinksource.h:163:16: style: The function 'Append' overrides a function in a base class but is not marked with a 'override' specifier. [missingOverride]
+  virtual void Append(const char* data, size_t n);
+               ^
+PluginCollection-FilePlugins/Plugin-FilePTS/Snappy/snappy-sinksource.h:43:16: note: Virtual function in base class
+  virtual void Append(const char* bytes, size_t n) = 0;
+               ^
+PluginCollection-FilePlugins/Plugin-FilePTS/Snappy/snappy-sinksource.h:163:16: note: Function in derived class
+  virtual void Append(const char* data, size_t n);
+               ^
+PluginCollection-FilePlugins/Plugin-FilePTS/Snappy/snappy-sinksource.h:164:17: style: The function 'GetAppendBuffer' overrides a function in a base class but is not marked with a 'override' specifier. [missingOverride]
+  virtual char* GetAppendBuffer(size_t len, char* scratch);
+                ^
+PluginCollection-FilePlugins/Plugin-FilePTS/Snappy/snappy-sinksource.h:60:17: note: Virtual function in base class
+  virtual char* GetAppendBuffer(size_t length, char* scratch);
+                ^
+PluginCollection-FilePlugins/Plugin-FilePTS/Snappy/snappy-sinksource.h:164:17: note: Function in derived class
+  virtual char* GetAppendBuffer(size_t len, char* scratch);
+                ^
+PluginCollection-FilePlugins/Plugin-FilePTS/Snappy/snappy-sinksource.h:165:17: style: The function 'GetAppendBufferVariable' overrides a function in a base class but is not marked with a 'override' specifier. [missingOverride]
+  virtual char* GetAppendBufferVariable(
+                ^
+PluginCollection-FilePlugins/Plugin-FilePTS/Snappy/snappy-sinksource.h:100:17: note: Virtual function in base class
+  virtual char* GetAppendBufferVariable(
+                ^
+PluginCollection-FilePlugins/Plugin-FilePTS/Snappy/snappy-sinksource.h:165:17: note: Function in derived class
+  virtual char* GetAppendBufferVariable(
+                ^
+PluginCollection-FilePlugins/Plugin-FilePTS/Snappy/snappy-sinksource.h:168:16: style: The function 'AppendAndTakeOwnership' overrides a function in a base class but is not marked with a 'override' specifier. [missingOverride]
+  virtual void AppendAndTakeOwnership(
+               ^
+PluginCollection-FilePlugins/Plugin-FilePTS/Snappy/snappy-sinksource.h:73:16: note: Virtual function in base class
+  virtual void AppendAndTakeOwnership(
+               ^
+PluginCollection-FilePlugins/Plugin-FilePTS/Snappy/snappy-sinksource.h:168:16: note: Function in derived class
+  virtual void AppendAndTakeOwnership(
+               ^
+PluginCollection-FilePlugins/Plugin-FilePTS/Snappy/snappy.cc:672:12: warning: Member variable 'SnappyDecompressor::scratch_' is not initialized in the constructor. [uninitMemberVar]
+  explicit SnappyDecompressor(Source* reader)
+           ^
+PluginCollection-FilePlugins/Plugin-FileSKL/FileSkeleton.cc:287:34: style: Local variable 'i' shadows outer variable [shadowVariable]
+                    unsigned int i = (*it)->id();
+                                 ^
+PluginCollection-FilePlugins/Plugin-FileSKL/FileSkeleton.cc:265:21: note: Shadowed declaration
+  for (unsigned int i = 0; i < _pSkeleton->animationCount(); i++) {
+                    ^
+PluginCollection-FilePlugins/Plugin-FileSKL/FileSkeleton.cc:287:34: note: Shadow variable
+                    unsigned int i = (*it)->id();
+                                 ^
+PluginCollection-FilePlugins/Plugin-FileSKL/FileSkeleton.cc:263:37: style: Variable 'animation' is assigned a value that is never used. [unreadVariable]
+  AnimationT<ACG::Vec3d>* animation = 0;
+                                    ^
+PluginCollection-FilePlugins/Plugin-FileSPH/FileSPH.cc:91:19: style: Local variable 'name' shadows outer variable [shadowVariable]
+          QString name = settings.value("Name").toString();
+                  ^
+PluginCollection-FilePlugins/Plugin-FileSPH/FileSPH.cc:84:17: note: Shadowed declaration
+        QString name = sphereObject->name();
+                ^
+PluginCollection-FilePlugins/Plugin-FileSPH/FileSPH.cc:91:19: note: Shadow variable
+          QString name = settings.value("Name").toString();
+                  ^
+PluginCollection-FilePlugins/Plugin-FileSPH/FileSPH.cc:84:22: style: Variable 'name' is assigned a value that is never used. [unreadVariable]
+        QString name = sphereObject->name();
+                     ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:1163:15: style: Local variable 'tmp' shadows outer variable [shadowVariable]
+      QString tmp;
+              ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:628:15: note: Shadowed declaration
+  QTextStream tmp;
+              ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:1163:15: note: Shadow variable
+      QString tmp;
+              ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:1697:21: style: Local variable 'tmp' shadows outer variable [shadowVariable]
+            QString tmp = _importer.groupName(first);
+                    ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:1351:15: note: Shadowed declaration
+  QTextStream tmp;
+              ^
+PluginCollection-FilePlugins/Plugin-FileOBJ/FileOBJ.cc:1697:21: note: Shadow variable
+            QString tmp = _importer.groupName(first);
+                    ^
+PluginCollection-FilePlugins/Plugin-FileVTK/FileVTK.cc:329:48: style: Condition '_cell.type<=9' is always true [knownConditionTrueFalse]
+    else if ((_cell.type >= 7) &&  (_cell.type <= 9))
+                                               ^
+PluginCollection-FilePlugins/Plugin-FileVTK/FileVTK.cc:311:42: note: Assuming that condition '_cell.type>=10' is not redundant
+    if ((_cell.type <= 4) || (_cell.type >= 10))
+                                         ^
+PluginCollection-FilePlugins/Plugin-FileVTK/FileVTK.cc:329:48: note: Condition '_cell.type<=9' is always true
+    else if ((_cell.type >= 7) &&  (_cell.type <= 9))
+                                               ^
+PluginCollection-FilePlugins/Plugin-FileVTK/FileVTK.cc:1508:18: style: Condition 'hexahedralMeshPossible' is always false [knownConditionTrueFalse]
+        else if (hexahedralMeshPossible)
+                 ^
+PluginCollection-FilePlugins/Plugin-FileVTK/FileVTK.cc:1428:39: note: Assignment 'hexahedralMeshPossible=false', assigned value is 0
+        bool hexahedralMeshPossible = false;
+                                      ^
+PluginCollection-FilePlugins/Plugin-FileVTK/FileVTK.cc:1508:18: note: Condition 'hexahedralMeshPossible' is always false
+        else if (hexahedralMeshPossible)
+                 ^
+PluginCollection-FilePlugins/Plugin-FileVTK/FileVTK.cc:1510:18: style: Condition 'tetrahedralMeshPossible' is always false [knownConditionTrueFalse]
+        else if (tetrahedralMeshPossible)
+                 ^
+PluginCollection-FilePlugins/Plugin-FileVTK/FileVTK.cc:1438:40: note: Assignment 'tetrahedralMeshPossible=false', assigned value is 0
+        bool tetrahedralMeshPossible = false;
+                                       ^
+PluginCollection-FilePlugins/Plugin-FileVTK/FileVTK.cc:1510:18: note: Condition 'tetrahedralMeshPossible' is always false
+        else if (tetrahedralMeshPossible)
+                 ^
+PluginCollection-FilePlugins/Plugin-FileVTK/FileVTK.cc:1512:18: style: Condition 'polyhedralMeshPossible' is always false [knownConditionTrueFalse]
+        else if (polyhedralMeshPossible)
+                 ^
+PluginCollection-FilePlugins/Plugin-FileVTK/FileVTK.cc:1433:39: note: Assignment 'polyhedralMeshPossible=false', assigned value is 0
+        bool polyhedralMeshPossible = false;
+                                      ^
+PluginCollection-FilePlugins/Plugin-FileVTK/FileVTK.cc:1512:18: note: Condition 'polyhedralMeshPossible' is always false
+        else if (polyhedralMeshPossible)
+                 ^
+PluginCollection-FilePlugins/Plugin-FileVTK/FileVTK.cc:1776:9: style: Condition 'is_OpenVolumeMesh' is always false [knownConditionTrueFalse]
+    if (is_OpenVolumeMesh)
+        ^
+PluginCollection-FilePlugins/Plugin-FileVTK/FileVTK.cc:1621:28: note: Assignment 'is_OpenVolumeMesh=false', assigned value is 0
+  bool is_OpenVolumeMesh = false;
+                           ^
+PluginCollection-FilePlugins/Plugin-FileVTK/FileVTK.cc:1776:9: note: Condition 'is_OpenVolumeMesh' is always false
+    if (is_OpenVolumeMesh)
+        ^
+PluginCollection-FilePlugins/Plugin-FileVTK/FileVTK.cc:1236:21: style: Variable 'version' is assigned a value that is never used. [unreadVariable]
+    QString version = header[4];
+                    ^
+PluginCollection-FilePlugins/Plugin-FileVTK/FileVTK.cc:1246:25: style: Variable 'description' is assigned a value that is never used. [unreadVariable]
+    QString description = in.readLine();
+                        ^
+PluginCollection-FilePlugins/Plugin-FileVTK/FileVTK.cc:2556:16: style: Variable 'line' is assigned a value that is never used. [unreadVariable]
+  QString line = "";
+               ^
+PluginCollection-FilePlugins/Plugin-FileVTK/FileVTK.cc:741:25: style: Variable 'faceNormals[fh]' is assigned a value that is never used. [unreadVariable]
+        faceNormals[fh] = _normal;
+                        ^
+PluginCollection-FilePlugins/Plugin-FileVTK/FileVTK.cc:743:25: style: Variable 'faceNormals[fh]' is assigned a value that is never used. [unreadVariable]
+        faceNormals[fh] = -_normal;
+                        ^
+PluginCollection-PostProcessors/Plugin-PhilipsStereo/PostProcessorPhilipsStereo.cc:256:25: portability: Shifting signed 32-bit value by 31 bits is implementation-defined behaviour [shiftTooManyBitsSigned]
+      if (checksum & (1 << i))
+                        ^
+PluginCollection-FilePlugins/Plugin-FileVTK/FileVTK.cc:1512:18: style: Condition 'polyhedralMeshPossible' is always true [knownConditionTrueFalse]
+        else if (polyhedralMeshPossible)
+                 ^
+PluginCollection-FilePlugins/Plugin-FileVTK/FileVTK.cc:1435:39: note: Assignment 'polyhedralMeshPossible=true', assigned value is 1
+        bool polyhedralMeshPossible = true;
+                                      ^
+PluginCollection-FilePlugins/Plugin-FileVTK/FileVTK.cc:1512:18: note: Condition 'polyhedralMeshPossible' is always true
+        else if (polyhedralMeshPossible)
+                 ^
+PluginCollection-Selection/Plugin-SelectionBase/Actionbutton.hh:54:9: style: Class 'ActionButton' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+        ActionButton(QAction* _action, QWidget* _parent = 0);
+        ^
+PluginCollection-Selection/Plugin-SelectionBase/SelectionBasePlugin.cc:396:59: style: Parameter '_ini' can be declared with const [constParameter]
+void SelectionBasePlugin::loadIniFileOptionsLast(INIFile &_ini)
+                                                          ^
+PluginCollection-Selection/Plugin-SelectionMeshObject/MeshObjectSelectionPlugin.cc:1604:17: style: Variable 'invert' is assigned a value that is never used. [unreadVariable]
+    bool invert = false;
+                ^
+PluginCollection-Selection/Plugin-SelectionSplatCloudObject/SplatCloudObjectSelectionPlugin.cc:463:7: style: Condition 'updated_modeling_regions' is always false [knownConditionTrueFalse]
+  if( updated_modeling_regions )
+      ^
+PluginCollection-Selection/Plugin-SelectionSplatCloudObject/SplatCloudObjectSelectionPlugin.cc:440:35: note: Assignment 'updated_modeling_regions=false', assigned value is 0
+  bool updated_modeling_regions = false;
+                                  ^
+PluginCollection-Selection/Plugin-SelectionSplatCloudObject/SplatCloudObjectSelectionPlugin.cc:463:7: note: Condition 'updated_modeling_regions' is always false
+  if( updated_modeling_regions )
+      ^
+PluginCollection-Selection/Plugin-SelectionSplatCloudObject/SplatCloudObjectSelectionPlugin.cc:474:7: style: Condition 'updated_modeling_regions' is always false [knownConditionTrueFalse]
+  if( updated_modeling_regions || updated_selection )
+      ^
+PluginCollection-Selection/Plugin-SelectionSplatCloudObject/SplatCloudObjectSelectionPlugin.cc:440:35: note: Assignment 'updated_modeling_regions=false', assigned value is 0
+  bool updated_modeling_regions = false;
+                                  ^
+PluginCollection-Selection/Plugin-SelectionSplatCloudObject/SplatCloudObjectSelectionPlugin.cc:474:7: note: Condition 'updated_modeling_regions' is always false
+  if( updated_modeling_regions || updated_selection )
+      ^
+PluginCollection-Selection/Plugin-SelectionSplatCloudObject/SplatCloudObjectSelectionPlugin2.cc:140:116: style: Parameter '_hit_point' can be declared with const [constParameter]
+void SplatCloudObjectSelectionPlugin::splatCloudSphereSelection( SplatCloud *_splatCloud, uint _index, ACG::Vec3d &_hit_point, double _radius, PrimitiveType _primitiveType, bool _deselection )
+                                                                                                                   ^
+Type-BSpline/Plugin-TypeBSplineCurve/TypeBSplineCurve.cc:89:22: style: Variable 'iconPath' is assigned a value that is never used. [unreadVariable]
+    QString iconPath = OpenFlipper::Options::iconDirStr()+OpenFlipper::Options::dirSeparator();
+                     ^
+Type-BSpline/Plugin-TypeBSplineSurface/TypeBSplineSurface.cc:74:22: style: Variable 'iconPath' is assigned a value that is never used. [unreadVariable]
+    QString iconPath = OpenFlipper::Options::iconDirStr()+OpenFlipper::Options::dirSeparator();
+                     ^
+Type-Camera/ObjectTypes/Camera/CameraNode.cc:78:55: performance: Function parameter '_name' should be passed by const reference. [passedByValue]
+CameraNode::CameraNode(BaseNode* _parent, std::string _name) :
+                                                      ^
+Type-Light/ObjectTypes/Light/LightWidget.hh:56:5: style: Class 'LightWidget' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    LightWidget( ACG::SceneGraph::BaseNode* _node, QWidget *parent = 0);
+    ^
+Type-Light/ObjectTypes/Light/LightNode.cc:80:3: performance: Variable 'ambientColor_' is assigned in constructor body. Consider performing initialization in initialization list. [useInitializationList]
+  ambientColor_         = Vec4f(0.1f,0.1f,0.1f,1.f);
+  ^
+Type-Light/ObjectTypes/Light/LightNode.cc:626:9: style: The if condition is the same as the previous if condition [duplicateCondition]
+    if (!directional) glLightf(_index, GL_SPOT_EXPONENT, _light.spotExponent_);
+        ^
+Type-Light/ObjectTypes/Light/LightNode.cc:621:9: note: First condition
+    if (!directional) {
+        ^
+Type-Light/ObjectTypes/Light/LightNode.cc:626:9: note: Second condition
+    if (!directional) glLightf(_index, GL_SPOT_EXPONENT, _light.spotExponent_);
+        ^
+Type-Light/ObjectTypes/Light/LightNode.cc:627:9: style: The if condition is the same as the previous if condition [duplicateCondition]
+    if (!directional) glLightf(_index, GL_SPOT_CUTOFF, _light.spotCutoff_);
+        ^
+Type-Light/ObjectTypes/Light/LightNode.cc:626:9: note: First condition
+    if (!directional) glLightf(_index, GL_SPOT_EXPONENT, _light.spotExponent_);
+        ^
+Type-Light/ObjectTypes/Light/LightNode.cc:627:9: note: Second condition
+    if (!directional) glLightf(_index, GL_SPOT_CUTOFF, _light.spotCutoff_);
+        ^
+Type-Light/ObjectTypes/Light/LightNode.cc:607:12: style: The scope of the variable 'sd' can be reduced. [variableScope]
+    Vec3d& sd = _light.realSpotDirection_;
+           ^
+Type-Light/ObjectTypes/Light/LightNode.hh:262:35: performance: Function parameter '_light' should be passed by const reference. [passedByValue]
+  void setLightSource(LightSource _light ) { light_ = _light; };
+                                  ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/FileConverter/Grammars/Netgen.hpp:38:9: performance: Variable 'node_section_header' is assigned in constructor body. Consider performing initialization in initialization list. [useInitializationList]
+        node_section_header = qi::int_ /* Number of vertices */ >> spirit::eol;
+        ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/FileConverter/Grammars/Tetmesh.hpp:31:9: performance: Variable 'node_section_header' is assigned in constructor body. Consider performing initialization in initialization list. [useInitializationList]
+        node_section_header = spirit::lit("Vertices") >> qi::int_;
+        ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/FileConverter/MeshGenerator.hpp:66:41: style: Variable 'vh' is assigned a value that is never used. [unreadVariable]
+        OpenVolumeMesh::VertexHandle vh = mesh_.add_vertex(vertex_);
+                                        ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Core/Iterators.hh:835:5: style: Class 'VertexIter' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    VertexIter(const TopologyKernel* _mesh, const VertexHandle& _vh = VertexHandle(0));
+    ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Core/Iterators.hh:889:2: style: Class 'EdgeIter' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+ EdgeIter(const TopologyKernel* _mesh, const EdgeHandle& _eh = EdgeHandle(0));
+ ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Core/Iterators.hh:943:2: style: Class 'HalfEdgeIter' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+ HalfEdgeIter(const TopologyKernel* _mesh, const HalfEdgeHandle& _heh = HalfEdgeHandle(0));
+ ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Core/Iterators.hh:997:2: style: Class 'FaceIter' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+ FaceIter(const TopologyKernel* _mesh, const FaceHandle& _fh = FaceHandle(0));
+ ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Core/Iterators.hh:1051:2: style: Class 'HalfFaceIter' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+ HalfFaceIter(const TopologyKernel* _mesh, const HalfFaceHandle& _hfh = HalfFaceHandle(0));
+ ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Core/Iterators.hh:1105:2: style: Class 'CellIter' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+ CellIter(const TopologyKernel* _mesh, const CellHandle& _ch = CellHandle(0));
+ ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Core/Iterators.cc:548:11: error: Using iterator to temporary. [danglingTemporaryLifetime]
+    for(; hf_iter != c.halffaces().end(); ++hf_iter) {
+          ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Core/Iterators.cc:547:70: note: Iterator to container is created here.
+    std::vector<HalfFaceHandle>::const_iterator hf_iter = c.halffaces().begin();
+                                                                     ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Core/Iterators.cc:548:11: note: Using iterator to temporary.
+    for(; hf_iter != c.halffaces().end(); ++hf_iter) {
+          ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Core/Iterators.cc:549:74: error: Using iterator to temporary. [danglingTemporaryLifetime]
+        const OpenVolumeMeshFace& halfface = BaseIter::mesh()->halfface(*hf_iter);
+                                                                         ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Core/Iterators.cc:547:70: note: Iterator to container is created here.
+    std::vector<HalfFaceHandle>::const_iterator hf_iter = c.halffaces().begin();
+                                                                     ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Core/Iterators.cc:549:74: note: Using iterator to temporary.
+        const OpenVolumeMeshFace& halfface = BaseIter::mesh()->halfface(*hf_iter);
+                                                                         ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Core/PropertyPtr.hh:124:118: error: Reference to temporary returned. [returnTempReference]
+    const std::string &internal_type_name() const override { return ptr::shared_ptr<PropT>::get()->internal_type_name(); }
+                                                                                                                     ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Attribs/StatusAttribT_impl.hh:172:46: performance: Searching before insertion is not necessary. [stlFindInsert]
+                    hfh_map[halfface_idx] = -1;
+                                             ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Attribs/StatusAttribT_impl.hh:175:50: performance: Searching before insertion is not necessary. [stlFindInsert]
+                    hfh_map[halfface_idx + 1] = -1;
+                                                 ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Attribs/StatusAttribT_impl.hh:179:58: performance: Searching before insertion is not necessary. [stlFindInsert]
+                    hfh_map[halfface_idx] = halfface_idx - offset_hfh;
+                                                         ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Attribs/StatusAttribT_impl.hh:182:66: performance: Searching before insertion is not necessary. [stlFindInsert]
+                    hfh_map[halfface_idx + 1] = halfface_idx + 1 - offset_hfh;
+                                                                 ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Attribs/StatusAttribT_impl.hh:200:45: performance: Searching before insertion is not necessary. [stlFindInsert]
+                    hh_map[halfedge_idx] = -1;
+                                            ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Attribs/StatusAttribT_impl.hh:203:49: performance: Searching before insertion is not necessary. [stlFindInsert]
+                    hh_map[halfedge_idx + 1] = -1;
+                                                ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Attribs/StatusAttribT_impl.hh:207:57: performance: Searching before insertion is not necessary. [stlFindInsert]
+                    hh_map[halfedge_idx] = halfedge_idx - offset_hh;
+                                                        ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Attribs/StatusAttribT_impl.hh:210:65: performance: Searching before insertion is not necessary. [stlFindInsert]
+                    hh_map[halfedge_idx + 1] = halfedge_idx + 1 - offset_hh;
+                                                                ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Attribs/StatusAttribT_impl.hh:133:36: style: Variable 'vertexIndexMap' is assigned a value that is never used. [unreadVariable]
+    std::vector<int> vertexIndexMap(kernel_.n_vertices(), -1);
+                                   ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Core/TopologyKernel.cc:2313:29: error: Using iterator to temporary. [danglingTemporaryLifetime]
+            if(edge_handle(*he_it) == edge_handle(_halfEdgeHandle)) {
+                            ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Core/TopologyKernel.cc:2310:77: note: Iterator to container is created here.
+        for(std::vector<HalfEdgeHandle>::const_iterator he_it = hf.halfedges().begin();
+                                                                            ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Core/TopologyKernel.cc:2313:29: note: Using iterator to temporary.
+            if(edge_handle(*he_it) == edge_handle(_halfEdgeHandle)) {
+                            ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Core/TopologyKernel.cc:824:32: performance: Searching before insertion is not necessary. [stlFindInsert]
+                    _fs.insert(fh);
+                               ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Geometry/Vector11T.hh:184:22: style: 'operator=' should return reference to 'this' instance. [operatorEqRetRefThis]
+        vector_type& operator=(const VectorT<OtherScalar, DIM>& _rhs)
+                     ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Geometry/Vector11T.hh:127:19: style: Class 'VectorT' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+        constexpr VectorT(T... vs) : values_ { {static_cast<Scalar>(vs)...} }
+                  ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Geometry/Vector11T.hh:234:19: style: Consider using std::transform algorithm instead of a raw loop. [useStlAlgorithm]
+                e *= _s;
+                  ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/OpenVolumeMesh/Geometry/Vector11T.hh:246:19: style: Consider using std::transform algorithm instead of a raw loop. [useStlAlgorithm]
+                e /= _s;
+                  ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/Unittests/unittests_properties.cc:62:39: style: Variable 'v_prop_d2' is assigned a value that is never used. [unreadVariable]
+    VertexPropertyT<double> v_prop_d2 = mesh_.request_vertex_property<double>("MyVPropDbl");
+                                      ^
+Type-OpenVolumeMesh/libs/OpenVolumeMesh/src/Unittests/unittests_properties.cc:142:34: style: Variable 'c_prop1' is assigned a value that is never used. [unreadVariable]
+    CellPropertyT<float> c_prop1 = mesh_.request_cell_property<float>();
+                                 ^
+Type-Plane/ObjectTypes/Plane/PlaneNode.hh:84:5: style: Class 'PlaneNode' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    PlaneNode(Plane& _plane, BaseNode *_parent = 0, std::string _name = "<PlaneNode>");
+    ^
+Type-Plane/ObjectTypes/Plane/PlaneNode.cc:60:68: performance: Function parameter '_name' should be passed by const reference. [passedByValue]
+PlaneNode::PlaneNode(Plane& _plane, BaseNode* _parent, std::string _name)
+                                                                   ^
+Type-Plane/ObjectTypes/Plane/PluginFunctionsPlane.cc:115:16: style: Local variable 'plane' shadows outer function [shadowFunction]
+  PlaneObject* plane  = dynamic_cast< PlaneObject* >(object);
+               ^
+Type-Plane/ObjectTypes/Plane/PluginFunctionsPlane.cc:92:8: note: Shadowed declaration
+Plane* plane( BaseObjectData* _object ) {
+       ^
+Type-Plane/ObjectTypes/Plane/PluginFunctionsPlane.cc:115:16: note: Shadow variable
+  PlaneObject* plane  = dynamic_cast< PlaneObject* >(object);
+               ^
+Type-PolyLine/ObjectTypes/PolyLineCollection/PolyLineCollectionNodeT.hh:84:3: style: Class 'PolyLineCollectionNodeT < PolyLineCollectionT < ACG :: Vec3d > >' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+  PolyLineCollectionNodeT(PolyLineCollection& _pl, BaseNode* _parent = 0, std::string _name = "<PolyLineCollectionNode>");
+  ^
+Type-QtWidget/ObjectTypes/QtWidget/QtWidgetNode.hh:90:5: style: Class 'QtWidgetNode' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    QtWidgetNode(QWidget* _widget, BaseNode *_parent = 0, std::string _name = "<QtWidgetNode>");
+    ^
+Type-QtWidget/ObjectTypes/QtWidget/QtWidgetNode.cc:95:77: performance: Function parameter '_name' should be passed by const reference. [passedByValue]
+QtWidgetNode::QtWidgetNode(QWidget* _widget, BaseNode *_parent, std::string _name)
+                                                                            ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloud/SplatCloud.hh:631:90: error: Reference to temporary returned. [returnTempReference]
+  inline       Position  &positions ( int _idx )       { return positionsProperty_-> data( _idx ); }
+                                                                                         ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloud/SplatCloud.hh:632:90: error: Reference to temporary returned. [returnTempReference]
+  inline const Position  &positions ( int _idx ) const { return positionsProperty_-> data( _idx ); }
+                                                                                         ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloud/SplatCloud.hh:633:90: error: Reference to temporary returned. [returnTempReference]
+  inline       Color     &colors    ( int _idx )       { return colorsProperty_->    data( _idx ); }
+                                                                                         ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloud/SplatCloud.hh:634:90: error: Reference to temporary returned. [returnTempReference]
+  inline const Color     &colors    ( int _idx ) const { return colorsProperty_->    data( _idx ); }
+                                                                                         ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloud/SplatCloud.hh:635:90: error: Reference to temporary returned. [returnTempReference]
+  inline       Normal    &normals   ( int _idx )       { return normalsProperty_->   data( _idx ); }
+                                                                                         ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloud/SplatCloud.hh:636:90: error: Reference to temporary returned. [returnTempReference]
+  inline const Normal    &normals   ( int _idx ) const { return normalsProperty_->   data( _idx ); }
+                                                                                         ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloud/SplatCloud.hh:637:90: error: Reference to temporary returned. [returnTempReference]
+  inline       Pointsize &pointsizes( int _idx )       { return pointsizesProperty_->data( _idx ); }
+                                                                                         ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloud/SplatCloud.hh:638:90: error: Reference to temporary returned. [returnTempReference]
+  inline const Pointsize &pointsizes( int _idx ) const { return pointsizesProperty_->data( _idx ); }
+                                                                                         ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloud/SplatCloud.hh:639:90: error: Reference to temporary returned. [returnTempReference]
+  inline       Index     &indices   ( int _idx )       { return indicesProperty_->   data( _idx ); }
+                                                                                         ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloud/SplatCloud.hh:640:90: error: Reference to temporary returned. [returnTempReference]
+  inline const Index     &indices   ( int _idx ) const { return indicesProperty_->   data( _idx ); }
+                                                                                         ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloud/SplatCloud.hh:641:90: error: Reference to temporary returned. [returnTempReference]
+  inline       Viewlist  &viewlists ( int _idx )       { return viewlistsProperty_-> data( _idx ); }
+                                                                                         ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloud/SplatCloud.hh:642:90: error: Reference to temporary returned. [returnTempReference]
+  inline const Viewlist  &viewlists ( int _idx ) const { return viewlistsProperty_-> data( _idx ); }
+                                                                                         ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloud/SplatCloud.hh:643:90: error: Reference to temporary returned. [returnTempReference]
+  inline       Selection &selections( int _idx )       { return selectionsProperty_->data( _idx ); }
+                                                                                         ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloud/SplatCloud.hh:644:90: error: Reference to temporary returned. [returnTempReference]
+  inline const Selection &selections( int _idx ) const { return selectionsProperty_->data( _idx ); }
+                                                                                         ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloudNode.hh:108:3: style: Class 'SplatCloudNode' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+  SplatCloudNode( const SplatCloud &_splatCloud, BaseNode *_parent = 0, std::string _name = "<SplatCloudNode>" );
+  ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloudNode.cc:196:103: error: Pointer addition with NULL pointer. [nullPointerArithmetic]
+      ACG::GLState::vertexPointer( 3, GL_FLOAT, static_cast<GLsizei>(vboStride_), (unsigned char *) 0 + vboPositionsOffset_ );
+                                                                                                      ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloudNode.cc:207:107: error: Pointer addition with NULL pointer. [nullPointerArithmetic]
+      glSecondaryColorPointer( 3, GL_UNSIGNED_BYTE, static_cast<GLsizei>(vboStride_), (unsigned char *) 0 + vboColorsOffset_ ); // TODO: use ACG::GLState::secondaryColorPointer() when implemented
+                                                                                                          ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloudNode.cc:219:100: error: Pointer addition with NULL pointer. [nullPointerArithmetic]
+      ACG::GLState::normalPointer( GL_FLOAT, static_cast<GLsizei>(vboStride_), (unsigned char *) 0 + vboNormalsOffset_ );
+                                                                                                   ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloudNode.cc:232:105: error: Pointer addition with NULL pointer. [nullPointerArithmetic]
+      ACG::GLState::texcoordPointer( 1, GL_FLOAT, static_cast<GLsizei>(vboStride_), (unsigned char *) 0 + vboPointsizesOffset_ );
+                                                                                                        ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloudNode.cc:246:105: error: Pointer addition with NULL pointer. [nullPointerArithmetic]
+      ACG::GLState::texcoordPointer( 1, GL_FLOAT, static_cast<GLsizei>(vboStride_), (unsigned char *) 0 + vboSelectionsOffset_ );
+                                                                                                        ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloudNode.cc:259:110: error: Pointer addition with NULL pointer. [nullPointerArithmetic]
+      ACG::GLState::colorPointer( 4, GL_UNSIGNED_BYTE, static_cast<GLsizei>(vboStride_), (unsigned char *) 0 + vboPickColorsOffset_ );
+                                                                                                             ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloudNode.cc:83:95: performance: Function parameter '_name' should be passed by const reference. [passedByValue]
+SplatCloudNode::SplatCloudNode( const SplatCloud &_splatCloud, BaseNode *_parent, std::string _name ) :
+                                                                                              ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloudNode.cc:792:25: style: Variable 'buffer' is assigned a value that is never used. [unreadVariable]
+  unsigned char *buffer = vboData_ + vboPositionsOffset_;
+                        ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloudNode.cc:821:25: style: Variable 'buffer' is assigned a value that is never used. [unreadVariable]
+  unsigned char *buffer = vboData_ + vboColorsOffset_;
+                        ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloudNode.cc:851:25: style: Variable 'buffer' is assigned a value that is never used. [unreadVariable]
+  unsigned char *buffer = vboData_ + vboNormalsOffset_;
+                        ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloudNode.cc:881:25: style: Variable 'buffer' is assigned a value that is never used. [unreadVariable]
+  unsigned char *buffer = vboData_ + vboPointsizesOffset_;
+                        ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloudNode.cc:909:25: style: Variable 'buffer' is assigned a value that is never used. [unreadVariable]
+  unsigned char *buffer = vboData_ + vboSelectionsOffset_;
+                        ^
+Type-SplatCloud/ObjectTypes/SplatCloud/SplatCloudNode.cc:936:25: style: Variable 'buffer' is assigned a value that is never used. [unreadVariable]
+  unsigned char *buffer = vboData_ + vboPickColorsOffset_;
+                        ^
+nofile:0:0: information: Unmatched suppression: ConfigurationNotChecked [unmatchedSuppression]
+
+nofile:0:0: information: Unmatched suppression: missingIncludeSystem [unmatchedSuppression]
+
