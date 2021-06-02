@@ -246,3 +246,6 @@
 [submodule "Plugin-Plane"]
 	path = Plugin-Plane
 	url = ../../OpenFlipper-Free/Plugin-Plane.git
+[submodule "Plugin-InfoPolyLine"]
+	path = Plugin-InfoPolyLine
+	url = git@www.graphics.rwth-aachen.de:OpenFlipper-Free/Plugin-InfoPolyLine.git
