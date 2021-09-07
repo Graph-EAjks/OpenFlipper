@@ -105,7 +105,7 @@ fi
 #if [ ! -d "~/sw/.git" ]; then
 #    echo Library update skipped
 #else
-#  git -C "~/sw" remote add alt https://gitlab-ci-token:${CI_JOB_TOKEN}@www.graphics.rwth-aachen.de:9000/Library-Management/Linux-Libraries.git openflipper/Linux-Libraries
+#  git -C "~/sw" remote add alt https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.vci.rwth-aachen.de:9000/Library-Management/Linux-Libraries.git openflipper/Linux-Libraries
 #  git -C "~/sw" checkout master
 #  git -C "~/sw" pull alt master
 #  git -C "~/sw" remote remove alt

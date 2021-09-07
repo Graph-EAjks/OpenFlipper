@@ -17,7 +17,7 @@
 {linux-iwyu-job.yml, BUILDTYPE=release, COMPILER=clang, LANGUAGE=cpp11, QT_VERSION=qt5.13.0}
 
 cppcheck:
-  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
+  # image: gitlab.vci.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
   stage: Build
   script: "CI/ci-cppcheck.sh"
   variables:

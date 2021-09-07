@@ -6,7 +6,7 @@ rm -rf artifacts
 # Fetch test data
 ########################################
 rm -rf TestData
-git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@www.graphics.rwth-aachen.de:9000/moebius/OpenFlipper-Test-Data.git TestData
+git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.vci.rwth-aachen.de:9000/moebius/OpenFlipper-Test-Data.git TestData
 
 #paths should be there as they are artifacts from prior stage
 cd build-release

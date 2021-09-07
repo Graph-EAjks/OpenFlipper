@@ -28,7 +28,7 @@ echo "====================================="
 echo "====================================="
 
 rm -rf TestData
-git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@www.graphics.rwth-aachen.de:9000/moebius/OpenFlipper-Test-Data.git TestData
+git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.vci.rwth-aachen.de:9000/moebius/OpenFlipper-Test-Data.git TestData
 
 
 echo "====================================="
