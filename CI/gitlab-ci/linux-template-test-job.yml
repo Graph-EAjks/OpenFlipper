@@ -24,7 +24,8 @@ test-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}:
   artifacts:
     paths:
        - build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}/Testing/Temporary/LastTest.log
-    reports: report.xml
+    reports: 
+       junit: report.xml
   
 # Disabled due to issues with tests requiring python to work
 #test-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-{{ISO_TAG}}-nopython:
