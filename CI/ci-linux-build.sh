@@ -96,8 +96,8 @@ else
 #   #make the relative lib paths override the system lib path
 #   patchelf --set-rpath "\$ORIGIN/lib" "$1"
   echo "Copying all required libraries of OpenFlipper to the systemlib directory"
-  join <(ldd "bin/OpenFlipper" |awk '{if(substr($3,0,1)=="/") print $1,$3}' |sort) <(patchelf --print-needed "bin/OpenFlipper" |sort) |cut -d\  -f2 | xargs -d '\n' -I{} cp --copy-contents {} ./systemlib 
-
+#  join <(ldd "bin/OpenFlipper" |awk '{if(substr($3,0,1)=="/") print $1,$3}' |sort) <(patchelf --print-needed "bin/OpenFlipper" |sort) |cut -d\  -f2 | xargs -d '\n' -I{} cp --copy-contents {} ./systemlib 
+  join <(ldd lib/*.so |awk '{if(substr($3,0,1)=="/") print $1,$3}' |sort -u ) <(patchelf --print-needed lib/*.so |sort -u ) |cut -d\  -f2 | sort -u | xargs -d '\n' -I{} cp --copy-contents {} ./systemlib
   #ldd bin/OpenFlipper | grep "=> /" | awk '{print $3}' | xargs -I '{}' cp -v '{}' systemlib
   cd ../..
 fi
