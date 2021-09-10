@@ -84,8 +84,21 @@ else
     mkdir systemlib
   fi
 
+#   #use ldd to resolve the libs and use `patchelf --print-needed to filter out
+#   # "magic" libs kernel-interfacing libs such as linux-vdso.so, ld-linux-x86-65.so or libpthread
+#   # which you probably should not relativize anyway
+#   join \
+#      <(ldd "bin/OpenFlipper" |awk '{if(substr($3,0,1)=="/") print $1,$3}' |sort) \
+#      <(patchelf --print-needed "bin/OpenFlipper" |sort) |cut -d\  -f2 |
+#
+#   #copy the lib selection to ./lib
+#   xargs -d '\n' -I{} cp --copy-contents {} ./lib 
+#   #make the relative lib paths override the system lib path
+#   patchelf --set-rpath "\$ORIGIN/lib" "$1"
   echo "Copying all required libraries of OpenFlipper to the systemlib directory"
-  ldd bin/OpenFlipper | grep "=> /" | awk '{print $3}' | xargs -I '{}' cp -v '{}' systemlib
+  join <(ldd "bin/OpenFlipper" |awk '{if(substr($3,0,1)=="/") print $1,$3}' |sort) <(patchelf --print-needed "bin/OpenFlipper" |sort) |cut -d\  -f2 | xargs -d '\n' -I{} cp --copy-contents {} ./systemlib 
+
+  #ldd bin/OpenFlipper | grep "=> /" | awk '{print $3}' | xargs -I '{}' cp -v '{}' systemlib
   cd ../..
 fi
 
