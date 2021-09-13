@@ -92,6 +92,8 @@ echo "Test directory:"
 echo "====================================="
 echo "====================================="
 
+echo "LD_LIBRARY_PATH : $LD_LIBRARY_PATH"
+
 
 cd tests
 
