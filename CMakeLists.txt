@@ -127,7 +127,7 @@ set(QT5_REQUIRED_PACKAGES
   Qt5Quick
   )
 
-vci_qt5 ()
+vci_qt ()
 
 if (NOT QT5_FOUND)
   message(FATAL_ERROR "Could not find any QT Version. Please specify QT5_INSTALL_PATH (path to bin and include dir) to build with QT5. Note that this error is also shown if not all required qt modules were found, e.g. Qt5Script.")
