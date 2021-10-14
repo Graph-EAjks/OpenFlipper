@@ -28,7 +28,7 @@ set( CMAKE_CXX_STANDARD 11 )
 # This is ugly but currently we need to work around the default installed on debian
 if ( EXISTS /ACG/acgdev/gcc-x86_64/qt-5.15.1/5.15.1/gcc_64 )
   # Default to this install path for QT%_INSTALL_DIR
-  set (QT5_INSTALL_PATH /ACG/acgdev/gcc-x86_64/qt-5.15.1/5.15.1/gcc_64/ CACHE PATH "Qt5 install path set for ACG environment using QT 5.15.1" )
+  set (QT_INSTALL_PATH /ACG/acgdev/gcc-x86_64/qt-5.15.1/5.15.1/gcc_64/ CACHE PATH "Qt5 install path set for ACG environment using QT 5.15.1" )
 endif()
 
 if ( WIN32 )
@@ -108,29 +108,37 @@ endif()
 # Qt setup
 include(VCIQt)
 
+set(QT_REQUIRED_PACKAGES
+  Core
+  Widgets
+  Gui
+  OpenGL
+  Network
+  Sql
+  Xml
+  Help
+  UiTools
+  Svg
+  PrintSupport
+  Concurrent
+  Quick
+  )
+
 set(QT5_REQUIRED_PACKAGES
-  Qt5Core
-  Qt5Widgets
-  Qt5Gui
-  Qt5OpenGL
-  Qt5Network
-  Qt5Sql
-  Qt5Script
-  Qt5ScriptTools
-  Qt5Xml
-  Qt5XmlPatterns
-  Qt5Help
-  Qt5UiTools
-  Qt5Svg
-  Qt5PrintSupport
-  Qt5Concurrent
-  Qt5Quick
+  Script
+  ScriptTools
+  XmlPatterns
+  )
+
+set(QT6_REQUIRED_PACKAGES
+  OpenGLWidgets
+#  Core5Compat
   )
 
 vci_qt ()
 
-if (NOT QT5_FOUND)
-  message(FATAL_ERROR "Could not find any QT Version. Please specify QT5_INSTALL_PATH (path to bin and include dir) to build with QT5. Note that this error is also shown if not all required qt modules were found, e.g. Qt5Script.")
+if (NOT QT_FOUND)
+  message(FATAL_ERROR "Could not find any QT Version. Please specify QT_INSTALL_PATH (path to bin and include dir) to build with QT. Note that this error is also shown if not all required qt modules were found, e.g. Qt5Script.")
 endif()
 
 # display warnings if a problematic qt version is used
@@ -154,8 +162,8 @@ endif()
 
 set (OF_MAX_QT_VERSION "5.15.2")
 
-if (${Qt5Core_VERSION_STRING} STRGREATER ${OF_MAX_QT_VERSION})
-  message(WARNING "Detected QT Version higher than ${OF_MAX_QT_VERSION}!\n" "OpenFlipper has not been tested with this QT Version.")
+if (${Qt_VERSION_STRING} STRGREATER ${OF_MAX_QT_VERSION})
+  message(WARNING "Detected QT Version ( ${Qt_VERSION_STRING}  ) higher than ${OF_MAX_QT_VERSION}!\n" "OpenFlipper has not been tested with this QT Version.")
 endif()
 
 # ========================================================================
