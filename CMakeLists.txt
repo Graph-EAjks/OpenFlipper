@@ -20,9 +20,11 @@ if(EXISTS ${CMAKE_SOURCE_DIR}/libs_required/OpenMesh)
   message(FATAL_ERROR "Directory libs_required/OpenMesh has been moved to OpenFlipper/libs_required/OpenMesh! Please remove the old directory if it's still there!")
 endif()
 
-# Set and enforce C++-11 flags
-set( CMAKE_CXX_STANDARD_REQUIRED TRUE )
-set( CMAKE_CXX_STANDARD 11 )
+set(OPENFLIPPER_CXX_STANDARD 11 CACHE STRING "C++ standard version to use")
+set_property(CACHE OPENFLIPPER_CXX_STANDARD PROPERTY STRINGS 11 14 17 20 23)
+set(CMAKE_CXX_STANDARD ${OPENFLIPPER_CXX_STANDARD})
+set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
+set(CMAKE_CXX_EXTENSIONS FALSE)
 
 # ACG Environment default settings
 # This is ugly but currently we need to work around the default installed on debian
