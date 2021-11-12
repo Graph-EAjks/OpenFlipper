@@ -21,16 +21,16 @@ if [ "$COMPILER" == "gcc" ]; then
   BUILDPATH="$BUILDPATH-gcc"
 
   # without icecc: no options required
-  OPTIONS="$OPTIONS -DCMAKE_CXX_COMPILER=/usr/lib/icecc/bin/g++ -DCMAKE_C_COMPILER=/usr/lib/icecc/bin/gcc -DGTEST_ROOT=~/sw/gtest-1.10.0 "
+  OPTIONS="$OPTIONS -DCMAKE_CXX_COMPILER=/usr/lib/icecc/bin/g++ -DCMAKE_C_COMPILER=/usr/lib/icecc/bin/gcc -DGTEST_ROOT=$HOME/sw/gtest-1.10.0 "
   MAKE_OPTIONS="-j16"
   export ICECC_CXX=/usr/bin/g++ ; export ICECC_CC=/usr/bin/gcc
 
 elif [ "$COMPILER" == "clang" ]; then
 
-  OPTIONS="$OPTIONS -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang -DGTEST_PREFIX=~/sw/gtest-1.10.0-clang/ "
+  OPTIONS="$OPTIONS -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang -DGTEST_PREFIX=$HOME/sw/gtest-1.10.0-clang/ "
 
 #  Build options with icecc /not working due to strange symbol errors
-#  OPTIONS="$OPTIONS -DCMAKE_CXX_COMPILER=/usr/lib/icecc/bin/g++ -DCMAKE_C_COMPILER=/usr/lib/icecc/bin/gcc -DGTEST_PREFIX=~/sw/gtest-1.7.0-clang/ "
+#  OPTIONS="$OPTIONS -DCMAKE_CXX_COMPILER=/usr/lib/icecc/bin/g++ -DCMAKE_C_COMPILER=/usr/lib/icecc/bin/gcc -DGTEST_PREFIX=$HOME/sw/gtest-1.7.0-clang/ "
 #  export ICECC_CXX=/usr/bin/clang++ ; export ICECC_CC=/usr/bin/clang
 
   BUILDPATH="$BUILDPATH-clang"
@@ -51,33 +51,33 @@ fi
 if [ "$QTVERSION" == "qt5.13.0" ]; then
   echo "Using QT5.13.0";
   BUILDPATH="$BUILDPATH-qt5.13.0"
-  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=~/sw/qwt-6.1.4-qt5.13.0/include -DQWT6_LIBRARY_DIR=~/sw/qwt-6.1.4-qt5.13.0/lib -DQWT6_LIBRARY=~/sw/qwt-6.1.4-qt5.13.0/lib/libqwt.so -DQT_INSTALL_PATH=~/sw/Qt/5.13.0/gcc_64"
-  QT_INSTALL_PATH="~/sw/Qt/5.13.0/gcc_64"
+  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=$HOME/sw/qwt-6.1.4-qt5.13.0/include -DQWT6_LIBRARY_DIR=$HOME/sw/qwt-6.1.4-qt5.13.0/lib -DQWT6_LIBRARY=$HOME/sw/qwt-6.1.4-qt5.13.0/lib/libqwt.so -DQT_INSTALL_PATH=$HOME/sw/Qt/5.13.0/gcc_64"
+  QT_INSTALL_PATH="$HOME/sw/Qt/5.13.0/gcc_64"
 elif [ "$QTVERSION" == "qt5.12.2" ]; then
   echo "Using QT5.12.2";
   BUILDPATH="$BUILDPATH-qt5.12.2"
-  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=~/sw/qwt-6.1.4-qt5.12.2/include -DQWT6_LIBRARY_DIR=~/sw/qwt-6.1.4-qt5.12.2/lib -DQWT6_LIBRARY=~/sw/qwt-6.1.4-qt5.12.2/lib/libqwt.so -DQT_INSTALL_PATH=~/sw/Qt/5.12.2/gcc_64"
-  QT_INSTALL_PATH="~/sw/Qt/5.12.2/gcc_64"
+  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=$HOME/sw/qwt-6.1.4-qt5.12.2/include -DQWT6_LIBRARY_DIR=$HOME/sw/qwt-6.1.4-qt5.12.2/lib -DQWT6_LIBRARY=$HOME/sw/qwt-6.1.4-qt5.12.2/lib/libqwt.so -DQT_INSTALL_PATH=$HOME/sw/Qt/5.12.2/gcc_64"
+  QT_INSTALL_PATH="$HOME/sw/Qt/5.12.2/gcc_64"
 elif [ "$QTVERSION" == "qt5.11.2" ]; then
   echo "Using QT5.11.2";
   BUILDPATH="$BUILDPATH-qt5.11.2"
-  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=~/sw/qwt-6.1.3-qt5.11.2/include -DQWT6_LIBRARY_DIR=~/sw/qwt-6.1.3-qt5.11.2/lib -DQWT6_LIBRARY=~/sw/qwt-6.1.3-qt5.11.2/lib/libqwt.so -DQT_INSTALL_PATH=~/sw/Qt/5.11.2/gcc_64"
-  QT_INSTALL_PATH="~/sw/Qt/5.11.2/gcc_64"
+  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=$HOME/sw/qwt-6.1.3-qt5.11.2/include -DQWT6_LIBRARY_DIR=$HOME/sw/qwt-6.1.3-qt5.11.2/lib -DQWT6_LIBRARY=$HOME/sw/qwt-6.1.3-qt5.11.2/lib/libqwt.so -DQT_INSTALL_PATH=$HOME/sw/Qt/5.11.2/gcc_64"
+  QT_INSTALL_PATH="$HOME/sw/Qt/5.11.2/gcc_64"
 elif [ "$QTVERSION" == "qt5.9.0" ]; then
   echo "Using QT5.9.0";
   BUILDPATH="$BUILDPATH-qt5.9.0"
-  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=~/sw/qwt-6.1.3-qt5.9.0/include -DQWT6_LIBRARY_DIR=~/sw/qwt-6.1.3-qt5.9.0/lib -DQWT6_LIBRARY=~/sw/qwt-6.1.3-qt5.9.0/lib/libqwt.so -DQT_INSTALL_PATH=~/sw/Qt/5.9/gcc_64"
-  QT_INSTALL_PATH="~/sw/Qt/5.9/gcc_64"
+  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=$HOME/sw/qwt-6.1.3-qt5.9.0/include -DQWT6_LIBRARY_DIR=$HOME/sw/qwt-6.1.3-qt5.9.0/lib -DQWT6_LIBRARY=$HOME/sw/qwt-6.1.3-qt5.9.0/lib/libqwt.so -DQT_INSTALL_PATH=$HOME/sw/Qt/5.9/gcc_64"
+  QT_INSTALL_PATH="$HOME/sw/Qt/5.9/gcc_64"
 elif [ "$QTVERSION" == "qt5.13.2" ]; then
   echo "Using QT5.13.2";
   BUILDPATH="$BUILDPATH-qt5.13.2"
-  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=~/sw/qwt-6.1.4-qt5.13.2/include -DQWT6_LIBRARY_DIR=~/sw/qwt-6.1.4-qt5.13.2/lib -DQWT6_LIBRARY=~/sw/qwt-6.1.4-qt5.13.2/lib/libqwt.so -DQT_INSTALL_PATH=~/sw/Qt/5.13.2/gcc_64"
-  QT_INSTALL_PATH="~/sw/Qt/5.13.2/gcc_64"
+  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=$HOME/sw/qwt-6.1.4-qt5.13.2/include -DQWT6_LIBRARY_DIR=$HOME/sw/qwt-6.1.4-qt5.13.2/lib -DQWT6_LIBRARY=$HOME/sw/qwt-6.1.4-qt5.13.2/lib/libqwt.so -DQT_INSTALL_PATH=$HOME/sw/Qt/5.13.2/gcc_64"
+  QT_INSTALL_PATH="$HOME/sw/Qt/5.13.2/gcc_64"
 elif [ "$QTVERSION" == "qt5.15.1" ]; then
   echo "Using QT5.15.1";
   BUILDPATH="$BUILDPATH-qt5.15.1"
-  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=~/sw/qwt-6.1.5-qt5.15.1/include -DQWT6_LIBRARY_DIR=~/sw/qwt-6.1.5-qt5.15.1/lib -DQWT6_LIBRARY=~/sw/qwt-6.1.5-qt5.15.1/lib/libqwt.so -DQT_INSTALL_PATH=~/sw/Qt/5.15.1/gcc_64"
-  QT_INSTALL_PATH="~/sw/Qt/5.15.1/gcc_64"
+  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=$HOME/sw/qwt-6.1.5-qt5.15.1/include -DQWT6_LIBRARY_DIR=$HOME/sw/qwt-6.1.5-qt5.15.1/lib -DQWT6_LIBRARY=$HOME/sw/qwt-6.1.5-qt5.15.1/lib/libqwt.so -DQT_INSTALL_PATH=$HOME/sw/Qt/5.15.1/gcc_64"
+  QT_INSTALL_PATH="$HOME/sw/Qt/5.15.1/gcc_64"
 fi
 
 if [ "$PYTHON" == "no" ]; then
@@ -103,18 +103,18 @@ fi
 #    which ssh-agent || ( echo No SSH Agent found && exit 1 )
 #    eval $(ssh-agent -s)
 #    echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
-#    mkdir -p ~/.ssh
-#    chmod 700 ~/.ssh
+#    mkdir -p $HOME/.ssh
+#    chmod 700 $HOME/.ssh
 #fi
 
 # Don't mess with the repo here.
-#if [ ! -d "~/sw/.git" ]; then
+#if [ ! -d "$HOME/sw/.git" ]; then
 #    echo Library update skipped
 #else
-#  git -C "~/sw" remote add alt https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.vci.rwth-aachen.de:9000/Library-Management/Linux-Libraries.git openflipper/Linux-Libraries
-#  git -C "~/sw" checkout master
-#  git -C "~/sw" pull alt master
-#  git -C "~/sw" remote remove alt
+#  git -C "$HOME/sw" remote add alt https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.vci.rwth-aachen.de:9000/Library-Management/Linux-Libraries.git openflipper/Linux-Libraries
+#  git -C "$HOME/sw" checkout master
+#  git -C "$HOME/sw" pull alt master
+#  git -C "$HOME/sw" remote remove alt
 #fi
 
 echo "Buildpath is: $BUILDPATH"
