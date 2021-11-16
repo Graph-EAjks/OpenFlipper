@@ -39,13 +39,17 @@ elif [ "$COMPILER" == "clang" ]; then
   echo "Setting compiler to CLANG";
 fi  
 
-if [ "$LANGUAGE" == "cpp98" ]; then
-  echo "Using C++98 standard";
-  BUILDPATH="$BUILDPATH-cpp98"
-elif [ "$LANGUAGE" == "cpp11" ]; then
+if [ "$LANGUAGE" == "cpp11" ]; then
   echo "Using C++11 standard";
-  OPTIONS="$OPTIONS -DCMAKE_CXX_FLAGS='-std=c++11' "
+  OPTIONS="$OPTIONS -DOPENFLIPPER_CXX_STANDARD=11 "
   BUILDPATH="$BUILDPATH-cpp11"
+elif [ "$LANGUAGE" == "cpp17" ]; then
+  echo "Using C++17 standard";
+  OPTIONS="$OPTIONS -DOPENFLIPPER_CXX_STANDARD=17"
+  BUILDPATH="$BUILDPATH-cpp17"
+else
+  echo "Unknown CXX standard!!!"
+  BUILDPATH="$BUILDPATH-unknown"
 fi  
 
 if [ "$QTVERSION" == "qt5.13.0" ]; then
@@ -78,6 +82,9 @@ elif [ "$QTVERSION" == "qt5.15.1" ]; then
   BUILDPATH="$BUILDPATH-qt5.15.1"
   OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=$HOME/sw/qwt-6.1.5-qt5.15.1/include -DQWT6_LIBRARY_DIR=$HOME/sw/qwt-6.1.5-qt5.15.1/lib -DQWT6_LIBRARY=$HOME/sw/qwt-6.1.5-qt5.15.1/lib/libqwt.so -DQT_INSTALL_PATH=$HOME/sw/Qt/5.15.1/gcc_64"
   QT_INSTALL_PATH="$HOME/sw/Qt/5.15.1/gcc_64"
+elif [ "$QTVERSION" == "qt6.2.1" ]; then
+  BUILDPATH="$BUILDPATH-qt6.2.1"
+  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=$HOME/sw/qwt-6.2.0-qt6.2.1/include -DQWT6_LIBRARY_DIR=$HOME/sw/qwt-6.2.0-qt6.2.1/lib -DQWT6_LIBRARY=$HOME/sw/qwt-6.2.0-qt6.2.1/lib/libqwt.so -DQT_INSTALL_PATH=$HOME/sw/Qt/6.2.1/gcc_64"
 fi
 
 if [ "$PYTHON" == "no" ]; then
