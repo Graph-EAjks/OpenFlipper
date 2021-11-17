@@ -19,17 +19,28 @@ void HoverPlugin::initializePlugin() {
     emit addToolbox(tr("Hover"), toolbox);
 
     emit addPickMode(pickmode_name);
+    emit setPickModeMouseTracking(pickmode_name, true);
     //================== End Toolbox setup ===================
 }
 
-void HoverPlugin::slotObjectUpdated (int _identifier) {
-    mesh = nullptr;
-}
-
 void HoverPlugin::slotMouseEvent(QMouseEvent *_event) {
+    // remove all hovering before drawing new hovering
+    for (auto _obj: PluginFunctions::objects(PluginFunctions::TARGET_OBJECTS)) {
+        auto* pod = getOrMakePoD(_obj->id());
+        remove_hovering(pod);
+    }
+
     if (hovering) {
-        if (_event->type() == QEvent::MouseMove) {
-            hover(_event);
+        size_t node_idx, target_idx;
+        ACG::Vec3d hit_point;
+        // Pick anything to find all possible objects
+        if (PluginFunctions::scenegraphPick(ACG::SceneGraph::PICK_ANYTHING, _event->pos(), node_idx, target_idx, &hit_point)) {
+            BaseObjectData* object;
+            if (PluginFunctions::getPickedObject(node_idx, object)) {
+                hover(_event, object);
+            } else {
+                std::cout << "getPickedObject not successful in slotMouseEvent\n";
+            }
         }
     }
 }
@@ -66,15 +77,15 @@ void HoverPlugin::slotButtonClicked() {
  * TODO: enter hoverMode without affecting any other plugins.
  */
 void HoverPlugin::enterHoverMode() {
-    // The following two line are necessary to receive MouseEvents, but they destroy the function of some other
-    // plugins like the Selection plugins
-    this->previous_action_mode = PluginFunctions::actionMode();
-    this->previous_pickmode_name = PluginFunctions::pickMode();
+    previous_action_mode = PluginFunctions::actionMode();
+    previous_pickmode_name = PluginFunctions::pickMode();
 
     PluginFunctions::actionMode(Viewer::PickingMode);
-    PluginFunctions::pickMode(this->pickmode_name);
+    if (PluginFunctions::pickMode() == "") {
+        PluginFunctions::pickMode(this->pickmode_name);
+    } else
+        emit setPickModeMouseTracking(previous_pickmode_name, true);
 
-    emit setPickModeMouseTracking(this->pickmode_name, true);
     button->setText("disable hovering");
 }
 
@@ -84,37 +95,22 @@ void HoverPlugin::enterHoverMode() {
  * TODO: exit hoverMode without affecting any other plugins.
  */
 void HoverPlugin::leaveHoverMode() {
+// Is there something like slotActionModeChanged? It would be nice to update this->previous_action_mode
     PluginFunctions::actionMode(this->previous_action_mode);
-    PluginFunctions::pickMode(this->previous_pickmode_name);
+//    PluginFunctions::pickMode(this->previous_pickmode_name);
 
-    emit setPickModeMouseTracking(pickmode_name, false);
     button->setText("enable hovering");
-
 }
 
-void HoverPlugin::hover(QMouseEvent *_event) {
-    size_t node_idx, target_idx;
-    ACG::Vec3d hit_point;
+void HoverPlugin::hover(QMouseEvent *_event, BaseObjectData *object) {
+    if(!object) return;
 
-    // Pick anything to find all possible objects
-    if (PluginFunctions::scenegraphPick(ACG::SceneGraph::PICK_ANYTHING,
-                                        _event->pos(), node_idx, target_idx, &hit_point)) {
-
-        BaseObjectData* object(0);
-        PluginFunctions::getPickedObject(node_idx, object);
-        if(!object) return;
-
-        //TODO: implement for other DataTypes
-        type = object->dataType();
-        if (type == DATA_TRIANGLE_MESH)
-            hover_OM(_event);
-        else
-            std::cout << "HoverPlugin::hover: hovering for DataType " << object->dataType() << " not yet implemented\n";
-    } else {
-        // Hovering over empty space: clear all hovering
-        if (mesh != nullptr)
-            lineNode->clear();
-    }
+    //TODO: implement for other DataTypes
+    auto type = object->dataType();
+    if (type == DATA_TRIANGLE_MESH)
+        hover_OM(_event);
+    else
+        std::cout << "HoverPlugin::hover: hovering for DataType " << object->dataType() << " not yet implemented\n";
 }
 
 void HoverPlugin::hover_OM(QMouseEvent *_event) {
@@ -124,34 +120,47 @@ void HoverPlugin::hover_OM(QMouseEvent *_event) {
     // Pick again to find face
     if (PluginFunctions::scenegraphPick(ACG::SceneGraph::PICK_FACE,
                                         _event->pos(),node_idx, entityId, &hit_point)) {
-        switch (hoveringPrimitive) {
-            case VERTEX:
-                break;
-            case EDGE:
-                hover_OM_edge(entityId, hit_point);
-                break;
-            case HALFEDGE:
-                break;
-            case FACE:
-                break;
-        }
+        BaseObjectData *bod;
+        if (PluginFunctions::getPickedObject(node_idx, bod)) {
+            TriMeshObject *triMeshObject; // This should be generalized to OM
+            if (PluginFunctions::getObject(bod->id(), triMeshObject)) {
+                auto *pod = getOrMakePoD(bod->id());
+                TriMesh *triMesh = triMeshObject->mesh(); // This should also be generalized to OM
+
+                switch (hoveringPrimitive) {
+                    case VERTEX:
+                        break;
+                    case EDGE:
+                        hover_OM_edge(entityId, hit_point, pod, triMesh);
+                        break;
+                    case HALFEDGE:
+                        break;
+                    case FACE:
+                        break;
+                    default:
+                        std::cout << "missing case in HoverPlugin::hover_OM\n";
+                }
+            } else
+                std::cout << "getObject not successful in HoverPlugin::hover_OM\n";
+        } else
+            std::cout << "getPickedObject not successful in HoverPlugin::hover_OM\n";
     } else {
         std::cout << "HoverPlugin::hover_OM: No face found\n";
     }
 }
 
-void HoverPlugin::hover_OM_edge(size_t entityId, ACG::Vec3d &hit_point) {
-    int hover_edge_id = find_closest_edge(entityId, hit_point);
+void HoverPlugin::hover_OM_edge(size_t entityId, ACG::Vec3d &hit_point, HoverPoD *pod, TriMesh* mesh) {
+    int hover_edge_id = find_closest_edge(entityId, hit_point, mesh);
+    auto* lineNode = pod->getLineNode();
     lineNode->clear();
-    color_hover_edge(hover_edge_id);
+    color_hover_edge(hover_edge_id, pod, mesh);
 }
 
 /**
  * Finds closest edge to hit_point incident to hit face _fh
  * @return Id of closest edge
  */
-int HoverPlugin::find_closest_edge(uint _fh, ACG::Vec3d &_hit_point) {
-    mesh = get_or_find_mesh();
+int HoverPlugin::find_closest_edge(uint _fh, ACG::Vec3d &_hit_point, TriMesh* mesh) {
 
     TriMesh::FaceHandle fh = mesh->face_handle(_fh);
 
@@ -185,26 +194,9 @@ int HoverPlugin::find_closest_edge(uint _fh, ACG::Vec3d &_hit_point) {
 }
 
 /**
- * looks for any mesh, if this->mesh is not yet defined.
- * TODO: find a better method to keep track of all meshes in the scene
- */
-TriMesh* HoverPlugin::get_or_find_mesh() {
-    if (this->mesh == nullptr) {
-        o_it = PluginFunctions::TARGET_OBJECTS;
-        TriMeshObject *obj = nullptr;
-        PluginFunctions::getObject(o_it->id(), obj);
-        if (!obj)
-            return nullptr;
-        this->mesh = obj->mesh();
-        lineNode = new ACG::SceneGraph::LineNode( ACG::SceneGraph::LineNode::LineSegmentsMode, o_it->baseNode());
-    }
-    return this->mesh;
-}
-
-/**
  * Make edge with hover_edge_id visible
  */
-void HoverPlugin::color_hover_edge(int hover_edge_id) {
+void HoverPlugin::color_hover_edge(int hover_edge_id, HoverPoD *pod, TriMesh *mesh) {
     if (hover_edge_id <= -1)
         return;
     TriMesh::EdgeHandle eh = TriMesh::EdgeHandle(hover_edge_id);
@@ -221,7 +213,41 @@ void HoverPlugin::color_hover_edge(int hover_edge_id) {
     ACG::Vec3d v_0 = p_0 - ACG::Vec3d(0, 0, 0);
     ACG::Vec3d v_1 = p_1 - ACG::Vec3d(0, 0, 0);
 
+    auto *lineNode = pod->getLineNode();
     lineNode->add_line(v_0, v_1);
     lineNode->add_color(green);
     lineNode->set_line_width(5);
+}
+
+void HoverPlugin::remove_hovering(HoverPoD *pod) {
+    auto *lineNode = pod->getLineNode();
+    lineNode->clear();
+}
+
+HoverPoD *HoverPlugin::getOrMakePoD(int id) {
+    auto *pod = getPoD(id);
+
+    if (!pod)
+        pod = createPoD(id);
+
+    return pod;
+}
+
+HoverPoD *HoverPlugin::getPoD(int id) {
+    BaseObjectData *obj = nullptr;
+    PluginFunctions::getObject(id, obj);
+    if (!obj)
+        return nullptr;
+    return dynamic_cast<HoverPoD*>(obj->objectData(podName));
+}
+
+HoverPoD *HoverPlugin::createPoD(int id) {
+    BaseObjectData *obj = nullptr;
+    PluginFunctions::getObject(id, obj);
+    if (!obj)
+        return nullptr;
+    auto lineNode = new ACG::SceneGraph::LineNode( ACG::SceneGraph::LineNode::LineSegmentsMode, obj->baseNode());
+    auto pod = new HoverPoD(lineNode);
+    obj->setObjectData(podName, pod);
+    return pod;
 }
