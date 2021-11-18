@@ -31,104 +31,6 @@ variables:
 #
 ##############################
 
-#-----------  Job Informations:
-# Type:       Build: release
-# OS:         Linux
-# Compiler:   gcc
-# Language:   cpp11
-# QT Version: qt5.11.2
-
-build-release-gcc-cpp11-qt5.11.2:
-  stage: Build
-  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
-  variables:
-    COMPILER: "gcc"
-    LANGUAGE: "cpp11"
-    QTVERSION: "qt5.11.2"
-    BUILDTYPE: "release"
-    GIT_SUBMODULE_STRATEGY: recursive
-  script: "CI/ci-linux-build.sh"
-  tags:
-    - Linux
-    - stretch
-  artifacts:
-    expire_in: 1 week
-    paths:
-       - build-release-gcc-cpp11-qt5.11.2/
-
-build-release-gcc-cpp11-qt5.11.2-nopython:
-  stage: Build
-  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
-  variables:
-    COMPILER: "gcc"
-    LANGUAGE: "cpp11"
-    QTVERSION: "qt5.11.2"
-    BUILDTYPE: "release"
-    PYTHON: "no" 
-    GIT_SUBMODULE_STRATEGY: recursive
-  script: "CI/ci-linux-build.sh"
-  tags:
-    - Linux
-    - stretch
-  artifacts:
-    expire_in: 1 week
-    paths:
-       - build-release-gcc-cpp11-qt5.11.2-nopython/
-
-#
-#-----------
-
-#-----------  Job Informations:
-# Type:       Test: release
-# OS:         Linux
-# Compiler:   gcc
-# Language:   cpp11
-# QT Version: qt5.11.2
-
-test-release-gcc-cpp11-qt5.11.2:
-  stage: Test
-  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
-  variables:
-    COMPILER: "gcc"
-    LANGUAGE:  "cpp11"
-    QTVERSION: "qt5.11.2"
-    BUILDTYPE: "release"
-    GIT_SUBMODULE_STRATEGY: recursive
-  script: "CI/ci-linux-test.sh"
-  tags:
-    - Linux
-    - stretch
-    - MultiThreads
-  dependencies: [build-release-gcc-cpp11-qt5.11.2]
-  needs: [build-release-gcc-cpp11-qt5.11.2]
-  artifacts:
-    paths:
-       - build-release-gcc-cpp11-qt5.11.2/Testing/Temporary/LastTest.log
-    reports: 
-       junit: report.xml
-  
-# Disabled due to issues with tests requiring python to work
-#test-release-gcc-cpp11-qt5.11.2-{{ISO_TAG}}-nopython:
-#  stage: Test
-#  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
-#  variables:
-#    COMPILER: "gcc"
-#    LANGUAGE: "cpp11"
-#    QTVERSION: "qt5.11.2"
-#    BUILDTYPE: "release"
-#    PYTHON: "no"
-#    GIT_SUBMODULE_STRATEGY: recursive
-#  script: "CI/ci-linux-test.sh"
-#  tags:
-#    - Docker
-#  dependencies: [build-release-gcc-cpp11-qt5.11.2-{{ISO_TAG}}-nopython]
-#  needs: [build-release-gcc-cpp11-qt5.11.2-{{ISO_TAG}}-nopython]
-#  artifacts:
-#    paths:
-#       - build-release-gcc-cpp11-qt5.11.2/Testing/Temporary/LastTest.log
-
-#
-#-----------
 
 #-----------  Job Informations:
 # Type:       Build: release
@@ -722,6 +624,206 @@ test-release-clang-cpp11-qt5.15.1:
 
 #
 #-----------
+
+# Qt6 requires cpp17 or higher!!
+#-----------  Job Informations:
+# Type:       Build: debug
+# OS:         Linux
+# Compiler:   gcc
+# Language:   cpp17
+# QT Version: qt6.2.1
+
+build-debug-gcc-cpp17-qt6.2.1:
+  stage: Build
+  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+  variables:
+    COMPILER: "gcc"
+    LANGUAGE: "cpp17"
+    QTVERSION: "qt6.2.1"
+    BUILDTYPE: "debug"
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Linux
+    - stretch
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-debug-gcc-cpp17-qt6.2.1/
+
+build-debug-gcc-cpp17-qt6.2.1-nopython:
+  stage: Build
+  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+  variables:
+    COMPILER: "gcc"
+    LANGUAGE: "cpp17"
+    QTVERSION: "qt6.2.1"
+    BUILDTYPE: "debug"
+    PYTHON: "no" 
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Linux
+    - stretch
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-debug-gcc-cpp17-qt6.2.1-nopython/
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Test: debug
+# OS:         Linux
+# Compiler:   gcc
+# Language:   cpp17
+# QT Version: qt6.2.1
+
+test-debug-gcc-cpp17-qt6.2.1:
+  stage: Test
+  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+  variables:
+    COMPILER: "gcc"
+    LANGUAGE:  "cpp17"
+    QTVERSION: "qt6.2.1"
+    BUILDTYPE: "debug"
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-test.sh"
+  tags:
+    - Linux
+    - stretch
+    - MultiThreads
+  dependencies: [build-debug-gcc-cpp17-qt6.2.1]
+  needs: [build-debug-gcc-cpp17-qt6.2.1]
+  artifacts:
+    paths:
+       - build-debug-gcc-cpp17-qt6.2.1/Testing/Temporary/LastTest.log
+    reports: 
+       junit: report.xml
+  
+# Disabled due to issues with tests requiring python to work
+#test-debug-gcc-cpp17-qt6.2.1-{{ISO_TAG}}-nopython:
+#  stage: Test
+#  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+#  variables:
+#    COMPILER: "gcc"
+#    LANGUAGE: "cpp17"
+#    QTVERSION: "qt6.2.1"
+#    BUILDTYPE: "debug"
+#    PYTHON: "no"
+#    GIT_SUBMODULE_STRATEGY: recursive
+#  script: "CI/ci-linux-test.sh"
+#  tags:
+#    - Docker
+#  dependencies: [build-debug-gcc-cpp17-qt6.2.1-{{ISO_TAG}}-nopython]
+#  needs: [build-debug-gcc-cpp17-qt6.2.1-{{ISO_TAG}}-nopython]
+#  artifacts:
+#    paths:
+#       - build-debug-gcc-cpp17-qt6.2.1/Testing/Temporary/LastTest.log
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Build: release
+# OS:         Linux
+# Compiler:   gcc
+# Language:   cpp17
+# QT Version: qt6.2.1
+
+build-release-gcc-cpp17-qt6.2.1:
+  stage: Build
+  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+  variables:
+    COMPILER: "gcc"
+    LANGUAGE: "cpp17"
+    QTVERSION: "qt6.2.1"
+    BUILDTYPE: "release"
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Linux
+    - stretch
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-release-gcc-cpp17-qt6.2.1/
+
+build-release-gcc-cpp17-qt6.2.1-nopython:
+  stage: Build
+  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+  variables:
+    COMPILER: "gcc"
+    LANGUAGE: "cpp17"
+    QTVERSION: "qt6.2.1"
+    BUILDTYPE: "release"
+    PYTHON: "no" 
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Linux
+    - stretch
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-release-gcc-cpp17-qt6.2.1-nopython/
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Test: release
+# OS:         Linux
+# Compiler:   gcc
+# Language:   cpp17
+# QT Version: qt6.2.1
+
+test-release-gcc-cpp17-qt6.2.1:
+  stage: Test
+  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+  variables:
+    COMPILER: "gcc"
+    LANGUAGE:  "cpp17"
+    QTVERSION: "qt6.2.1"
+    BUILDTYPE: "release"
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-test.sh"
+  tags:
+    - Linux
+    - stretch
+    - MultiThreads
+  dependencies: [build-release-gcc-cpp17-qt6.2.1]
+  needs: [build-release-gcc-cpp17-qt6.2.1]
+  artifacts:
+    paths:
+       - build-release-gcc-cpp17-qt6.2.1/Testing/Temporary/LastTest.log
+    reports: 
+       junit: report.xml
+  
+# Disabled due to issues with tests requiring python to work
+#test-release-gcc-cpp17-qt6.2.1-{{ISO_TAG}}-nopython:
+#  stage: Test
+#  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+#  variables:
+#    COMPILER: "gcc"
+#    LANGUAGE: "cpp17"
+#    QTVERSION: "qt6.2.1"
+#    BUILDTYPE: "release"
+#    PYTHON: "no"
+#    GIT_SUBMODULE_STRATEGY: recursive
+#  script: "CI/ci-linux-test.sh"
+#  tags:
+#    - Docker
+#  dependencies: [build-release-gcc-cpp17-qt6.2.1-{{ISO_TAG}}-nopython]
+#  needs: [build-release-gcc-cpp17-qt6.2.1-{{ISO_TAG}}-nopython]
+#  artifacts:
+#    paths:
+#       - build-release-gcc-cpp17-qt6.2.1/Testing/Temporary/LastTest.log
+
+#
+#-----------
+
 
 # include what you use
 #-----------  Job Informations:
