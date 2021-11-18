@@ -4,7 +4,6 @@
 #
 ##############################
 
-{linux-template-job-release.yml, COMPILER=gcc,   LANGUAGE=cpp11, QT_VERSION=qt5.11.2}
 
 {linux-template-job-release.yml, COMPILER=gcc,   LANGUAGE=cpp11, QT_VERSION=qt5.12.2}
 
