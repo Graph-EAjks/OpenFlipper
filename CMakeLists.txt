@@ -20,6 +20,7 @@ if(EXISTS ${CMAKE_SOURCE_DIR}/libs_required/OpenMesh)
   message(FATAL_ERROR "Directory libs_required/OpenMesh has been moved to OpenFlipper/libs_required/OpenMesh! Please remove the old directory if it's still there!")
 endif()
 
+# Select appropriate C++ version.
 set(OPENFLIPPER_CXX_STANDARD 11 CACHE STRING "C++ standard version to use")
 set_property(CACHE OPENFLIPPER_CXX_STANDARD PROPERTY STRINGS 11 14 17 20 23)
 set(CMAKE_CXX_STANDARD ${OPENFLIPPER_CXX_STANDARD})
@@ -162,7 +163,7 @@ if ( WIN32 )
   endif()
 endif()
 
-set (OF_MAX_QT_VERSION "5.15.2")
+set (OF_MAX_QT_VERSION "6.2.1")
 
 if (${Qt_VERSION_STRING} STRGREATER ${OF_MAX_QT_VERSION})
   message(WARNING "Detected QT Version ( ${Qt_VERSION_STRING}  ) higher than ${OF_MAX_QT_VERSION}!\n" "OpenFlipper has not been tested with this QT Version.")
@@ -283,7 +284,20 @@ enable_testing()
 # Build all additional libraries
 # ========================================================================
 
-add_subdirectory (OpenFlipper/libs_required/glew-cmake)
+
+if (NOT DEFINED OPENFLIPPER_DISABLE_INTERNAL_GLEW)
+  set(OPENFLIPPER_DISABLE_INTERNAL_GLEW "FALSE" CACHE BOOL "Choose if OpenFlipper should build and use the internal glew library" FORCE)
+endif()
+
+if (NOT OPENFLIPPER_DISABLE_INTERNAL_GLEW)
+   add_subdirectory (OpenFlipper/libs_required/glew-cmake)
+   set(GLEW_TARGET libglew_shared)
+else()
+   message("Using external GLEW")
+   find_package(GLEW)
+   set(GLEW_TARGET GLEW::glew)
+endif()
+
 add_subdirectory (OpenFlipper/libs_required/OpenMesh)
 add_subdirectory (OpenFlipper/libs_required/ACG)
 
