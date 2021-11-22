@@ -154,7 +154,7 @@ endif()
 
 if ( WIN32 )
   OPTION(USE_UNSUPPORTED_QT "Build OpenFlipper with an unsupported version of Qt e.g. if you fixed the moc issue on 5.8.0 yourself" OFF)
-  if ( ${Qt5Core_VERSION_STRING} STREQUAL "5.8.0" )
+  if ( ${Qt_VERSION_STRING} STREQUAL "5.8.0" )
     if(USE_UNSUPPORTED_QT)
       message(WARNING "You appear to be using Qt 5.8.0 on a Windows System.\n On Windows, this version of Qt causes a problem regarding moc generation.\n You are using this Qt Version on Windows at your own risk and without support." )
     else()
