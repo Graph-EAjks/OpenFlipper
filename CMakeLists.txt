@@ -284,6 +284,10 @@ enable_testing()
 # Build all additional libraries
 # ========================================================================
 
+# Several files create large objs so we need to switch to bigobj mode for OpenFlipper
+if (MINGW)
+  add_compile_options("-Wa,-mbig-obj")      
+endif()	
 
 if (NOT DEFINED OPENFLIPPER_DISABLE_INTERNAL_GLEW)
   set(OPENFLIPPER_DISABLE_INTERNAL_GLEW "FALSE" CACHE BOOL "Choose if OpenFlipper should build and use the internal glew library" FORCE)
