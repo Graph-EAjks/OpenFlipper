@@ -141,13 +141,13 @@ set(QT6_REQUIRED_PACKAGES
 vci_qt ()
 
 if (NOT QT_FOUND)
-  message(FATAL_ERROR "Could not find any QT Version. Please specify QT_INSTALL_PATH (path to bin and include dir) to build with QT. Note that this error is also shown if not all required qt modules were found, e.g. Qt5Script.")
+  message(FATAL_ERROR "Could not find any QT Version. Please specify QT_INSTALL_PATH (path to bin and include dir) to build with QT. Note that this error is also shown if not all required qt modules were found.")
 endif()
 
 # display warnings if a problematic qt version is used
 
 if ( APPLE )
-  if ( ${Qt5Core_VERSION_STRING} STREQUAL "5.8.0" OR ${Qt5Core_VERSION_STRING} STREQUAL "5.7.1" )
+  if ( "${Qt_VERSION_STRING}" STREQUAL "5.8.0" OR "${Qt_VERSION_STRING}" STREQUAL "5.7.1" )
     message(WARNING "You are using a Qt Version that might cause problems on OSX regarding GLErrors. We recommend you to use another version. If you fix any GLErrors on these versions feel free to contribute to OpenFlipper.")
   endif()
 endif()
