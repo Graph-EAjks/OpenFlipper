@@ -85,6 +85,7 @@ elif [ "$QTVERSION" == "qt5.15.1" ]; then
 elif [ "$QTVERSION" == "qt6.2.1" ]; then
   BUILDPATH="$BUILDPATH-qt6.2.1"
   OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=$HOME/sw/qwt-6.2.0-qt6.2.1/include -DQWT6_LIBRARY_DIR=$HOME/sw/qwt-6.2.0-qt6.2.1/lib -DQWT6_LIBRARY=$HOME/sw/qwt-6.2.0-qt6.2.1/lib/libqwt.so -DQT_INSTALL_PATH=$HOME/sw/Qt/6.2.1/gcc_64 -DQT_VERSION=6"
+  QT_INSTALL_PATH="$HOME/sw/Qt/6.2.1/gcc_64"
 fi
 
 if [ "$PYTHON" == "no" ]; then
