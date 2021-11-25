@@ -54,7 +54,9 @@ IF ( APPLE )
 endif()
 
 
-project (OpenFlipper)
+project (OpenFlipper
+         VERSION 5.0.1
+         LANGUAGES C CXX )
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 	if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS "6.0" AND CMAKE_CXX_COMPILER_VERSION VERSION_GREATER "4.9" OR CMAKE_CXX_COMPILER_VERSION VERSION_EQUAL "4.9")
@@ -175,8 +177,6 @@ endif()
 # include our cmake files
 include (VCICommon)
 include (MSVCMacros)
-
-vci_get_version (OpenFlipper)
 
 # ========================================================================
 # Branding 
