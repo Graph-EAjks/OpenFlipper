@@ -34,13 +34,18 @@ void HoverPlugin::slotMouseEvent(QMouseEvent *_event) {
         size_t node_idx, target_idx;
         ACG::Vec3d hit_point;
         // Pick anything to find all possible objects
-        if (PluginFunctions::scenegraphPick(ACG::SceneGraph::PICK_ANYTHING, _event->pos(), node_idx, target_idx, &hit_point)) {
-            BaseObjectData* object;
-            if (PluginFunctions::getPickedObject(node_idx, object)) {
-                hover(_event, object);
-            } else {
-                std::cout << "getPickedObject not successful in slotMouseEvent\n";
+        if (coolHovering) {
+            if (PluginFunctions::scenegraphPick(ACG::SceneGraph::PICK_ANYTHING, _event->pos(), node_idx, target_idx,
+                                                &hit_point)) {
+                BaseObjectData *object;
+                if (PluginFunctions::getPickedObject(node_idx, object)) {
+                    hover(_event, object);
+                } else {
+                    std::cout << "getPickedObject not successful in slotMouseEvent\n";
+                }
             }
+        } else {
+            simple_hover(_event);
         }
     }
 }
@@ -102,6 +107,10 @@ void HoverPlugin::leaveHoverMode() {
     button->setText("enable hovering");
 }
 
+/**
+ * Highlights entities just as simple_hover(), but selects the entity on the top face closest to the mouse courser. This
+ * looks way cooler than the other version, as there is always something highlighted, if the mouse hovers over anything.
+ */
 void HoverPlugin::hover(QMouseEvent *_event, BaseObjectData *object) {
     if(!object) return;
     size_t node_idx, entityId;
@@ -116,7 +125,7 @@ void HoverPlugin::hover(QMouseEvent *_event, BaseObjectData *object) {
             if (type == DATA_TRIANGLE_MESH) {
                 TriMeshObject *triMeshObject;
                 if (PluginFunctions::getObject(bod->id(), triMeshObject)) {
-                    hover_OM(fbod, hit_point, entityId, triMeshObject);
+                    hover_OM(bod, hit_point, entityId, triMeshObject);
                 } else
                     std::cout << "hoverPlugin::hover: getObject failed for Triangle Meshes.\n";
             } else if (type == DATA_POLY_MESH) {
@@ -130,9 +139,41 @@ void HoverPlugin::hover(QMouseEvent *_event, BaseObjectData *object) {
         std::cout << "HoverPlugin::hover: scenegraphPick not successful.\n";
 }
 
+/**
+ * Highlights entities just as hover(), but highlights only the entity, where the mouse courser is exactly on top.
+ */
+void HoverPlugin::simple_hover(QMouseEvent *_event) {
 
-
-
+    switch (hoveringPrimitive) {
+        case VERTEX:
+            break;
+        case EDGE: {
+            size_t node_idx, entityId;
+            ACG::Vec3d hit_point;
+            if (PluginFunctions::scenegraphPick(ACG::SceneGraph::PICK_EDGE, _event->pos(), node_idx, entityId,
+                                                &hit_point)) {
+                BaseObjectData *bod;
+                if (PluginFunctions::getPickedObject(node_idx, bod)) {
+                    auto type = bod->dataType();
+                    if (type == DATA_TRIANGLE_MESH) {
+                        TriMeshObject *triMeshObject;
+                        simple_hover_color(entityId, bod, triMeshObject);
+                    } else if (type == DATA_POLY_MESH) {
+                        PolyMeshObject *polyMeshObject;
+                        simple_hover_color(entityId, bod, polyMeshObject);
+                    }
+                }
+            }
+            break;
+        }
+        case HALFEDGE:
+            break;
+        case FACE:
+            break;
+        default:
+            break;
+    }
+}
 
 void HoverPlugin::remove_hovering(HoverPoD *pod) {
     auto *lineNode = pod->getLineNode();

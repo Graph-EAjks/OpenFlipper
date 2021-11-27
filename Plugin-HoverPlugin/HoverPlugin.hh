@@ -84,6 +84,7 @@ private:
     void leaveHoverMode();
 
     void hover(QMouseEvent *_event, BaseObjectData *object);
+    void simple_hover(QMouseEvent *_event);
 
     int find_closest_edge(uint _fh, ACG::Vec3d &_hit_point, TriMesh *mesh);
 
@@ -100,7 +101,8 @@ private:
     QPushButton* button;
     const std::string pickmode_name = "HoverPlugin";
 
-    bool hovering = false;
+    bool coolHovering = false;
+    bool hovering = true;
     hovering_primitive hoveringPrimitive = EDGE;
 
     std::string previous_pickmode_name = "";
@@ -135,7 +137,7 @@ private:
     void hover_OM_edge(size_t entityId, ACG::Vec3d &hit_point, HoverPoD *pod, T *mesh) {
 
         int hover_edge_id = find_closest_edge(entityId, hit_point, mesh);
-        auto* lineNode = pod->getLineNode();
+        auto *lineNode = pod->getLineNode();
         lineNode->clear();
         color_hover_edge(hover_edge_id, pod, mesh);
     }
@@ -203,6 +205,15 @@ private:
         lineNode->add_line(v_0, v_1);
         lineNode->add_color(green);
         lineNode->set_line_width(5);
+    }
+
+    template <typename T>
+    void simple_hover_color(int entityId, BaseObjectData *bod, T *meshObject) {
+        if (PluginFunctions::getObject(bod->id(), meshObject)) {
+            auto *pod = getOrMakePoD(bod->id());
+            auto *mesh = meshObject->mesh();
+            color_hover_edge(entityId, pod, mesh);
+        }
     }
 };
 #endif
