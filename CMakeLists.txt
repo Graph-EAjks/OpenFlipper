@@ -23,9 +23,6 @@ endif()
 # Select appropriate C++ version.
 set(OPENFLIPPER_CXX_STANDARD 11 CACHE STRING "C++ standard version to use")
 set_property(CACHE OPENFLIPPER_CXX_STANDARD PROPERTY STRINGS 11 14 17 20 23)
-set(CMAKE_CXX_STANDARD ${OPENFLIPPER_CXX_STANDARD})
-set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
-set(CMAKE_CXX_EXTENSIONS FALSE)
 
 # ACG Environment default settings
 # This is ugly but currently we need to work around the default installed on debian
@@ -113,6 +110,8 @@ endif()
 # Qt setup
 include(VCIQt)
 
+
+
 set(QT_REQUIRED_PACKAGES
   Core
   Widgets
@@ -141,6 +140,18 @@ set(QT6_REQUIRED_PACKAGES
   )
 
 vci_qt ()
+
+# Force a minimal cxx standard for qt6 and higher
+if ( "${QT_VERSION_MAJOR}" GREATER_EQUAL "6" )
+  if ( ${OPENFLIPPER_CXX_STANDARD} LESS 17 )
+     message("QT6 requires CXX Standard to be 17 or higher. Setting it to 17 in OPENFLIPPER_CXX_STANDARD")
+     set(OPENFLIPPER_CXX_STANDARD 17)
+  endif()
+endif()
+
+set(CMAKE_CXX_STANDARD ${OPENFLIPPER_CXX_STANDARD})
+set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
+set(CMAKE_CXX_EXTENSIONS FALSE)
 
 if (NOT QT_FOUND)
   message(FATAL_ERROR "Could not find any QT Version. Please specify QT_INSTALL_PATH (path to bin and include dir) to build with QT. Note that this error is also shown if not all required qt modules were found.")
