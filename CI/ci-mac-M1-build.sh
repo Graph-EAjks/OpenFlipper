@@ -5,6 +5,8 @@ PATH=$PATH:/opt/homebrew/bin:/opt/local/bin
 export PATH
 
 
+export LD_LIBRARY_PAT=/opt/homebrew/lib:/opt/local/lib
+
 # Script abort on error
 set -e
 
