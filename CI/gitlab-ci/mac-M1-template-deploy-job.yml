@@ -1,0 +1,23 @@
+#-----------  Job Informations:
+# Type:       Deploy
+# OS:         Apple
+
+Deploy:Mac-M1:
+    stage: Deploy
+    only:
+      - master
+      - unstable
+    script: "artifacts/CI/ci-mac-M1-deploy.sh"
+    variables:
+      GIT_STRATEGY: none
+    tags:
+      - AppleM1
+    dependencies:
+      - Mac-M1
+    needs: [Mac-M1]
+    artifacts:
+      paths:
+        - build-release/*.dmg
+
+#
+#-----------

@@ -1265,6 +1265,70 @@ Deploy:Mac-Cpp11:
 #
 #-----------
 
+#-----------  Job Informations:
+# Type:       Build
+# OS:         Apple
+
+Mac-M1:
+    stage: Build
+    script: "CI/ci-mac-M1-build.sh"
+    variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+    tags:
+      - AppleM1
+    artifacts:
+      expire_in: 1 week
+      paths:
+        - artifacts
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Test
+# OS:         Apple
+
+Test:Mac-M1:
+    stage: Test
+    script: "artifacts/CI/ci-mac-M1-test.sh"
+    variables:
+      GIT_STRATEGY: none
+    tags:
+      - AppleM1
+    dependencies:
+      - Mac-M1
+    needs: [Mac-M1]
+    artifacts:
+      paths:
+        - build-release/Testing/Temporary/LastTest.log
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Deploy
+# OS:         Apple
+
+Deploy:Mac-M1:
+    stage: Deploy
+    only:
+      - master
+      - unstable
+    script: "artifacts/CI/ci-mac-M1-deploy.sh"
+    variables:
+      GIT_STRATEGY: none
+    tags:
+      - AppleM1
+    dependencies:
+      - Mac-M1
+    needs: [Mac-M1]
+    artifacts:
+      paths:
+        - build-release/*.dmg
+
+#
+#-----------
+
 ##############################
 #
 #    GENERAL JOBS

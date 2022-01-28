@@ -1,0 +1,5 @@
+{mac-M1-template-build-job.yml}
+
+{mac-M1-template-test-job.yml}
+
+{mac-M1-template-deploy-job.yml}

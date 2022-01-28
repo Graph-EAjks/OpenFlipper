@@ -1,0 +1,18 @@
+#-----------  Job Informations:
+# Type:       Build
+# OS:         Apple
+
+Mac-M1:
+    stage: Build
+    script: "CI/ci-mac-M1-build.sh"
+    variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+    tags:
+      - AppleM1
+    artifacts:
+      expire_in: 1 week
+      paths:
+        - artifacts
+
+#
+#-----------

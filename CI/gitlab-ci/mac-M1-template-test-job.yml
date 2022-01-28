@@ -1,0 +1,20 @@
+#-----------  Job Informations:
+# Type:       Test
+# OS:         Apple
+
+Test:Mac-M1:
+    stage: Test
+    script: "artifacts/CI/ci-mac-M1-test.sh"
+    variables:
+      GIT_STRATEGY: none
+    tags:
+      - AppleM1
+    dependencies:
+      - Mac-M1
+    needs: [Mac-M1]
+    artifacts:
+      paths:
+        - build-release/Testing/Temporary/LastTest.log
+
+#
+#-----------
