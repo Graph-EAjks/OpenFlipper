@@ -141,11 +141,12 @@ set(QT6_REQUIRED_PACKAGES
 
 vci_qt ()
 
+
 # Force a minimal cxx standard for qt6 and higher
 if ( "${QT_VERSION_MAJOR}" GREATER_EQUAL "6" )
   if ( ${OPENFLIPPER_CXX_STANDARD} LESS 17 )
      message("QT6 requires CXX Standard to be 17 or higher. Setting it to 17 in OPENFLIPPER_CXX_STANDARD")
-     set(OPENFLIPPER_CXX_STANDARD 17)
+     set(OPENFLIPPER_CXX_STANDARD 17 CACHE STRING "C++ standard version to use" FORCE)
   endif()
 endif()
 
