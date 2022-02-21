@@ -1,7 +1,8 @@
 #!/bin/bash
 
 
-PATH=/opt/homebrew/bin:/opt/local/bin:$PATH
+PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+#PATH=/opt/homebrew/bin:/opt/local/bin:$PATH
 export PATH
 
 
