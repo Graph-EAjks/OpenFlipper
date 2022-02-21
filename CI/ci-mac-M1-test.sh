@@ -38,6 +38,13 @@ cmake ../ -DQT_VERSION=6
 # Test
 ########################################
 
+echo "================================"
+echo "Current Path is:"
+echo "================================"
+echo "$PATH"
+echo ""
+
+
 # Run tests
 cd tests
 /opt/homebrew/bin/python3 run_tests.py
