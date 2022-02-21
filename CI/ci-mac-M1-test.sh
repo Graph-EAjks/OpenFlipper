@@ -1,6 +1,6 @@
 # leave artifacts subdirectory and copy files to toplevel
 
-PATH=$PATH:/opt/homebrew/bin:/opt/local/bin
+PATH=/opt/homebrew/bin:/opt/local/bin:$PATH
 export PATH
 
 export LD_LIBRARY_PATH=/opt/homebrew/lib:/opt/local/lib
