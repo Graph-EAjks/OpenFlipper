@@ -22,6 +22,12 @@ echo "This is an Mac M1 build"
 
 cmake --version
 
+echo current Path variable:
+echo "$PATH"
+echo ""
+
+
+
 echo -e "${OUTPUT}"
 echo ""
 echo "======================================================================"
