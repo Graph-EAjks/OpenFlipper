@@ -3,6 +3,8 @@
 PATH=$PATH:/opt/homebrew/bin:/opt/local/bin
 export PATH
 
+export LD_LIBRARY_PATH=/opt/homebrew/lib:/opt/local/lib
+
 rsync -a ./artifacts ./
 rm -rf artifacts
 
@@ -39,10 +41,18 @@ cmake ../ -DQT_VERSION=6
 ########################################
 
 echo "================================"
-echo "Current Path is:"
+echo "Current Paths are:"
 echo "================================"
+echo ""
+echo "Current PATH variable:"
 echo "$PATH"
 echo ""
+
+echo "Current LD_LIBRARY_PATH variable:"
+echo "$LD_LIBRARY_PATH"
+echo ""
+
+
 
 
 # Run tests

@@ -5,7 +5,7 @@ PATH=$PATH:/opt/homebrew/bin:/opt/local/bin
 export PATH
 
 
-export LD_LIBRARY_PAT=/opt/homebrew/lib:/opt/local/lib
+export LD_LIBRARY_PATH=/opt/homebrew/lib:/opt/local/lib
 
 # Script abort on error
 set -e
@@ -22,10 +22,13 @@ echo "This is an Mac M1 build"
 
 cmake --version
 
-echo current Path variable:
+echo "Current PATH variable:"
 echo "$PATH"
 echo ""
 
+echo "Current LD_LIBRARY_PATH variable:"
+echo "$LD_LIBRARY_PATH"
+echo ""
 
 
 echo -e "${OUTPUT}"
