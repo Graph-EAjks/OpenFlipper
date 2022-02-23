@@ -249,3 +249,6 @@
 [submodule "Plugin-InfoPolyLine"]
 	path = Plugin-InfoPolyLine
 	url = ../../OpenFlipper-Free/Plugin-InfoPolyLine.git
+[submodule "Plugin-LaserCutLayouts"]
+	path = Plugin-LaserCutLayouts
+	url = git@gitlab.vci.rwth-aachen.de:nspeetzen/Plugin-LaserCutLayouts.git
