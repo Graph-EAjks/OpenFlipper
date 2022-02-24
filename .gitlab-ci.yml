@@ -320,9 +320,6 @@ Test:Mac-Cpp11:
 
 Deploy:Mac-Cpp11:
     stage: Deploy
-    only:
-      - master
-      - unstable
     script: "artifacts/CI/ci-mac-deploy.sh"
     variables:
       GIT_STRATEGY: none
