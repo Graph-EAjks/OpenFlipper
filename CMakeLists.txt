@@ -52,7 +52,7 @@ endif()
 
 
 project (OpenFlipper
-         VERSION 5.0.1
+         VERSION 5.1.0
          LANGUAGES C CXX )
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
