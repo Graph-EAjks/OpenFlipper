@@ -177,7 +177,7 @@ if ( WIN32 )
   endif()
 endif()
 
-set (OF_MAX_QT_VERSION "6.2.2")
+set (OF_MAX_QT_VERSION "6.3.0")
 
 if (${Qt_VERSION_STRING} STRGREATER ${OF_MAX_QT_VERSION})
   message(WARNING "Detected QT Version ( ${Qt_VERSION_STRING}  ) higher than ${OF_MAX_QT_VERSION}!\n" "OpenFlipper has not been tested with this QT Version.")
