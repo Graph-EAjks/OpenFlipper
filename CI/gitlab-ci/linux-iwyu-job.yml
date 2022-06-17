@@ -19,7 +19,6 @@ iwyu-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
-    - stretch
   artifacts:
     expire_in: 1 week
     paths:

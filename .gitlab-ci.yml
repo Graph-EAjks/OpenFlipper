@@ -51,7 +51,7 @@ build-debug-gcc-cpp11-qt5.15.1:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
   artifacts:
     expire_in: 1 week
     paths:
@@ -70,7 +70,7 @@ build-debug-gcc-cpp11-qt5.15.1-nopython:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
   artifacts:
     expire_in: 1 week
     paths:
@@ -98,7 +98,7 @@ test-debug-gcc-cpp11-qt5.15.1:
   script: "CI/ci-linux-test.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
     - MultiThreads
   dependencies: [build-debug-gcc-cpp11-qt5.15.1]
   needs: [build-debug-gcc-cpp11-qt5.15.1]
@@ -150,7 +150,7 @@ build-release-gcc-cpp11-qt5.15.1:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
   artifacts:
     expire_in: 1 week
     paths:
@@ -169,7 +169,7 @@ build-release-gcc-cpp11-qt5.15.1-nopython:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
   artifacts:
     expire_in: 1 week
     paths:
@@ -197,7 +197,7 @@ test-release-gcc-cpp11-qt5.15.1:
   script: "CI/ci-linux-test.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
     - MultiThreads
   dependencies: [build-release-gcc-cpp11-qt5.15.1]
   needs: [build-release-gcc-cpp11-qt5.15.1]
@@ -248,7 +248,7 @@ build-debug-clang-cpp11-qt5.15.1:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
   artifacts:
     expire_in: 1 week
     paths:
@@ -267,7 +267,7 @@ build-debug-clang-cpp11-qt5.15.1-nopython:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
   artifacts:
     expire_in: 1 week
     paths:
@@ -295,7 +295,7 @@ test-debug-clang-cpp11-qt5.15.1:
   script: "CI/ci-linux-test.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
     - MultiThreads
   dependencies: [build-debug-clang-cpp11-qt5.15.1]
   needs: [build-debug-clang-cpp11-qt5.15.1]
@@ -347,7 +347,7 @@ build-release-clang-cpp11-qt5.15.1:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
   artifacts:
     expire_in: 1 week
     paths:
@@ -366,7 +366,7 @@ build-release-clang-cpp11-qt5.15.1-nopython:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
   artifacts:
     expire_in: 1 week
     paths:
@@ -394,7 +394,7 @@ test-release-clang-cpp11-qt5.15.1:
   script: "CI/ci-linux-test.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
     - MultiThreads
   dependencies: [build-release-clang-cpp11-qt5.15.1]
   needs: [build-release-clang-cpp11-qt5.15.1]
@@ -447,7 +447,7 @@ build-debug-gcc-cpp17-qt6.2.1:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
   artifacts:
     expire_in: 1 week
     paths:
@@ -466,7 +466,7 @@ build-debug-gcc-cpp17-qt6.2.1-nopython:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
   artifacts:
     expire_in: 1 week
     paths:
@@ -494,7 +494,7 @@ test-debug-gcc-cpp17-qt6.2.1:
   script: "CI/ci-linux-test.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
     - MultiThreads
   dependencies: [build-debug-gcc-cpp17-qt6.2.1]
   needs: [build-debug-gcc-cpp17-qt6.2.1]
@@ -546,7 +546,7 @@ build-release-gcc-cpp17-qt6.2.1:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
   artifacts:
     expire_in: 1 week
     paths:
@@ -565,7 +565,7 @@ build-release-gcc-cpp17-qt6.2.1-nopython:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
   artifacts:
     expire_in: 1 week
     paths:
@@ -593,7 +593,7 @@ test-release-gcc-cpp17-qt6.2.1:
   script: "CI/ci-linux-test.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
     - MultiThreads
   dependencies: [build-release-gcc-cpp17-qt6.2.1]
   needs: [build-release-gcc-cpp17-qt6.2.1]
@@ -644,7 +644,7 @@ build-debug-gcc-cpp17-qt6.3.0:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
   artifacts:
     expire_in: 1 week
     paths:
@@ -663,7 +663,7 @@ build-debug-gcc-cpp17-qt6.3.0-nopython:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
   artifacts:
     expire_in: 1 week
     paths:
@@ -691,7 +691,7 @@ test-debug-gcc-cpp17-qt6.3.0:
   script: "CI/ci-linux-test.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
     - MultiThreads
   dependencies: [build-debug-gcc-cpp17-qt6.3.0]
   needs: [build-debug-gcc-cpp17-qt6.3.0]
@@ -743,7 +743,7 @@ build-release-gcc-cpp17-qt6.3.0:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
   artifacts:
     expire_in: 1 week
     paths:
@@ -762,7 +762,7 @@ build-release-gcc-cpp17-qt6.3.0-nopython:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
   artifacts:
     expire_in: 1 week
     paths:
@@ -790,7 +790,7 @@ test-release-gcc-cpp17-qt6.3.0:
   script: "CI/ci-linux-test.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
     - MultiThreads
   dependencies: [build-release-gcc-cpp17-qt6.3.0]
   needs: [build-release-gcc-cpp17-qt6.3.0]
@@ -841,7 +841,7 @@ build-debug-clang-cpp17-qt6.3.0:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
   artifacts:
     expire_in: 1 week
     paths:
@@ -860,7 +860,7 @@ build-debug-clang-cpp17-qt6.3.0-nopython:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
   artifacts:
     expire_in: 1 week
     paths:
@@ -888,7 +888,7 @@ test-debug-clang-cpp17-qt6.3.0:
   script: "CI/ci-linux-test.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
     - MultiThreads
   dependencies: [build-debug-clang-cpp17-qt6.3.0]
   needs: [build-debug-clang-cpp17-qt6.3.0]
@@ -940,7 +940,7 @@ build-release-clang-cpp17-qt6.3.0:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
   artifacts:
     expire_in: 1 week
     paths:
@@ -959,7 +959,7 @@ build-release-clang-cpp17-qt6.3.0-nopython:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
   artifacts:
     expire_in: 1 week
     paths:
@@ -987,7 +987,7 @@ test-release-clang-cpp17-qt6.3.0:
   script: "CI/ci-linux-test.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
     - MultiThreads
   dependencies: [build-release-clang-cpp17-qt6.3.0]
   needs: [build-release-clang-cpp17-qt6.3.0]
@@ -1043,7 +1043,6 @@ iwyu-release-clang-cpp11-qt5.13.0:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
-    - stretch
   artifacts:
     expire_in: 1 week
     paths:
@@ -1061,7 +1060,7 @@ cppcheck:
      GIT_SUBMODULE_STRATEGY: recursive
   tags:
     - Linux
-    - stretch
+    - Bullseye
     - MultiThreads
   artifacts:
     paths:
@@ -1539,7 +1538,7 @@ Doc-publish:
    script: "CI/ci-doc.sh"
    tags:
       - Linux
-      - stretch
+      - Bullseye
    dependencies: []
    variables:
       GIT_SUBMODULE_STRATEGY: recursive
@@ -1555,7 +1554,6 @@ Sources:
    script: "CI/ci-source.sh"
    tags:
       - Linux
-      - stretch
    dependencies: []
    variables:
       GIT_SUBMODULE_STRATEGY: recursive
