@@ -17,7 +17,7 @@ test-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}:
   script: "CI/ci-linux-test.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
     - MultiThreads
   dependencies: [build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}]
   needs: [build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}]

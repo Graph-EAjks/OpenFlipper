@@ -12,7 +12,7 @@ Doc-publish:
    script: "CI/ci-doc.sh"
    tags:
       - Linux
-      - stretch
+      - Bullseye
    dependencies: []
    variables:
       GIT_SUBMODULE_STRATEGY: recursive
@@ -28,7 +28,6 @@ Sources:
    script: "CI/ci-source.sh"
    tags:
       - Linux
-      - stretch
    dependencies: []
    variables:
       GIT_SUBMODULE_STRATEGY: recursive

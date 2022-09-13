@@ -1,0 +1,8 @@
+{
+  "cmake.configureOnOpen": false,
+
+  "cmake.configureSettings": {
+    "QT_INSTALL_PATH": "/usr/local/Qt/6.3.0/gcc_64",
+    "QT_VERSION": 6
+  }
+}

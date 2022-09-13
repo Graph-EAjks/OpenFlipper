@@ -17,7 +17,7 @@ build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
   artifacts:
     expire_in: 1 week
     paths:
@@ -36,7 +36,7 @@ build-{{BUILDTYPE}}-{{COMPILER}}-{{LANGUAGE}}-{{QT_VERSION}}-nopython:
   script: "CI/ci-linux-build.sh"
   tags:
     - Linux
-    - stretch
+    - Bullseye
   artifacts:
     expire_in: 1 week
     paths:
