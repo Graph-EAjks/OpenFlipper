@@ -26,9 +26,9 @@ set_property(CACHE OPENFLIPPER_CXX_STANDARD PROPERTY STRINGS 11 14 17 20 23)
 
 # ACG Environment default settings
 # This is ugly but currently we need to work around the default installed on debian
-if ( EXISTS /ACG/acgdev/gcc-x86_64/qt-5.15.1/5.15.1/gcc_64 )
+if ( EXISTS /ACG/acgdev/gcc-x86_64/qt/6.3.0/gcc_64 )
   # Default to this install path for QT%_INSTALL_DIR
-  set (QT_INSTALL_PATH /ACG/acgdev/gcc-x86_64/qt-5.15.1/5.15.1/gcc_64/ CACHE PATH "Qt5 install path set for ACG environment using QT 5.15.1" )
+  set (QT_INSTALL_PATH /ACG/acgdev/gcc-x86_64/qt/6.3.0/gcc_64/ CACHE PATH "Qt6 install path set for ACG environment using QT 6.3.0" )
 endif()
 
 if ( WIN32 )
