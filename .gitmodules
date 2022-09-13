@@ -252,3 +252,4 @@
 [submodule "Plugin-LaserCutLayouts"]
 	path = Plugin-LaserCutLayouts
 	url = ../../nspeetzen/Plugin-LaserCutLayouts.git
+	branch = main
