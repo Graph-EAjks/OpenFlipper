@@ -31,6 +31,7 @@ variables:
 #
 ##############################
 
+
 #-----------  Job Informations:
 # Type:       Build: debug
 # OS:         Linux
@@ -54,7 +55,7 @@ build-debug-gcc-cpp11-qt5.15.1:
   artifacts:
     expire_in: 1 week
     paths:
-      - build-debug-gcc-cpp11-qt5.15.1/
+       - build-debug-gcc-cpp11-qt5.15.1/
 
 build-debug-gcc-cpp11-qt5.15.1-nopython:
   stage: Build
@@ -64,7 +65,7 @@ build-debug-gcc-cpp11-qt5.15.1-nopython:
     LANGUAGE: "cpp11"
     QTVERSION: "qt5.15.1"
     BUILDTYPE: "debug"
-    PYTHON: "no"
+    PYTHON: "no" 
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
@@ -73,7 +74,7 @@ build-debug-gcc-cpp11-qt5.15.1-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-      - build-debug-gcc-cpp11-qt5.15.1-nopython/
+       - build-debug-gcc-cpp11-qt5.15.1-nopython/
 
 #
 #-----------
@@ -90,7 +91,7 @@ test-debug-gcc-cpp11-qt5.15.1:
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "gcc"
-    LANGUAGE: "cpp11"
+    LANGUAGE:  "cpp11"
     QTVERSION: "qt5.15.1"
     BUILDTYPE: "debug"
     GIT_SUBMODULE_STRATEGY: recursive
@@ -103,10 +104,10 @@ test-debug-gcc-cpp11-qt5.15.1:
   needs: [build-debug-gcc-cpp11-qt5.15.1]
   artifacts:
     paths:
-      - build-debug-gcc-cpp11-qt5.15.1/Testing/Temporary/LastTest.log
-    reports:
-      junit: report.xml
-
+       - build-debug-gcc-cpp11-qt5.15.1/Testing/Temporary/LastTest.log
+    reports: 
+       junit: report.xml
+  
 # Disabled due to issues with tests requiring python to work
 #test-debug-gcc-cpp11-qt5.15.1-{{ISO_TAG}}-nopython:
 #  stage: Test
@@ -153,7 +154,7 @@ build-release-gcc-cpp11-qt5.15.1:
   artifacts:
     expire_in: 1 week
     paths:
-      - build-release-gcc-cpp11-qt5.15.1/
+       - build-release-gcc-cpp11-qt5.15.1/
 
 build-release-gcc-cpp11-qt5.15.1-nopython:
   stage: Build
@@ -163,7 +164,7 @@ build-release-gcc-cpp11-qt5.15.1-nopython:
     LANGUAGE: "cpp11"
     QTVERSION: "qt5.15.1"
     BUILDTYPE: "release"
-    PYTHON: "no"
+    PYTHON: "no" 
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
@@ -172,7 +173,7 @@ build-release-gcc-cpp11-qt5.15.1-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-      - build-release-gcc-cpp11-qt5.15.1-nopython/
+       - build-release-gcc-cpp11-qt5.15.1-nopython/
 
 #
 #-----------
@@ -189,7 +190,7 @@ test-release-gcc-cpp11-qt5.15.1:
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "gcc"
-    LANGUAGE: "cpp11"
+    LANGUAGE:  "cpp11"
     QTVERSION: "qt5.15.1"
     BUILDTYPE: "release"
     GIT_SUBMODULE_STRATEGY: recursive
@@ -202,10 +203,10 @@ test-release-gcc-cpp11-qt5.15.1:
   needs: [build-release-gcc-cpp11-qt5.15.1]
   artifacts:
     paths:
-      - build-release-gcc-cpp11-qt5.15.1/Testing/Temporary/LastTest.log
-    reports:
-      junit: report.xml
-
+       - build-release-gcc-cpp11-qt5.15.1/Testing/Temporary/LastTest.log
+    reports: 
+       junit: report.xml
+  
 # Disabled due to issues with tests requiring python to work
 #test-release-gcc-cpp11-qt5.15.1-{{ISO_TAG}}-nopython:
 #  stage: Test
@@ -251,7 +252,7 @@ build-debug-clang-cpp11-qt5.15.1:
   artifacts:
     expire_in: 1 week
     paths:
-      - build-debug-clang-cpp11-qt5.15.1/
+       - build-debug-clang-cpp11-qt5.15.1/
 
 build-debug-clang-cpp11-qt5.15.1-nopython:
   stage: Build
@@ -261,7 +262,7 @@ build-debug-clang-cpp11-qt5.15.1-nopython:
     LANGUAGE: "cpp11"
     QTVERSION: "qt5.15.1"
     BUILDTYPE: "debug"
-    PYTHON: "no"
+    PYTHON: "no" 
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
@@ -270,7 +271,7 @@ build-debug-clang-cpp11-qt5.15.1-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-      - build-debug-clang-cpp11-qt5.15.1-nopython/
+       - build-debug-clang-cpp11-qt5.15.1-nopython/
 
 #
 #-----------
@@ -287,7 +288,7 @@ test-debug-clang-cpp11-qt5.15.1:
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "clang"
-    LANGUAGE: "cpp11"
+    LANGUAGE:  "cpp11"
     QTVERSION: "qt5.15.1"
     BUILDTYPE: "debug"
     GIT_SUBMODULE_STRATEGY: recursive
@@ -300,10 +301,10 @@ test-debug-clang-cpp11-qt5.15.1:
   needs: [build-debug-clang-cpp11-qt5.15.1]
   artifacts:
     paths:
-      - build-debug-clang-cpp11-qt5.15.1/Testing/Temporary/LastTest.log
-    reports:
-      junit: report.xml
-
+       - build-debug-clang-cpp11-qt5.15.1/Testing/Temporary/LastTest.log
+    reports: 
+       junit: report.xml
+  
 # Disabled due to issues with tests requiring python to work
 #test-debug-clang-cpp11-qt5.15.1-{{ISO_TAG}}-nopython:
 #  stage: Test
@@ -350,7 +351,7 @@ build-release-clang-cpp11-qt5.15.1:
   artifacts:
     expire_in: 1 week
     paths:
-      - build-release-clang-cpp11-qt5.15.1/
+       - build-release-clang-cpp11-qt5.15.1/
 
 build-release-clang-cpp11-qt5.15.1-nopython:
   stage: Build
@@ -360,7 +361,7 @@ build-release-clang-cpp11-qt5.15.1-nopython:
     LANGUAGE: "cpp11"
     QTVERSION: "qt5.15.1"
     BUILDTYPE: "release"
-    PYTHON: "no"
+    PYTHON: "no" 
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
@@ -369,7 +370,7 @@ build-release-clang-cpp11-qt5.15.1-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-      - build-release-clang-cpp11-qt5.15.1-nopython/
+       - build-release-clang-cpp11-qt5.15.1-nopython/
 
 #
 #-----------
@@ -386,7 +387,7 @@ test-release-clang-cpp11-qt5.15.1:
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "clang"
-    LANGUAGE: "cpp11"
+    LANGUAGE:  "cpp11"
     QTVERSION: "qt5.15.1"
     BUILDTYPE: "release"
     GIT_SUBMODULE_STRATEGY: recursive
@@ -399,10 +400,10 @@ test-release-clang-cpp11-qt5.15.1:
   needs: [build-release-clang-cpp11-qt5.15.1]
   artifacts:
     paths:
-      - build-release-clang-cpp11-qt5.15.1/Testing/Temporary/LastTest.log
-    reports:
-      junit: report.xml
-
+       - build-release-clang-cpp11-qt5.15.1/Testing/Temporary/LastTest.log
+    reports: 
+       junit: report.xml
+  
 # Disabled due to issues with tests requiring python to work
 #test-release-clang-cpp11-qt5.15.1-{{ISO_TAG}}-nopython:
 #  stage: Test
@@ -450,7 +451,7 @@ build-debug-gcc-cpp17-qt6.2.1:
   artifacts:
     expire_in: 1 week
     paths:
-      - build-debug-gcc-cpp17-qt6.2.1/
+       - build-debug-gcc-cpp17-qt6.2.1/
 
 build-debug-gcc-cpp17-qt6.2.1-nopython:
   stage: Build
@@ -460,7 +461,7 @@ build-debug-gcc-cpp17-qt6.2.1-nopython:
     LANGUAGE: "cpp17"
     QTVERSION: "qt6.2.1"
     BUILDTYPE: "debug"
-    PYTHON: "no"
+    PYTHON: "no" 
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
@@ -469,7 +470,7 @@ build-debug-gcc-cpp17-qt6.2.1-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-      - build-debug-gcc-cpp17-qt6.2.1-nopython/
+       - build-debug-gcc-cpp17-qt6.2.1-nopython/
 
 #
 #-----------
@@ -486,7 +487,7 @@ test-debug-gcc-cpp17-qt6.2.1:
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "gcc"
-    LANGUAGE: "cpp17"
+    LANGUAGE:  "cpp17"
     QTVERSION: "qt6.2.1"
     BUILDTYPE: "debug"
     GIT_SUBMODULE_STRATEGY: recursive
@@ -499,10 +500,10 @@ test-debug-gcc-cpp17-qt6.2.1:
   needs: [build-debug-gcc-cpp17-qt6.2.1]
   artifacts:
     paths:
-      - build-debug-gcc-cpp17-qt6.2.1/Testing/Temporary/LastTest.log
-    reports:
-      junit: report.xml
-
+       - build-debug-gcc-cpp17-qt6.2.1/Testing/Temporary/LastTest.log
+    reports: 
+       junit: report.xml
+  
 # Disabled due to issues with tests requiring python to work
 #test-debug-gcc-cpp17-qt6.2.1-{{ISO_TAG}}-nopython:
 #  stage: Test
@@ -549,7 +550,7 @@ build-release-gcc-cpp17-qt6.2.1:
   artifacts:
     expire_in: 1 week
     paths:
-      - build-release-gcc-cpp17-qt6.2.1/
+       - build-release-gcc-cpp17-qt6.2.1/
 
 build-release-gcc-cpp17-qt6.2.1-nopython:
   stage: Build
@@ -559,7 +560,7 @@ build-release-gcc-cpp17-qt6.2.1-nopython:
     LANGUAGE: "cpp17"
     QTVERSION: "qt6.2.1"
     BUILDTYPE: "release"
-    PYTHON: "no"
+    PYTHON: "no" 
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
@@ -568,7 +569,7 @@ build-release-gcc-cpp17-qt6.2.1-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-      - build-release-gcc-cpp17-qt6.2.1-nopython/
+       - build-release-gcc-cpp17-qt6.2.1-nopython/
 
 #
 #-----------
@@ -585,7 +586,7 @@ test-release-gcc-cpp17-qt6.2.1:
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "gcc"
-    LANGUAGE: "cpp17"
+    LANGUAGE:  "cpp17"
     QTVERSION: "qt6.2.1"
     BUILDTYPE: "release"
     GIT_SUBMODULE_STRATEGY: recursive
@@ -598,10 +599,10 @@ test-release-gcc-cpp17-qt6.2.1:
   needs: [build-release-gcc-cpp17-qt6.2.1]
   artifacts:
     paths:
-      - build-release-gcc-cpp17-qt6.2.1/Testing/Temporary/LastTest.log
-    reports:
-      junit: report.xml
-
+       - build-release-gcc-cpp17-qt6.2.1/Testing/Temporary/LastTest.log
+    reports: 
+       junit: report.xml
+  
 # Disabled due to issues with tests requiring python to work
 #test-release-gcc-cpp17-qt6.2.1-{{ISO_TAG}}-nopython:
 #  stage: Test
@@ -647,7 +648,7 @@ build-debug-gcc-cpp17-qt6.3.0:
   artifacts:
     expire_in: 1 week
     paths:
-      - build-debug-gcc-cpp17-qt6.3.0/
+       - build-debug-gcc-cpp17-qt6.3.0/
 
 build-debug-gcc-cpp17-qt6.3.0-nopython:
   stage: Build
@@ -657,7 +658,7 @@ build-debug-gcc-cpp17-qt6.3.0-nopython:
     LANGUAGE: "cpp17"
     QTVERSION: "qt6.3.0"
     BUILDTYPE: "debug"
-    PYTHON: "no"
+    PYTHON: "no" 
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
@@ -666,7 +667,7 @@ build-debug-gcc-cpp17-qt6.3.0-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-      - build-debug-gcc-cpp17-qt6.3.0-nopython/
+       - build-debug-gcc-cpp17-qt6.3.0-nopython/
 
 #
 #-----------
@@ -683,7 +684,7 @@ test-debug-gcc-cpp17-qt6.3.0:
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "gcc"
-    LANGUAGE: "cpp17"
+    LANGUAGE:  "cpp17"
     QTVERSION: "qt6.3.0"
     BUILDTYPE: "debug"
     GIT_SUBMODULE_STRATEGY: recursive
@@ -696,10 +697,10 @@ test-debug-gcc-cpp17-qt6.3.0:
   needs: [build-debug-gcc-cpp17-qt6.3.0]
   artifacts:
     paths:
-      - build-debug-gcc-cpp17-qt6.3.0/Testing/Temporary/LastTest.log
-    reports:
-      junit: report.xml
-
+       - build-debug-gcc-cpp17-qt6.3.0/Testing/Temporary/LastTest.log
+    reports: 
+       junit: report.xml
+  
 # Disabled due to issues with tests requiring python to work
 #test-debug-gcc-cpp17-qt6.3.0-{{ISO_TAG}}-nopython:
 #  stage: Test
@@ -746,7 +747,7 @@ build-release-gcc-cpp17-qt6.3.0:
   artifacts:
     expire_in: 1 week
     paths:
-      - build-release-gcc-cpp17-qt6.3.0/
+       - build-release-gcc-cpp17-qt6.3.0/
 
 build-release-gcc-cpp17-qt6.3.0-nopython:
   stage: Build
@@ -756,7 +757,7 @@ build-release-gcc-cpp17-qt6.3.0-nopython:
     LANGUAGE: "cpp17"
     QTVERSION: "qt6.3.0"
     BUILDTYPE: "release"
-    PYTHON: "no"
+    PYTHON: "no" 
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
@@ -765,7 +766,7 @@ build-release-gcc-cpp17-qt6.3.0-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-      - build-release-gcc-cpp17-qt6.3.0-nopython/
+       - build-release-gcc-cpp17-qt6.3.0-nopython/
 
 #
 #-----------
@@ -782,7 +783,7 @@ test-release-gcc-cpp17-qt6.3.0:
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "gcc"
-    LANGUAGE: "cpp17"
+    LANGUAGE:  "cpp17"
     QTVERSION: "qt6.3.0"
     BUILDTYPE: "release"
     GIT_SUBMODULE_STRATEGY: recursive
@@ -795,10 +796,10 @@ test-release-gcc-cpp17-qt6.3.0:
   needs: [build-release-gcc-cpp17-qt6.3.0]
   artifacts:
     paths:
-      - build-release-gcc-cpp17-qt6.3.0/Testing/Temporary/LastTest.log
-    reports:
-      junit: report.xml
-
+       - build-release-gcc-cpp17-qt6.3.0/Testing/Temporary/LastTest.log
+    reports: 
+       junit: report.xml
+  
 # Disabled due to issues with tests requiring python to work
 #test-release-gcc-cpp17-qt6.3.0-{{ISO_TAG}}-nopython:
 #  stage: Test
@@ -844,7 +845,7 @@ build-debug-clang-cpp17-qt6.3.0:
   artifacts:
     expire_in: 1 week
     paths:
-      - build-debug-clang-cpp17-qt6.3.0/
+       - build-debug-clang-cpp17-qt6.3.0/
 
 build-debug-clang-cpp17-qt6.3.0-nopython:
   stage: Build
@@ -854,7 +855,7 @@ build-debug-clang-cpp17-qt6.3.0-nopython:
     LANGUAGE: "cpp17"
     QTVERSION: "qt6.3.0"
     BUILDTYPE: "debug"
-    PYTHON: "no"
+    PYTHON: "no" 
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
@@ -863,7 +864,7 @@ build-debug-clang-cpp17-qt6.3.0-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-      - build-debug-clang-cpp17-qt6.3.0-nopython/
+       - build-debug-clang-cpp17-qt6.3.0-nopython/
 
 #
 #-----------
@@ -880,7 +881,7 @@ test-debug-clang-cpp17-qt6.3.0:
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "clang"
-    LANGUAGE: "cpp17"
+    LANGUAGE:  "cpp17"
     QTVERSION: "qt6.3.0"
     BUILDTYPE: "debug"
     GIT_SUBMODULE_STRATEGY: recursive
@@ -893,10 +894,10 @@ test-debug-clang-cpp17-qt6.3.0:
   needs: [build-debug-clang-cpp17-qt6.3.0]
   artifacts:
     paths:
-      - build-debug-clang-cpp17-qt6.3.0/Testing/Temporary/LastTest.log
-    reports:
-      junit: report.xml
-
+       - build-debug-clang-cpp17-qt6.3.0/Testing/Temporary/LastTest.log
+    reports: 
+       junit: report.xml
+  
 # Disabled due to issues with tests requiring python to work
 #test-debug-clang-cpp17-qt6.3.0-{{ISO_TAG}}-nopython:
 #  stage: Test
@@ -943,7 +944,7 @@ build-release-clang-cpp17-qt6.3.0:
   artifacts:
     expire_in: 1 week
     paths:
-      - build-release-clang-cpp17-qt6.3.0/
+       - build-release-clang-cpp17-qt6.3.0/
 
 build-release-clang-cpp17-qt6.3.0-nopython:
   stage: Build
@@ -953,7 +954,7 @@ build-release-clang-cpp17-qt6.3.0-nopython:
     LANGUAGE: "cpp17"
     QTVERSION: "qt6.3.0"
     BUILDTYPE: "release"
-    PYTHON: "no"
+    PYTHON: "no" 
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
   tags:
@@ -962,7 +963,7 @@ build-release-clang-cpp17-qt6.3.0-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-      - build-release-clang-cpp17-qt6.3.0-nopython/
+       - build-release-clang-cpp17-qt6.3.0-nopython/
 
 #
 #-----------
@@ -979,7 +980,7 @@ test-release-clang-cpp17-qt6.3.0:
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "clang"
-    LANGUAGE: "cpp17"
+    LANGUAGE:  "cpp17"
     QTVERSION: "qt6.3.0"
     BUILDTYPE: "release"
     GIT_SUBMODULE_STRATEGY: recursive
@@ -992,10 +993,10 @@ test-release-clang-cpp17-qt6.3.0:
   needs: [build-release-clang-cpp17-qt6.3.0]
   artifacts:
     paths:
-      - build-release-clang-cpp17-qt6.3.0/Testing/Temporary/LastTest.log
-    reports:
-      junit: report.xml
-
+       - build-release-clang-cpp17-qt6.3.0/Testing/Temporary/LastTest.log
+    reports: 
+       junit: report.xml
+  
 # Disabled due to issues with tests requiring python to work
 #test-release-clang-cpp17-qt6.3.0-{{ISO_TAG}}-nopython:
 #  stage: Test
@@ -1018,6 +1019,7 @@ test-release-clang-cpp17-qt6.3.0:
 
 #
 #-----------
+
 
 # include what you use
 #-----------  Job Informations:
@@ -1055,7 +1057,7 @@ cppcheck:
   stage: Build
   script: "CI/ci-cppcheck.sh"
   variables:
-    GIT_SUBMODULE_STRATEGY: recursive
+     GIT_SUBMODULE_STRATEGY: recursive
   tags:
     - Linux
     - Bullseye
@@ -1063,6 +1065,7 @@ cppcheck:
   artifacts:
     paths:
       - cppcheck.log
+
 
 ##############################
 #
@@ -1079,21 +1082,38 @@ cppcheck:
 # Compiler:   VS2019
 
 VS2019-Qt5.15.0-x64:
-  stage: Build
-  script: "CI\\ci-windows-build.bat"
-  variables:
-    GIT_SUBMODULE_STRATEGY: recursive
-    ARCHITECTURE: "x64"
-    QT_VERSION: "Qt5.15.0"
-    COMPILER: "VS2019"
-  tags:
-    - VS2019
-    - Qt5150
-    - Python39
-  artifacts:
-    expire_in: 1 week
-    paths:
-      - artifacts
+    stage: Build
+    script: "CI\\ci-windows-build.bat"
+    variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt5.15.0"
+      COMPILER: "VS2019"
+    tags:
+      - VS2019
+      - Qt5150
+      - Python39
+    artifacts:
+      expire_in: 1 week
+      paths:
+        - artifacts
+
+VS2019-Qt5.15.0-x64-NOPYTHON:
+    stage: Build
+    script: "CI\\ci-windows-build.bat"
+    variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt5.15.0"
+      COMPILER: "VS2019"
+      PYTHON: "no"
+    tags:
+      - VS2019
+      - Qt5150
+    artifacts:
+      expire_in: 1 week
+      paths:
+        - artifacts
 
 #
 #-----------
@@ -1107,24 +1127,44 @@ VS2019-Qt5.15.0-x64:
 # Compiler:   VS2019
 
 Test:VS2019-Qt5.15.0-x64:
-  stage: Test
-  script: "artifacts\\CI\\ci-windows-bootstrap.bat"
-  variables:
-    GIT_STRATEGY: none
-    ARCHITECTURE: "x64"
-    QT_VERSION: "Qt5.15.0"
-    COMPILER: "VS2019"
-    STAGE2SCRIPT: ci-windows-test.bat
-  tags:
-    - VS2019
-    - Qt5150
-    - Python39
-  dependencies:
-    - VS2019-Qt5.15.0-x64
-  needs: [VS2019-Qt5.15.0-x64]
-  artifacts:
-    paths:
-      - rel/Testing/Temporary/LastTest.log
+    stage: Test
+    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
+    variables:
+      GIT_STRATEGY: none
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt5.15.0"
+      COMPILER: "VS2019"
+      STAGE2SCRIPT: ci-windows-test.bat
+    tags:
+      - VS2019
+      - Qt5150
+      - Python39
+    dependencies:
+      - VS2019-Qt5.15.0-x64
+    needs: [VS2019-Qt5.15.0-x64]
+    artifacts:
+      paths:
+        - rel/Testing/Temporary/LastTest.log
+
+#Test:VS2019-Qt5.15.0-x64-NOPYTHON:
+#    stage: Test
+#    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
+#    variables:
+#      GIT_STRATEGY: none
+#      ARCHITECTURE: "x64"
+#      QT_VERSION: "Qt5.15.0"
+#      COMPILER: "VS2019"
+#      STAGE2SCRIPT: ci-windows-test.bat
+#      PYTHON: "no"
+#    tags:
+#      - VS2019
+#      - Qt5150
+#    dependencies:
+#      - VS2019-Qt5.15.0-x64-NOPYTHON
+#    needs: [VS2019-Qt5.15.0-x64-NOPYTHON]
+#    artifacts:
+#      paths:
+#        - rel/Testing/Temporary/LastTest.log
 
 #
 #-----------
@@ -1138,32 +1178,208 @@ Test:VS2019-Qt5.15.0-x64:
 # Compiler:   VS2019
 
 Deploy:VS2019-Qt5.15.0-x64:
-  stage: Deploy
-  only:
-    - master
-    - unstable
-  script: "artifacts\\CI\\ci-windows-bootstrap.bat"
-  variables:
-    GIT_STRATEGY: none
-    ARCHITECTURE: "x64"
-    QT_VERSION: "Qt5.15.0"
-    COMPILER: "VS2019"
-    STAGE2SCRIPT: ci-windows-deploy.bat
-  tags:
-    - VS2019
-    - Qt5150
-    - Python39
-  dependencies:
-    - VS2019-Qt5.15.0-x64
-  needs: [VS2019-Qt5.15.0-x64]
-  artifacts:
-    paths:
-      - rel/*.exe
+    stage: Deploy
+    only:
+      - master
+      - unstable
+    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
+    variables:
+      GIT_STRATEGY: none
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt5.15.0"
+      COMPILER: "VS2019"
+      STAGE2SCRIPT: ci-windows-deploy.bat
+    tags:
+      - VS2019
+      - Qt5150
+      - Python39
+    dependencies:
+      - VS2019-Qt5.15.0-x64
+    needs: [VS2019-Qt5.15.0-x64]
+    artifacts:
+      paths:
+        - rel/*.exe
+
+Deploy:VS2019-Qt5.15.0-x64-NOPYTHON:
+    stage: Deploy
+    only:
+      - master
+      - unstable
+    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
+    variables:
+      GIT_STRATEGY: none
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt5.15.0"
+      COMPILER: "VS2019"
+      STAGE2SCRIPT: ci-windows-deploy.bat
+      PYTHON: "no"
+    tags:
+      - VS2019
+      - Qt5150
+    dependencies:
+      - VS2019-Qt5.15.0-x64-NOPYTHON
+    needs: [VS2019-Qt5.15.0-x64-NOPYTHON]
+    artifacts:
+      paths:
+        - rel/*.exe
 
 #
 #-----------
 
+
+#-----------  Job Informations:
+# Type:       Build
+# OS:         Windows
+# Arch:       x64
+# QT Version: Qt5.14.2
+# QT Tag:     Qt5141
+# Compiler:   VS2017
+
+VS2017-Qt5.14.2-x64:
+    stage: Build
+    script: "CI\\ci-windows-build.bat"
+    variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt5.14.2"
+      COMPILER: "VS2017"
+    tags:
+      - VS2017
+      - Qt5141
+      - Python39
+    artifacts:
+      expire_in: 1 week
+      paths:
+        - artifacts
+
+VS2017-Qt5.14.2-x64-NOPYTHON:
+    stage: Build
+    script: "CI\\ci-windows-build.bat"
+    variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt5.14.2"
+      COMPILER: "VS2017"
+      PYTHON: "no"
+    tags:
+      - VS2017
+      - Qt5141
+    artifacts:
+      expire_in: 1 week
+      paths:
+        - artifacts
+
+#
 #-----------
+
+#-----------  Job Informations:
+# Type:       Test
+# OS:         Windows
+# Arch:       x64
+# QT Version: Qt5.14.2
+# QT Tag:     Qt5141
+# Compiler:   VS2017
+
+Test:VS2017-Qt5.14.2-x64:
+    stage: Test
+    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
+    variables:
+      GIT_STRATEGY: none
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt5.14.2"
+      COMPILER: "VS2017"
+      STAGE2SCRIPT: ci-windows-test.bat
+    tags:
+      - VS2017
+      - Qt5141
+      - Python39
+    dependencies:
+      - VS2017-Qt5.14.2-x64
+    needs: [VS2017-Qt5.14.2-x64]
+    artifacts:
+      paths:
+        - rel/Testing/Temporary/LastTest.log
+
+#Test:VS2017-Qt5.14.2-x64-NOPYTHON:
+#    stage: Test
+#    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
+#    variables:
+#      GIT_STRATEGY: none
+#      ARCHITECTURE: "x64"
+#      QT_VERSION: "Qt5.14.2"
+#      COMPILER: "VS2017"
+#      STAGE2SCRIPT: ci-windows-test.bat
+#      PYTHON: "no"
+#    tags:
+#      - VS2017
+#      - Qt5141
+#    dependencies:
+#      - VS2017-Qt5.14.2-x64-NOPYTHON
+#    needs: [VS2017-Qt5.14.2-x64-NOPYTHON]
+#    artifacts:
+#      paths:
+#        - rel/Testing/Temporary/LastTest.log
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Deploy
+# OS:         Windows
+# Arch:       x64
+# QT Version: Qt5.14.2
+# QT Tag:     Qt5141
+# Compiler:   VS2017
+
+Deploy:VS2017-Qt5.14.2-x64:
+    stage: Deploy
+    only:
+      - master
+      - unstable
+    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
+    variables:
+      GIT_STRATEGY: none
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt5.14.2"
+      COMPILER: "VS2017"
+      STAGE2SCRIPT: ci-windows-deploy.bat
+    tags:
+      - VS2017
+      - Qt5141
+      - Python39
+    dependencies:
+      - VS2017-Qt5.14.2-x64
+    needs: [VS2017-Qt5.14.2-x64]
+    artifacts:
+      paths:
+        - rel/*.exe
+
+Deploy:VS2017-Qt5.14.2-x64-NOPYTHON:
+    stage: Deploy
+    only:
+      - master
+      - unstable
+    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
+    variables:
+      GIT_STRATEGY: none
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt5.14.2"
+      COMPILER: "VS2017"
+      STAGE2SCRIPT: ci-windows-deploy.bat
+      PYTHON: "no"
+    tags:
+      - VS2017
+      - Qt5141
+    dependencies:
+      - VS2017-Qt5.14.2-x64-NOPYTHON
+    needs: [VS2017-Qt5.14.2-x64-NOPYTHON]
+    artifacts:
+      paths:
+        - rel/*.exe
+
+#
+#-----------
+
 
 ##############################
 #
@@ -1175,20 +1391,20 @@ Deploy:VS2019-Qt5.15.0-x64:
 # Type:       Build
 # OS:         Apple
 # QT Tag:     qt5113
-# Language:   Cpp11
+# Language:   cpp11
 
-Mac-Cpp11:
-  stage: Build
-  script: "CI/ci-mac-build.sh"
-  variables:
-    GIT_SUBMODULE_STRATEGY: recursive
-  tags:
-    - Apple
-    - qt5113
-  artifacts:
-    expire_in: 1 week
-    paths:
-      - artifacts
+Mac-cpp11:
+    stage: Build
+    script: "CI/ci-mac-build.sh"
+    variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+    tags:
+      - Apple
+      - qt5113
+    artifacts:
+      expire_in: 1 week
+      paths:
+        - artifacts
 
 #
 #-----------
@@ -1197,22 +1413,22 @@ Mac-Cpp11:
 # Type:       Test
 # OS:         Apple
 # QT Tag:     qt5113
-# Language:   Cpp11
+# Language:   cpp11
 
-Test:Mac-Cpp11:
-  stage: Test
-  script: "artifacts/CI/ci-mac-test.sh"
-  variables:
-    GIT_STRATEGY: none
-  tags:
-    - Apple
-    - qt5113
-  dependencies:
-    - Mac-Cpp11
-  needs: [Mac-Cpp11]
-  artifacts:
-    paths:
-      - build-release/Testing/Temporary/LastTest.log
+Test:Mac-cpp11:
+    stage: Test
+    script: "artifacts/CI/ci-mac-test.sh"
+    variables:
+      GIT_STRATEGY: none
+    tags:
+      - Apple
+      - qt5113
+    dependencies:
+      - Mac-cpp11
+    needs: [Mac-cpp11]
+    artifacts:
+      paths:
+        - build-release/Testing/Temporary/LastTest.log
 
 #
 #-----------
@@ -1221,22 +1437,98 @@ Test:Mac-Cpp11:
 # Type:       Deploy
 # OS:         Apple
 # QT Tag:     qt5113
-# Language:   Cpp11
+# Language:   cpp11
 
-Deploy:Mac-Cpp11:
-  stage: Deploy
-  script: "artifacts/CI/ci-mac-deploy.sh"
-  variables:
-    GIT_STRATEGY: none
-  tags:
-    - Apple
-    - qt5113
-  dependencies:
-    - Mac-Cpp11
-  needs: [Mac-Cpp11]
-  artifacts:
-    paths:
-      - build-release/*.dmg
+Deploy:Mac-cpp11:
+    stage: Deploy
+    only:
+      - master
+      - unstable
+    script: "artifacts/CI/ci-mac-deploy.sh"
+    variables:
+      GIT_STRATEGY: none
+    tags:
+      - Apple
+      - qt5113
+    dependencies:
+      - Mac-cpp11
+    needs: [Mac-cpp11]
+    artifacts:
+      paths:
+        - build-release/*.dmg
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Build
+# OS:         Apple
+# QT Tag:     qt5113
+# Language:   cpp17
+
+Mac-cpp17:
+    stage: Build
+    script: "CI/ci-mac-build.sh"
+    variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+    tags:
+      - Apple
+      - qt5113
+    artifacts:
+      expire_in: 1 week
+      paths:
+        - artifacts
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Test
+# OS:         Apple
+# QT Tag:     qt5113
+# Language:   cpp17
+
+Test:Mac-cpp17:
+    stage: Test
+    script: "artifacts/CI/ci-mac-test.sh"
+    variables:
+      GIT_STRATEGY: none
+    tags:
+      - Apple
+      - qt5113
+    dependencies:
+      - Mac-cpp17
+    needs: [Mac-cpp17]
+    artifacts:
+      paths:
+        - build-release/Testing/Temporary/LastTest.log
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Deploy
+# OS:         Apple
+# QT Tag:     qt5113
+# Language:   cpp17
+
+Deploy:Mac-cpp17:
+    stage: Deploy
+    only:
+      - master
+      - unstable
+    script: "artifacts/CI/ci-mac-deploy.sh"
+    variables:
+      GIT_STRATEGY: none
+    tags:
+      - Apple
+      - qt5113
+    dependencies:
+      - Mac-cpp17
+    needs: [Mac-cpp17]
+    artifacts:
+      paths:
+        - build-release/*.dmg
 
 #
 #-----------
@@ -1246,16 +1538,16 @@ Deploy:Mac-Cpp11:
 # OS:         Apple
 
 Mac-M1:
-  stage: Build
-  script: "CI/ci-mac-M1-build.sh"
-  variables:
-    GIT_SUBMODULE_STRATEGY: recursive
-  tags:
-    - AppleM1
-  artifacts:
-    expire_in: 1 week
-    paths:
-      - artifacts
+    stage: Build
+    script: "CI/ci-mac-M1-build.sh"
+    variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+    tags:
+      - AppleM1
+    artifacts:
+      expire_in: 1 week
+      paths:
+        - artifacts
 
 #
 #-----------
@@ -1265,18 +1557,18 @@ Mac-M1:
 # OS:         Apple
 
 Test:Mac-M1:
-  stage: Test
-  script: "artifacts/CI/ci-mac-M1-test.sh"
-  variables:
-    GIT_STRATEGY: none
-  tags:
-    - AppleM1
-  dependencies:
-    - Mac-M1
-  needs: [Mac-M1]
-  artifacts:
-    paths:
-      - build-release/Testing/Temporary/LastTest.log
+    stage: Test
+    script: "artifacts/CI/ci-mac-M1-test.sh"
+    variables:
+      GIT_STRATEGY: none
+    tags:
+      - AppleM1
+    dependencies:
+      - Mac-M1
+    needs: [Mac-M1]
+    artifacts:
+      paths:
+        - build-release/Testing/Temporary/LastTest.log
 
 #
 #-----------
@@ -1286,21 +1578,21 @@ Test:Mac-M1:
 # OS:         Apple
 
 Deploy:Mac-M1:
-  stage: Deploy
-  only:
-    - master
-    - unstable
-  script: "artifacts/CI/ci-mac-M1-deploy.sh"
-  variables:
-    GIT_STRATEGY: none
-  tags:
-    - AppleM1
-  dependencies:
-    - Mac-M1
-  needs: [Mac-M1]
-  artifacts:
-    paths:
-      - build-release/*.dmg
+    stage: Deploy
+    only:
+      - master
+      - unstable
+    script: "artifacts/CI/ci-mac-M1-deploy.sh"
+    variables:
+      GIT_STRATEGY: none
+    tags:
+      - AppleM1
+    dependencies:
+      - Mac-M1
+    needs: [Mac-M1]
+    artifacts:
+      paths:
+        - build-release/*.dmg
 
 #
 #-----------
@@ -1312,34 +1604,36 @@ Deploy:Mac-M1:
 ##############################
 
 Doc-publish:
-  stage: Deploy
-  only:
-    - master
-    - unstable
-  script: "CI/ci-doc.sh"
-  tags:
-    - Linux
-    - Bullseye
-  dependencies: []
-  variables:
-    GIT_SUBMODULE_STRATEGY: recursive
-  artifacts:
-    paths:
-      - build-release/Doxygen-warning.log
-      - build-release/Doxygen-error.log
+   stage: Deploy 
+   only:
+      - master
+      - unstable
+   script: "CI/ci-doc.sh"
+   tags:
+      - Linux
+      - Bullseye
+   dependencies: []
+   variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+   artifacts:
+     paths:
+        - build-release/Doxygen-warning.log 
+        - build-release/Doxygen-error.log
 
 Sources:
-  stage: Deploy
-  only:
-    - master
-  script: "CI/ci-source.sh"
-  tags:
-    - Linux
-  dependencies: []
-  variables:
-    GIT_SUBMODULE_STRATEGY: recursive
-  artifacts:
-    paths:
-      - OpenFlipper*.zip
-      - OpenFlipper*.tar.bz2
-      - OpenFlipper*.tar.gz
+   stage: Deploy
+   only:
+      - master
+   script: "CI/ci-source.sh"
+   tags:
+      - Linux
+   dependencies: []
+   variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+   artifacts:
+      paths:
+        - OpenFlipper*.zip
+        - OpenFlipper*.tar.bz2
+        - OpenFlipper*.tar.gz
+ 
+

@@ -25,9 +25,24 @@ then
 	rm DartConfiguration.tcl
 fi
 
+OPTIONS="-DQWT6_INCLUDE_DIR=/Users/jenkins/sw/qwt-6.1.3-qt5.11.3/lib/qwt.framework/Headers -DQWT6_LIBRARY=/Users/jenkins/sw/qwt-6.1.3-qt5.11.3/lib/qwt.framework -DQT_INSTALL_PATH=/Users/jenkins/sw/Qt/5.11.3/clang_64/"
+
+if [ "$LANGUAGE" == "cpp11" ]; then
+  echo "Using C++11 standard";
+  OPTIONS="$OPTIONS -DCMAKE_CXX_FLAGS='-std=c++11' -DOPENFLIPPER_CXX_STANDARD=11 "
+  BUILDPATH="$BUILDPATH-cpp11"
+elif [ "$LANGUAGE" == "cpp17" ]; then
+  echo "Using C++17 standard";
+  OPTIONS="$OPTIONS -DCMAKE_CXX_FLAGS='-std=c++17' -DOPENFLIPPER_CXX_STANDARD=17"
+  BUILDPATH="$BUILDPATH-cpp17"
+else
+  echo "Unknown CXX standard!!!"
+  BUILDPATH="$BUILDPATH-unknown"
+fi
+
 # Build without ports to avoid qt4 collision
 # run this prior testing to fix paths
-/opt/local/bin/cmake ../ -DCMAKE_CXX_FLAGS='-std=c++11' -DQWT6_INCLUDE_DIR=/Users/jenkins/sw/qwt-6.1.3-qt5.11.3/lib/qwt.framework/Headers -DQWT6_LIBRARY=/Users/jenkins/sw/qwt-6.1.3-qt5.11.3/lib/qwt.framework -DQT_INSTALL_PATH=/Users/jenkins/sw/Qt/5.11.3/clang_64/   
+/opt/local/bin/cmake ../ $OPTIONS
 
 
 ########################################
