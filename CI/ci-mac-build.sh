@@ -22,6 +22,8 @@ cd build-release
 
 OPTIONS="-DQWT6_INCLUDE_DIR=/Users/jenkins/sw/qwt-6.1.3-qt5.11.3/lib/qwt.framework/Headers -DQWT6_LIBRARY=/Users/jenkins/sw/qwt-6.1.3-qt5.11.3/lib/qwt.framework -DQT_INSTALL_PATH=/Users/jenkins/sw/Qt/5.11.3/clang_64/ -DQT_VERSION=5"
 
+echo $LANGUAGE
+
 if [ "$LANGUAGE" == "cpp11" ]; then
   echo "Using C++11 standard";
   OPTIONS="$OPTIONS -DCMAKE_CXX_FLAGS='-std=c++11' -DOPENFLIPPER_CXX_STANDARD=11 "
