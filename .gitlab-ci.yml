@@ -1394,18 +1394,18 @@ Deploy:VS2017-Qt5.14.2-x64-NOPYTHON:
 # Language:   cpp11
 
 Mac-cpp11:
-    stage: Build
-    script: "CI/ci-mac-build.sh"
-    variables:
-      GIT_SUBMODULE_STRATEGY: recursive
-    tags:
-      - Apple
-      - qt5113
-    artifacts:
-      expire_in: 1 week
-      paths:
-        - artifacts
-
+  stage: Build
+  variables:
+    LANGUAGE: "cpp11"
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-mac-build.sh"
+  tags:
+    - Apple
+    - qt5113
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - artifacts
 #
 #-----------
 
@@ -1467,18 +1467,18 @@ Deploy:Mac-cpp11:
 # Language:   cpp17
 
 Mac-cpp17:
-    stage: Build
-    script: "CI/ci-mac-build.sh"
-    variables:
-      GIT_SUBMODULE_STRATEGY: recursive
-    tags:
-      - Apple
-      - qt5113
-    artifacts:
-      expire_in: 1 week
-      paths:
-        - artifacts
-
+  stage: Build
+  variables:
+    LANGUAGE: "cpp17"
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-mac-build.sh"
+  tags:
+    - Apple
+    - qt5113
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - artifacts
 #
 #-----------
 

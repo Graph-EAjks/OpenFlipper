@@ -1,4 +1,3 @@
----
 #-----------  Job Informations:
 # Type:       Build
 # OS:         Apple
@@ -13,7 +12,7 @@ Mac-{{LANGUAGE}}:
   script: "CI/ci-mac-build.sh"
   tags:
     - Apple
-    - { { QT_TAG } }
+    - {{QT_TAG}}
   artifacts:
     expire_in: 1 week
     paths:
