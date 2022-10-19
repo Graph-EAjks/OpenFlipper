@@ -26,11 +26,11 @@ echo $LANGUAGE
 
 if [ "$LANGUAGE" == "cpp11" ]; then
   echo "Using C++11 standard";
-  OPTIONS="$OPTIONS -DCMAKE_CXX_FLAGS='-std=c++11' -DOPENFLIPPER_CXX_STANDARD=11 "
+  OPTIONS="$OPTIONS -DOPENFLIPPER_CXX_STANDARD=11 "
   BUILDPATH="$BUILDPATH-cpp11"
 elif [ "$LANGUAGE" == "cpp17" ]; then
   echo "Using C++17 standard";
-  OPTIONS="$OPTIONS -DCMAKE_CXX_FLAGS='-std=c++1z' -DOPENFLIPPER_CXX_STANDARD=17"
+  OPTIONS="$OPTIONS -DOPENFLIPPER_CXX_STANDARD=17"
   BUILDPATH="$BUILDPATH-cpp17"
 else
   echo "Unknown CXX standard!!!"
