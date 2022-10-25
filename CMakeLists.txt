@@ -154,7 +154,6 @@ set(CMAKE_CXX_STANDARD ${OPENFLIPPER_CXX_STANDARD})
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 set(CMAKE_CXX_EXTENSIONS FALSE)
 
-message("Using CXX Standard: ${CMAKE_CXX_STANDARD}")
 
 if (NOT QT_FOUND)
   message(FATAL_ERROR "Could not find any QT Version. Please specify QT_INSTALL_PATH (path to bin and include dir) to build with QT. Note that this error is also shown if not all required qt modules were found.")
