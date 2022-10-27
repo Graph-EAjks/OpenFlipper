@@ -41,7 +41,7 @@ fi
 # Build without ports to avoid qt4 collision
 /opt/local/bin/cmake ../ $OPTIONS
 
-make -j2 VERBOSE=1
+make -j2
 
 # Required for the tests to build, if a package was generated
 make fixbundle
