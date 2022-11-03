@@ -51,26 +51,47 @@ set VS_PATH="C:\Program Files (x86)\Microsoft Visual Studio%VS_EDITION_PATH%\Com
 if "%QT_VERSION%" == "Qt5.10.1" (
 set QT_REV_LONG=5.10.1
 set QT_REV=5.10.1
+set QT_MAJOR=5
 )
 if "%QT_VERSION%" == "Qt5.13.2" (
 set QT_REV_LONG=5.13.2
 set QT_REV=5.13.2
+set QT_MAJOR=5
 )
 if "%QT_VERSION%" == "Qt5.14.1" (
 set QT_REV_LONG=5.14.1
 set QT_REV=5.14.1
+set QT_MAJOR=5
 )
 if "%QT_VERSION%" == "Qt5.14.2" (
 set QT_REV_LONG=5.14.2
 set QT_REV=5.14.2
+set QT_MAJOR=5
 )
 if "%QT_VERSION%" == "Qt5.15.0" (
 set QT_REV_LONG=5.15.0
 set QT_REV=5.15.0
+set QT_MAJOR=5
+)
+if "%QT_VERSION%" == "Qt6.1.2" (
+set QT_REV_LONG=6.1.2
+set QT_REV=6.1.2
+set QT_MAJOR=6
+)
+if "%QT_VERSION%" == "Qt6.3.2" (
+set QT_REV_LONG=6.3.2
+set QT_REV=6.3.2
+set QT_MAJOR=6
+)
+if "%QT_VERSION%" == "Qt6.4.0" (
+set QT_REV_LONG=6.4.0
+set QT_REV=6.4.0
+set QT_MAJOR=6
 )
 
+
 set QT_SUFFIX=
-set QT_BASE_CONFIG=-DQT_INSTALL_PATH=E:\Qt\%QT_REV%\%QT_COMPILERPREFIX%%ARCHBITS%%QT_SUFFIX% -DQT_VERSION=5
+set QT_BASE_CONFIG=-DQT_INSTALL_PATH=E:\Qt\%QT_REV%\%QT_COMPILERPREFIX%%ARCHBITS%%QT_SUFFIX% -DQT_VERSION=%QT_MAJOR%
 
 
 echo "QT config infos :"
@@ -78,6 +99,7 @@ echo "QT_VERSION input is : %QT_VERSION%"
 echo "QT_REV_LONG :         %QT_REV_LONG%"
 echo "QT_REV :              %QT_REV%"
 echo "QT Base Config :      %QT_BASE_CONFIG%"
+echo "QT Major :            %QT_MAJOR%"
 
 :: set up Libraty Paths
 set LIBPATH_BASE=E:/libs/%COMPILER%

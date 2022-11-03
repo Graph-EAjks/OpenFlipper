@@ -7,3 +7,7 @@
 {windows-template-job.yml, COMPILER=VS2019, QT_VERSION=Qt5.15.0, QT_TAG=Qt5150, ARCH=x64}
 
 {windows-template-job.yml, COMPILER=VS2017, QT_VERSION=Qt5.14.2, QT_TAG=Qt5141, ARCH=x64}
+
+{windows-template-job.yml, COMPILER=VS2019, QT_VERSION=Qt6.1.2, QT_TAG=Qt5141, ARCH=x64}
+{windows-template-job.yml, COMPILER=VS2019, QT_VERSION=Qt6.3.2, QT_TAG=Qt632, ARCH=x64}
+{windows-template-job.yml, COMPILER=VS2019, QT_VERSION=Qt6.4.0, QT_TAG=Qt640, ARCH=x64}
