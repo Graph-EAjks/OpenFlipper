@@ -89,9 +89,9 @@ set QT_REV=6.4.0
 set QT_MAJOR=6
 )
 
-
 set QT_SUFFIX=
-set QT_BASE_CONFIG=-DQT_INSTALL_PATH=E:\Qt\%QT_REV%\%QT_COMPILERPREFIX%%ARCHBITS%%QT_SUFFIX% -DQT_VERSION=%QT_MAJOR%
+set QT_INSTALL_PATH=E:\Qt\%QT_REV%\%QT_COMPILERPREFIX%%ARCHBITS%%QT_SUFFIX%
+set QT_BASE_CONFIG=-DQT_INSTALL_PATH=%QT_INSTALL_PATH% -DQT_VERSION=%QT_MAJOR%
 
 
 echo "QT config infos :"
@@ -100,9 +100,11 @@ echo "QT_REV_LONG :         %QT_REV_LONG%"
 echo "QT_REV :              %QT_REV%"
 echo "QT Base Config :      %QT_BASE_CONFIG%"
 echo "QT Major :            %QT_MAJOR%"
+echo "QT Install Path :     %QT_INSTALL_PATH%"
 
 :: set up Libraty Paths
 set LIBPATH_BASE=E:/libs/%COMPILER%
+set LIBPATH=%LIBPATH_BASE%
 set CMAKE_WINDOWS_LIBS_DIR=E:/libs
 
 :: check for gtest version 1.6 or 1.10 use the highest found version
