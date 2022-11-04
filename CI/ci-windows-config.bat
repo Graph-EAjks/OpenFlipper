@@ -114,7 +114,7 @@ for /l %%x in (6, 1, 10) do (
    )
 )
 
-if "%PYTHON%" == "5" (
+if "%QT_MAJOR%" == "5" (
 
    :: check for qwt version 6.1.1 to 6.1.3 use the highest found version
    for /l %%x in (0, 1, 6) do (
