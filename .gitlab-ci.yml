@@ -1740,12 +1740,13 @@ Deploy:VS2019-Qt6.5.1-x64-NOPYTHON:
 # Type:       Build
 # OS:         Apple
 # QT Tag:     qt5113
-# Language:   Cpp11
+# Language:   cpp17
 
-Mac-Cpp11:
+Mac-cpp17:
     stage: Build
     script: "CI/ci-mac-build.sh"
     variables:
+      LANGUAGE: "cpp17"
       GIT_SUBMODULE_STRATEGY: recursive
     tags:
       - Apple
@@ -1762,19 +1763,20 @@ Mac-Cpp11:
 # Type:       Test
 # OS:         Apple
 # QT Tag:     qt5113
-# Language:   Cpp11
+# Language:   cpp17
 
-Test:Mac-Cpp11:
+Test:Mac-cpp17:
     stage: Test
     script: "artifacts/CI/ci-mac-test.sh"
     variables:
+      LANGUAGE: "cpp17"
       GIT_STRATEGY: none
     tags:
       - Apple
       - qt5113
     dependencies:
-      - Mac-Cpp11
-    needs: [Mac-Cpp11]
+      - Mac-cpp17
+    needs: [Mac-cpp17]
     artifacts:
       paths:
         - build-release/Testing/Temporary/LastTest.log
@@ -1786,22 +1788,23 @@ Test:Mac-Cpp11:
 # Type:       Deploy
 # OS:         Apple
 # QT Tag:     qt5113
-# Language:   Cpp11
+# Language:   cpp17
 
-Deploy:Mac-Cpp11:
+Deploy:Mac-cpp17:
     stage: Deploy
     only:
       - master
       - unstable
     script: "artifacts/CI/ci-mac-deploy.sh"
     variables:
+      LANGUAGE: "cpp17"
       GIT_STRATEGY: none
     tags:
       - Apple
       - qt5113
     dependencies:
-      - Mac-Cpp11
-    needs: [Mac-Cpp11]
+      - Mac-cpp17
+    needs: [Mac-cpp17]
     artifacts:
       paths:
         - build-release/*.dmg

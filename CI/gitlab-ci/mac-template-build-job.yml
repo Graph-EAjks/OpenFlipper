@@ -8,6 +8,7 @@ Mac-{{LANGUAGE}}:
     stage: Build
     script: "CI/ci-mac-build.sh"
     variables:
+      LANGUAGE: "{{LANGUAGE}}"
       GIT_SUBMODULE_STRATEGY: recursive
     tags:
       - Apple

@@ -8,6 +8,7 @@ Test:Mac-{{LANGUAGE}}:
     stage: Test
     script: "artifacts/CI/ci-mac-test.sh"
     variables:
+      LANGUAGE: "{{LANGUAGE}}"
       GIT_STRATEGY: none
     tags:
       - Apple

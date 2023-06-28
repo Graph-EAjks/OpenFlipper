@@ -11,6 +11,7 @@ Deploy:Mac-{{LANGUAGE}}:
       - unstable
     script: "artifacts/CI/ci-mac-deploy.sh"
     variables:
+      LANGUAGE: "{{LANGUAGE}}"
       GIT_STRATEGY: none
     tags:
       - Apple
