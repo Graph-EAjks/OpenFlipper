@@ -12,6 +12,8 @@
 {linux-template-job-full.yml,    COMPILER=gcc,   LANGUAGE=cpp17, QT_VERSION=qt6.3.0}
 {linux-template-job-full.yml,    COMPILER=clang,   LANGUAGE=cpp17, QT_VERSION=qt6.3.0}
 
+{linux-template-job-full.yml,    COMPILER=gcc,   LANGUAGE=cpp17, QT_VERSION=qt6.5.1}
+{linux-template-job-full.yml,    COMPILER=clang,   LANGUAGE=cpp17, QT_VERSION=qt6.5.1}
 
 # include what you use
 {linux-iwyu-job.yml, BUILDTYPE=release, COMPILER=clang, LANGUAGE=cpp11, QT_VERSION=qt5.13.0}
