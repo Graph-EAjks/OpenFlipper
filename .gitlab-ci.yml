@@ -1581,7 +1581,7 @@ Deploy:VS2019-Qt6.4.0-x64-NOPYTHON:
 # OS:         Windows
 # Arch:       x64
 # QT Version: Qt6.5.1
-# QT Tag:     Qt640
+# QT Tag:     Qt651
 # Compiler:   VS2019
 
 VS2019-Qt6.5.1-x64:
@@ -1594,7 +1594,7 @@ VS2019-Qt6.5.1-x64:
       COMPILER: "VS2019"
     tags:
       - VS2019
-      - Qt640
+      - Qt651
       - Python39
     artifacts:
       expire_in: 1 week
@@ -1612,7 +1612,7 @@ VS2019-Qt6.5.1-x64-NOPYTHON:
       PYTHON: "no"
     tags:
       - VS2019
-      - Qt640
+      - Qt651
     artifacts:
       expire_in: 1 week
       paths:
@@ -1626,7 +1626,7 @@ VS2019-Qt6.5.1-x64-NOPYTHON:
 # OS:         Windows
 # Arch:       x64
 # QT Version: Qt6.5.1
-# QT Tag:     Qt640
+# QT Tag:     Qt651
 # Compiler:   VS2019
 
 Test:VS2019-Qt6.5.1-x64:
@@ -1640,7 +1640,7 @@ Test:VS2019-Qt6.5.1-x64:
       STAGE2SCRIPT: ci-windows-test.bat
     tags:
       - VS2019
-      - Qt640
+      - Qt651
       - Python39
     dependencies:
       - VS2019-Qt6.5.1-x64
@@ -1661,7 +1661,7 @@ Test:VS2019-Qt6.5.1-x64:
 #      PYTHON: "no"
 #    tags:
 #      - VS2019
-#      - Qt640
+#      - Qt651
 #    dependencies:
 #      - VS2019-Qt6.5.1-x64-NOPYTHON
 #    needs: [VS2019-Qt6.5.1-x64-NOPYTHON]
@@ -1677,7 +1677,7 @@ Test:VS2019-Qt6.5.1-x64:
 # OS:         Windows
 # Arch:       x64
 # QT Version: Qt6.5.1
-# QT Tag:     Qt640
+# QT Tag:     Qt651
 # Compiler:   VS2019
 
 Deploy:VS2019-Qt6.5.1-x64:
@@ -1694,7 +1694,7 @@ Deploy:VS2019-Qt6.5.1-x64:
       STAGE2SCRIPT: ci-windows-deploy.bat
     tags:
       - VS2019
-      - Qt640
+      - Qt651
       - Python39
     dependencies:
       - VS2019-Qt6.5.1-x64
@@ -1718,7 +1718,7 @@ Deploy:VS2019-Qt6.5.1-x64-NOPYTHON:
       PYTHON: "no"
     tags:
       - VS2019
-      - Qt640
+      - Qt651
     dependencies:
       - VS2019-Qt6.5.1-x64-NOPYTHON
     needs: [VS2019-Qt6.5.1-x64-NOPYTHON]
