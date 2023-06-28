@@ -48,16 +48,6 @@ set BUILD_PLATFORM=%COMPILER%
 set GENERATOR=Visual Studio %VS_COMPILERVERSION_SHORT% %VS_EDITION_YEAR%%ARCH_VS%
 set VS_PATH="C:\Program Files (x86)\Microsoft Visual Studio%VS_EDITION_PATH%\Common7\IDE\devenv.com"
 
-if "%QT_VERSION%" == "Qt5.10.1" (
-set QT_REV_LONG=5.10.1
-set QT_REV=5.10.1
-set QT_MAJOR=5
-)
-if "%QT_VERSION%" == "Qt5.13.2" (
-set QT_REV_LONG=5.13.2
-set QT_REV=5.13.2
-set QT_MAJOR=5
-)
 if "%QT_VERSION%" == "Qt5.14.1" (
 set QT_REV_LONG=5.14.1
 set QT_REV=5.14.1
@@ -88,6 +78,13 @@ set QT_REV_LONG=6.4.0
 set QT_REV=6.4.0
 set QT_MAJOR=6
 )
+if "%QT_VERSION%" == "Qt6.5.1" (
+set QT_REV_LONG=6.5.1
+set QT_REV=6.5.1
+set QT_MAJOR=6
+)
+
+
 
 set QT_SUFFIX=
 set QT_INSTALL_PATH=E:\Qt\%QT_REV%\%QT_COMPILERPREFIX%%ARCHBITS%%QT_SUFFIX%

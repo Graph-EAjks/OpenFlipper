@@ -823,6 +823,400 @@ test-release-clang-cpp17-qt6.3.0:
 #
 #-----------
 
+#-----------  Job Informations:
+# Type:       Build: debug
+# OS:         Linux
+# Compiler:   gcc
+# Language:   cpp17
+# QT Version: qt6.5.1
+
+build-debug-gcc-cpp17-qt6.5.1:
+  stage: Build
+  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+  variables:
+    COMPILER: "gcc"
+    LANGUAGE: "cpp17"
+    QTVERSION: "qt6.5.1"
+    BUILDTYPE: "debug"
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Linux
+    - Bullseye
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-debug-gcc-cpp17-qt6.5.1/
+
+build-debug-gcc-cpp17-qt6.5.1-nopython:
+  stage: Build
+  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+  variables:
+    COMPILER: "gcc"
+    LANGUAGE: "cpp17"
+    QTVERSION: "qt6.5.1"
+    BUILDTYPE: "debug"
+    PYTHON: "no" 
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Linux
+    - Bullseye
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-debug-gcc-cpp17-qt6.5.1-nopython/
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Test: debug
+# OS:         Linux
+# Compiler:   gcc
+# Language:   cpp17
+# QT Version: qt6.5.1
+
+test-debug-gcc-cpp17-qt6.5.1:
+  stage: Test
+  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+  variables:
+    COMPILER: "gcc"
+    LANGUAGE:  "cpp17"
+    QTVERSION: "qt6.5.1"
+    BUILDTYPE: "debug"
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-test.sh"
+  tags:
+    - Linux
+    - Bullseye
+    - MultiThreads
+  dependencies: [build-debug-gcc-cpp17-qt6.5.1]
+  needs: [build-debug-gcc-cpp17-qt6.5.1]
+  artifacts:
+    paths:
+       - build-debug-gcc-cpp17-qt6.5.1/Testing/Temporary/LastTest.log
+    reports: 
+       junit: report.xml
+  
+# Disabled due to issues with tests requiring python to work
+#test-debug-gcc-cpp17-qt6.5.1-{{ISO_TAG}}-nopython:
+#  stage: Test
+#  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+#  variables:
+#    COMPILER: "gcc"
+#    LANGUAGE: "cpp17"
+#    QTVERSION: "qt6.5.1"
+#    BUILDTYPE: "debug"
+#    PYTHON: "no"
+#    GIT_SUBMODULE_STRATEGY: recursive
+#  script: "CI/ci-linux-test.sh"
+#  tags:
+#    - Docker
+#  dependencies: [build-debug-gcc-cpp17-qt6.5.1-{{ISO_TAG}}-nopython]
+#  needs: [build-debug-gcc-cpp17-qt6.5.1-{{ISO_TAG}}-nopython]
+#  artifacts:
+#    paths:
+#       - build-debug-gcc-cpp17-qt6.5.1/Testing/Temporary/LastTest.log
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Build: release
+# OS:         Linux
+# Compiler:   gcc
+# Language:   cpp17
+# QT Version: qt6.5.1
+
+build-release-gcc-cpp17-qt6.5.1:
+  stage: Build
+  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+  variables:
+    COMPILER: "gcc"
+    LANGUAGE: "cpp17"
+    QTVERSION: "qt6.5.1"
+    BUILDTYPE: "release"
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Linux
+    - Bullseye
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-release-gcc-cpp17-qt6.5.1/
+
+build-release-gcc-cpp17-qt6.5.1-nopython:
+  stage: Build
+  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+  variables:
+    COMPILER: "gcc"
+    LANGUAGE: "cpp17"
+    QTVERSION: "qt6.5.1"
+    BUILDTYPE: "release"
+    PYTHON: "no" 
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Linux
+    - Bullseye
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-release-gcc-cpp17-qt6.5.1-nopython/
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Test: release
+# OS:         Linux
+# Compiler:   gcc
+# Language:   cpp17
+# QT Version: qt6.5.1
+
+test-release-gcc-cpp17-qt6.5.1:
+  stage: Test
+  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+  variables:
+    COMPILER: "gcc"
+    LANGUAGE:  "cpp17"
+    QTVERSION: "qt6.5.1"
+    BUILDTYPE: "release"
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-test.sh"
+  tags:
+    - Linux
+    - Bullseye
+    - MultiThreads
+  dependencies: [build-release-gcc-cpp17-qt6.5.1]
+  needs: [build-release-gcc-cpp17-qt6.5.1]
+  artifacts:
+    paths:
+       - build-release-gcc-cpp17-qt6.5.1/Testing/Temporary/LastTest.log
+    reports: 
+       junit: report.xml
+  
+# Disabled due to issues with tests requiring python to work
+#test-release-gcc-cpp17-qt6.5.1-{{ISO_TAG}}-nopython:
+#  stage: Test
+#  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+#  variables:
+#    COMPILER: "gcc"
+#    LANGUAGE: "cpp17"
+#    QTVERSION: "qt6.5.1"
+#    BUILDTYPE: "release"
+#    PYTHON: "no"
+#    GIT_SUBMODULE_STRATEGY: recursive
+#  script: "CI/ci-linux-test.sh"
+#  tags:
+#    - Docker
+#  dependencies: [build-release-gcc-cpp17-qt6.5.1-{{ISO_TAG}}-nopython]
+#  needs: [build-release-gcc-cpp17-qt6.5.1-{{ISO_TAG}}-nopython]
+#  artifacts:
+#    paths:
+#       - build-release-gcc-cpp17-qt6.5.1/Testing/Temporary/LastTest.log
+
+#
+#-----------
+#-----------  Job Informations:
+# Type:       Build: debug
+# OS:         Linux
+# Compiler:   clang
+# Language:   cpp17
+# QT Version: qt6.5.1
+
+build-debug-clang-cpp17-qt6.5.1:
+  stage: Build
+  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+  variables:
+    COMPILER: "clang"
+    LANGUAGE: "cpp17"
+    QTVERSION: "qt6.5.1"
+    BUILDTYPE: "debug"
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Linux
+    - Bullseye
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-debug-clang-cpp17-qt6.5.1/
+
+build-debug-clang-cpp17-qt6.5.1-nopython:
+  stage: Build
+  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+  variables:
+    COMPILER: "clang"
+    LANGUAGE: "cpp17"
+    QTVERSION: "qt6.5.1"
+    BUILDTYPE: "debug"
+    PYTHON: "no" 
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Linux
+    - Bullseye
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-debug-clang-cpp17-qt6.5.1-nopython/
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Test: debug
+# OS:         Linux
+# Compiler:   clang
+# Language:   cpp17
+# QT Version: qt6.5.1
+
+test-debug-clang-cpp17-qt6.5.1:
+  stage: Test
+  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+  variables:
+    COMPILER: "clang"
+    LANGUAGE:  "cpp17"
+    QTVERSION: "qt6.5.1"
+    BUILDTYPE: "debug"
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-test.sh"
+  tags:
+    - Linux
+    - Bullseye
+    - MultiThreads
+  dependencies: [build-debug-clang-cpp17-qt6.5.1]
+  needs: [build-debug-clang-cpp17-qt6.5.1]
+  artifacts:
+    paths:
+       - build-debug-clang-cpp17-qt6.5.1/Testing/Temporary/LastTest.log
+    reports: 
+       junit: report.xml
+  
+# Disabled due to issues with tests requiring python to work
+#test-debug-clang-cpp17-qt6.5.1-{{ISO_TAG}}-nopython:
+#  stage: Test
+#  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+#  variables:
+#    COMPILER: "clang"
+#    LANGUAGE: "cpp17"
+#    QTVERSION: "qt6.5.1"
+#    BUILDTYPE: "debug"
+#    PYTHON: "no"
+#    GIT_SUBMODULE_STRATEGY: recursive
+#  script: "CI/ci-linux-test.sh"
+#  tags:
+#    - Docker
+#  dependencies: [build-debug-clang-cpp17-qt6.5.1-{{ISO_TAG}}-nopython]
+#  needs: [build-debug-clang-cpp17-qt6.5.1-{{ISO_TAG}}-nopython]
+#  artifacts:
+#    paths:
+#       - build-debug-clang-cpp17-qt6.5.1/Testing/Temporary/LastTest.log
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Build: release
+# OS:         Linux
+# Compiler:   clang
+# Language:   cpp17
+# QT Version: qt6.5.1
+
+build-release-clang-cpp17-qt6.5.1:
+  stage: Build
+  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+  variables:
+    COMPILER: "clang"
+    LANGUAGE: "cpp17"
+    QTVERSION: "qt6.5.1"
+    BUILDTYPE: "release"
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Linux
+    - Bullseye
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-release-clang-cpp17-qt6.5.1/
+
+build-release-clang-cpp17-qt6.5.1-nopython:
+  stage: Build
+  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+  variables:
+    COMPILER: "clang"
+    LANGUAGE: "cpp17"
+    QTVERSION: "qt6.5.1"
+    BUILDTYPE: "release"
+    PYTHON: "no" 
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-build.sh"
+  tags:
+    - Linux
+    - Bullseye
+  artifacts:
+    expire_in: 1 week
+    paths:
+       - build-release-clang-cpp17-qt6.5.1-nopython/
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Test: release
+# OS:         Linux
+# Compiler:   clang
+# Language:   cpp17
+# QT Version: qt6.5.1
+
+test-release-clang-cpp17-qt6.5.1:
+  stage: Test
+  # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+  variables:
+    COMPILER: "clang"
+    LANGUAGE:  "cpp17"
+    QTVERSION: "qt6.5.1"
+    BUILDTYPE: "release"
+    GIT_SUBMODULE_STRATEGY: recursive
+  script: "CI/ci-linux-test.sh"
+  tags:
+    - Linux
+    - Bullseye
+    - MultiThreads
+  dependencies: [build-release-clang-cpp17-qt6.5.1]
+  needs: [build-release-clang-cpp17-qt6.5.1]
+  artifacts:
+    paths:
+       - build-release-clang-cpp17-qt6.5.1/Testing/Temporary/LastTest.log
+    reports: 
+       junit: report.xml
+  
+# Disabled due to issues with tests requiring python to work
+#test-release-clang-cpp17-qt6.5.1-{{ISO_TAG}}-nopython:
+#  stage: Test
+#  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
+#  variables:
+#    COMPILER: "clang"
+#    LANGUAGE: "cpp17"
+#    QTVERSION: "qt6.5.1"
+#    BUILDTYPE: "release"
+#    PYTHON: "no"
+#    GIT_SUBMODULE_STRATEGY: recursive
+#  script: "CI/ci-linux-test.sh"
+#  tags:
+#    - Docker
+#  dependencies: [build-release-clang-cpp17-qt6.5.1-{{ISO_TAG}}-nopython]
+#  needs: [build-release-clang-cpp17-qt6.5.1-{{ISO_TAG}}-nopython]
+#  artifacts:
+#    paths:
+#       - build-release-clang-cpp17-qt6.5.1/Testing/Temporary/LastTest.log
+
+#
+#-----------
 
 # include what you use
 #-----------  Job Informations:
@@ -875,313 +1269,6 @@ cppcheck:
 #    WINDOWS JOBS
 #
 ##############################
-
-#-----------  Job Informations:
-# Type:       Build
-# OS:         Windows
-# Arch:       x64
-# QT Version: Qt5.15.0
-# QT Tag:     Qt5150
-# Compiler:   VS2019
-
-VS2019-Qt5.15.0-x64:
-    stage: Build
-    script: "CI\\ci-windows-build.bat"
-    variables:
-      GIT_SUBMODULE_STRATEGY: recursive
-      ARCHITECTURE: "x64"
-      QT_VERSION: "Qt5.15.0"
-      COMPILER: "VS2019"
-    tags:
-      - VS2019
-      - Qt5150
-      - Python39
-    artifacts:
-      expire_in: 1 week
-      paths:
-        - artifacts
-
-VS2019-Qt5.15.0-x64-NOPYTHON:
-    stage: Build
-    script: "CI\\ci-windows-build.bat"
-    variables:
-      GIT_SUBMODULE_STRATEGY: recursive
-      ARCHITECTURE: "x64"
-      QT_VERSION: "Qt5.15.0"
-      COMPILER: "VS2019"
-      PYTHON: "no"
-    tags:
-      - VS2019
-      - Qt5150
-    artifacts:
-      expire_in: 1 week
-      paths:
-        - artifacts
-
-#
-#-----------
-
-#-----------  Job Informations:
-# Type:       Test
-# OS:         Windows
-# Arch:       x64
-# QT Version: Qt5.15.0
-# QT Tag:     Qt5150
-# Compiler:   VS2019
-
-Test:VS2019-Qt5.15.0-x64:
-    stage: Test
-    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
-    variables:
-      GIT_STRATEGY: none
-      ARCHITECTURE: "x64"
-      QT_VERSION: "Qt5.15.0"
-      COMPILER: "VS2019"
-      STAGE2SCRIPT: ci-windows-test.bat
-    tags:
-      - VS2019
-      - Qt5150
-      - Python39
-    dependencies:
-      - VS2019-Qt5.15.0-x64
-    needs: [VS2019-Qt5.15.0-x64]
-    artifacts:
-      paths:
-        - rel/Testing/Temporary/LastTest.log
-
-#Test:VS2019-Qt5.15.0-x64-NOPYTHON:
-#    stage: Test
-#    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
-#    variables:
-#      GIT_STRATEGY: none
-#      ARCHITECTURE: "x64"
-#      QT_VERSION: "Qt5.15.0"
-#      COMPILER: "VS2019"
-#      STAGE2SCRIPT: ci-windows-test.bat
-#      PYTHON: "no"
-#    tags:
-#      - VS2019
-#      - Qt5150
-#    dependencies:
-#      - VS2019-Qt5.15.0-x64-NOPYTHON
-#    needs: [VS2019-Qt5.15.0-x64-NOPYTHON]
-#    artifacts:
-#      paths:
-#        - rel/Testing/Temporary/LastTest.log
-
-#
-#-----------
-
-#-----------  Job Informations:
-# Type:       Deploy
-# OS:         Windows
-# Arch:       x64
-# QT Version: Qt5.15.0
-# QT Tag:     Qt5150
-# Compiler:   VS2019
-
-Deploy:VS2019-Qt5.15.0-x64:
-    stage: Deploy
-    only:
-      - master
-      - unstable
-    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
-    variables:
-      GIT_STRATEGY: none
-      ARCHITECTURE: "x64"
-      QT_VERSION: "Qt5.15.0"
-      COMPILER: "VS2019"
-      STAGE2SCRIPT: ci-windows-deploy.bat
-    tags:
-      - VS2019
-      - Qt5150
-      - Python39
-    dependencies:
-      - VS2019-Qt5.15.0-x64
-    needs: [VS2019-Qt5.15.0-x64]
-    artifacts:
-      paths:
-        - rel/*.exe
-
-Deploy:VS2019-Qt5.15.0-x64-NOPYTHON:
-    stage: Deploy
-    only:
-      - master
-      - unstable
-    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
-    variables:
-      GIT_STRATEGY: none
-      ARCHITECTURE: "x64"
-      QT_VERSION: "Qt5.15.0"
-      COMPILER: "VS2019"
-      STAGE2SCRIPT: ci-windows-deploy.bat
-      PYTHON: "no"
-    tags:
-      - VS2019
-      - Qt5150
-    dependencies:
-      - VS2019-Qt5.15.0-x64-NOPYTHON
-    needs: [VS2019-Qt5.15.0-x64-NOPYTHON]
-    artifacts:
-      paths:
-        - rel/*.exe
-
-#
-#-----------
-
-#-----------  Job Informations:
-# Type:       Build
-# OS:         Windows
-# Arch:       x64
-# QT Version: Qt5.14.2
-# QT Tag:     Qt5141
-# Compiler:   VS2017
-
-VS2017-Qt5.14.2-x64:
-    stage: Build
-    script: "CI\\ci-windows-build.bat"
-    variables:
-      GIT_SUBMODULE_STRATEGY: recursive
-      ARCHITECTURE: "x64"
-      QT_VERSION: "Qt5.14.2"
-      COMPILER: "VS2017"
-    tags:
-      - VS2017
-      - Qt5141
-      - Python39
-    artifacts:
-      expire_in: 1 week
-      paths:
-        - artifacts
-
-VS2017-Qt5.14.2-x64-NOPYTHON:
-    stage: Build
-    script: "CI\\ci-windows-build.bat"
-    variables:
-      GIT_SUBMODULE_STRATEGY: recursive
-      ARCHITECTURE: "x64"
-      QT_VERSION: "Qt5.14.2"
-      COMPILER: "VS2017"
-      PYTHON: "no"
-    tags:
-      - VS2017
-      - Qt5141
-    artifacts:
-      expire_in: 1 week
-      paths:
-        - artifacts
-
-#
-#-----------
-
-#-----------  Job Informations:
-# Type:       Test
-# OS:         Windows
-# Arch:       x64
-# QT Version: Qt5.14.2
-# QT Tag:     Qt5141
-# Compiler:   VS2017
-
-Test:VS2017-Qt5.14.2-x64:
-    stage: Test
-    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
-    variables:
-      GIT_STRATEGY: none
-      ARCHITECTURE: "x64"
-      QT_VERSION: "Qt5.14.2"
-      COMPILER: "VS2017"
-      STAGE2SCRIPT: ci-windows-test.bat
-    tags:
-      - VS2017
-      - Qt5141
-      - Python39
-    dependencies:
-      - VS2017-Qt5.14.2-x64
-    needs: [VS2017-Qt5.14.2-x64]
-    artifacts:
-      paths:
-        - rel/Testing/Temporary/LastTest.log
-
-#Test:VS2017-Qt5.14.2-x64-NOPYTHON:
-#    stage: Test
-#    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
-#    variables:
-#      GIT_STRATEGY: none
-#      ARCHITECTURE: "x64"
-#      QT_VERSION: "Qt5.14.2"
-#      COMPILER: "VS2017"
-#      STAGE2SCRIPT: ci-windows-test.bat
-#      PYTHON: "no"
-#    tags:
-#      - VS2017
-#      - Qt5141
-#    dependencies:
-#      - VS2017-Qt5.14.2-x64-NOPYTHON
-#    needs: [VS2017-Qt5.14.2-x64-NOPYTHON]
-#    artifacts:
-#      paths:
-#        - rel/Testing/Temporary/LastTest.log
-
-#
-#-----------
-
-#-----------  Job Informations:
-# Type:       Deploy
-# OS:         Windows
-# Arch:       x64
-# QT Version: Qt5.14.2
-# QT Tag:     Qt5141
-# Compiler:   VS2017
-
-Deploy:VS2017-Qt5.14.2-x64:
-    stage: Deploy
-    only:
-      - master
-      - unstable
-    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
-    variables:
-      GIT_STRATEGY: none
-      ARCHITECTURE: "x64"
-      QT_VERSION: "Qt5.14.2"
-      COMPILER: "VS2017"
-      STAGE2SCRIPT: ci-windows-deploy.bat
-    tags:
-      - VS2017
-      - Qt5141
-      - Python39
-    dependencies:
-      - VS2017-Qt5.14.2-x64
-    needs: [VS2017-Qt5.14.2-x64]
-    artifacts:
-      paths:
-        - rel/*.exe
-
-Deploy:VS2017-Qt5.14.2-x64-NOPYTHON:
-    stage: Deploy
-    only:
-      - master
-      - unstable
-    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
-    variables:
-      GIT_STRATEGY: none
-      ARCHITECTURE: "x64"
-      QT_VERSION: "Qt5.14.2"
-      COMPILER: "VS2017"
-      STAGE2SCRIPT: ci-windows-deploy.bat
-      PYTHON: "no"
-    tags:
-      - VS2017
-      - Qt5141
-    dependencies:
-      - VS2017-Qt5.14.2-x64-NOPYTHON
-    needs: [VS2017-Qt5.14.2-x64-NOPYTHON]
-    artifacts:
-      paths:
-        - rel/*.exe
-
-#
-#-----------
-
 
 #-----------  Job Informations:
 # Type:       Build
@@ -1482,6 +1569,159 @@ Deploy:VS2019-Qt6.4.0-x64-NOPYTHON:
     dependencies:
       - VS2019-Qt6.4.0-x64-NOPYTHON
     needs: [VS2019-Qt6.4.0-x64-NOPYTHON]
+    artifacts:
+      paths:
+        - rel/*.exe
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Build
+# OS:         Windows
+# Arch:       x64
+# QT Version: Qt6.5.1
+# QT Tag:     Qt651
+# Compiler:   VS2019
+
+VS2019-Qt6.5.1-x64:
+    stage: Build
+    script: "CI\\ci-windows-build.bat"
+    variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt6.5.1"
+      COMPILER: "VS2019"
+    tags:
+      - VS2019
+      - Qt651
+      - Python39
+    artifacts:
+      expire_in: 1 week
+      paths:
+        - artifacts
+
+VS2019-Qt6.5.1-x64-NOPYTHON:
+    stage: Build
+    script: "CI\\ci-windows-build.bat"
+    variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt6.5.1"
+      COMPILER: "VS2019"
+      PYTHON: "no"
+    tags:
+      - VS2019
+      - Qt651
+    artifacts:
+      expire_in: 1 week
+      paths:
+        - artifacts
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Test
+# OS:         Windows
+# Arch:       x64
+# QT Version: Qt6.5.1
+# QT Tag:     Qt651
+# Compiler:   VS2019
+
+Test:VS2019-Qt6.5.1-x64:
+    stage: Test
+    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
+    variables:
+      GIT_STRATEGY: none
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt6.5.1"
+      COMPILER: "VS2019"
+      STAGE2SCRIPT: ci-windows-test.bat
+    tags:
+      - VS2019
+      - Qt651
+      - Python39
+    dependencies:
+      - VS2019-Qt6.5.1-x64
+    needs: [VS2019-Qt6.5.1-x64]
+    artifacts:
+      paths:
+        - rel/Testing/Temporary/LastTest.log
+
+#Test:VS2019-Qt6.5.1-x64-NOPYTHON:
+#    stage: Test
+#    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
+#    variables:
+#      GIT_STRATEGY: none
+#      ARCHITECTURE: "x64"
+#      QT_VERSION: "Qt6.5.1"
+#      COMPILER: "VS2019"
+#      STAGE2SCRIPT: ci-windows-test.bat
+#      PYTHON: "no"
+#    tags:
+#      - VS2019
+#      - Qt651
+#    dependencies:
+#      - VS2019-Qt6.5.1-x64-NOPYTHON
+#    needs: [VS2019-Qt6.5.1-x64-NOPYTHON]
+#    artifacts:
+#      paths:
+#        - rel/Testing/Temporary/LastTest.log
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Deploy
+# OS:         Windows
+# Arch:       x64
+# QT Version: Qt6.5.1
+# QT Tag:     Qt651
+# Compiler:   VS2019
+
+Deploy:VS2019-Qt6.5.1-x64:
+    stage: Deploy
+    only:
+      - master
+      - unstable
+    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
+    variables:
+      GIT_STRATEGY: none
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt6.5.1"
+      COMPILER: "VS2019"
+      STAGE2SCRIPT: ci-windows-deploy.bat
+    tags:
+      - VS2019
+      - Qt651
+      - Python39
+    dependencies:
+      - VS2019-Qt6.5.1-x64
+    needs: [VS2019-Qt6.5.1-x64]
+    artifacts:
+      paths:
+        - rel/*.exe
+
+Deploy:VS2019-Qt6.5.1-x64-NOPYTHON:
+    stage: Deploy
+    only:
+      - master
+      - unstable
+    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
+    variables:
+      GIT_STRATEGY: none
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt6.5.1"
+      COMPILER: "VS2019"
+      STAGE2SCRIPT: ci-windows-deploy.bat
+      PYTHON: "no"
+    tags:
+      - VS2019
+      - Qt651
+    dependencies:
+      - VS2019-Qt6.5.1-x64-NOPYTHON
+    needs: [VS2019-Qt6.5.1-x64-NOPYTHON]
     artifacts:
       paths:
         - rel/*.exe
