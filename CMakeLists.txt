@@ -108,6 +108,7 @@ if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
       #for windows we need to change the .github foldet to .git
       if (WIN32)
         file(RENAME ${pybind11_SOURCE_DIR}/.github ${pybind11_SOURCE_DIR}/.git)
+      endif()
   endif()
 endif()
 
