@@ -105,6 +105,9 @@ if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
         GIT_TAG v2.10.4
       )
       FetchContent_MakeAvailable(pybind11)
+      #for windows we need to change the .github foldet to .git
+      if (WIN32)
+        file(RENAME ${pybind11_SOURCE_DIR}/.github ${pybind11_SOURCE_DIR}/.git)
   endif()
 endif()
 
