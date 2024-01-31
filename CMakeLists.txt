@@ -107,8 +107,14 @@ if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
       FetchContent_MakeAvailable(pybind11)
       #for windows we need to change the .github foldet to .git
       if (WIN32)
-        file(RENAME ${pybind11_SOURCE_DIR}/.github ${pybind11_SOURCE_DIR}/.git)
+        #check if .github folder exists
+        if (EXISTS ${pybind11_SOURCE_DIR}/.github)
+          #rename .github to .git
+          file(RENAME ${pybind11_SOURCE_DIR}/.github ${pybind11_SOURCE_DIR}/.git)
+        endif()
       endif()
+      #print pybind11_Source_dir
+      message(STATUS "pybind11_SOURCE_DIR: ${pybind11_SOURCE_DIR}")
   endif()
 endif()
 
