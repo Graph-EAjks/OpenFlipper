@@ -104,17 +104,8 @@ if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
         GIT_REPOSITORY https://github.com/pybind/pybind11
         GIT_TAG v2.10.4
       )
+      set(FETCHCONTENT_FULLY_DISCONNECTED OFF)
       FetchContent_MakeAvailable(pybind11)
-      #for windows we need to change the .github foldet to .git
-      if (WIN32)
-        #check if .github folder exists
-        if (EXISTS ${pybind11_SOURCE_DIR}/.github)
-          #rename .github to .git
-          file(RENAME ${pybind11_SOURCE_DIR}/.github ${pybind11_SOURCE_DIR}/.git)
-        endif()
-      endif()
-      #print pybind11_Source_dir
-      message(STATUS "pybind11_SOURCE_DIR: ${pybind11_SOURCE_DIR}")
   endif()
 endif()
 

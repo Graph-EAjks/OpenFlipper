@@ -71,7 +71,7 @@ cd ..
 
 :: copy all files to a new artifacts folder except the .git folder
 :: use the following options to make robocopy silent /NFL /NDL /NJH /NJS /nc /ns /np
-robocopy . artifacts /e /NFL /NDL /NJH /NJS /nc /ns /np /xd artifacts /xd .git
+robocopy . artifacts /e /NFL /NDL /NJH /NJS /nc /ns /np /xd artifacts
 
 ::robocopy uses some error codes different from 0 
 IF %errorlevel% LSS 8 exit /b 0
