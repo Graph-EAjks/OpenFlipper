@@ -39,11 +39,7 @@ elif [ "$COMPILER" == "clang" ]; then
   echo "Setting compiler to CLANG";
 fi  
 
-if [ "$LANGUAGE" == "cpp11" ]; then
-  echo "Using C++11 standard";
-  OPTIONS="$OPTIONS -DOPENFLIPPER_CXX_STANDARD=11 "
-  BUILDPATH="$BUILDPATH-cpp11"
-elif [ "$LANGUAGE" == "cpp17" ]; then
+if [ "$LANGUAGE" == "cpp17" ]; then
   echo "Using C++17 standard";
   OPTIONS="$OPTIONS -DOPENFLIPPER_CXX_STANDARD=17"
   BUILDPATH="$BUILDPATH-cpp17"

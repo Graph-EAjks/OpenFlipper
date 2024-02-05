@@ -21,8 +21,8 @@ if(EXISTS ${CMAKE_SOURCE_DIR}/libs_required/OpenMesh)
 endif()
 
 # Select appropriate C++ version.
-set(OPENFLIPPER_CXX_STANDARD 11 CACHE STRING "C++ standard version to use")
-set_property(CACHE OPENFLIPPER_CXX_STANDARD PROPERTY STRINGS 11 14 17 20 23)
+set(OPENFLIPPER_CXX_STANDARD 17 CACHE STRING "C++ standard version to use")
+set_property(CACHE OPENFLIPPER_CXX_STANDARD PROPERTY STRINGS 17 20 23)
 
 # ACG Environment default settings
 # This is ugly but currently we need to work around the default installed on debian

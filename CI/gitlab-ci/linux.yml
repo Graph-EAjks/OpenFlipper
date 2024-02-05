@@ -5,8 +5,8 @@
 ##############################
 
 
-{linux-template-job-full.yml,    COMPILER=gcc,   LANGUAGE=cpp11, QT_VERSION=qt5.15.1}
-{linux-template-job-full.yml,    COMPILER=clang, LANGUAGE=cpp11, QT_VERSION=qt5.15.1}
+{linux-template-job-full.yml,    COMPILER=gcc,   LANGUAGE=cpp17, QT_VERSION=qt5.15.1}
+{linux-template-job-full.yml,    COMPILER=clang, LANGUAGE=cpp17, QT_VERSION=qt5.15.1}
 
 # Qt6 requires cpp17 or higher!!
 {linux-template-job-full.yml,    COMPILER=gcc,   LANGUAGE=cpp17, QT_VERSION=qt6.3.0}
@@ -16,7 +16,7 @@
 {linux-template-job-full.yml,    COMPILER=clang,   LANGUAGE=cpp17, QT_VERSION=qt6.5.1}
 
 # include what you use
-{linux-iwyu-job.yml, BUILDTYPE=release, COMPILER=clang, LANGUAGE=cpp11, QT_VERSION=qt5.13.0}
+{linux-iwyu-job.yml, BUILDTYPE=release, COMPILER=clang, LANGUAGE=cpp17, QT_VERSION=qt6.5.1}
 
 cppcheck:
   # image: gitlab.vci.rwth-aachen.de:4567/docker/docker/docker-openflipper-container

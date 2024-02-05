@@ -19,7 +19,7 @@ fi
 cd build-release
 
 # Build without ports to avoid qt4 collision
-/opt/local/bin/cmake ../ -DCMAKE_CXX_FLAGS='-std=c++11' -DQWT6_INCLUDE_DIR=/Users/jenkins/sw/qwt-6.1.3-qt5.11.3/lib/qwt.framework/Headers -DQWT6_LIBRARY=/Users/jenkins/sw/qwt-6.1.3-qt5.11.3/lib/qwt.framework -DQT_INSTALL_PATH=/Users/jenkins/sw/Qt/5.11.3/clang_64/ -DQT_VERSION=5 
+/opt/local/bin/cmake ../ -DOPENFLIPPER_CXX_STANDARD=17 -DQWT6_INCLUDE_DIR=/Users/jenkins/sw/qwt-6.1.3-qt5.11.3/lib/qwt.framework/Headers -DQWT6_LIBRARY=/Users/jenkins/sw/qwt-6.1.3-qt5.11.3/lib/qwt.framework -DQT_INSTALL_PATH=/Users/jenkins/sw/Qt/5.11.3/clang_64/ -DQT_VERSION=5 
 
 make -j2
 
