@@ -98,7 +98,14 @@ if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
   find_package(Python3 COMPONENTS Interpreter Development)
 
   if (NOT TARGET pybind11::module OR NOT TARGET pybind11::embed)
-      add_subdirectory(OpenFlipper/libs_required/pybind11)
+      include(FetchContent)
+      FetchContent_Declare(
+        pybind11
+        GIT_REPOSITORY https://github.com/pybind/pybind11
+        GIT_TAG v2.10.4
+      )
+      set(FETCHCONTENT_FULLY_DISCONNECTED OFF)
+      FetchContent_MakeAvailable(pybind11)
   endif()
 endif()
 
