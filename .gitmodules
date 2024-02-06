@@ -114,10 +114,6 @@
 	path = Plugin-Ruler
 	url = ../../OpenFlipper-Free/Plugin-Ruler.git
 	branch = master
-[submodule "Plugin-Scripting"]
-	path = Plugin-Scripting
-	url = ../../OpenFlipper-Free/Plugin-Scripting.git
-	branch = master
 [submodule "Plugin-SimpleSmoother"]
 	path = Plugin-SimpleSmoother
 	url = ../../OpenFlipper-Free/Plugin-SimpleSmoother.git
