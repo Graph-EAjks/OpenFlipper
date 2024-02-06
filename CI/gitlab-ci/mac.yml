@@ -4,6 +4,4 @@
 #
 ##############################
 
-{mac-template-job.yml, LANGUAGE=Cpp11, QT_TAG=qt5113}
-
 {mac-M1-template-job.yml}
