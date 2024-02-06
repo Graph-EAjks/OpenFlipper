@@ -5,9 +5,6 @@
 ##############################
 
 
-{linux-template-job-full.yml,    COMPILER=gcc,   LANGUAGE=cpp17, QT_VERSION=qt5.15.1}
-{linux-template-job-full.yml,    COMPILER=clang, LANGUAGE=cpp17, QT_VERSION=qt5.15.1}
-
 # Qt6 requires cpp17 or higher!!
 {linux-template-job-full.yml,    COMPILER=gcc,   LANGUAGE=cpp17, QT_VERSION=qt6.3.0}
 {linux-template-job-full.yml,    COMPILER=clang,   LANGUAGE=cpp17, QT_VERSION=qt6.3.0}
