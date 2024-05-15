@@ -48,32 +48,7 @@ else
   BUILDPATH="$BUILDPATH-unknown"
 fi  
 
-if [ "$QTVERSION" == "qt5.13.0" ]; then
-  echo "Using QT5.13.0";
-  BUILDPATH="$BUILDPATH-qt5.13.0"
-  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=$HOME/sw/qwt-6.1.4-qt5.13.0/include -DQWT6_LIBRARY_DIR=$HOME/sw/qwt-6.1.4-qt5.13.0/lib -DQWT6_LIBRARY=$HOME/sw/qwt-6.1.4-qt5.13.0/lib/libqwt.so -DQT_INSTALL_PATH=$HOME/sw/Qt/5.13.0/gcc_64 -DQT_VERSION=5"
-  QT_INSTALL_PATH="$HOME/sw/Qt/5.13.0/gcc_64"
-elif [ "$QTVERSION" == "qt5.12.2" ]; then
-  echo "Using QT5.12.2";
-  BUILDPATH="$BUILDPATH-qt5.12.2"
-  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=$HOME/sw/qwt-6.1.4-qt5.12.2/include -DQWT6_LIBRARY_DIR=$HOME/sw/qwt-6.1.4-qt5.12.2/lib -DQWT6_LIBRARY=$HOME/sw/qwt-6.1.4-qt5.12.2/lib/libqwt.so -DQT_INSTALL_PATH=$HOME/sw/Qt/5.12.2/gcc_64 -DQT_VERSION=5"
-  QT_INSTALL_PATH="$HOME/sw/Qt/5.12.2/gcc_64"
-elif [ "$QTVERSION" == "qt5.11.2" ]; then
-  echo "Using QT5.11.2";
-  BUILDPATH="$BUILDPATH-qt5.11.2"
-  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=$HOME/sw/qwt-6.1.3-qt5.11.2/include -DQWT6_LIBRARY_DIR=$HOME/sw/qwt-6.1.3-qt5.11.2/lib -DQWT6_LIBRARY=$HOME/sw/qwt-6.1.3-qt5.11.2/lib/libqwt.so -DQT_INSTALL_PATH=$HOME/sw/Qt/5.11.2/gcc_64 -DQT_VERSION=5"
-  QT_INSTALL_PATH="$HOME/sw/Qt/5.11.2/gcc_64"
-elif [ "$QTVERSION" == "qt5.9.0" ]; then
-  echo "Using QT5.9.0";
-  BUILDPATH="$BUILDPATH-qt5.9.0"
-  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=$HOME/sw/qwt-6.1.3-qt5.9.0/include -DQWT6_LIBRARY_DIR=$HOME/sw/qwt-6.1.3-qt5.9.0/lib -DQWT6_LIBRARY=$HOME/sw/qwt-6.1.3-qt5.9.0/lib/libqwt.so -DQT_INSTALL_PATH=$HOME/sw/Qt/5.9/gcc_64 -DQT_VERSION=5"
-  QT_INSTALL_PATH="$HOME/sw/Qt/5.9/gcc_64"
-elif [ "$QTVERSION" == "qt5.13.2" ]; then
-  echo "Using QT5.13.2";
-  BUILDPATH="$BUILDPATH-qt5.13.2"
-  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=$HOME/sw/qwt-6.1.4-qt5.13.2/include -DQWT6_LIBRARY_DIR=$HOME/sw/qwt-6.1.4-qt5.13.2/lib -DQWT6_LIBRARY=$HOME/sw/qwt-6.1.4-qt5.13.2/lib/libqwt.so -DQT_INSTALL_PATH=$HOME/sw/Qt/5.13.2/gcc_64 -DQT_VERSION=5"
-  QT_INSTALL_PATH="$HOME/sw/Qt/5.13.2/gcc_64"
-elif [ "$QTVERSION" == "qt5.15.1" ]; then
+if [ "$QTVERSION" == "qt5.15.1" ]; then
   echo "Using QT5.15.1";
   BUILDPATH="$BUILDPATH-qt5.15.1"
   OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=$HOME/sw/qwt-6.1.5-qt5.15.1/include -DQWT6_LIBRARY_DIR=$HOME/sw/qwt-6.1.5-qt5.15.1/lib -DQWT6_LIBRARY=$HOME/sw/qwt-6.1.5-qt5.15.1/lib/libqwt.so -DQT_INSTALL_PATH=$HOME/sw/Qt/5.15.1/gcc_64 -DQT_VERSION=5"
@@ -90,6 +65,10 @@ elif [ "$QTVERSION" == "qt6.5.1" ]; then
   BUILDPATH="$BUILDPATH-qt6.5.1"
   OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=$HOME/sw/qwt-6.2.0-qt6.5.1/include -DQWT6_LIBRARY_DIR=$HOME/sw/qwt-6.2.0-qt6.5.1/lib -DQWT6_LIBRARY=$HOME/sw/qwt-6.2.0-qt6.5.1/lib/libqwt.so -DQT_INSTALL_PATH=$HOME/sw/Qt/6.5.1/gcc_64"
   QT_INSTALL_PATH="$HOME/sw/Qt/6.5.1/gcc_64"
+elif [ "$QTVERSION" == "qt6.7.0" ]; then
+  BUILDPATH="$BUILDPATH-qt6.7.0"
+  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=$HOME/sw/qwt-6.3.0-qt6.7.0/include -DQWT6_LIBRARY_DIR=$HOME/sw/qwt-6.3.0-qt6.7.0/lib -DQWT6_LIBRARY=$HOME/sw/qwt-6.3.0-qt6.7.0/lib/libqwt.so -DQT_INSTALL_PATH=$HOME/sw/Qt/6.7.0/gcc_64"
+  QT_INSTALL_PATH="$HOME/sw/Qt/6.7.0/gcc_64"
 fi
 
 if [ "$PYTHON" == "no" ]; then
