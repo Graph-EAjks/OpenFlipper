@@ -26,9 +26,9 @@ set_property(CACHE OPENFLIPPER_CXX_STANDARD PROPERTY STRINGS 17 20 23)
 
 # ACG Environment default settings
 # This is ugly but currently we need to work around the default installed on debian
-if ( EXISTS /ACG/acgdev/gcc-x86_64/qt/6.7.0/gcc_64 )
+if ( EXISTS /ACG/acgdev/gcc-x86_64/qt/6.7.1/gcc_64 )
   # Default to this install path for QT%_INSTALL_DIR
-  set (QT_INSTALL_PATH /ACG/acgdev/gcc-x86_64/qt/6.7.0/gcc_64/ CACHE PATH "Qt6 install path set for ACG environment using QT 6.7.0" )
+  set (QT_INSTALL_PATH /ACG/acgdev/gcc-x86_64/qt/6.7.1/gcc_64/ CACHE PATH "Qt6 install path set for ACG environment using QT 6.7.1" )
 endif()
 
 if ( WIN32 )
@@ -184,7 +184,7 @@ if ( WIN32 )
   endif()
 endif()
 
-set (OF_MAX_QT_VERSION "6.7.0")
+set (OF_MAX_QT_VERSION "6.7.1")
 
 if (${Qt_VERSION_STRING} STRGREATER ${OF_MAX_QT_VERSION})
   message(WARNING "Detected QT Version ( ${Qt_VERSION_STRING}  ) higher than ${OF_MAX_QT_VERSION}!\n" "OpenFlipper has not been tested with this QT Version.")
