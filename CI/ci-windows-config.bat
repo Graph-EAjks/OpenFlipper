@@ -83,7 +83,11 @@ set QT_REV_LONG=6.5.1
 set QT_REV=6.5.1
 set QT_MAJOR=6
 )
-
+if "%QT_VERSION%" == "Qt6.7.1" (
+set QT_REV_LONG=6.7.1
+set QT_REV=6.7.1
+set QT_MAJOR=6
+)
 
 
 set QT_SUFFIX=
@@ -138,7 +142,16 @@ if "%QT_MAJOR%" == "5" (
          set QWT6_LIBRARY=%LIBPATH_BASE%/%ARCHITECTURE%/qwt-6.2.%%x-qt-%QT_REV_LONG%/lib/qwt.lib
          set QWT6_LIBRARY_DIR=%LIBPATH_BASE%/%ARCHITECTURE%/qwt-6.2.%%x-qt-%QT_REV_LONG%/lib
      )
-  )
+   )
+
+   for /l %%x in (0, 1, 6) do (
+     echo "Checking for QWT in : %LIBPATH_BASE%/%ARCHITECTURE%/qwt-6.3.%%x-qt-%QT_REV_LONG%/include"
+     if exist %LIBPATH_BASE%/%ARCHITECTURE%/qwt-6.3.%%x-qt-%QT_REV_LONG%/include (
+         set QWT6_INCLUDE_DIR=%LIBPATH_BASE%/%ARCHITECTURE%/qwt-6.3.%%x-qt-%QT_REV_LONG%/include
+         set QWT6_LIBRARY=%LIBPATH_BASE%/%ARCHITECTURE%/qwt-6.3.%%x-qt-%QT_REV_LONG%/lib/qwt.lib
+         set QWT6_LIBRARY_DIR=%LIBPATH_BASE%/%ARCHITECTURE%/qwt-6.3.%%x-qt-%QT_REV_LONG%/lib
+     )
+ )
 
 )
 

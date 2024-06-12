@@ -654,159 +654,7 @@ cppcheck:
 ##############################
 
 #{windows-template-job.yml, COMPILER=VS2019, QT_VERSION=Qt6.3.2, QT_TAG=Qt632, ARCH=x64}
-#-----------  Job Informations:
-# Type:       Build
-# OS:         Windows
-# Arch:       x64
-# QT Version: Qt6.4.0
-# QT Tag:     Qt640
-# Compiler:   VS2019
-
-VS2019-Qt6.4.0-x64:
-    stage: Build
-    script: "CI\\ci-windows-build.bat"
-    variables:
-      GIT_SUBMODULE_STRATEGY: recursive
-      ARCHITECTURE: "x64"
-      QT_VERSION: "Qt6.4.0"
-      COMPILER: "VS2019"
-    tags:
-      - VS2019
-      - Qt640
-      - Python39
-    artifacts:
-      expire_in: 1 week
-      paths:
-        - artifacts
-
-VS2019-Qt6.4.0-x64-NOPYTHON:
-    stage: Build
-    script: "CI\\ci-windows-build.bat"
-    variables:
-      GIT_SUBMODULE_STRATEGY: recursive
-      ARCHITECTURE: "x64"
-      QT_VERSION: "Qt6.4.0"
-      COMPILER: "VS2019"
-      PYTHON: "no"
-    tags:
-      - VS2019
-      - Qt640
-    artifacts:
-      expire_in: 1 week
-      paths:
-        - artifacts
-
-#
-#-----------
-
-#-----------  Job Informations:
-# Type:       Test
-# OS:         Windows
-# Arch:       x64
-# QT Version: Qt6.4.0
-# QT Tag:     Qt640
-# Compiler:   VS2019
-
-Test:VS2019-Qt6.4.0-x64:
-    stage: Test
-    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
-    variables:
-      GIT_STRATEGY: none
-      ARCHITECTURE: "x64"
-      QT_VERSION: "Qt6.4.0"
-      COMPILER: "VS2019"
-      STAGE2SCRIPT: ci-windows-test.bat
-    tags:
-      - VS2019
-      - Qt640
-      - Python39
-    dependencies:
-      - VS2019-Qt6.4.0-x64
-    needs: [VS2019-Qt6.4.0-x64]
-    artifacts:
-      paths:
-        - rel/Testing/Temporary/LastTest.log
-
-#Test:VS2019-Qt6.4.0-x64-NOPYTHON:
-#    stage: Test
-#    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
-#    variables:
-#      GIT_STRATEGY: none
-#      ARCHITECTURE: "x64"
-#      QT_VERSION: "Qt6.4.0"
-#      COMPILER: "VS2019"
-#      STAGE2SCRIPT: ci-windows-test.bat
-#      PYTHON: "no"
-#    tags:
-#      - VS2019
-#      - Qt640
-#    dependencies:
-#      - VS2019-Qt6.4.0-x64-NOPYTHON
-#    needs: [VS2019-Qt6.4.0-x64-NOPYTHON]
-#    artifacts:
-#      paths:
-#        - rel/Testing/Temporary/LastTest.log
-
-#
-#-----------
-
-#-----------  Job Informations:
-# Type:       Deploy
-# OS:         Windows
-# Arch:       x64
-# QT Version: Qt6.4.0
-# QT Tag:     Qt640
-# Compiler:   VS2019
-
-Deploy:VS2019-Qt6.4.0-x64:
-    stage: Deploy
-    only:
-      - master
-      - unstable
-    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
-    variables:
-      GIT_STRATEGY: none
-      ARCHITECTURE: "x64"
-      QT_VERSION: "Qt6.4.0"
-      COMPILER: "VS2019"
-      STAGE2SCRIPT: ci-windows-deploy.bat
-    tags:
-      - VS2019
-      - Qt640
-      - Python39
-    dependencies:
-      - VS2019-Qt6.4.0-x64
-    needs: [VS2019-Qt6.4.0-x64]
-    artifacts:
-      paths:
-        - rel/*.exe
-
-Deploy:VS2019-Qt6.4.0-x64-NOPYTHON:
-    stage: Deploy
-    only:
-      - master
-      - unstable
-    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
-    variables:
-      GIT_STRATEGY: none
-      ARCHITECTURE: "x64"
-      QT_VERSION: "Qt6.4.0"
-      COMPILER: "VS2019"
-      STAGE2SCRIPT: ci-windows-deploy.bat
-      PYTHON: "no"
-    tags:
-      - VS2019
-      - Qt640
-    dependencies:
-      - VS2019-Qt6.4.0-x64-NOPYTHON
-    needs: [VS2019-Qt6.4.0-x64-NOPYTHON]
-    artifacts:
-      paths:
-        - rel/*.exe
-
-#
-#-----------
-
+#{windows-template-job.yml, COMPILER=VS2019, QT_VERSION=Qt6.4.0, QT_TAG=Qt640, ARCH=x64}
 #-----------  Job Informations:
 # Type:       Build
 # OS:         Windows
@@ -953,6 +801,159 @@ Deploy:VS2019-Qt6.5.1-x64-NOPYTHON:
     dependencies:
       - VS2019-Qt6.5.1-x64-NOPYTHON
     needs: [VS2019-Qt6.5.1-x64-NOPYTHON]
+    artifacts:
+      paths:
+        - rel/*.exe
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Build
+# OS:         Windows
+# Arch:       x64
+# QT Version: Qt6.7.1
+# QT Tag:     Qt671
+# Compiler:   VS2019
+
+VS2019-Qt6.7.1-x64:
+    stage: Build
+    script: "CI\\ci-windows-build.bat"
+    variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt6.7.1"
+      COMPILER: "VS2019"
+    tags:
+      - VS2019
+      - Qt671
+      - Python39
+    artifacts:
+      expire_in: 1 week
+      paths:
+        - artifacts
+
+VS2019-Qt6.7.1-x64-NOPYTHON:
+    stage: Build
+    script: "CI\\ci-windows-build.bat"
+    variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt6.7.1"
+      COMPILER: "VS2019"
+      PYTHON: "no"
+    tags:
+      - VS2019
+      - Qt671
+    artifacts:
+      expire_in: 1 week
+      paths:
+        - artifacts
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Test
+# OS:         Windows
+# Arch:       x64
+# QT Version: Qt6.7.1
+# QT Tag:     Qt671
+# Compiler:   VS2019
+
+Test:VS2019-Qt6.7.1-x64:
+    stage: Test
+    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
+    variables:
+      GIT_STRATEGY: none
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt6.7.1"
+      COMPILER: "VS2019"
+      STAGE2SCRIPT: ci-windows-test.bat
+    tags:
+      - VS2019
+      - Qt671
+      - Python39
+    dependencies:
+      - VS2019-Qt6.7.1-x64
+    needs: [VS2019-Qt6.7.1-x64]
+    artifacts:
+      paths:
+        - rel/Testing/Temporary/LastTest.log
+
+#Test:VS2019-Qt6.7.1-x64-NOPYTHON:
+#    stage: Test
+#    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
+#    variables:
+#      GIT_STRATEGY: none
+#      ARCHITECTURE: "x64"
+#      QT_VERSION: "Qt6.7.1"
+#      COMPILER: "VS2019"
+#      STAGE2SCRIPT: ci-windows-test.bat
+#      PYTHON: "no"
+#    tags:
+#      - VS2019
+#      - Qt671
+#    dependencies:
+#      - VS2019-Qt6.7.1-x64-NOPYTHON
+#    needs: [VS2019-Qt6.7.1-x64-NOPYTHON]
+#    artifacts:
+#      paths:
+#        - rel/Testing/Temporary/LastTest.log
+
+#
+#-----------
+
+#-----------  Job Informations:
+# Type:       Deploy
+# OS:         Windows
+# Arch:       x64
+# QT Version: Qt6.7.1
+# QT Tag:     Qt671
+# Compiler:   VS2019
+
+Deploy:VS2019-Qt6.7.1-x64:
+    stage: Deploy
+    only:
+      - master
+      - unstable
+    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
+    variables:
+      GIT_STRATEGY: none
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt6.7.1"
+      COMPILER: "VS2019"
+      STAGE2SCRIPT: ci-windows-deploy.bat
+    tags:
+      - VS2019
+      - Qt671
+      - Python39
+    dependencies:
+      - VS2019-Qt6.7.1-x64
+    needs: [VS2019-Qt6.7.1-x64]
+    artifacts:
+      paths:
+        - rel/*.exe
+
+Deploy:VS2019-Qt6.7.1-x64-NOPYTHON:
+    stage: Deploy
+    only:
+      - master
+      - unstable
+    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
+    variables:
+      GIT_STRATEGY: none
+      ARCHITECTURE: "x64"
+      QT_VERSION: "Qt6.7.1"
+      COMPILER: "VS2019"
+      STAGE2SCRIPT: ci-windows-deploy.bat
+      PYTHON: "no"
+    tags:
+      - VS2019
+      - Qt671
+    dependencies:
+      - VS2019-Qt6.7.1-x64-NOPYTHON
+    needs: [VS2019-Qt6.7.1-x64-NOPYTHON]
     artifacts:
       paths:
         - rel/*.exe
