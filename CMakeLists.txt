@@ -143,6 +143,7 @@ set(QT5_REQUIRED_PACKAGES
 
 set(QT6_REQUIRED_PACKAGES
   OpenGLWidgets
+  Charts
 #  Core5Compat
   )
 
@@ -188,6 +189,12 @@ set (OF_MAX_QT_VERSION "6.7.1")
 
 if (${Qt_VERSION_STRING} STRGREATER ${OF_MAX_QT_VERSION})
   message(WARNING "Detected QT Version ( ${Qt_VERSION_STRING}  ) higher than ${OF_MAX_QT_VERSION}!\n" "OpenFlipper has not been tested with this QT Version.")
+endif()
+
+set (OF_MIN_QT_VERSION "6.5.3")
+
+if (${OF_MIN_QT_VERSION} STRGREATER ${Qt_VERSION_STRING})
+  message(FATAL_ERROR "Detected QT Version ( ${Qt_VERSION_STRING}  ) lower than ${OF_MIN_QT_VERSION}!\n" "OpenFlipper requires at least QT Version ${OF_MIN_QT_VERSION}.")
 endif()
 
 # ========================================================================
