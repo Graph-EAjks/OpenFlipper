@@ -41,15 +41,15 @@ variables:
 # OS:         Linux
 # Compiler:   gcc
 # Language:   cpp17
-# QT Version: qt6.5.1
+# QT Version: qt6.5.3
 
-build-debug-gcc-cpp17-qt6.5.1:
+build-debug-gcc-cpp17-qt6.5.3:
   stage: Build
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "gcc"
     LANGUAGE: "cpp17"
-    QTVERSION: "qt6.5.1"
+    QTVERSION: "qt6.5.3"
     BUILDTYPE: "debug"
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
@@ -59,15 +59,15 @@ build-debug-gcc-cpp17-qt6.5.1:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-debug-gcc-cpp17-qt6.5.1/
+       - build-debug-gcc-cpp17-qt6.5.3/
 
-build-debug-gcc-cpp17-qt6.5.1-nopython:
+build-debug-gcc-cpp17-qt6.5.3-nopython:
   stage: Build
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "gcc"
     LANGUAGE: "cpp17"
-    QTVERSION: "qt6.5.1"
+    QTVERSION: "qt6.5.3"
     BUILDTYPE: "debug"
     PYTHON: "no" 
     GIT_SUBMODULE_STRATEGY: recursive
@@ -78,7 +78,7 @@ build-debug-gcc-cpp17-qt6.5.1-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-debug-gcc-cpp17-qt6.5.1-nopython/
+       - build-debug-gcc-cpp17-qt6.5.3-nopython/
 
 #
 #-----------
@@ -88,15 +88,15 @@ build-debug-gcc-cpp17-qt6.5.1-nopython:
 # OS:         Linux
 # Compiler:   gcc
 # Language:   cpp17
-# QT Version: qt6.5.1
+# QT Version: qt6.5.3
 
-test-debug-gcc-cpp17-qt6.5.1:
+test-debug-gcc-cpp17-qt6.5.3:
   stage: Test
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "gcc"
     LANGUAGE:  "cpp17"
-    QTVERSION: "qt6.5.1"
+    QTVERSION: "qt6.5.3"
     BUILDTYPE: "debug"
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-test.sh"
@@ -104,33 +104,33 @@ test-debug-gcc-cpp17-qt6.5.1:
     - Linux
     - Bullseye
     - MultiThreads
-  dependencies: [build-debug-gcc-cpp17-qt6.5.1]
-  needs: [build-debug-gcc-cpp17-qt6.5.1]
+  dependencies: [build-debug-gcc-cpp17-qt6.5.3]
+  needs: [build-debug-gcc-cpp17-qt6.5.3]
   artifacts:
     paths:
-       - build-debug-gcc-cpp17-qt6.5.1/Testing/Temporary/LastTest.log
+       - build-debug-gcc-cpp17-qt6.5.3/Testing/Temporary/LastTest.log
     reports: 
        junit: report.xml
   
 # Disabled due to issues with tests requiring python to work
-#test-debug-gcc-cpp17-qt6.5.1-{{ISO_TAG}}-nopython:
+#test-debug-gcc-cpp17-qt6.5.3-{{ISO_TAG}}-nopython:
 #  stage: Test
 #  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
 #  variables:
 #    COMPILER: "gcc"
 #    LANGUAGE: "cpp17"
-#    QTVERSION: "qt6.5.1"
+#    QTVERSION: "qt6.5.3"
 #    BUILDTYPE: "debug"
 #    PYTHON: "no"
 #    GIT_SUBMODULE_STRATEGY: recursive
 #  script: "CI/ci-linux-test.sh"
 #  tags:
 #    - Docker
-#  dependencies: [build-debug-gcc-cpp17-qt6.5.1-{{ISO_TAG}}-nopython]
-#  needs: [build-debug-gcc-cpp17-qt6.5.1-{{ISO_TAG}}-nopython]
+#  dependencies: [build-debug-gcc-cpp17-qt6.5.3-{{ISO_TAG}}-nopython]
+#  needs: [build-debug-gcc-cpp17-qt6.5.3-{{ISO_TAG}}-nopython]
 #  artifacts:
 #    paths:
-#       - build-debug-gcc-cpp17-qt6.5.1/Testing/Temporary/LastTest.log
+#       - build-debug-gcc-cpp17-qt6.5.3/Testing/Temporary/LastTest.log
 
 #
 #-----------
@@ -140,15 +140,15 @@ test-debug-gcc-cpp17-qt6.5.1:
 # OS:         Linux
 # Compiler:   gcc
 # Language:   cpp17
-# QT Version: qt6.5.1
+# QT Version: qt6.5.3
 
-build-release-gcc-cpp17-qt6.5.1:
+build-release-gcc-cpp17-qt6.5.3:
   stage: Build
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "gcc"
     LANGUAGE: "cpp17"
-    QTVERSION: "qt6.5.1"
+    QTVERSION: "qt6.5.3"
     BUILDTYPE: "release"
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
@@ -158,15 +158,15 @@ build-release-gcc-cpp17-qt6.5.1:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-release-gcc-cpp17-qt6.5.1/
+       - build-release-gcc-cpp17-qt6.5.3/
 
-build-release-gcc-cpp17-qt6.5.1-nopython:
+build-release-gcc-cpp17-qt6.5.3-nopython:
   stage: Build
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "gcc"
     LANGUAGE: "cpp17"
-    QTVERSION: "qt6.5.1"
+    QTVERSION: "qt6.5.3"
     BUILDTYPE: "release"
     PYTHON: "no" 
     GIT_SUBMODULE_STRATEGY: recursive
@@ -177,7 +177,7 @@ build-release-gcc-cpp17-qt6.5.1-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-release-gcc-cpp17-qt6.5.1-nopython/
+       - build-release-gcc-cpp17-qt6.5.3-nopython/
 
 #
 #-----------
@@ -187,15 +187,15 @@ build-release-gcc-cpp17-qt6.5.1-nopython:
 # OS:         Linux
 # Compiler:   gcc
 # Language:   cpp17
-# QT Version: qt6.5.1
+# QT Version: qt6.5.3
 
-test-release-gcc-cpp17-qt6.5.1:
+test-release-gcc-cpp17-qt6.5.3:
   stage: Test
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "gcc"
     LANGUAGE:  "cpp17"
-    QTVERSION: "qt6.5.1"
+    QTVERSION: "qt6.5.3"
     BUILDTYPE: "release"
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-test.sh"
@@ -203,33 +203,33 @@ test-release-gcc-cpp17-qt6.5.1:
     - Linux
     - Bullseye
     - MultiThreads
-  dependencies: [build-release-gcc-cpp17-qt6.5.1]
-  needs: [build-release-gcc-cpp17-qt6.5.1]
+  dependencies: [build-release-gcc-cpp17-qt6.5.3]
+  needs: [build-release-gcc-cpp17-qt6.5.3]
   artifacts:
     paths:
-       - build-release-gcc-cpp17-qt6.5.1/Testing/Temporary/LastTest.log
+       - build-release-gcc-cpp17-qt6.5.3/Testing/Temporary/LastTest.log
     reports: 
        junit: report.xml
   
 # Disabled due to issues with tests requiring python to work
-#test-release-gcc-cpp17-qt6.5.1-{{ISO_TAG}}-nopython:
+#test-release-gcc-cpp17-qt6.5.3-{{ISO_TAG}}-nopython:
 #  stage: Test
 #  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
 #  variables:
 #    COMPILER: "gcc"
 #    LANGUAGE: "cpp17"
-#    QTVERSION: "qt6.5.1"
+#    QTVERSION: "qt6.5.3"
 #    BUILDTYPE: "release"
 #    PYTHON: "no"
 #    GIT_SUBMODULE_STRATEGY: recursive
 #  script: "CI/ci-linux-test.sh"
 #  tags:
 #    - Docker
-#  dependencies: [build-release-gcc-cpp17-qt6.5.1-{{ISO_TAG}}-nopython]
-#  needs: [build-release-gcc-cpp17-qt6.5.1-{{ISO_TAG}}-nopython]
+#  dependencies: [build-release-gcc-cpp17-qt6.5.3-{{ISO_TAG}}-nopython]
+#  needs: [build-release-gcc-cpp17-qt6.5.3-{{ISO_TAG}}-nopython]
 #  artifacts:
 #    paths:
-#       - build-release-gcc-cpp17-qt6.5.1/Testing/Temporary/LastTest.log
+#       - build-release-gcc-cpp17-qt6.5.3/Testing/Temporary/LastTest.log
 
 #
 #-----------
@@ -238,15 +238,15 @@ test-release-gcc-cpp17-qt6.5.1:
 # OS:         Linux
 # Compiler:   clang
 # Language:   cpp17
-# QT Version: qt6.5.1
+# QT Version: qt6.5.3
 
-build-debug-clang-cpp17-qt6.5.1:
+build-debug-clang-cpp17-qt6.5.3:
   stage: Build
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "clang"
     LANGUAGE: "cpp17"
-    QTVERSION: "qt6.5.1"
+    QTVERSION: "qt6.5.3"
     BUILDTYPE: "debug"
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
@@ -256,15 +256,15 @@ build-debug-clang-cpp17-qt6.5.1:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-debug-clang-cpp17-qt6.5.1/
+       - build-debug-clang-cpp17-qt6.5.3/
 
-build-debug-clang-cpp17-qt6.5.1-nopython:
+build-debug-clang-cpp17-qt6.5.3-nopython:
   stage: Build
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "clang"
     LANGUAGE: "cpp17"
-    QTVERSION: "qt6.5.1"
+    QTVERSION: "qt6.5.3"
     BUILDTYPE: "debug"
     PYTHON: "no" 
     GIT_SUBMODULE_STRATEGY: recursive
@@ -275,7 +275,7 @@ build-debug-clang-cpp17-qt6.5.1-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-debug-clang-cpp17-qt6.5.1-nopython/
+       - build-debug-clang-cpp17-qt6.5.3-nopython/
 
 #
 #-----------
@@ -285,15 +285,15 @@ build-debug-clang-cpp17-qt6.5.1-nopython:
 # OS:         Linux
 # Compiler:   clang
 # Language:   cpp17
-# QT Version: qt6.5.1
+# QT Version: qt6.5.3
 
-test-debug-clang-cpp17-qt6.5.1:
+test-debug-clang-cpp17-qt6.5.3:
   stage: Test
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "clang"
     LANGUAGE:  "cpp17"
-    QTVERSION: "qt6.5.1"
+    QTVERSION: "qt6.5.3"
     BUILDTYPE: "debug"
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-test.sh"
@@ -301,33 +301,33 @@ test-debug-clang-cpp17-qt6.5.1:
     - Linux
     - Bullseye
     - MultiThreads
-  dependencies: [build-debug-clang-cpp17-qt6.5.1]
-  needs: [build-debug-clang-cpp17-qt6.5.1]
+  dependencies: [build-debug-clang-cpp17-qt6.5.3]
+  needs: [build-debug-clang-cpp17-qt6.5.3]
   artifacts:
     paths:
-       - build-debug-clang-cpp17-qt6.5.1/Testing/Temporary/LastTest.log
+       - build-debug-clang-cpp17-qt6.5.3/Testing/Temporary/LastTest.log
     reports: 
        junit: report.xml
   
 # Disabled due to issues with tests requiring python to work
-#test-debug-clang-cpp17-qt6.5.1-{{ISO_TAG}}-nopython:
+#test-debug-clang-cpp17-qt6.5.3-{{ISO_TAG}}-nopython:
 #  stage: Test
 #  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
 #  variables:
 #    COMPILER: "clang"
 #    LANGUAGE: "cpp17"
-#    QTVERSION: "qt6.5.1"
+#    QTVERSION: "qt6.5.3"
 #    BUILDTYPE: "debug"
 #    PYTHON: "no"
 #    GIT_SUBMODULE_STRATEGY: recursive
 #  script: "CI/ci-linux-test.sh"
 #  tags:
 #    - Docker
-#  dependencies: [build-debug-clang-cpp17-qt6.5.1-{{ISO_TAG}}-nopython]
-#  needs: [build-debug-clang-cpp17-qt6.5.1-{{ISO_TAG}}-nopython]
+#  dependencies: [build-debug-clang-cpp17-qt6.5.3-{{ISO_TAG}}-nopython]
+#  needs: [build-debug-clang-cpp17-qt6.5.3-{{ISO_TAG}}-nopython]
 #  artifacts:
 #    paths:
-#       - build-debug-clang-cpp17-qt6.5.1/Testing/Temporary/LastTest.log
+#       - build-debug-clang-cpp17-qt6.5.3/Testing/Temporary/LastTest.log
 
 #
 #-----------
@@ -337,15 +337,15 @@ test-debug-clang-cpp17-qt6.5.1:
 # OS:         Linux
 # Compiler:   clang
 # Language:   cpp17
-# QT Version: qt6.5.1
+# QT Version: qt6.5.3
 
-build-release-clang-cpp17-qt6.5.1:
+build-release-clang-cpp17-qt6.5.3:
   stage: Build
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "clang"
     LANGUAGE: "cpp17"
-    QTVERSION: "qt6.5.1"
+    QTVERSION: "qt6.5.3"
     BUILDTYPE: "release"
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-build.sh"
@@ -355,15 +355,15 @@ build-release-clang-cpp17-qt6.5.1:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-release-clang-cpp17-qt6.5.1/
+       - build-release-clang-cpp17-qt6.5.3/
 
-build-release-clang-cpp17-qt6.5.1-nopython:
+build-release-clang-cpp17-qt6.5.3-nopython:
   stage: Build
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "clang"
     LANGUAGE: "cpp17"
-    QTVERSION: "qt6.5.1"
+    QTVERSION: "qt6.5.3"
     BUILDTYPE: "release"
     PYTHON: "no" 
     GIT_SUBMODULE_STRATEGY: recursive
@@ -374,7 +374,7 @@ build-release-clang-cpp17-qt6.5.1-nopython:
   artifacts:
     expire_in: 1 week
     paths:
-       - build-release-clang-cpp17-qt6.5.1-nopython/
+       - build-release-clang-cpp17-qt6.5.3-nopython/
 
 #
 #-----------
@@ -384,15 +384,15 @@ build-release-clang-cpp17-qt6.5.1-nopython:
 # OS:         Linux
 # Compiler:   clang
 # Language:   cpp17
-# QT Version: qt6.5.1
+# QT Version: qt6.5.3
 
-test-release-clang-cpp17-qt6.5.1:
+test-release-clang-cpp17-qt6.5.3:
   stage: Test
   # image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
   variables:
     COMPILER: "clang"
     LANGUAGE:  "cpp17"
-    QTVERSION: "qt6.5.1"
+    QTVERSION: "qt6.5.3"
     BUILDTYPE: "release"
     GIT_SUBMODULE_STRATEGY: recursive
   script: "CI/ci-linux-test.sh"
@@ -400,33 +400,33 @@ test-release-clang-cpp17-qt6.5.1:
     - Linux
     - Bullseye
     - MultiThreads
-  dependencies: [build-release-clang-cpp17-qt6.5.1]
-  needs: [build-release-clang-cpp17-qt6.5.1]
+  dependencies: [build-release-clang-cpp17-qt6.5.3]
+  needs: [build-release-clang-cpp17-qt6.5.3]
   artifacts:
     paths:
-       - build-release-clang-cpp17-qt6.5.1/Testing/Temporary/LastTest.log
+       - build-release-clang-cpp17-qt6.5.3/Testing/Temporary/LastTest.log
     reports: 
        junit: report.xml
   
 # Disabled due to issues with tests requiring python to work
-#test-release-clang-cpp17-qt6.5.1-{{ISO_TAG}}-nopython:
+#test-release-clang-cpp17-qt6.5.3-{{ISO_TAG}}-nopython:
 #  stage: Test
 #  image: graphics.rwth-aachen.de:4567/docker/docker/docker-openflipper-container:{{ISO_TAG}}
 #  variables:
 #    COMPILER: "clang"
 #    LANGUAGE: "cpp17"
-#    QTVERSION: "qt6.5.1"
+#    QTVERSION: "qt6.5.3"
 #    BUILDTYPE: "release"
 #    PYTHON: "no"
 #    GIT_SUBMODULE_STRATEGY: recursive
 #  script: "CI/ci-linux-test.sh"
 #  tags:
 #    - Docker
-#  dependencies: [build-release-clang-cpp17-qt6.5.1-{{ISO_TAG}}-nopython]
-#  needs: [build-release-clang-cpp17-qt6.5.1-{{ISO_TAG}}-nopython]
+#  dependencies: [build-release-clang-cpp17-qt6.5.3-{{ISO_TAG}}-nopython]
+#  needs: [build-release-clang-cpp17-qt6.5.3-{{ISO_TAG}}-nopython]
 #  artifacts:
 #    paths:
-#       - build-release-clang-cpp17-qt6.5.1/Testing/Temporary/LastTest.log
+#       - build-release-clang-cpp17-qt6.5.3/Testing/Temporary/LastTest.log
 
 #
 #-----------
@@ -630,7 +630,7 @@ test-release-gcc-cpp17-qt6.7.0:
 #-----------
 
 # include what you use
-#{linux-iwyu-job.yml, BUILDTYPE=release, COMPILER=clang, LANGUAGE=cpp17, QT_VERSION=qt6.5.1}
+#{linux-iwyu-job.yml, BUILDTYPE=release, COMPILER=clang, LANGUAGE=cpp17, QT_VERSION=qt6.5.3}
 
 cppcheck:
   # image: gitlab.vci.rwth-aachen.de:4567/docker/docker/docker-openflipper-container
