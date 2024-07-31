@@ -78,9 +78,9 @@ set QT_REV_LONG=6.4.0
 set QT_REV=6.4.0
 set QT_MAJOR=6
 )
-if "%QT_VERSION%" == "Qt6.5.1" (
-set QT_REV_LONG=6.5.1
-set QT_REV=6.5.1
+if "%QT_VERSION%" == "Qt6.5.3" (
+set QT_REV_LONG=6.5.3
+set QT_REV=6.5.3
 set QT_MAJOR=6
 )
 if "%QT_VERSION%" == "Qt6.7.1" (
