@@ -659,17 +659,17 @@ cppcheck:
 # Type:       Build
 # OS:         Windows
 # Arch:       x64
-# QT Version: Qt6.5.1
+# QT Version: Qt6.5.3
 # QT Tag:     Qt651
 # Compiler:   VS2019
 
-VS2019-Qt6.5.1-x64:
+VS2019-Qt6.5.3-x64:
     stage: Build
     script: "CI\\ci-windows-build.bat"
     variables:
       GIT_SUBMODULE_STRATEGY: recursive
       ARCHITECTURE: "x64"
-      QT_VERSION: "Qt6.5.1"
+      QT_VERSION: "Qt6.5.3"
       COMPILER: "VS2019"
     tags:
       - VS2019
@@ -680,13 +680,13 @@ VS2019-Qt6.5.1-x64:
       paths:
         - artifacts
 
-VS2019-Qt6.5.1-x64-NOPYTHON:
+VS2019-Qt6.5.3-x64-NOPYTHON:
     stage: Build
     script: "CI\\ci-windows-build.bat"
     variables:
       GIT_SUBMODULE_STRATEGY: recursive
       ARCHITECTURE: "x64"
-      QT_VERSION: "Qt6.5.1"
+      QT_VERSION: "Qt6.5.3"
       COMPILER: "VS2019"
       PYTHON: "no"
     tags:
@@ -704,17 +704,17 @@ VS2019-Qt6.5.1-x64-NOPYTHON:
 # Type:       Test
 # OS:         Windows
 # Arch:       x64
-# QT Version: Qt6.5.1
+# QT Version: Qt6.5.3
 # QT Tag:     Qt651
 # Compiler:   VS2019
 
-Test:VS2019-Qt6.5.1-x64:
+Test:VS2019-Qt6.5.3-x64:
     stage: Test
     script: "artifacts\\CI\\ci-windows-bootstrap.bat"
     variables:
       GIT_STRATEGY: none
       ARCHITECTURE: "x64"
-      QT_VERSION: "Qt6.5.1"
+      QT_VERSION: "Qt6.5.3"
       COMPILER: "VS2019"
       STAGE2SCRIPT: ci-windows-test.bat
     tags:
@@ -722,19 +722,19 @@ Test:VS2019-Qt6.5.1-x64:
       - Qt651
       - Python39
     dependencies:
-      - VS2019-Qt6.5.1-x64
-    needs: [VS2019-Qt6.5.1-x64]
+      - VS2019-Qt6.5.3-x64
+    needs: [VS2019-Qt6.5.3-x64]
     artifacts:
       paths:
         - rel/Testing/Temporary/LastTest.log
 
-#Test:VS2019-Qt6.5.1-x64-NOPYTHON:
+#Test:VS2019-Qt6.5.3-x64-NOPYTHON:
 #    stage: Test
 #    script: "artifacts\\CI\\ci-windows-bootstrap.bat"
 #    variables:
 #      GIT_STRATEGY: none
 #      ARCHITECTURE: "x64"
-#      QT_VERSION: "Qt6.5.1"
+#      QT_VERSION: "Qt6.5.3"
 #      COMPILER: "VS2019"
 #      STAGE2SCRIPT: ci-windows-test.bat
 #      PYTHON: "no"
@@ -742,8 +742,8 @@ Test:VS2019-Qt6.5.1-x64:
 #      - VS2019
 #      - Qt651
 #    dependencies:
-#      - VS2019-Qt6.5.1-x64-NOPYTHON
-#    needs: [VS2019-Qt6.5.1-x64-NOPYTHON]
+#      - VS2019-Qt6.5.3-x64-NOPYTHON
+#    needs: [VS2019-Qt6.5.3-x64-NOPYTHON]
 #    artifacts:
 #      paths:
 #        - rel/Testing/Temporary/LastTest.log
@@ -755,11 +755,11 @@ Test:VS2019-Qt6.5.1-x64:
 # Type:       Deploy
 # OS:         Windows
 # Arch:       x64
-# QT Version: Qt6.5.1
+# QT Version: Qt6.5.3
 # QT Tag:     Qt651
 # Compiler:   VS2019
 
-Deploy:VS2019-Qt6.5.1-x64:
+Deploy:VS2019-Qt6.5.3-x64:
     stage: Deploy
     only:
       - master
@@ -768,7 +768,7 @@ Deploy:VS2019-Qt6.5.1-x64:
     variables:
       GIT_STRATEGY: none
       ARCHITECTURE: "x64"
-      QT_VERSION: "Qt6.5.1"
+      QT_VERSION: "Qt6.5.3"
       COMPILER: "VS2019"
       STAGE2SCRIPT: ci-windows-deploy.bat
     tags:
@@ -776,13 +776,13 @@ Deploy:VS2019-Qt6.5.1-x64:
       - Qt651
       - Python39
     dependencies:
-      - VS2019-Qt6.5.1-x64
-    needs: [VS2019-Qt6.5.1-x64]
+      - VS2019-Qt6.5.3-x64
+    needs: [VS2019-Qt6.5.3-x64]
     artifacts:
       paths:
         - rel/*.exe
 
-Deploy:VS2019-Qt6.5.1-x64-NOPYTHON:
+Deploy:VS2019-Qt6.5.3-x64-NOPYTHON:
     stage: Deploy
     only:
       - master
@@ -791,7 +791,7 @@ Deploy:VS2019-Qt6.5.1-x64-NOPYTHON:
     variables:
       GIT_STRATEGY: none
       ARCHITECTURE: "x64"
-      QT_VERSION: "Qt6.5.1"
+      QT_VERSION: "Qt6.5.3"
       COMPILER: "VS2019"
       STAGE2SCRIPT: ci-windows-deploy.bat
       PYTHON: "no"
@@ -799,8 +799,8 @@ Deploy:VS2019-Qt6.5.1-x64-NOPYTHON:
       - VS2019
       - Qt651
     dependencies:
-      - VS2019-Qt6.5.1-x64-NOPYTHON
-    needs: [VS2019-Qt6.5.1-x64-NOPYTHON]
+      - VS2019-Qt6.5.3-x64-NOPYTHON
+    needs: [VS2019-Qt6.5.3-x64-NOPYTHON]
     artifacts:
       paths:
         - rel/*.exe
