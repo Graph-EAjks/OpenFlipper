@@ -870,6 +870,7 @@ Test:VS2019-Qt6.7.1-x64:
       QT_VERSION: "Qt6.7.1"
       COMPILER: "VS2019"
       STAGE2SCRIPT: ci-windows-test.bat
+      PYTHONBUFFERED: 1
     tags:
       - VS2019
       - Qt671
