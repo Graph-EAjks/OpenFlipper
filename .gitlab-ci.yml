@@ -660,7 +660,7 @@ cppcheck:
 # OS:         Windows
 # Arch:       x64
 # QT Version: Qt6.5.3
-# QT Tag:     Qt651
+# QT Tag:     Qt653
 # Compiler:   VS2019
 
 VS2019-Qt6.5.3-x64:
@@ -673,8 +673,8 @@ VS2019-Qt6.5.3-x64:
       COMPILER: "VS2019"
     tags:
       - VS2019
-      - Qt651
-      - Python39
+      - Qt653
+      - Python312
     artifacts:
       expire_in: 1 week
       paths:
@@ -691,7 +691,7 @@ VS2019-Qt6.5.3-x64-NOPYTHON:
       PYTHON: "no"
     tags:
       - VS2019
-      - Qt651
+      - Qt653
     artifacts:
       expire_in: 1 week
       paths:
@@ -705,7 +705,7 @@ VS2019-Qt6.5.3-x64-NOPYTHON:
 # OS:         Windows
 # Arch:       x64
 # QT Version: Qt6.5.3
-# QT Tag:     Qt651
+# QT Tag:     Qt653
 # Compiler:   VS2019
 
 Test:VS2019-Qt6.5.3-x64:
@@ -719,8 +719,8 @@ Test:VS2019-Qt6.5.3-x64:
       STAGE2SCRIPT: ci-windows-test.bat
     tags:
       - VS2019
-      - Qt651
-      - Python39
+      - Qt653
+      - Python312
     dependencies:
       - VS2019-Qt6.5.3-x64
     needs: [VS2019-Qt6.5.3-x64]
@@ -740,7 +740,7 @@ Test:VS2019-Qt6.5.3-x64:
 #      PYTHON: "no"
 #    tags:
 #      - VS2019
-#      - Qt651
+#      - Qt653
 #    dependencies:
 #      - VS2019-Qt6.5.3-x64-NOPYTHON
 #    needs: [VS2019-Qt6.5.3-x64-NOPYTHON]
@@ -756,7 +756,7 @@ Test:VS2019-Qt6.5.3-x64:
 # OS:         Windows
 # Arch:       x64
 # QT Version: Qt6.5.3
-# QT Tag:     Qt651
+# QT Tag:     Qt653
 # Compiler:   VS2019
 
 Deploy:VS2019-Qt6.5.3-x64:
@@ -773,8 +773,8 @@ Deploy:VS2019-Qt6.5.3-x64:
       STAGE2SCRIPT: ci-windows-deploy.bat
     tags:
       - VS2019
-      - Qt651
-      - Python39
+      - Qt653
+      - Python312
     dependencies:
       - VS2019-Qt6.5.3-x64
     needs: [VS2019-Qt6.5.3-x64]
@@ -797,7 +797,7 @@ Deploy:VS2019-Qt6.5.3-x64-NOPYTHON:
       PYTHON: "no"
     tags:
       - VS2019
-      - Qt651
+      - Qt653
     dependencies:
       - VS2019-Qt6.5.3-x64-NOPYTHON
     needs: [VS2019-Qt6.5.3-x64-NOPYTHON]
@@ -827,7 +827,7 @@ VS2019-Qt6.7.1-x64:
     tags:
       - VS2019
       - Qt671
-      - Python39
+      - Python312
     artifacts:
       expire_in: 1 week
       paths:
@@ -873,7 +873,7 @@ Test:VS2019-Qt6.7.1-x64:
     tags:
       - VS2019
       - Qt671
-      - Python39
+      - Python312
     dependencies:
       - VS2019-Qt6.7.1-x64
     needs: [VS2019-Qt6.7.1-x64]
@@ -927,7 +927,7 @@ Deploy:VS2019-Qt6.7.1-x64:
     tags:
       - VS2019
       - Qt671
-      - Python39
+      - Python312
     dependencies:
       - VS2019-Qt6.7.1-x64
     needs: [VS2019-Qt6.7.1-x64]
