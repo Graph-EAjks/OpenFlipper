@@ -16,7 +16,7 @@ ECHO "============================================================="
 ECHO "Building as user :"
 whoami
 
-"C:\Program Files\Python39\python.exe" rel\tests\run_tests.py
+"C:\Program Files\Python312\python.exe" rel\tests\run_tests.py
 
 IF %errorlevel% NEQ 0 exit /b %errorlevel%
 
