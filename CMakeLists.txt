@@ -98,13 +98,12 @@ if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
   if (NOT Python3_FOUND)
       find_package(Python3 COMPONENTS Interpreter Development)
   endif()
-  set (PYBIND11_FINDPYTHON OFF)
   if (NOT TARGET pybind11::module OR NOT TARGET pybind11::embed)
       include(FetchContent)
       FetchContent_Declare(
         pybind11
         GIT_REPOSITORY https://github.com/pybind/pybind11
-        GIT_TAG v2.10.4
+        GIT_TAG v2.13.5
       )
       set(FETCHCONTENT_FULLY_DISCONNECTED OFF)
       FetchContent_MakeAvailable(pybind11)
