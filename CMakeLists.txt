@@ -105,9 +105,11 @@ if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
       )
       set(FETCHCONTENT_FULLY_DISCONNECTED OFF)
       FetchContent_MakeAvailable(pybind11)
+  else()
+      find_package(Python3 COMPONENTS Interpreter Development)
   endif()
 
-  find_package(Python3 COMPONENTS Interpreter Development)
+
 endif()
 
 
