@@ -95,7 +95,7 @@ if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
 endif()
 
 if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
-  find_package(Python3 3.9 COMPONENTS Interpreter Development)
+  find_package(Python3 3.9 COMPONENTS Interpreter Development PATHS "C:/Program Files/Python39/")
 
   if (NOT TARGET pybind11::module OR NOT TARGET pybind11::embed)
       include(FetchContent)
