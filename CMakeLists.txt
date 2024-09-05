@@ -95,7 +95,10 @@ if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
 endif()
 
 if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
-
+  if (NOT Python3_FOUND)
+      find_package(Python3 COMPONENTS Interpreter Development)
+  endif()
+  set (PYBIND11_FINDPYTHON ON)
   if (NOT TARGET pybind11::module OR NOT TARGET pybind11::embed)
       include(FetchContent)
       FetchContent_Declare(
@@ -105,8 +108,6 @@ if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
       )
       set(FETCHCONTENT_FULLY_DISCONNECTED OFF)
       FetchContent_MakeAvailable(pybind11)
-  else()
-      find_package(Python3 COMPONENTS Interpreter Development)
   endif()
 
 
