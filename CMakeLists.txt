@@ -103,7 +103,7 @@ if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
       FetchContent_Declare(
         pybind11
         GIT_REPOSITORY https://github.com/pybind/pybind11
-        GIT_TAG v2.13.5
+        GIT_TAG v2.10.4
       )
       set(FETCHCONTENT_FULLY_DISCONNECTED OFF)
       FetchContent_MakeAvailable(pybind11)
