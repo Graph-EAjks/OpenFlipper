@@ -96,7 +96,7 @@ endif()
 
 if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
   if (NOT Python3_FOUND)
-      find_package(Python3 3.9...3.11 COMPONENTS Interpreter Development)
+      find_package(Python3 3.9...3.11.9 COMPONENTS Interpreter Development)
   endif()
   if (NOT TARGET pybind11::module OR NOT TARGET pybind11::embed)
       include(FetchContent)
