@@ -53,16 +53,16 @@ cd rel
 del *.exe
 
 :: Output command line for easier debugging:
-echo "C:\Program Files\CMake\bin\cmake.exe"  -DGTEST_PREFIX="%LIBPATH_BASE%/%ARCHITECTURE%/%GTESTVERSION%" -G "%GENERATOR%"  -DCMAKE_BUILD_TYPE=Debug -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE %CMAKE_CONFIGURATION% ..
+echo "C:\Program Files\CMake\bin\cmake.exe"  -DGTEST_PREFIX="%LIBPATH_BASE%/%ARCHITECTURE%/%GTESTVERSION%" -G "%GENERATOR%"  -DCMAKE_BUILD_TYPE=Release -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE %CMAKE_CONFIGURATION% ..
 
 ::invoke cmake
-"C:\Program Files\CMake\bin\cmake.exe"  -DGTEST_PREFIX="%LIBPATH_BASE%/%ARCHITECTURE%/%GTESTVERSION%" -G "%GENERATOR%"  -DCMAKE_BUILD_TYPE=Debug -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE %CMAKE_CONFIGURATION% ..
+"C:\Program Files\CMake\bin\cmake.exe"  -DGTEST_PREFIX="%LIBPATH_BASE%/%ARCHITECTURE%/%GTESTVERSION%" -G "%GENERATOR%"  -DCMAKE_BUILD_TYPE=Release -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE %CMAKE_CONFIGURATION% ..
 
 IF %errorlevel% NEQ 0 exit /b %errorlevel%
 
 :: build Open-Flipper
 echo calling: %VS_PATH%
-%VS_PATH% /Build "Debug" OpenFlipper.sln /Project "ALL_BUILD"
+%VS_PATH% /Build "Release" OpenFlipper.sln /Project "ALL_BUILD"
 
 IF %errorlevel% NEQ 0 exit /b %errorlevel%
 
