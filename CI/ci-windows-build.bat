@@ -78,6 +78,7 @@ cd ..
 cd CI 
 robocopy . ..\artifacts /e /NFL /NDL /NJH /NJS /nc /ns /np /xd artifacts
 
+cd ..
 cd OpenFlipper
 robocopy . ..\artifacts /e /NFL /NDL /NJH /NJS /nc /ns /np
 
