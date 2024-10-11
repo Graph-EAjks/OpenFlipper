@@ -71,7 +71,8 @@ cd ..
 
 :: copy only the rel,CI and Openflipper folder to the artifacts folder
 :: use the following options to make robocopy silent /NFL /NDL /NJH /NJS /nc /ns /np
-robocopy . artifacts /e /NFL /NDL /NJH /NJS /nc /ns /np /xd artifacts Arch *Plugin
+:: dont copy the artifacts folder itself and the TestData folder and any of the Plugin folders
+robocopy . artifacts /e /NFL /NDL /NJH /NJS /nc /ns /np /xd artifacts Arch Plugin-Alignmeshes Plugin-Backup Plugin-Color Plugin-Components
 
 ::robocopy uses some error codes different from 0 
 IF %errorlevel% LSS 8 exit /b 0
