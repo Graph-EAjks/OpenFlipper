@@ -66,6 +66,9 @@ echo calling: %VS_PATH%
 
 IF %errorlevel% NEQ 0 exit /b %errorlevel%
 
+:: in order to save some space we remove the build directory
+rmdir /Q /S rel
+
 :: back to the root folder
 cd ..
 
