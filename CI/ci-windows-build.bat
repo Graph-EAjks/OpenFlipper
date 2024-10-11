@@ -75,9 +75,9 @@ cd ..
 ::cd rel
 ::robocopy . ..\artifacts /e /NFL /NDL /NJH /NJS /nc /ns /np /xd artifacts
 
-robocopy CI artifacts /e /NFL /NDL /NJH /NJS /nc /ns /np /xd artifacts
+robocopy CI artifacts\CI  /e /NFL /NDL /NJH /NJS /nc /ns /np /xd artifacts
 
-robocopy OpenFlipper artifacts /e /NFL /NDL /NJH /NJS /nc /ns /np
+robocopy OpenFlipper artifacts\OpenFlipper  /e /NFL /NDL /NJH /NJS /nc /ns /np
 
 ::robocopy uses some error codes different from 0 
 IF %errorlevel% LSS 8 exit /b 0
