@@ -69,9 +69,9 @@ IF %errorlevel% NEQ 0 exit /b %errorlevel%
 :: back to the root folder
 cd ..
 
-:: copy only the rel folder to the artifacts folder
+:: copy only the rel,CI and Openflipper folder to the artifacts folder
 :: use the following options to make robocopy silent /NFL /NDL /NJH /NJS /nc /ns /np
-robocopy . artifacts rel /e /NFL /NDL /NJH /NJS /nc /ns /np /xd artifacts
+robocopy . artifacts [rel CI OpenFlipper] /e /NFL /NDL /NJH /NJS /nc /ns /np /xd artifacts
 
 ::robocopy uses some error codes different from 0 
 IF %errorlevel% LSS 8 exit /b 0
