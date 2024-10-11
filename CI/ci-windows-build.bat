@@ -66,15 +66,12 @@ echo calling: %VS_PATH%
 
 IF %errorlevel% NEQ 0 exit /b %errorlevel%
 
-:: in order to save some space we remove the build directory
-rmdir /Q /S Build
-
 :: back to the root folder
 cd ..
 
-:: copy all files to a new artifacts folder except the .git folder
+:: copy only the rel folder to the artifacts folder
 :: use the following options to make robocopy silent /NFL /NDL /NJH /NJS /nc /ns /np
-robocopy . artifacts /e /NFL /NDL /NJH /NJS /nc /ns /np /xd artifacts
+robocopy . artifacts rel /e /NFL /NDL /NJH /NJS /nc /ns /np /xd artifacts
 
 ::robocopy uses some error codes different from 0 
 IF %errorlevel% LSS 8 exit /b 0
