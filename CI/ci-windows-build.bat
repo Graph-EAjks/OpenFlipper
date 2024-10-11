@@ -72,11 +72,11 @@ cd ..
 :: copy only the rel,CI and Openflipper folder to the artifacts folder
 :: use the following options to make robocopy silent /NFL /NDL /NJH /NJS /nc /ns /np
 :: dont copy the artifacts folder itself and the TestData folder and any of the Plugin folders
-cd rel
-robocopy . ..\artifacts /e /NFL /NDL /NJH /NJS /nc /ns /np /xd artifacts
+::cd rel
+::robocopy . ..\artifacts /e /NFL /NDL /NJH /NJS /nc /ns /np /xd artifacts
 
 cd CI 
-robocopy . ..\artifacts /e /NFL /NDL /NJH /NJS /nc /ns /np 
+robocopy . ..\artifacts /e /NFL /NDL /NJH /NJS /nc /ns /np /xd artifacts
 
 cd OpenFlipper
 robocopy . ..\artifacts /e /NFL /NDL /NJH /NJS /nc /ns /np
