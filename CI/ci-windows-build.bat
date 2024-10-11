@@ -81,5 +81,9 @@ robocopy OpenFlipper artifacts\OpenFlipper  /e /NFL /NDL /NJH /NJS /nc /ns /np
 
 robocopy rel\tests artifacts\rel\tests  /e /NFL /NDL /NJH /NJS /nc /ns /np 
 
+robocopy rel\Unittests artifacts\rel\Unittests  /e /NFL /NDL /NJH /NJS /nc /ns /np
+
+robocopy rel\Build artifacts\rel\Build  /e /NFL /NDL /NJH /NJS /nc /ns /np 
+
 ::robocopy uses some error codes different from 0 
 IF %errorlevel% LSS 8 exit /b 0
