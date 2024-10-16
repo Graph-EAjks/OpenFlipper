@@ -95,7 +95,7 @@ if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
 endif()
 
 if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
-  add_compile_definitions(PYBIND11_NO_ASSERT_GIL_HELD_INCREF_DECREF)
+  # add_compile_definitions(PYBIND11_NO_ASSERT_GIL_HELD_INCREF_DECREF) linux debug tests fail without this. (Check for GIL errors)
   if (NOT Python3_FOUND)
       find_package(Python3 COMPONENTS Interpreter Development)
   endif()
