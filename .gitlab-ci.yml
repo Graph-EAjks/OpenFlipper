@@ -19,7 +19,6 @@
  stages:
    - Build
    - Test
-   - Deploy
 
  variables:
    GET_SOURCES_ATTEMPTS: 3
