@@ -827,7 +827,7 @@ VS2019-Qt6.7.1-x64:
     tags:
       - VS2019
       - Qt671
-      - Python312
+      - Python313
     artifacts:
       expire_in: 1 week
       paths:
@@ -874,7 +874,7 @@ Test:VS2019-Qt6.7.1-x64:
     tags:
       - VS2019
       - Qt671
-      - Python312
+      - Python313
     dependencies:
       - VS2019-Qt6.7.1-x64
     needs: [VS2019-Qt6.7.1-x64]
