@@ -1,29 +1,29 @@
-# #############################################################
-# #                                                           #
-# # This is an auto generated file. Do not make               #
-# # changes to this file. They possible will be overriden.    #
-# #                                                           #
-# # To make persistent changes, changes files in              #
-# # ./CI/gitlab-ci/ ...                                       #
-# # and regenerate this file with the configuration tool      #
-# # python3 ./CI/gitlab-ci/assemble-gitlab-ci.py              #
-# #                                                           #
-# #############################################################
+#############################################################
+#                                                           #
+# This is an auto generated file. Do not make               #
+# changes to this file. They possible will be overriden.    #
+#                                                           #
+# To make persistent changes, changes files in              #
+# ./CI/gitlab-ci/ ...                                       #
+# and regenerate this file with the configuration tool      #
+# python3 ./CI/gitlab-ci/assemble-gitlab-ci.py              #
+#                                                           #
+#############################################################
 
-# ###########################
-# #                         #
-# # OpenFlipper GitLAB CI   #
-# #                         #
-# ###########################
+###########################
+#                         #
+# OpenFlipper GitLAB CI   #
+#                         #
+###########################
 
-# stages:
-#   - Build
-#   - Test
-#   - Deploy
+ stages:
+   - Build
+   - Test
+   - Deploy
 
-# variables:
-#   GET_SOURCES_ATTEMPTS: 3
-#   CTEST_OUTPUT_ON_FAILURE: 1
+ variables:
+   GET_SOURCES_ATTEMPTS: 3
+   CTEST_OUTPUT_ON_FAILURE: 1
 
 # ##############################
 # #
