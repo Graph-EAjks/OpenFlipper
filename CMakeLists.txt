@@ -97,14 +97,14 @@ endif()
 if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
   # add_compile_definitions(PYBIND11_NO_ASSERT_GIL_HELD_INCREF_DECREF) linux debug tests fail without this. (Check for GIL errors)
   if (NOT Python3_FOUND)
-      find_package(Python3 3.12 COMPONENTS Interpreter Development)
+      find_package(Python3 3.13 COMPONENTS Interpreter Development)
   endif()
   if (NOT TARGET pybind11::module OR NOT TARGET pybind11::embed)
       include(FetchContent)
       FetchContent_Declare(
         pybind11
         GIT_REPOSITORY https://github.com/pybind/pybind11
-        GIT_TAG v2.12.0
+        GIT_TAG v2.13.6
       )
       set(FETCHCONTENT_FULLY_DISCONNECTED OFF)
       FetchContent_MakeAvailable(pybind11)
