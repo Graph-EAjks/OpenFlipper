@@ -96,6 +96,7 @@ endif()
 
 if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
   add_compile_definitions(PYBIND11_NO_ASSERT_GIL_HELD_INCREF_DECREF) #(TODO: Check for GIL errors)
+  add_compile_definitions(PYBIND11_NUMPY_1_ONLY) # Only support numpy 1.x
   if (NOT Python3_FOUND)
       find_package(Python3 3.12 COMPONENTS Interpreter Development)
   endif()
