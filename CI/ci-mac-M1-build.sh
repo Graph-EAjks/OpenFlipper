@@ -65,10 +65,15 @@ fi
 
 cd build-release
 
-# Build without ports to avoid qt4 collision
-cmake ../ -DQT_VERSION=6    
 
-make -j2
+# Set the Python path to the directory where the numpy installation is located. (This is required as otherwise numpy is not found)
+export PYTHONPATH=/opt/homebrew/lib/python3.12/site-packages
+
+# Build without ports to avoid qt4 collision
+# Also give the python path, such that the correct one is found by cmake and pybind 
+cmake ../ -DQT_VERSION=6 -DPython3_INCLUDE_DIR="/opt/homebrew/lib/python3.12/include" -DPython3_LIBRARY="/opt/homebrew/lib/python3.12/lib" -DPython3_EXECUTABLE="/opt/homebrew/lib/python3.12/python.exe" 
+
+make -j2 
 
 # Required for the tests to build, if a package was generated
 make fixbundle

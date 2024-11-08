@@ -32,6 +32,9 @@ then
 	rm DartConfiguration.tcl
 fi
 
+# Set the PYTHONPATH to the correct python version
+export PYTHONPATH=/opt/homebrew/lib/python3.12/site-packages
+
 # Build without ports to avoid qt4 collision
 # run this prior testing to fix paths
 cmake ../ -DQT_VERSION=6    
