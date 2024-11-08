@@ -57,10 +57,10 @@ del *.exe
 set PYTHONPATH="C:\Program Files\Python312\Lib\site-packages"
 
 :: Output command line for easier debugging:
-echo "C:\Program Files\CMake\bin\cmake.exe"  -DGTEST_PREFIX="%LIBPATH_BASE%/%ARCHITECTURE%/%GTESTVERSION%" -G "%GENERATOR%" -DPython3_INCLUDE_DIR="C:\Program Files\Python312\include" -DPython3_LIBRARY="C:\Program Files\Python312\libs\python312.lib" -DPython3_EXECUTABLE="C:\Program Files\Python312\python.exe" -DCMAKE_BUILD_TYPE=Debug -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE %CMAKE_CONFIGURATION% ..
+echo "C:\Program Files\CMake\bin\cmake.exe"  -DGTEST_PREFIX="%LIBPATH_BASE%/%ARCHITECTURE%/%GTESTVERSION%" -G "%GENERATOR%" -DCMAKE_BUILD_TYPE=Debug -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE %CMAKE_CONFIGURATION% ..
 
 ::invoke cmake
-"C:\Program Files\CMake\bin\cmake.exe"  -DGTEST_PREFIX="%LIBPATH_BASE%/%ARCHITECTURE%/%GTESTVERSION%" -G "%GENERATOR%" -DPython3_INCLUDE_DIR="C:\Program Files\Python312\include" -DPython3_LIBRARY="C:\Program Files\Python312\libs\python312.lib" -DPython3_EXECUTABLE="C:\Program Files\Python312\python.exe" -DCMAKE_BUILD_TYPE=Debug -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE %CMAKE_CONFIGURATION% ..
+"C:\Program Files\CMake\bin\cmake.exe"  -DGTEST_PREFIX="%LIBPATH_BASE%/%ARCHITECTURE%/%GTESTVERSION%" -G "%GENERATOR%" -DCMAKE_BUILD_TYPE=Debug -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE %CMAKE_CONFIGURATION% ..
 
 IF %errorlevel% NEQ 0 exit /b %errorlevel%
 
