@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin/python3.13
 #PATH=/opt/homebrew/bin:/opt/local/bin:$PATH
 export PATH
 
@@ -71,7 +71,7 @@ export PYTHONPATH=/opt/homebrew/lib/python3.13/site-packages
 
 # Build without ports to avoid qt4 collision
 # Also give the python path, such that the correct one is found by cmake and pybind 
-cmake ../ -DQT_VERSION=6  
+cmake ../ -DQT_VERSION=6 
 
 make -j2 
 
