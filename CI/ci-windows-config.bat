@@ -155,9 +155,9 @@ if "%QT_MAJOR%" == "5" (
 
 )
 
-set PYTHON_EXECUTABLE="C:\PROGRA~1\Python312\python.exe"
-set PYTHON_INCLUDE_DIR="C:\PROGRA~1\Python312\include"
-set PYTHON_LIBRARY="C:\PROGRA~1\Python312\libs\python312.lib"
+set PYTHON_EXECUTABLE=C:\PROGRA~1\Python312\python.exe
+set PYTHON_INCLUDE_DIR=C:\PROGRA~1\Python312\include
+set PYTHON_LIBRARY=C:\PROGRA~1\Python312\libs\python312.lib
 
 echo "Python settings for this Job:"
 if "%PYTHON%" == "no" (

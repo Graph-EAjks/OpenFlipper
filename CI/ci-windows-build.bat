@@ -54,7 +54,7 @@ del *.exe
 
 
 :: set the PYTHONPATH to the directory, where numpy is, such that the tests can be executed (otherwise pybind does not find numpy)
-set PYTHONPATH="C:\Program Files\Python312\Lib\site-packages"
+set PYTHONPATH=C:\Program Files\Python312\Lib\site-packages
 
 :: Output command line for easier debugging:
 echo "C:\Program Files\CMake\bin\cmake.exe"  -DGTEST_PREFIX="%LIBPATH_BASE%/%ARCHITECTURE%/%GTESTVERSION%" -G "%GENERATOR%" -DCMAKE_BUILD_TYPE=Debug -DOPENFLIPPER_BUILD_UNIT_TESTS=TRUE %CMAKE_CONFIGURATION% ..
