@@ -1,6 +1,6 @@
 # leave artifacts subdirectory and copy files to toplevel
 
-PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin/python3.13
 #PATH=/opt/homebrew/bin:/opt/local/bin:$PATH
 export PATH
 
