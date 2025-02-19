@@ -873,6 +873,7 @@ Test:VS2019-Qt6.7.1-x64:
       COMPILER: "VS2019"
       STAGE2SCRIPT: ci-windows-test.bat
       PYTHONPATH: "C:\\Program Files\\Python312\\Lib\\site-packages"
+      PYTHON_DIR: "C:\\Program Files\\Python312" 
     tags:
       - VS2019
       - Qt671
