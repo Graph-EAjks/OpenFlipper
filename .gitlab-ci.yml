@@ -826,6 +826,9 @@ VS2019-Qt6.7.1-x64:
       QT_VERSION: "Qt6.7.1"
       COMPILER: "VS2019"
       PYTHONPATH: "C:\\Program Files\\Python312\\Lib\\site-packages"
+      PYTHON_EXECUTABLE: "C:\\Program Files\\Python312\\python.exe"
+      PYTHON_INCLUDE_DIR: "C:\\Program Files\\Python312\\include"
+      PYTHON_LIBRARY: "C:\\Program Files\\Python312\\libs\\python312.lib"
     tags:
       - VS2019
       - Qt671
@@ -874,6 +877,9 @@ Test:VS2019-Qt6.7.1-x64:
       STAGE2SCRIPT: ci-windows-test.bat
       PYTHONPATH: "C:\\Program Files\\Python312\\Lib\\site-packages"
       PYTHON_DIR: "C:\\Program Files\\Python312" 
+      PYTHON_EXECUTABLE: "C:\\Program Files\\Python312\\python.exe"
+      PYTHON_INCLUDE_DIR: "C:\\Program Files\\Python312\\include"
+      PYTHON_LIBRARY: "C:\\Program Files\\Python312\\libs\\python312.lib"
     tags:
       - VS2019
       - Qt671
@@ -928,7 +934,6 @@ Deploy:VS2019-Qt6.7.1-x64:
       QT_VERSION: "Qt6.7.1"
       COMPILER: "VS2019"
       STAGE2SCRIPT: ci-windows-deploy.bat
-      PYTHONPATH: "C:\\Program Files\\Python312\\Lib\\site-packages"
     tags:
       - VS2019
       - Qt671

@@ -126,13 +126,6 @@ if "%QT_MAJOR%" == "5" (
 
 )
 
-
-:: TODO: Dont use ~ in path. Change to something else that works.
-:: TODO: Do this in yml file also, instead of this file.   
-set PYTHON_EXECUTABLE=C:\PROGRA~1\Python312\python.exe
-set PYTHON_INCLUDE_DIR=C:\PROGRA~1\Python312\include
-set PYTHON_LIBRARY=C:\PROGRA~1\Python312\libs\python312.lib
-
 echo "Python settings for this Job:"
 if "%PYTHON%" == "no" (
   echo "Building without python support"
