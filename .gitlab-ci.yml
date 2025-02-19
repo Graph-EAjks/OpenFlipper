@@ -825,6 +825,7 @@ VS2019-Qt6.7.1-x64:
       ARCHITECTURE: "x64"
       QT_VERSION: "Qt6.7.1"
       COMPILER: "VS2019"
+      PYTHONPATH: "C:\Program Files\Python312\Lib\site-packages"
     tags:
       - VS2019
       - Qt671
@@ -871,7 +872,7 @@ Test:VS2019-Qt6.7.1-x64:
       QT_VERSION: "Qt6.7.1"
       COMPILER: "VS2019"
       STAGE2SCRIPT: ci-windows-test.bat
-      PYTHONBUFFERED: 1
+      PYTHONPATH: "C:\Program Files\Python312\Lib\site-packages"
     tags:
       - VS2019
       - Qt671
@@ -926,6 +927,7 @@ Deploy:VS2019-Qt6.7.1-x64:
       QT_VERSION: "Qt6.7.1"
       COMPILER: "VS2019"
       STAGE2SCRIPT: ci-windows-deploy.bat
+      PYTHONPATH: "C:\Program Files\Python312\Lib\site-packages"
     tags:
       - VS2019
       - Qt671
