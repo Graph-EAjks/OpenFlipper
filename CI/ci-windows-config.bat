@@ -48,36 +48,7 @@ set BUILD_PLATFORM=%COMPILER%
 set GENERATOR=Visual Studio %VS_COMPILERVERSION_SHORT% %VS_EDITION_YEAR%%ARCH_VS%
 set VS_PATH="C:\Program Files (x86)\Microsoft Visual Studio%VS_EDITION_PATH%\Common7\IDE\devenv.com"
 
-if "%QT_VERSION%" == "Qt5.14.1" (
-set QT_REV_LONG=5.14.1
-set QT_REV=5.14.1
-set QT_MAJOR=5
-)
-if "%QT_VERSION%" == "Qt5.14.2" (
-set QT_REV_LONG=5.14.2
-set QT_REV=5.14.2
-set QT_MAJOR=5
-)
-if "%QT_VERSION%" == "Qt5.15.0" (
-set QT_REV_LONG=5.15.0
-set QT_REV=5.15.0
-set QT_MAJOR=5
-)
-if "%QT_VERSION%" == "Qt6.1.2" (
-set QT_REV_LONG=6.1.2
-set QT_REV=6.1.2
-set QT_MAJOR=6
-)
-if "%QT_VERSION%" == "Qt6.3.2" (
-set QT_REV_LONG=6.3.2
-set QT_REV=6.3.2
-set QT_MAJOR=6
-)
-if "%QT_VERSION%" == "Qt6.4.0" (
-set QT_REV_LONG=6.4.0
-set QT_REV=6.4.0
-set QT_MAJOR=6
-)
+
 if "%QT_VERSION%" == "Qt6.5.3" (
 set QT_REV_LONG=6.5.3
 set QT_REV=6.5.3
@@ -155,6 +126,9 @@ if "%QT_MAJOR%" == "5" (
 
 )
 
+
+:: TODO: Dont use ~ in path. Change to something else that works.
+:: TODO: Do this in yml file also, instead of this file.   
 set PYTHON_EXECUTABLE=C:\PROGRA~1\Python312\python.exe
 set PYTHON_INCLUDE_DIR=C:\PROGRA~1\Python312\include
 set PYTHON_LIBRARY=C:\PROGRA~1\Python312\libs\python312.lib

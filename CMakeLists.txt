@@ -109,8 +109,6 @@ if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
       set(FETCHCONTENT_FULLY_DISCONNECTED OFF)
       FetchContent_MakeAvailable(pybind11)
   endif()
-
-
 endif()
 
 
@@ -195,6 +193,7 @@ if (${Qt_VERSION_STRING} STRGREATER ${OF_MAX_QT_VERSION})
   message(WARNING "Detected QT Version ( ${Qt_VERSION_STRING}  ) higher than ${OF_MAX_QT_VERSION}!\n" "OpenFlipper has not been tested with this QT Version.")
 endif()
 
+# There is a Bug in Qt Charts on lower versions. We need at least 6.5.3. Otherwise the charts are displayed incorrectly.
 set (OF_MIN_QT_VERSION "6.5.3")
 
 if (${OF_MIN_QT_VERSION} STRGREATER ${Qt_VERSION_STRING})
