@@ -144,7 +144,7 @@
 	branch = master
 [submodule "Plugin-Test"]
 	path = Plugin-Test
-	url = git@gitlab.vci.rwth-aachen.de:OpenFlipper-Free/Plugin-Test.git
+	url = ../../OpenFlipper-Free/Plugin-Test.git
 	branch = master
 [submodule "Plugin-TextureControl"]
 	path = Plugin-TextureControl
