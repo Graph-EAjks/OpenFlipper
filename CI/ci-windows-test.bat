@@ -24,7 +24,7 @@ whoami
 :: I think i create a variable in the yml file, which is then used here.
 ::"C:\Program Files\Python312\python.exe" rel\tests\run_tests.py
 
-%PYTHON_DIR%\python.exe rel\tests\run_tests.py 
+"%PYTHON_DIR%\python.exe" rel\tests\run_tests.py 
 
 IF %errorlevel% NEQ 0 exit /b %errorlevel%
 
