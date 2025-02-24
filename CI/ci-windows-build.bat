@@ -69,9 +69,21 @@ IF %errorlevel% NEQ 0 exit /b %errorlevel%
 :: back to the root folder
 cd ..
 
-:: copy all files to a new artifacts folder except the .git folder
+:: copy only the rel,CI and Openflipper folder to the artifacts folder
 :: use the following options to make robocopy silent /NFL /NDL /NJH /NJS /nc /ns /np
-robocopy . artifacts /e /NFL /NDL /NJH /NJS /nc /ns /np /xd artifacts
+:: dont copy the artifacts folder itself and the TestData folder and any of the Plugin folders
+::cd rel
+::robocopy . ..\artifacts /e /NFL /NDL /NJH /NJS /nc /ns /np /xd artifacts
+
+robocopy CI artifacts\CI  /e /NFL /NDL /NJH /NJS /nc /ns /np /xd artifacts
+
+robocopy OpenFlipper artifacts\OpenFlipper  /e /NFL /NDL /NJH /NJS /nc /ns /np
+
+robocopy rel\tests artifacts\rel\tests  /e /NFL /NDL /NJH /NJS /nc /ns /np 
+
+robocopy rel\Unittests artifacts\rel\Unittests  /e /NFL /NDL /NJH /NJS /nc /ns /np
+
+robocopy rel\Build artifacts\rel\Build  /e /NFL /NDL /NJH /NJS /nc /ns /np 
 
 ::robocopy uses some error codes different from 0 
 IF %errorlevel% LSS 8 exit /b 0

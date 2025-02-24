@@ -9,13 +9,13 @@
 #{linux-template-job-full.yml,    COMPILER=gcc,   LANGUAGE=cpp17, QT_VERSION=qt6.3.0}
 #{linux-template-job-full.yml,    COMPILER=clang,   LANGUAGE=cpp17, QT_VERSION=qt6.3.0}
 
-{linux-template-job-full.yml,    COMPILER=gcc,   LANGUAGE=cpp17, QT_VERSION=qt6.5.1}
-{linux-template-job-full.yml,    COMPILER=clang,   LANGUAGE=cpp17, QT_VERSION=qt6.5.1}
+{linux-template-job-full.yml,    COMPILER=gcc,   LANGUAGE=cpp17, QT_VERSION=qt6.5.3}
+{linux-template-job-full.yml,    COMPILER=clang,   LANGUAGE=cpp17, QT_VERSION=qt6.5.3}
 
 {linux-template-job-full.yml,    COMPILER=gcc,   LANGUAGE=cpp17, QT_VERSION=qt6.7.0}
 
 # include what you use
-#{linux-iwyu-job.yml, BUILDTYPE=release, COMPILER=clang, LANGUAGE=cpp17, QT_VERSION=qt6.5.1}
+#{linux-iwyu-job.yml, BUILDTYPE=release, COMPILER=clang, LANGUAGE=cpp17, QT_VERSION=qt6.5.3}
 
 cppcheck:
   # image: gitlab.vci.rwth-aachen.de:4567/docker/docker/docker-openflipper-container

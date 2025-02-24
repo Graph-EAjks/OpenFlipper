@@ -34,7 +34,7 @@ fi
 
 # Build without ports to avoid qt4 collision
 # run this prior testing to fix paths
-cmake ../ -DQT_VERSION=6    
+cmake ../ -DQT_VERSION=6 
 
 
 ########################################

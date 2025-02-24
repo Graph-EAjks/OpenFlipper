@@ -95,14 +95,16 @@ if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
 endif()
 
 if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
-  find_package(Python3 COMPONENTS Interpreter Development)
-
+  add_compile_definitions(PYBIND11_NO_ASSERT_GIL_HELD_INCREF_DECREF) #(TODO: Check for GIL errors)
+  if (NOT Python3_FOUND)
+      find_package(Python3 3.11 COMPONENTS Interpreter Development)
+  endif()
   if (NOT TARGET pybind11::module OR NOT TARGET pybind11::embed)
       include(FetchContent)
       FetchContent_Declare(
         pybind11
         GIT_REPOSITORY https://github.com/pybind/pybind11
-        GIT_TAG v2.10.4
+        GIT_TAG v2.13.6
       )
       set(FETCHCONTENT_FULLY_DISCONNECTED OFF)
       FetchContent_MakeAvailable(pybind11)
@@ -143,6 +145,7 @@ set(QT5_REQUIRED_PACKAGES
 
 set(QT6_REQUIRED_PACKAGES
   OpenGLWidgets
+  Charts
 #  Core5Compat
   )
 
@@ -188,6 +191,13 @@ set (OF_MAX_QT_VERSION "6.7.1")
 
 if (${Qt_VERSION_STRING} STRGREATER ${OF_MAX_QT_VERSION})
   message(WARNING "Detected QT Version ( ${Qt_VERSION_STRING}  ) higher than ${OF_MAX_QT_VERSION}!\n" "OpenFlipper has not been tested with this QT Version.")
+endif()
+
+# There is a Bug in Qt Charts on lower versions. We need at least 6.5.3. Otherwise the charts are displayed incorrectly.
+set (OF_MIN_QT_VERSION "6.5.3")
+
+if (${OF_MIN_QT_VERSION} STRGREATER ${Qt_VERSION_STRING})
+  message(FATAL_ERROR "Detected QT Version ( ${Qt_VERSION_STRING}  ) lower than ${OF_MIN_QT_VERSION}!\n" "OpenFlipper requires at least QT Version ${OF_MIN_QT_VERSION}.")
 endif()
 
 # ========================================================================

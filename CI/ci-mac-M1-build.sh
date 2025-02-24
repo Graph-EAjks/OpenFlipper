@@ -66,9 +66,9 @@ fi
 cd build-release
 
 # Build without ports to avoid qt4 collision
-cmake ../ -DQT_VERSION=6    
+cmake ../ -DQT_VERSION=6 
 
-make -j2
+make -j2 
 
 # Required for the tests to build, if a package was generated
 make fixbundle
