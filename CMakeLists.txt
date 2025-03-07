@@ -26,9 +26,9 @@ set_property(CACHE OPENFLIPPER_CXX_STANDARD PROPERTY STRINGS 17 20 23)
 
 # ACG Environment default settings
 # This is ugly but currently we need to work around the default installed on debian
-if ( EXISTS /ACG/acgdev/gcc-x86_64/qt/6.7.1/gcc_64 )
+if ( EXISTS /ACG/acgdev/gcc-x86_64/qt/6.8.2/gcc_64 )
   # Default to this install path for QT%_INSTALL_DIR
-  set (QT_INSTALL_PATH /ACG/acgdev/gcc-x86_64/qt/6.7.1/gcc_64/ CACHE PATH "Qt6 install path set for ACG environment using QT 6.7.1" )
+  set (QT_INSTALL_PATH /ACG/acgdev/gcc-x86_64/qt/6.8.2/gcc_64/ CACHE PATH "Qt6 install path set for ACG environment using QT 6.8.2" )
 endif()
 
 if ( WIN32 )
@@ -52,7 +52,7 @@ endif()
 
 
 project (OpenFlipper
-         VERSION 5.1.0
+         VERSION 5.2.0
          LANGUAGES C CXX )
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
@@ -170,24 +170,7 @@ endif()
 
 # display warnings if a problematic qt version is used
 
-if ( APPLE )
-  if ( "${Qt_VERSION_STRING}" STREQUAL "5.8.0" OR "${Qt_VERSION_STRING}" STREQUAL "5.7.1" )
-    message(WARNING "You are using a Qt Version that might cause problems on OSX regarding GLErrors. We recommend you to use another version. If you fix any GLErrors on these versions feel free to contribute to OpenFlipper.")
-  endif()
-endif()
-
-if ( WIN32 )
-  OPTION(USE_UNSUPPORTED_QT "Build OpenFlipper with an unsupported version of Qt e.g. if you fixed the moc issue on 5.8.0 yourself" OFF)
-  if ( ${Qt_VERSION_STRING} STREQUAL "5.8.0" )
-    if(USE_UNSUPPORTED_QT)
-      message(WARNING "You appear to be using Qt 5.8.0 on a Windows System.\n On Windows, this version of Qt causes a problem regarding moc generation.\n You are using this Qt Version on Windows at your own risk and without support." )
-    else()
-      message(FATAL_ERROR "You appear to be using Qt 5.8.0 on a Windows System.\n On Windows, this version of Qt causes a problem regarding moc generation.\n Please use another version of Qt, or set the USE_UNSUPPORTED_QT flag")
-    endif()
-  endif()
-endif()
-
-set (OF_MAX_QT_VERSION "6.7.1")
+set (OF_MAX_QT_VERSION "6.8.2")
 
 if (${Qt_VERSION_STRING} STRGREATER ${OF_MAX_QT_VERSION})
   message(WARNING "Detected QT Version ( ${Qt_VERSION_STRING}  ) higher than ${OF_MAX_QT_VERSION}!\n" "OpenFlipper has not been tested with this QT Version.")
