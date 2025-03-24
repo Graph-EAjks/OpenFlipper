@@ -9,7 +9,7 @@ cd build-release
 #clean old cmake cache as the path might have changed (there should be no cmakecache)
 find . -name "CMakeCache.txt" -type f -delete
 
-cmake -DCMAKE_BUILD_TYPE=Release -DOPENFLIPPER_BUILD_UNIT_TESTS=FALSE ../
+cmake -DCMAKE_BUILD_TYPE=Release -DOPENFLIPPER_BUILD_UNIT_TESTS=FALSE -DQT_INSTALL_PATH=$HOME/sw/Qt/6.7.0/gcc_64 ../ 
 
 make doc >> Doxygen-warning.log 2> Doxygen-error.log
 
