@@ -1,6 +1,6 @@
 # leave artifacts subdirectory and copy files to toplevel
 
-PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin/python3.13
+PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 #PATH=/opt/homebrew/bin:/opt/local/bin:$PATH
 export PATH
 
@@ -31,9 +31,6 @@ if [ -f DartConfiguration.tcl ]
 then
 	rm DartConfiguration.tcl
 fi
-
-# Set the PYTHONPATH to the correct python version
-export PYTHONPATH=/opt/homebrew/lib/python3.13/site-packages
 
 # Build without ports to avoid qt4 collision
 # run this prior testing to fix paths

@@ -48,20 +48,8 @@ else
   BUILDPATH="$BUILDPATH-unknown"
 fi  
 
-if [ "$QTVERSION" == "qt5.15.1" ]; then
-  echo "Using QT5.15.1";
-  BUILDPATH="$BUILDPATH-qt5.15.1"
-  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=$HOME/sw/qwt-6.1.5-qt5.15.1/include -DQWT6_LIBRARY_DIR=$HOME/sw/qwt-6.1.5-qt5.15.1/lib -DQWT6_LIBRARY=$HOME/sw/qwt-6.1.5-qt5.15.1/lib/libqwt.so -DQT_INSTALL_PATH=$HOME/sw/Qt/5.15.1/gcc_64 -DQT_VERSION=5"
-  QT_INSTALL_PATH="$HOME/sw/Qt/5.15.1/gcc_64"
-elif [ "$QTVERSION" == "qt6.2.1" ]; then
-  BUILDPATH="$BUILDPATH-qt6.2.1"
-  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=$HOME/sw/qwt-6.2.0-qt6.2.1/include -DQWT6_LIBRARY_DIR=$HOME/sw/qwt-6.2.0-qt6.2.1/lib -DQWT6_LIBRARY=$HOME/sw/qwt-6.2.0-qt6.2.1/lib/libqwt.so -DQT_INSTALL_PATH=$HOME/sw/Qt/6.2.1/gcc_64"
-  QT_INSTALL_PATH="$HOME/sw/Qt/6.2.1/gcc_64"
-elif [ "$QTVERSION" == "qt6.3.0" ]; then
-  BUILDPATH="$BUILDPATH-qt6.3.0"
-  OPTIONS="$OPTIONS -DQWT6_INCLUDE_DIR=$HOME/sw/qwt-6.2.0-qt6.3.0/include -DQWT6_LIBRARY_DIR=$HOME/sw/qwt-6.2.0-qt6.3.0/lib -DQWT6_LIBRARY=$HOME/sw/qwt-6.2.0-qt6.3.0/lib/libqwt.so -DQT_INSTALL_PATH=$HOME/sw/Qt/6.3.0/gcc_64"
-  QT_INSTALL_PATH="$HOME/sw/Qt/6.3.0/gcc_64"
-elif [ "$QTVERSION" == "qt6.5.3" ]; then
+#TODO: Do we still need QWT paths here? If so, what is the path for QWT in QT 6.5.3? 
+if [ "$QTVERSION" == "qt6.5.3" ]; then
   BUILDPATH="$BUILDPATH-qt6.5.3"
   OPTIONS="$OPTIONS -DQT_INSTALL_PATH=$HOME/sw/Qt/6.5.3/gcc_64"
   QT_INSTALL_PATH="$HOME/sw/Qt/6.5.3/gcc_64"
