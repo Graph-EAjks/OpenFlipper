@@ -6,10 +6,13 @@
 *.dll
 *.lib
 *.swp
+*.vscode
 
 /build_dbg
 /build_rel
 /build
+/build_release
+
 /cmake-build-debug
 /.idea
 
