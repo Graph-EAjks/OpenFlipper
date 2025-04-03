@@ -825,10 +825,10 @@ VS2019-Qt6.7.1-x64:
       ARCHITECTURE: "x64"
       QT_VERSION: "Qt6.7.1"
       COMPILER: "VS2019"
-      PYTHONPATH: "C:\\Program Files\\Python312\\Lib\\site-packages"
-      PYTHON_EXECUTABLE: "C:\\Program Files\\Python312\\python.exe"
-      PYTHON_INCLUDE_DIR: "C:\\Program Files\\Python312\\include"
-      PYTHON_LIBRARY: "C:\\Program Files\\Python312\\libs\\python312.lib"
+      PYTHONPATH: "\"C:\\Program Files\\Python312\\Lib\\site-packages\""
+      PYTHON_EXECUTABLE: "\"C:\\Program Files\\Python312\\python.exe\""
+      PYTHON_INCLUDE_DIR: "\"C:\\Program Files\\Python312\\include\""
+      PYTHON_LIBRARY: "\"C:\\Program Files\\Python312\\libs\\python312.lib\""
     tags:
       - VS2019
       - Qt671
@@ -890,6 +890,8 @@ Test:VS2019-Qt6.7.1-x64:
     artifacts:
       paths:
         - rel/Testing/Temporary/LastTest.log
+      reports: 
+        junit: report.xml
 
 #Test:VS2019-Qt6.7.1-x64-NOPYTHON:
 #    stage: Test
@@ -1014,7 +1016,8 @@ Test:Mac-M1:
     artifacts:
       paths:
         - build-release/Testing/Temporary/LastTest.log
-
+      reports: 
+        junit: report.xml
 #
 #-----------
 
