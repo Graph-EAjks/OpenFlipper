@@ -108,6 +108,12 @@ if (NOT DISABLE_OPENFLIPPER_PYTHON_SYSTEM)
       )
       set(FETCHCONTENT_FULLY_DISCONNECTED OFF)
       FetchContent_MakeAvailable(pybind11)
+      # HACK: undo "SYSTEM" argument, cf https://gitlab.vci.rwth-aachen.de:9000/OpenFlipper-Free/OpenFlipper-Free/-/issues/186
+      get_property(_system_incdirs TARGET pybind11_headers PROPERTY INTERFACE_SYSTEM_INCLUDE_DIRECTORIES)
+      get_property(_normal_incdirs TARGET pybind11_headers PROPERTY INTERFACE_INCLUDE_DIRECTORIES)
+      list(APPEND _normal_incdirs ${_system_incdirs})
+      set_property(TARGET pybind11_headers PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${_normal_incdirs})
+      set_property(TARGET pybind11_headers PROPERTY INTERFACE_SYSTEM_INCLUDE_DIRECTORIES "")
   endif()
 endif()
 
