@@ -216,7 +216,7 @@ if (  ${branding_dir_count} GREATER 0 )
     message(WARNING "Using only first branding directory: ${BRANDING_DIRECTORY}")    
   endif()
   
-elseif()
+else()
   set( BRANDING_DIRECTORY "branding" CACHE PATH "Path to the branding files")
 
 endif()
