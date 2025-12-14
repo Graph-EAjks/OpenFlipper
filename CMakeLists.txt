@@ -8,6 +8,15 @@ if(${CMAKE_VERSION} VERSION_GREATER_EQUAL "3.17")
    cmake_policy(SET CMP0100 NEW)
 endif()
 
+if(POLICY CMP0092) # MSVC warning flags are not in CMAKE_<LANG>_FLAGS by default.
+   cmake_policy(SET CMP0092 NEW) # Do not set /W3 automatically, let us pick.
+endif()
+
+if(POLICY CMP0177) #  install() DESTINATION paths are normalized.
+   cmake_policy(SET CMP0177 NEW) # TODO: test the effect of this!
+endif()
+
+
 file(SHA512 ${CMAKE_SOURCE_DIR}/CMakeLists.txt HASH_TOPLEVEL_CMAKEFILE)
 file(SHA512 ${CMAKE_SOURCE_DIR}/OpenFlipper/cmake/CMakeLists.txt HASH_LATEST_CMAKEFILE)
 
