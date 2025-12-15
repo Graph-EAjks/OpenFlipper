@@ -250,10 +250,7 @@ include (VCIOutput)
 vci_openmp ()
 
 # check for OpenGL, GLEW as our required dependencies
-find_package (OpenGL)
-if (NOT OPENGL_FOUND)
-  message (FATAL_ERROR "OpengGL not found!")
-endif ()
+find_package (OpenGL REQUIRED)
 
 # using the internal openmesh delivered by the svn repo (default) or use some external installation
 set (USE_INTERNAL_OPENMESH ON CACHE BOOL "Use and build internal version of OpenMesh found in libs_required")
