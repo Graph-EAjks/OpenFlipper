@@ -172,14 +172,14 @@ endif()
 
 set (OF_MAX_QT_VERSION "6.8.2")
 
-if (${Qt_VERSION_STRING} STRGREATER ${OF_MAX_QT_VERSION})
+if (${Qt_VERSION_STRING} VERSION_GREATER ${OF_MAX_QT_VERSION})
   message(WARNING "Detected QT Version ( ${Qt_VERSION_STRING}  ) higher than ${OF_MAX_QT_VERSION}!\n" "OpenFlipper has not been tested with this QT Version.")
 endif()
 
 # There is a Bug in Qt Charts on lower versions. We need at least 6.5.3. Otherwise the charts are displayed incorrectly.
 set (OF_MIN_QT_VERSION "6.5.3")
 
-if (${OF_MIN_QT_VERSION} STRGREATER ${Qt_VERSION_STRING})
+if (${OF_MIN_QT_VERSION} VERSION_GREATER ${Qt_VERSION_STRING})
   message(FATAL_ERROR "Detected QT Version ( ${Qt_VERSION_STRING}  ) lower than ${OF_MIN_QT_VERSION}!\n" "OpenFlipper requires at least QT Version ${OF_MIN_QT_VERSION}.")
 endif()
 
