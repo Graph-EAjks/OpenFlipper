@@ -256,10 +256,7 @@ include (VCIOutput)
 vci_openmp ()
 
 # check for OpenGL, GLEW as our required dependencies
-find_package (OpenGL)
-if (NOT OPENGL_FOUND)
-  message (FATAL_ERROR "OpengGL not found!")
-endif ()
+find_package (OpenGL REQUIRED)
 
 # using the internal openmesh delivered by the svn repo (default) or use some external installation
 set (USE_INTERNAL_OPENMESH ON CACHE BOOL "Use and build internal version of OpenMesh found in libs_required")
@@ -311,13 +308,23 @@ if (NOT DEFINED OPENFLIPPER_DISABLE_INTERNAL_GLEW)
   set(OPENFLIPPER_DISABLE_INTERNAL_GLEW "FALSE" CACHE BOOL "Choose if OpenFlipper should build and use the internal glew library" FORCE)
 endif()
 
-if (NOT OPENFLIPPER_DISABLE_INTERNAL_GLEW)
-   add_subdirectory (OpenFlipper/libs_required/glew-cmake)
-   set(GLEW_TARGET libglew_shared)
+option(OPENFLIPPER_FORCE_INTERNAL_GLEW "Always use internal GLEW" FALSE)
+
+if (NOT OPENFLIPPER_FORCE_INTERNAL_GLEW)
+    find_package(GLEW QUIET)
+endif()
+
+if (TARGET GLEW::GLEW)
+   message(STATUS "OpenFlipper: using external GLEW found via find_package()")
+   set(GLEW_TARGET GLEW::GLEW)
+elseif (OPENFLIPPER_DISABLE_INTERNAL_GLEW)
+    message(WARNING "OpenFlipper: OPENFLIPPER_DISABLE_INTERNAL_GLEW is set, but no GLEW found via find_package():")
+    # call find_package again to show the error message to the user
+    find_package(GLEW REQUIRED)
 else()
-   message("Using external GLEW")
-   find_package(GLEW)
-   set(GLEW_TARGET GLEW::glew)
+    message(STATUS "OpenFlipper: using internal GLEW")
+    add_subdirectory (OpenFlipper/libs_required/glew-cmake)
+    set(GLEW_TARGET libglew_shared)
 endif()
 
 add_subdirectory (OpenFlipper/libs_required/OpenMesh)
