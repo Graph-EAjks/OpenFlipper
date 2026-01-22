@@ -19,3 +19,9 @@
 
 # QtCreator specific annoying files
 CMakeLists.txt.user*
+
+# MSVC specific files:
+/.vs
+/out 
+.cache
+/build-*
