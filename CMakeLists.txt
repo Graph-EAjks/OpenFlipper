@@ -365,7 +365,9 @@ file (
            "${CMAKE_SOURCE_DIR}/Type-*/libs/*/CMakeLists.txt"
            "${CMAKE_SOURCE_DIR}/Package-*/libs/*/CMakeLists.txt"
 )
-
+if(WIN32)
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/Build/${VCI_PROJECT_BINDIR}/")
+endif()
 set( REMAINING_LOCAL_LIBS "" )
 
 # move the following libraries to the front of the list
@@ -429,6 +431,10 @@ foreach (_localLib ${REMAINING_LOCAL_LIBS})
     add_subdirectory (${CMAKE_SOURCE_DIR}/${_local_lib_dir})
   endif()
 endforeach ()
+
+if(WIN32)
+    unset(CMAKE_RUNTIME_OUTPUT_DIRECTORY)
+endif()
 
 # Group the external libraries in a folder libs_required
 GROUP_PROJECT(OpenMeshTools libs_required)
