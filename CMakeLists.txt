@@ -17,12 +17,27 @@ if(POLICY CMP0092) # MSVC warning flags are not in CMAKE_<LANG>_FLAGS by default
   cmake_policy(SET CMP0092 NEW)
 endif()
 
+if(POLICY CMP0141) # MSVC debug information format flags are selected by an abstraction.
+  cmake_policy(SET CMP0141 NEW)
+  #set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "Embedded") # this allows using ccache on windows
+endif()
+
+if(POLICY CMP0168) # 3.30: The FetchContent module implements steps directly instead of through a sub-build.
+  cmake_policy(SET CMP0168 NEW)
+endif()
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # useful for language servers / IDEs
+set(CMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY ON) # deprecated since CMake 3.16
+set(CMAKE_FIND_USE_PACKAGE_REGISTRY OFF) # since CMake 3.16
+SET(CMAKE_FIND_USE_INSTALL_PREFIX OFF) # we don't want different behavior when re-building after install
+
 file(SHA512 ${CMAKE_SOURCE_DIR}/CMakeLists.txt HASH_TOPLEVEL_CMAKEFILE)
 file(SHA512 ${CMAKE_SOURCE_DIR}/OpenFlipper/cmake/CMakeLists.txt HASH_LATEST_CMAKEFILE)
-
 if ( NOT ${HASH_TOPLEVEL_CMAKEFILE} STREQUAL ${HASH_LATEST_CMAKEFILE} )
   message(WARNING "WARNING! Possibly Outdated toplevel CMakeLists.txt. Please update the toplevel copy by the file OpenFlipper/cmake/CMakeLists.txt .")
 endif()
+
+
 
 # Convenience checks for problems
 if(EXISTS ${CMAKE_SOURCE_DIR}/libs_required/OpenMesh)
