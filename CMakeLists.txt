@@ -200,7 +200,7 @@ endif()
 
 # display warnings if a problematic qt version is used
 
-set (OF_MAX_QT_VERSION "6.8.2")
+set (OF_MAX_QT_VERSION "6.10.2")
 
 if (${Qt_VERSION_STRING} VERSION_GREATER ${OF_MAX_QT_VERSION})
   message(WARNING "Detected QT Version ( ${Qt_VERSION_STRING}  ) higher than ${OF_MAX_QT_VERSION}!\n" "OpenFlipper has not been tested with this QT Version.")
