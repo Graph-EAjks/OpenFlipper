@@ -105,7 +105,8 @@ include(OpenFlipper_common)
 # search for more macro directories in Package-* folders
 file (
   GLOB _more_macro_directories
-       "${CMAKE_SOURCE_DIR}/Package-*/cmake"
+  CONFIGURE_DEPENDS
+  "${CMAKE_SOURCE_DIR}/Package-*/cmake"
 )
 set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${_more_macro_directories})
 
@@ -228,8 +229,9 @@ include (MSVCMacros)
 file (
   GLOB _local_branding_in
   RELATIVE "${CMAKE_SOURCE_DIR}"
-           "${CMAKE_SOURCE_DIR}/branding"
-           "${CMAKE_SOURCE_DIR}/Package-*/branding"
+  CONFIGURE_DEPENDS
+  "${CMAKE_SOURCE_DIR}/branding"
+  "${CMAKE_SOURCE_DIR}/Package-*/branding"
 )
 
 # Get number of found branding dirs
@@ -360,10 +362,11 @@ add_subdirectory (OpenFlipper/libs_required/ACG)
 file (
   GLOB _local_libs_in
   RELATIVE "${CMAKE_SOURCE_DIR}"
-           "${CMAKE_SOURCE_DIR}/libs_required/*/CMakeLists.txt"
-           "${CMAKE_SOURCE_DIR}/libs/*/CMakeLists.txt"
-           "${CMAKE_SOURCE_DIR}/Type-*/libs/*/CMakeLists.txt"
-           "${CMAKE_SOURCE_DIR}/Package-*/libs/*/CMakeLists.txt"
+  CONFIGURE_DEPENDS
+  "${CMAKE_SOURCE_DIR}/libs_required/*/CMakeLists.txt"
+  "${CMAKE_SOURCE_DIR}/libs/*/CMakeLists.txt"
+  "${CMAKE_SOURCE_DIR}/Type-*/libs/*/CMakeLists.txt"
+  "${CMAKE_SOURCE_DIR}/Package-*/libs/*/CMakeLists.txt"
 )
 if(WIN32)
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/Build/${VCI_PROJECT_BINDIR}/")
@@ -458,8 +461,9 @@ add_subdirectory (OpenFlipper/PluginLib)
 file (
   GLOB _data_types
   RELATIVE "${CMAKE_SOURCE_DIR}"
-           "${CMAKE_SOURCE_DIR}/Type-*/ObjectTypes/*"
-           "${CMAKE_SOURCE_DIR}/Package-*/Type-*/ObjectTypes/*"
+  CONFIGURE_DEPENDS
+  "${CMAKE_SOURCE_DIR}/Type-*/ObjectTypes/*"
+  "${CMAKE_SOURCE_DIR}/Package-*/Type-*/ObjectTypes/*"
 )
 
 # add all found libs to the build
