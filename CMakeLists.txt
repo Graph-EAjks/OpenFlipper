@@ -516,10 +516,13 @@ add_subdirectory (OpenFlipper/Documentation/UserQtHelpTarget)
 # PolyLine extension special case
 # ========================================================================
 
-find_package (MeshIntegration)
+find_package (MeshIntegration QUIET)
 
 if (MESH_INTEGRATION_FOUND)
   add_definitions( -DEXTENDED_POLY_LINE )
+  message(STATUS "Building with MeshIntegration")
+else()
+  message(STATUS "Building without optional dependency MeshIntegration")
 endif()
 
 # ========================================================================
